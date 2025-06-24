@@ -1,0 +1,373 @@
+{
+  "tutorial": {
+    "id": 1877,
+    "version": 10,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "jsx",
+    "title": "Página Acerca de Mí Dinámica",
+    "descriptionContent": "Usa tus conocimientos de React Basics para construir un diseño web para una página de Sobre Mí para un amigo",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1877-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12337,
+        "title": "Proyecto Básico de React",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Import the packages",
+            "id": 111805,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a usar nuestras habilidades de React para construir una página web simple sobre mí para un amigo.\n\nYa tenemos algo de código inicial sobre el que podemos empezar a construir. Comencemos importando los paquetes de React y ReactDOM.\n\n1. En el archivo `index.jsx`, realiza las importaciones necesarias:\n   - Importa la biblioteca React.\n   - Importa `createRoot` de `react-dom/client`.\n   - Importa `App.css`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"index.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "\nconst App = () => {\n  return (\n    <div>\n      <h1>Hello</h1>\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nconst App = () => {\n  return (\n    <div>\n      <h1>Hello</h1>\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n"
+                },
+                {
+                  "name": "Heading.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Hobbies.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Contact.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n background-color: aliceblue;\n max-width: 768px;\n margin: 50px;\n}\n\nh1,\nh2,\nh3 {\n font-family: Arial, sans-serif;\n color: #343;\n}\n\nh1 {\n font-size: 28px;\n}\n\nh2 {\n font-size: 23px;\n}\n\nspan {\n color: purple;\n display: inline-block;\n transform: rotate(2deg);\n text-shadow: 2px 3px white;\n font-weight: 700;\n}\n\nbutton {\n background: #C569C5;\n box-shadow: 2px 3px 0px 2px plum;\n color: white;\n font-weight: bold;\n border: none;\n border-radius: 4px;\n font-size: 18px;\n padding: 8px 16px;\n cursor: pointer;\n font-family: Arial, sans-serif;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Add the heading component",
+            "id": 111804,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "React se trata de componentes, así que vamos a añadir un componente para el encabezado principal de nuestra página.\n\n1. En nuestro archivo `Heading.jsx`, primero asegúrate de importar React. Luego añade una `const` llamada `Heading`. Asígnala a una función flecha de ES6 que devolverá el JSX a continuación.  \n2. Exporta el componente al final del archivo.\n3. En el archivo `index.jsx`, importa el componente `Heading` desde `Heading.jsx` en la parte superior, debajo de `import ReactDOM from \"react-dom\"`.\n4. En el componente `App`, reemplaza `<h1>Hello</h1>` con tu componente `Heading` importado.\n\n### JSX \n```javascript\n <h1>Hello, my name is Sarah</h1>\n```",
+              "preselectedFileIndex": 3,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"index.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nconst App = () => {\n  return (\n    <div>\n      <h1>Hello</h1>\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: aliceblue;\n  max-width: 768px;\n  margin: 50px;\n}\n\nh1,\nh2,\nh3 {\n  font-family: Arial, sans-serif;\n  color: #343;\n}\n\nh1 {\n  font-size: 28px;\n}\n\nh2 {\n  font-size: 23px;\n}\n\nspan {\n  color: purple;\n  display: inline-block;\n  transform: rotate(2deg);\n  text-shadow: 2px 3px white;\n  font-weight: 700;\n}\n\nbutton {\n  background: #C569C5;\n  box-shadow: 2px 3px 0px 2px plum;\n  color: white;\n  font-weight: bold;\n  border: none;\n  border-radius: 4px;\n  font-size: 18px;\n  padding: 8px 16px;\n  cursor: pointer;\n  font-family: Arial, sans-serif;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Heading.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": "import React from \"react\";\r\n\r\nconst Heading = () => {\r\n  return <h1>Hello, my name is Sarah</h1>;\r\n};\r\n\r\nexport default Heading;"
+                },
+                {
+                  "name": "Hobbies.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Contact.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Pass props to Heading",
+            "id": 111807,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Pasemos algunas props al componente `Heading`.\n\n1. Actualiza el componente `Heading` pasando el objeto `props` a la función ES6.\n2. Reemplaza el nombre dentro de la constante `Heading` con un elemento span que contenga la prop correcta para que se muestre el nombre.\n3. En el componente `App` en nuestro archivo `index.jsx`, actualiza el componente `Heading` para que acepte la prop `name` con el valor de `Sarah Smith`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"index.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n"
+                },
+                {
+                  "name": "Heading.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Heading = () => {\r\n  return <h1>Hello, my name is Sarah</h1>;\r\n};\r\n\r\nexport default Heading;",
+                  "solvedContent": "import React from \"react\";\r\n\r\nconst Heading = (props) => {\r\n  return (\r\n    <h1>\r\n      Hello, my name is <span>{props.name}</span>\r\n    </h1>\r\n  );\r\n};\r\n\r\nexport default Heading;"
+                },
+                {
+                  "name": "Hobbies.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Contact.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: aliceblue;\n  max-width: 768px;\n  margin: 50px;\n}\n\nh1,\nh2,\nh3 {\n  font-family: Arial, sans-serif;\n  color: #343;\n}\n\nh1 {\n  font-size: 28px;\n}\n\nh2 {\n  font-size: 23px;\n}\n\nspan {\n  color: purple;\n  display: inline-block;\n  transform: rotate(2deg);\n  text-shadow: 2px 3px white;\n  font-weight: 700;\n}\n\nbutton {\n  background: #C569C5;\n  box-shadow: 2px 3px 0px 2px plum;\n  color: white;\n  font-weight: bold;\n  border: none;\n  border-radius: 4px;\n  font-size: 18px;\n  padding: 8px 16px;\n  cursor: pointer;\n  font-family: Arial, sans-serif;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Complete the Hobbies component",
+            "id": 111808,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a trabajar en otro componente, `Hobbies`. Ya tenemos algo de código base para él que podemos copiar y pegar en nuestro archivo `Hobbies.jsx`, debajo de nuestra importación de `React`. Este componente está incompleto. ¡Vamos a terminarlo!\n\n```\nconst Hobbies = () => {\n  return (\n    <div>\n      <h2>My hobbies:</h2>\n      <ol>\n        <li>My favorite hobby is </li>\n        <li>My second-favorite hobby is </li>\n        <li>I also like </li>\n      </ol>\n    </div>\n  );\n};\n```\n\n1. Pasa el objeto `props` al componente `Hobbies`.\n2. Completa el primer `li` añadiendo la expresión `{props.best}` al final.\n3. Completa el segundo `li` añadiendo la prop `outdoor` (usando una sintaxis similar al paso anterior).\n4. Completa el tercer `li` añadiendo la prop `indoor`.\n5. Exporta el componente `Hobbies` al final del archivo.\n6. En `index.jsx`, importa el componente `Hobbies` en la parte superior, debajo de nuestra importación del componente `Heading`.\n7. En nuestro componente `App` en nuestro archivo `index.jsx`, coloca el elemento `Hobbies` después del componente `Heading` con algunos hobbies.",
+              "preselectedFileIndex": 3,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"index.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\nimport Hobbies from \"./Hobbies.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n      <Hobbies best=\"Kayaking\" outdoor=\"Running\" indoor=\"Chess\" />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n"
+                },
+                {
+                  "name": "Heading.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Heading = (props) => {\r\n  return (\r\n    <h1>\r\n      Hello, my name is <span>{props.name}</span>\r\n    </h1>\r\n  );\r\n};\r\n\r\nexport default Heading;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Hobbies.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\n\r\n\r\n",
+                  "solvedContent": "import React from \"react\";\r\n\r\nconst Hobbies = (props) => {\r\n  return (\r\n    <div>\r\n      <h2>My hobbies:</h2>\r\n      <ol>\r\n        <li>My favorite hobby is {props.best}</li>\r\n        <li>My second-favorite hobby is {props.outdoor}</li>\r\n        <li>I also like {props.indoor}</li>\r\n      </ol>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Hobbies;\r\n\r\n"
+                },
+                {
+                  "name": "Contact.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\r\n  background-color: aliceblue;\r\n  max-width: 768px;\r\n  margin: 50px;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3 {\r\n  font-family: Arial, sans-serif;\r\n  color: #343;\r\n}\r\n\r\nh1 {\r\n  font-size: 28px;\r\n}\r\n\r\nh2 {\r\n  font-size: 23px;\r\n}\r\n\r\nspan {\r\n  color: purple;\r\n  display: inline-block;\r\n  transform: rotate(2deg);\r\n  text-shadow: 2px 3px white;\r\n  font-weight: 700;\r\n}\r\n\r\nbutton {\r\n  background: #C569C5;\r\n  box-shadow: 2px 3px 0px 2px plum;\r\n  color: white;\r\n  font-weight: bold;\r\n  border: none;\r\n  border-radius: 4px;\r\n  font-size: 18px;\r\n  padding: 8px 16px;\r\n  cursor: pointer;\r\n  font-family: Arial, sans-serif;\r\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Add the Contact component",
+            "id": 111809,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a agregar otro componente desde cero, y lo nombraremos `Contact`. Por ahora, solo haremos que sea un simple `div` que tenga la palabra \"Contact\" dentro de él.\n\n1. Agrega una nueva variable `const` y nómbrala: `Contact`.\n2. Asígnale una función ES6. La función no tiene argumentos.\n3. Dentro del cuerpo de la función ES6, agrega la declaración `return` con paréntesis de apertura y cierre después de ella.\n4. Agrega un elemento `div` que contenga el texto `Contact`.\n5. Exporta el componente `Contact` al final del archivo.\n6. En `index.jsx`, importa el componente `Contact` en la parte superior, debajo de la importación de `Hobbies`.\n7. Dentro del componente `App`, agrega el nuevo elemento personalizado y auto-cerrado: `<Contact />`.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"index.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\nimport Hobbies from \"./Hobbies.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n      <Hobbies best=\"Kayaking\" outdoor=\"Running\" indoor=\"Chess\" />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\nimport Hobbies from \"./Hobbies.jsx\";\nimport Contact from \"./Contact.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n      <Hobbies best=\"Kayaking\" outdoor=\"Running\" indoor=\"Chess\" />\n      <Contact />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n"
+                },
+                {
+                  "name": "Heading.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Heading = (props) => {\r\n  return (\r\n    <h1>\r\n      Hello, my name is <span>{props.name}</span>\r\n    </h1>\r\n  );\r\n};\r\n\r\nexport default Heading;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Hobbies.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Hobbies = (props) => {\r\n  return (\r\n    <div>\r\n      <h2>My hobbies:</h2>\r\n      <ol>\r\n        <li>My favorite hobby is {props.best}</li>\r\n        <li>My second-favorite hobby is {props.outdoor}</li>\r\n        <li>I also like {props.indoor}</li>\r\n      </ol>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Hobbies;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Contact.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";",
+                  "solvedContent": "import React from \"react\";\r\n\r\nconst Contact = () => {\r\n  return <div>Contact</div>;\r\n};\r\n\r\nexport default Contact;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\r\n  background-color: aliceblue;\r\n  max-width: 768px;\r\n  margin: 50px;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3 {\r\n  font-family: Arial, sans-serif;\r\n  color: #343;\r\n}\r\n\r\nh1 {\r\n  font-size: 28px;\r\n}\r\n\r\nh2 {\r\n  font-size: 23px;\r\n}\r\n\r\nspan {\r\n  color: purple;\r\n  display: inline-block;\r\n  transform: rotate(2deg);\r\n  text-shadow: 2px 3px white;\r\n  font-weight: 700;\r\n}\r\n\r\nbutton {\r\n  background: #C569C5;\r\n  box-shadow: 2px 3px 0px 2px plum;\r\n  color: white;\r\n  font-weight: bold;\r\n  border: none;\r\n  border-radius: 4px;\r\n  font-size: 18px;\r\n  padding: 8px 16px;\r\n  cursor: pointer;\r\n  font-family: Arial, sans-serif;\r\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Add an h3 to Contact",
+            "id": 111803,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora es el momento de mejorar el componente Contact pasando un prop. Usaremos este prop para mostrar un encabezado `h3`.\n\n1. Reemplaza la palabra \"Contact\" dentro del `div` envolvente del componente `Contact` con el siguiente JSX: `<h3></h3>`.\n2. Pasa el objeto `props` al componente `Contact`.\n3. Dentro del encabezado `h3`, añade la expresión `props.greeting`. No olvides las llaves.\n4. En el archivo `index.jsx` y dentro del componente `App`, añade `greeting=\"Contact me\"` al componente `<Contact />`.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"index.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\nimport Hobbies from \"./Hobbies.jsx\";\nimport Contact from \"./Contact.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n      <Hobbies best=\"Kayaking\" outdoor=\"Running\" indoor=\"Chess\" />\n      <Contact />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\nimport Hobbies from \"./Hobbies.jsx\";\nimport Contact from \"./Contact.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n      <Hobbies best=\"Kayaking\" outdoor=\"Running\" indoor=\"Chess\" />\n      <Contact greeting=\"Contact me\" />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n"
+                },
+                {
+                  "name": "Heading.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Heading = (props) => {\r\n  return (\r\n    <h1>\r\n      Hello, my name is <span>{props.name}</span>\r\n    </h1>\r\n  );\r\n};\r\n\r\nexport default Heading;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Hobbies.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Hobbies = (props) => {\r\n  return (\r\n    <div>\r\n      <h2>My hobbies:</h2>\r\n      <ol>\r\n        <li>My favorite hobby is {props.best}</li>\r\n        <li>My second-favorite hobby is {props.outdoor}</li>\r\n        <li>I also like {props.indoor}</li>\r\n      </ol>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Hobbies;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Contact.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Contact = () => {\r\n  return <div>Contact</div>;\r\n};\r\n\r\nexport default Contact;",
+                  "solvedContent": "import React from \"react\";\r\n\r\nconst Contact = (props) => {\r\n  return (\r\n    <div>\r\n      <h3>{props.greeting}</h3>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Contact;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\r\n  background-color: aliceblue;\r\n  max-width: 768px;\r\n  margin: 50px;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3 {\r\n  font-family: Arial, sans-serif;\r\n  color: #343;\r\n}\r\n\r\nh1 {\r\n  font-size: 28px;\r\n}\r\n\r\nh2 {\r\n  font-size: 23px;\r\n}\r\n\r\nspan {\r\n  color: purple;\r\n  display: inline-block;\r\n  transform: rotate(2deg);\r\n  text-shadow: 2px 3px white;\r\n  font-weight: 700;\r\n}\r\n\r\nbutton {\r\n  background: #C569C5;\r\n  box-shadow: 2px 3px 0px 2px plum;\r\n  color: white;\r\n  font-weight: bold;\r\n  border: none;\r\n  border-radius: 4px;\r\n  font-size: 18px;\r\n  padding: 8px 16px;\r\n  cursor: pointer;\r\n  font-family: Arial, sans-serif;\r\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Add another prop to Contact",
+            "id": 111810,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora agregaremos otra prop al componente Contact.\n\n1. Dentro del componente `Contact`, añade otra prop, nómbrala `callToAction`, y envuélvela dentro de un elemento `button`.\n2. En el archivo `index.jsx` y dentro del componente `App`, en el componente `<Contact />`, añade el atributo `callToAction` y dale el siguiente valor: `Schedule a meeting`.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"index.css\">\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\nimport Hobbies from \"./Hobbies.jsx\";\nimport Contact from \"./Contact.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n      <Hobbies best=\"Kayaking\" outdoor=\"Running\" indoor=\"Chess\" />\n      <Contact greeting=\"Contact me\" />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\nimport Heading from \"./Heading.jsx\";\nimport Hobbies from \"./Hobbies.jsx\";\nimport Contact from \"./Contact.jsx\";\n\nconst App = () => {\n  return (\n    <div>\n      <Heading name=\"Sarah Smith\" />\n      <Hobbies best=\"Kayaking\" outdoor=\"Running\" indoor=\"Chess\" />\n      <Contact greeting=\"Contact me\" callToAction=\"Schedule a meeting\" />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;\n"
+                },
+                {
+                  "name": "Heading.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Heading = (props) => {\r\n  return (\r\n    <h1>\r\n      Hello, my name is <span>{props.name}</span>\r\n    </h1>\r\n  );\r\n};\r\n\r\nexport default Heading;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Hobbies.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Hobbies = (props) => {\r\n  return (\r\n    <div>\r\n      <h2>My hobbies:</h2>\r\n      <ol>\r\n        <li>My favorite hobby is {props.best}</li>\r\n        <li>My second-favorite hobby is {props.outdoor}</li>\r\n        <li>I also like {props.indoor}</li>\r\n      </ol>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Hobbies;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Contact.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\r\n\r\nconst Contact = (props) => {\r\n  return (\r\n    <div>\r\n      <h3>{props.greeting}</h3>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Contact;",
+                  "solvedContent": "import React from \"react\";\r\n\r\nconst Contact = (props) => {\r\n  return (\r\n    <div>\r\n      <h3>{props.greeting}</h3>\r\n      <button>{props.callToAction}</button>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Contact;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\r\n  background-color: aliceblue;\r\n  max-width: 768px;\r\n  margin: 50px;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3 {\r\n  font-family: Arial, sans-serif;\r\n  color: #343;\r\n}\r\n\r\nh1 {\r\n  font-size: 28px;\r\n}\r\n\r\nh2 {\r\n  font-size: 23px;\r\n}\r\n\r\nspan {\r\n  color: purple;\r\n  display: inline-block;\r\n  transform: rotate(2deg);\r\n  text-shadow: 2px 3px white;\r\n  font-weight: 700;\r\n}\r\n\r\nbutton {\r\n  background: #C569C5;\r\n  box-shadow: 2px 3px 0px 2px plum;\r\n  color: white;\r\n  font-weight: bold;\r\n  border: none;\r\n  border-radius: 4px;\r\n  font-size: 18px;\r\n  padding: 8px 16px;\r\n  cursor: pointer;\r\n  font-family: Arial, sans-serif;\r\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "tutorial": {
+    "id": 1617,
+    "version": 5,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Réponses aux requêtes HTTP",
+    "descriptionContent": "Apprends-en plus sur les réponses du serveur à une requête GET, y compris les codes de statut.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 11105,
+        "title": "Réponse HTTP",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 102977,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Jusqu'à présent, nous avons examiné la requête GET qu'un client envoie au serveur pour récupérer des données.</p><p> Passons aux réponses possibles qu'un serveur peut envoyer.</p></body></html>"
+          },
+          {
+            "title": "GET Request",
+            "id": 102978,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>En envoyant cette requête <code>GET</code>, le client souhaite récupérer des informations sur les cours proposés par Mimo, stockées dans la base de données du serveur.</p><p>Nous pouvons communiquer avec nos propres serveurs ou avec d'autres. Cependant, certains serveurs restreignent l'utilisation.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"GET https://mimo.org/courses\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"3\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>GET</code>.</p></body></html>"
+          },
+          {
+            "title": "Receiving request",
+            "id": 102979,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Lorsque le serveur reçoit cette requête, il vérifie si la route <code>/courses</code> existe et s'il peut renvoyer les données demandées.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;https://mimo.org/courses&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\" .then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;API Request successfully sent!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"23\" endIndex=\"31\" /></options></interaction></interactions><output><content><text value=\"API Request successfully sent!\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>/courses</code>.</p></body></html>"
+          },
+          {
+            "title": "Server response",
+            "id": 102980,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>En général, le serveur répond avec un statut et les données demandées. Si le serveur peut fournir les données pour la requête, le statut est <code>200 OK</code>.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"STATUS:\" /><text type=\"break\" /><text value=\"200 OK\" /><text type=\"break\" /><text type=\"break\" /><text value=\"DATA:\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"11\" /><option startIndex=\"12\" endIndex=\"14\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>200</code> suivi de <code>OK</code>.</p></body></html>"
+          },
+          {
+            "title": "Response parts",
+            "id": 102983,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>En fait, l'API renvoie plus de données. Il y a trois parties : la ligne de statut, les en-têtes et le corps.</p><p>Les en-têtes contiennent des informations sur la réponse, et le corps contient les données réelles, comme les informations utilisateur que tu as demandées.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"STATUS:\" /><text type=\"break\" /><text value=\"200 OK\" /><text type=\"break\" /><text type=\"break\" /><text value=\"HEADERS:\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /><text type=\"break\" /><text type=\"break\" /><text value=\"BODY:\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"7\" /><option startIndex=\"16\" endIndex=\"24\" /><option startIndex=\"113\" endIndex=\"118\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>STATUS:</code> suivi de <code>HEADERS:</code> et enfin <code>BODY:</code>.</p></body></html>"
+          },
+          {
+            "title": "Receiving request - Copy",
+            "id": 132284,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Enregistre la réponse pour voir ce que le serveur renvoie.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;https://mimo.org/courses&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\" .then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(response);\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"70\" endIndex=\"78\" /><option correct=\"false\"><content><text value=\"request\" /></content></option></options></interaction></interactions><output><content><text value=\"Response {\" /><text type=\"break\" /><text value=\"  url: &quot;https://mimo.org/courses&quot;,\" /><text type=\"break\" /><text value=\"  status: 200,\" /><text type=\"break\" /><text value=\"  statusText: &quot;OK&quot;,\" /><text type=\"break\" /><text value=\"  headers: Headers,\" /><text type=\"break\" /><text value=\"  body: ReadableStream,\" /><text type=\"break\" /><text value=\"  ...\" /><text type=\"break\" /><text value=\"}\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>response</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Receiving request",
+            "id": 103025,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quelle est l'une des choses qu'un serveur fait lorsqu'il reçoit une requête GET ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Il vérifie si la route existe et si elle peut renvoyer les données demandées</item><item value=\"2\" correct=\"false\">Il renvoie une ressource aléatoire à des fins de test</item></selection><p visible-if=\"wrong\">Il vérifie si la route existe et si elle peut renvoyer les données demandées.</p></body></html>"
+          },
+          {
+            "title": "Question: Response parts",
+            "id": 103027,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quelles sont les parties d'une réponse HTTP comme celle ci-dessous ?</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 200 OK\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /><text type=\"break\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Ligne d'état, en-têtes et corps de la réponse</item><item value=\"2\" correct=\"false\">Méthode de requête et protocole</item></selection><p visible-if=\"wrong\">Ligne d'état, en-têtes et corps de la réponse.</p></body></html>"
+          },
+          {
+            "title": "Example: GET Request",
+            "id": 103029,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Enregistre l'objet de réponse que tu reçois lorsque tu appelles le point de terminaison <code>GET</code><code>/courses</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;https://mimo.org/courses&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\" .then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(response);\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"42\" endIndex=\"50\" /><option startIndex=\"58\" endIndex=\"70\" /><option startIndex=\"70\" endIndex=\"78\" /><option startIndex=\"78\" endIndex=\"80\" /></options></interaction></interactions><output><content><text value=\"Response {\" /><text type=\"break\" /><text value=\"  url: &quot;https://mimo.org/courses&quot;,\" /><text type=\"break\" /><text value=\"  status: 200,\" /><text type=\"break\" /><text value=\"  statusText: &quot;OK&quot;,\" /><text type=\"break\" /><text value=\"  headers: Headers,\" /><text type=\"break\" /><text value=\"  body: ReadableStream,\" /><text type=\"break\" /><text value=\"  ...\" /><text type=\"break\" /><text value=\"}\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>response</code> suivi de <code>console.log(</code> puis <code>response</code>, <code>);</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Response parts",
+            "id": 103032,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ceci est une réponse HTTP à une requête GET réussie. Code la ligne de statut.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 200 OK\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /><text type=\"break\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"11\" /><option startIndex=\"12\" endIndex=\"14\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>200</code> suivi de <code>OK</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 11106,
+        "title": "Code de statut",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Status code",
+            "id": 102986,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Le <strong>code de statut</strong> d'une réponse nous indique si notre requête a réussi ou non. <code>200 OK</code> signifie que notre requête GET a réussi.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"200 OK\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"3\" /><option startIndex=\"4\" endIndex=\"6\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>200</code> suivi de <code>OK</code>.</p></body></html>"
+          },
+          {
+            "title": "400 Bad Request",
+            "id": 102988,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Certains codes de statut nous indiquent qu'il y a eu un problème dans la communication client-serveur, comme <code>400</code>.</p><p><code>400 Bad Request</code> signifie que le serveur n'a pas pu comprendre notre requête en raison d'une syntaxe invalide, comme une faute de frappe dans notre URL.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"400 Bad Request\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"3\" /><option startIndex=\"4\" endIndex=\"15\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>400</code> suivi de <code>Bad Request</code>.</p></body></html>"
+          },
+          {
+            "title": "401 Unauthorized",
+            "id": 102992,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>401 Unauthorized</code>, apparaît lorsque le client demande une ressource qui n'est pas disponible sans se connecter, comme les messages privés d'un utilisateur.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"401 Unauthorized\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"3\" /><option startIndex=\"4\" endIndex=\"16\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>401</code> suivi de <code>Unauthorized</code>.</p></body></html>"
+          },
+          {
+            "title": "404 Not Found",
+            "id": 102994,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>404 Not Found</code> est un autre code d'erreur fréquent, ce qui signifie que le serveur n'a pas pu trouver les données demandées par le client.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"404 Not Found\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"3\" /><option startIndex=\"4\" endIndex=\"13\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>404</code> suivi de <code>Not Found</code>.</p></body></html>"
+          },
+          {
+            "title": "Client errors",
+            "id": 102995,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Les codes d'état d'erreur dans la plage de 400-499 sont appelés <strong>erreurs client</strong>, indiquant que quelque chose s'est mal passé du côté du client.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"400: Bad Request\" /><text type=\"break\" /><text value=\"401: Unauthorized\" /><text type=\"break\" /><text value=\"404: Not Found\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"5\" endIndex=\"16\" /><option startIndex=\"22\" endIndex=\"34\" /><option startIndex=\"40\" endIndex=\"49\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>Bad Request</code> suivi de <code>Unauthorized</code> et enfin <code>Not Found</code>.</p></body></html>"
+          },
+          {
+            "title": "Server errors",
+            "id": 102996,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Les codes dans la plage de 500-599 sont des <strong>erreurs du serveur</strong>, comme <code>500 Internal Server Error</code>.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"500 Internal Server Error\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"3\" /><option startIndex=\"4\" endIndex=\"25\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>500</code> suivi de <code>Internal Server Error</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Status code",
+            "id": 103034,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que nous disent les codes de statut ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Que notre demande ait été réussie ou non, et pourquoi</item><item value=\"2\" correct=\"false\">Si le client a envoyé une demande</item></selection><p visible-if=\"wrong\">Que notre demande ait été réussie ou non, et pourquoi.</p></body></html>"
+          },
+          {
+            "title": "Question: 400 Bad Request",
+            "id": 103035,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quand pourrions-nous obtenir un statut <code>400 Bad Request</code> après avoir envoyé une requête GET ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Lorsque notre requête est syntaxiquement incorrecte, par exemple, à cause d'une faute de frappe</item><item value=\"2\" correct=\"false\">Lorsque le serveur n'a pas la ressource que nous avons demandée</item></selection><p visible-if=\"wrong\">Lorsque notre requête est syntaxiquement incorrecte, par exemple, à cause d'une faute de frappe.</p></body></html>"
+          },
+          {
+            "title": "Question: 401 Unauthorized",
+            "id": 103037,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Lequel de ces scénarios pourrait se terminer par un code de réponse <code>401 Unauthorized</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Demander l'adresse domicile d'un utilisateur <em>avant</em> de se connecter</item><item value=\"2\" correct=\"false\">Demander l'adresse domicile d'un utilisateur <em>après</em> la connexion </item></selection><p visible-if=\"wrong\">Demander l'adresse domicile d'un utilisateur <em>avant</em> de se connecter.</p></body></html>"
+          },
+          {
+            "title": "Question: 404 Not Found",
+            "id": 103038,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quand pourrait-on obtenir un statut <code>404 Not Found</code> après avoir envoyé une requête GET ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Lorsque le serveur n'a pas la ressource que nous demandons</item><item value=\"2\" correct=\"false\">Quand nous ne sommes pas autorisés à accéder à la ressource que nous demandons</item></selection><p visible-if=\"wrong\">Lorsque le serveur n'a pas la ressource que nous demandons.</p></body></html>"
+          },
+          {
+            "title": "Question: Client errors",
+            "id": 103039,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Comment appelle-t-on généralement les codes d'erreur dans la plage de 400 à 499 ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Erreurs côté client</item><item value=\"2\" correct=\"false\">Erreurs de serveur</item></selection><p visible-if=\"wrong\">Erreurs côté client.</p></body></html>"
+          },
+          {
+            "title": "Question: Server errors",
+            "id": 103040,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quel est un exemple de code d'erreur serveur ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>500</code></item><item value=\"2\" correct=\"false\"><code>400</code></item></selection><p visible-if=\"wrong\">Assurez-vous de choisir <code>500</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Status code",
+            "id": 103042,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code un code de statut de succès pour cette réponse à une requête GET.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 200 OK\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /><text type=\"break\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"11\" /><option correct=\"false\"><content><text value=\"400\" /></content></option><option correct=\"false\"><content><text value=\"500\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>200</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: 400 Bad Request",
+            "id": 103043,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Il y avait quelque chose qui n'allait pas avec la syntaxe de notre requête, donc le serveur a renvoyé un <code>400 Bad Request</code>.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 400 Bad Request\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"11\" /><option startIndex=\"12\" endIndex=\"23\" /><option correct=\"false\"><content><text value=\"200\" /></content></option><option correct=\"false\"><content><text value=\"OK\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>400</code> suivi de <code>Bad Request</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: 401 Unauthorized",
+            "id": 103045,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Choisis un code de statut que nous obtiendrions si nous essayions d'accéder à la liste de souhaits d'un utilisateur sans être connecté.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 401 Unauthorized\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"24\" /><option correct=\"false\"><content><text value=\"404 Not Found\" /></content></option><option correct=\"false\"><content><text value=\"400 Bad Request\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>401 Unauthorized</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: 404 Not Found",
+            "id": 103046,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Choisis un code d'état que nous obtiendrions si nous essayions d'accéder à un élément que le serveur n'a pas dans sa base de données.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 404 Not Found\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"21\" /><option correct=\"false\"><content><text value=\"200 OK\" /></content></option><option correct=\"false\"><content><text value=\"401 Unauthorized\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>404 Not Found</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 11107,
+        "title": "Corps de la réponse",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Successful request",
+            "id": 102999,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Regardons le corps de la réponse. Si la requête est réussie, le client recevra <code>200 OK</code> et un corps de réponse contenant les données.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 200 OK\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /><text type=\"break\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content></code></body></html>"
+          },
+          {
+            "title": "JSON",
+            "id": 103000,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Un format commun pour le corps d'une réponse HTTP est JSON, qui signifie <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation.</p><p>Sous le capot, c'est un objet JavaScript.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"1\" /><option startIndex=\"185\" endIndex=\"186\" /><option startIndex=\"2\" endIndex=\"12\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>{</code> suivi de <code>\"courses\":</code> et enfin <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "JSON 2",
+            "id": 103013,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>La syntaxe JSON est similaire à celle d'un objet JavaScript. Ici, tu peux voir le même objet, d'abord en JSON, puis en JavaScript.</p><p>Peux-tu repérer la différence ?</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"JSON:\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\" \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text type=\"break\" /><text value=\"JavaScript:\" /><text type=\"break\" /><text value=\"{\" /><text type=\"break\" /><text value=\" title: \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\" languages: [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"9\" endIndex=\"10\" /><option startIndex=\"15\" endIndex=\"16\" /><option startIndex=\"44\" endIndex=\"45\" /><option startIndex=\"54\" endIndex=\"55\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>\"</code> suivi de <code>\"</code> puis <code>\"</code>, <code>\"</code>.</p></body></html>"
+          },
+          {
+            "title": "JSON properties",
+            "id": 103014,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Si nous recevons <code>200 OK</code>, nous pouvons nous attendre à ce que l'objet de réponse inclue les données que nous avons demandées.</p><p>Dans le cas de l'appel à <code>https://mimo.org/courses</code>, c'est un tableau de cours.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"{\" /><text type=\"break\" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"2\" endIndex=\"11\" /><option startIndex=\"13\" endIndex=\"14\" /><option startIndex=\"183\" endIndex=\"184\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>\"courses\"</code> suivi de <code>[</code> et enfin <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Unsuccessful request",
+            "id": 102998,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>En cas d'erreur, une requête GET reçoit tout de même une réponse avec un code d'erreur, mais <em>pas</em> les données demandées.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"Status: 400 Bad Request\" /><text type=\"break\" /><text value=\"Date: Thu, 19 Sep 2024 14:30:00 GMT\" /><text type=\"break\" /><text value=\"Server: Express\" /><text type=\"break\" /><text value=\"Content-Type: application/json\" /><text type=\"break\" /><text value=\"...\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"11\" /><option startIndex=\"12\" endIndex=\"23\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>400</code> suivi de <code>Bad Request</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Successful request",
+            "id": 103071,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qu'y a-t-il dans le corps de la réponse d'un serveur à une requête GET ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Les données que le client a demandées</item><item value=\"2\" correct=\"false\">En-têtes offrant des informations sur le format de la réponse</item></selection><p visible-if=\"wrong\">Les données que le client a demandées.</p></body></html>"
+          },
+          {
+            "title": "Question: JSON",
+            "id": 103051,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quel est un format commun utilisé pour le corps de réponse HTTP ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">JSON</item><item value=\"2\" correct=\"false\">JavaScript</item></selection><p visible-if=\"wrong\">Assurez-vous de choisir JSON.</p></body></html>"
+          },
+          {
+            "title": "Question: Unsuccessful request",
+            "id": 103049,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Obtenons-nous toujours les données demandées si nous recevons un code d'état d'erreur ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Non, nous ne pouvons pas obtenir les données car la demande a échoué</item><item value=\"2\" correct=\"false\">Oui, nous obtenons les données de toute façon</item></selection><p visible-if=\"wrong\">Non, nous ne pouvons pas obtenir les données car la demande a échoué.</p></body></html>"
+          },
+          {
+            "title": "Example: JSON",
+            "id": 103056,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ajoute des accolades autour de cet objet JSON pour compléter la structure de l'objet.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"&quot;courses&quot;\" class=\"string\" /><text value=\": [\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Front-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;HTML&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;CSS&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;title&quot;\" class=\"string\" /><text value=\": \" /><text value=\"&quot;Back-End Development&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"   \" /><text value=\"&quot;languages&quot;\" class=\"string\" /><text value=\": [\" /><text value=\"&quot;JavaScript&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\" ]\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"1\" /><option startIndex=\"186\" endIndex=\"187\" /><option correct=\"false\"><content><text value=\"[\" /></content></option><option correct=\"false\"><content><text value=\"]\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>{</code> suivi de <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #13",
+            "id": 132286,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quelle est la différence entre JSON et les objets JavaScript ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">JSON a des guillemets <code>\" \"</code> autour des noms de propriété comme <code>\"username\"</code></item><item value=\"2\" correct=\"false\">JSON sépare les propriétés et les valeurs avec un <code>:</code></item></selection><p visible-if=\"wrong\">JSON a des guillemets <code>\" \"</code> autour des noms de propriété comme <code>\"username\"</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

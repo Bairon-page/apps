@@ -1,0 +1,167 @@
+{
+  "tutorial": {
+    "id": 2548,
+    "version": 3,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "swift",
+    "title": "Changer les valeurs dans les tableaux",
+    "descriptionContent": "Changer les valeurs dans les tableaux",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 14292,
+        "title": "Index",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro 1",
+            "id": 127010,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Explorons plus en détail les valeurs qu'un tableau peut stocker et comment nous pouvons les mettre à jour. Comme une application météo pourrait suivre les températures.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;    &lt;title&gt;Weather App&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        body {&#xA;            font-family: Arial, sans-serif;&#xA;            display: flex;&#xA;            justify-content: center;&#xA;            align-items: center;&#xA;            margin: 24px auto;&#xA;            background: url('background-image.jpg') no-repeat center center;&#xA;            background-size: cover;&#xA;            color: #fff;&#xA;        }&#xA;        .weather-container {&#xA;            background-color: #1e90ff;&#xA;            border-radius: 10px;&#xA;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);&#xA;            padding: 20px;&#xA;            width: 300px;&#xA;            text-align: center;&#xA;        }&#xA;        .weather-header {&#xA;            font-size: 24px;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-days {&#xA;            display: flex;&#xA;            justify-content: space-around;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-day {&#xA;            cursor: pointer;&#xA;            padding: 10px;&#xA;            background-color: rgba(255, 255, 255, 0.2);&#xA;        }&#xA;        .weather-day.active {&#xA;            background-color: rgba(255, 255, 255, 0.4);&#xA;        }&#xA;        .weather-forecast {&#xA;            font-size: 16px;&#xA;        }&#xA;        .weather-forecast .time {&#xA;            display: flex;&#xA;            justify-content: space-between;&#xA;            margin-bottom: 10px;&#xA;        }&#xA;        .weather-forecast .time div {&#xA;            flex: 1;&#xA;            text-align: center;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;div class=&quot;weather-container&quot;&gt;&#xA;        &lt;div class=&quot;weather-header&quot;&gt;New York&lt;/div&gt;&#xA;        &lt;div class=&quot;weather-days&quot;&gt;&#xA;            &lt;div class=&quot;weather-day active&quot; data-day=&quot;1&quot;&gt;🌞 Fri, June 1&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;2&quot;&gt;🌧️ Sat, June 2&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;3&quot;&gt;⛅ Sun, June 3&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;weather-forecast&quot;&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;1&quot;&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;9:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;12:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;24°&lt;br&gt;18:00 🌤️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;16°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;2&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;9:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;12:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;27°&lt;br&gt;15:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;25°&lt;br&gt;18:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;21°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;3&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;19°&lt;br&gt;9:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;23°&lt;br&gt;12:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;28°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;18:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;script&gt;&#xA;        document.addEventListener('DOMContentLoaded', function() {&#xA;            const days = document.querySelectorAll('.weather-day');&#xA;            const forecasts = document.querySelectorAll('.weather-forecast .time');&#xA;&#xA;            days.forEach(day =&gt; {&#xA;                day.addEventListener('click', function() {&#xA;                    days.forEach(d =&gt; d.classList.remove('active'));&#xA;                    this.classList.add('active');&#xA;&#xA;                    const day = this.getAttribute('data-day');&#xA;                    forecasts.forEach(forecast =&gt; {&#xA;                        if (forecast.getAttribute('data-day') === day) {&#xA;                            forecast.style.display = 'flex';&#xA;                        } else {&#xA;                            forecast.style.display = 'none';&#xA;                        }&#xA;                    });&#xA;                });&#xA;            });&#xA;        });&#xA;    &lt;/script&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Intro 2",
+            "id": 127011,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Un tableau peut stocker différentes valeurs de température et être mis à jour au fur et à mesure que de nouvelles données arrivent des stations météorologiques tout au long de la journée.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;    &lt;title&gt;Weather App&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        body {&#xA;            font-family: Arial, sans-serif;&#xA;            display: flex;&#xA;            justify-content: center;&#xA;            align-items: center;&#xA;            margin: 24px auto;&#xA;            background: url('background-image.jpg') no-repeat center center;&#xA;            background-size: cover;&#xA;            color: #fff;&#xA;        }&#xA;        .weather-container {&#xA;            background-color: #1e90ff;&#xA;            border-radius: 10px;&#xA;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);&#xA;            padding: 20px;&#xA;            width: 300px;&#xA;            text-align: center;&#xA;        }&#xA;        .weather-header {&#xA;            font-size: 24px;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-days {&#xA;            display: flex;&#xA;            justify-content: space-around;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-day {&#xA;            cursor: pointer;&#xA;            padding: 10px;&#xA;            background-color: rgba(255, 255, 255, 0.2);&#xA;        }&#xA;        .weather-day.active {&#xA;            background-color: rgba(255, 255, 255, 0.4);&#xA;        }&#xA;        .weather-forecast {&#xA;            font-size: 16px;&#xA;        }&#xA;        .weather-forecast .time {&#xA;            display: flex;&#xA;            justify-content: space-between;&#xA;            margin-bottom: 10px;&#xA;        }&#xA;        .weather-forecast .time div {&#xA;            flex: 1;&#xA;            text-align: center;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;div class=&quot;weather-container&quot;&gt;&#xA;        &lt;div class=&quot;weather-header&quot;&gt;New York&lt;/div&gt;&#xA;        &lt;div class=&quot;weather-days&quot;&gt;&#xA;            &lt;div class=&quot;weather-day active&quot; data-day=&quot;1&quot;&gt;🌞 Fri, June 1&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;2&quot;&gt;🌧️ Sat, June 2&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;3&quot;&gt;⛅ Sun, June 3&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;weather-forecast&quot;&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;1&quot;&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;9:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;12:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;24°&lt;br&gt;18:00 🌤️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;16°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;2&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;9:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;12:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;27°&lt;br&gt;15:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;25°&lt;br&gt;18:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;21°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;3&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;19°&lt;br&gt;9:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;23°&lt;br&gt;12:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;28°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;18:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;script&gt;&#xA;        document.addEventListener('DOMContentLoaded', function() {&#xA;            const days = document.querySelectorAll('.weather-day');&#xA;            const forecasts = document.querySelectorAll('.weather-forecast .time');&#xA;&#xA;            days.forEach(day =&gt; {&#xA;                day.addEventListener('click', function() {&#xA;                    days.forEach(d =&gt; d.classList.remove('active'));&#xA;                    this.classList.add('active');&#xA;&#xA;                    const day = this.getAttribute('data-day');&#xA;                    forecasts.forEach(forecast =&gt; {&#xA;                        if (forecast.getAttribute('data-day') === day) {&#xA;                            forecast.style.display = 'flex';&#xA;                        } else {&#xA;                            forecast.style.display = 'none';&#xA;                        }&#xA;                    });&#xA;                });&#xA;            });&#xA;        });&#xA;    &lt;/script&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Any value",
+            "id": 127012,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Imagine un tableau comme une commode. Un tiroir peut stocker n'importe quelle variable ou valeur, qu'il s'agisse d'une chaîne de caractères, d'un booléen ou d'un nombre comme <code>17</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"22\" /><option correct=\"false\"><content><text value=\"&quot;17&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>17</code>.</p></body></html>"
+          },
+          {
+            "title": "Index",
+            "id": 127013,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "a208196d-df68-42c0-8a60-4f1cc6fffa92"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Chaque élément d'un tableau a une position numérotée appelée un index.</p><img src=\"a208196d-df68-42c0-8a60-4f1cc6fffa92\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "Start at zero",
+            "id": 127014,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Les indices commencent à 0 et augmentent avec chaque valeur suivante. Cela signifie que le deuxième élément dans <code>temperatures</code> est à l'index <code>1</code>. Code cet index.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures[\" /><text value=\"1\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"55\" endIndex=\"56\" /></interactions><output><content><text value=\"20\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>1</code>.</p></body></html>"
+          },
+          {
+            "title": "Access element",
+            "id": 127015,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour accéder à un élément comme <code>26</code>, code le nom du tableau <code>temperatures</code> suivi de l'index de l'élément entre crochets <code>[2]</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures[\" /><text value=\"2\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"42\" endIndex=\"54\" /><option startIndex=\"54\" endIndex=\"55\" /><option startIndex=\"55\" endIndex=\"56\" /><option startIndex=\"56\" endIndex=\"57\" /><option correct=\"false\"><content><text value=\"3\" /></content></option></options></interaction></interactions><output><content><text value=\"26\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>temperatures</code> suivi de <code>[</code> puis <code>2</code>, <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Change value",
+            "id": 127016,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour mettre à jour la valeur de température à l'index deux, accède-y via <code>temperatures[2]</code>, puis utilise <code>=</code> pour lui attribuer une nouvelle valeur comme <code>25</code>.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"var\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"temperatures[\" /><text value=\"2\" class=\"number\" /><text value=\"] = \" /><text value=\"25\" class=\"number\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option correct=\"false\"><content><text value=\"3\" /></content></option><option startIndex=\"36\" endIndex=\"51\" /><option startIndex=\"52\" endIndex=\"53\" /><option startIndex=\"54\" endIndex=\"56\" /></options></interaction></interactions><output><content><text value=\"[17, 20, 25, 24]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>temperatures[2]</code> suivi de <code>=</code> et enfin <code>25</code>.</p></body></html>"
+          },
+          {
+            "title": "Valid index",
+            "id": 127017,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Bien qu'il y ait quatre éléments dans le tableau, le dernier index auquel nous pouvons accéder est <code>3</code> car l'indexation commence à 0.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"var\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"25\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"temperatures[\" /><text value=\"3\" class=\"number\" /><text value=\"] = \" /><text value=\"20\" class=\"number\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"49\" endIndex=\"50\" /><option correct=\"false\"><content><text value=\"4\" /></content></option></options></interaction></interactions><output><content><text value=\"[17, 25, 26, 20]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>3</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Any value",
+            "id": 127018,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quels types de valeurs un tableau peut-il stocker ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Tout type de valeur, y compris les chaînes de caractères, les nombres et les booléens</item><item value=\"2\" correct=\"false\">Seulement des chaînes</item></selection><p visible-if=\"wrong\">Tout type de valeur, y compris les chaînes de caractères, les nombres et les booléens.</p></body></html>"
+          },
+          {
+            "title": "Question: Index",
+            "id": 127019,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Comment appelons-nous la position d'un élément dans un tableau ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">L'index de l'élément</item><item value=\"2\" correct=\"false\">Le numéro de l'élément</item></selection><p visible-if=\"wrong\">L'index de l'élément.</p></body></html>"
+          },
+          {
+            "title": "Question: Start at zero",
+            "id": 127020,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quel index l'élément de ce tableau a-t-il ?</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Kim&quot;\" class=\"string\" /><text value=\"]\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>0</code></item><item value=\"2\" correct=\"false\"><code>1</code></item></selection><p visible-if=\"wrong\">Assurez-vous de choisir <code>0</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Access element",
+            "id": 127021,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Comment accédons-nous à un élément dans ce tableau ?</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" cars = [\" /><text value=\"&quot;Fiat&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tesla&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Saab&quot;\" class=\"string\" /><text value=\"]\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>cars[1]</code></item><item value=\"2\" correct=\"false\"><code>cars[\"Tesla\"]</code></item></selection><p visible-if=\"wrong\">Assurez-vous de choisir <code>cars[1]</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Change value",
+            "id": 127022,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Comment met-on à jour une valeur dans un tableau ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Nous accédons à la valeur par son index, puis attribuons une autre valeur</item><item value=\"2\" correct=\"false\">Nous ne pouvons pas mettre à jour les valeurs dans les tableaux</item></selection><p visible-if=\"wrong\">Nous accédons à la valeur par son index, puis attribuons une autre valeur.</p></body></html>"
+          },
+          {
+            "title": "Question: Valid index",
+            "id": 127023,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quels indices pouvons-nous accéder dans un tableau avec deux éléments ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>0</code> et <code>1</code></item><item value=\"2\" correct=\"false\"><code>1</code> et <code>2</code></item></selection><p visible-if=\"wrong\"><code>0</code> et <code>1</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Any value",
+            "id": 127024,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code la valeur <code>false</code> dans ce tableau.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" options = [\" /><text value=\"true\" class=\"literal\" /><text value=\", \" /><text value=\"false\" class=\"literal\" /><text value=\"]\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"21\" endIndex=\"26\" /></interactions></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>false</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Index",
+            "id": 127025,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Assure-toi que <code>\"cat\"</code> est à l'index <code>0</code>, et <code>\"dog\"</code> est à l'index <code>1</code>, en codant <code>\"cat\"</code> puis <code>\"dog\"</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" animals = [\" /><text value=\"&quot;cat&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dog&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(animals)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"15\" endIndex=\"20\" /><option startIndex=\"22\" endIndex=\"27\" /><option correct=\"false\"><content><text value=\"&quot;parrot&quot;\" /></content></option></options></interaction></interactions><output><content><text value=\"[&quot;cat&quot;, &quot;dog&quot;]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>\"cat\"</code> suivi de <code>\"dog\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Start at zero",
+            "id": 127026,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code la valeur <code>9</code> à l'index zéro.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" lockCombination = [\" /><text value=\"9\" class=\"number\" /><text value=\", \" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"7\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(lockCombination)\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"23\" endIndex=\"24\" /></interactions><output><content><text value=\"[9, 4, 7]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>9</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Access element",
+            "id": 127027,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code <code>items[1]</code> pour afficher le deuxième élément, <code>\"tomato\"</code>, dans le tableau.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" items = [\" /><text value=\"&quot;milk&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;tomato&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;apple&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(items[\" /><text value=\"1\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option correct=\"false\"><content><text value=\"items[2]\" /></content></option><option startIndex=\"46\" endIndex=\"54\" /></options></interaction></interactions><output><content><text value=\"tomato\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>items[1]</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Change value",
+            "id": 127028,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Mets à jour le premier élément du tableau de <code>3</code> à <code>2</code>.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"var\" class=\"keyword\" /><text value=\" even = [\" /><text value=\"3\" class=\"number\" /><text value=\", \" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"6\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"even[\" /><text value=\"0\" class=\"number\" /><text value=\"] = \" /><text value=\"2\" class=\"number\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(even)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"21\" endIndex=\"28\" /><option startIndex=\"29\" endIndex=\"30\" /><option startIndex=\"31\" endIndex=\"32\" /></options></interaction></interactions><output><content><text value=\"[2, 4, 6]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>even[0]</code> suivi de <code>=</code> et enfin <code>2</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Valid index",
+            "id": 127029,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Accède au troisième élément du tableau.<br /></p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" topSpeeds = [\" /><text value=\"100\" class=\"number\" /><text value=\", \" /><text value=\"130\" class=\"number\" /><text value=\", \" /><text value=\"240\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(topSpeeds[\" /><text value=\"2\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"48\" endIndex=\"49\" /></interactions><output><content><text value=\"240\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>2</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

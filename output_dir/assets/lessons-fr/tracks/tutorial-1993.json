@@ -1,0 +1,142 @@
+{
+  "tutorial": {
+    "id": 1993,
+    "version": 4,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Array.reduce()",
+    "descriptionContent": "Apprends à réduire les valeurs d'un tableau en une seule valeur",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 12711,
+        "title": "Réduire",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 115251,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Parfois, nous devons convertir une série de valeurs de tableau en une seule valeur. Par exemple, lorsque nous voulons calculer une somme.</p><p>Une façon classique de le faire est à travers une boucle.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"let\" class=\"keyword\" /><text value=\" total = \" /><text value=\"0\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"for\" class=\"keyword\" /><text value=\" (\" /><text value=\"const\" class=\"keyword\" /><text value=\" element \" /><text value=\"of\" class=\"keyword\" /><text value=\" miles) {\" /><text type=\"break\" /><text value=\" total += element;\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"80\" /></options></interaction></interactions><output><content><text value=\"207\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>total</code>.</p></body></html>"
+          },
+          {
+            "title": "Calling .reduce on an Array",
+            "id": 115252,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cependant, JavaScript offre une méthode plus simple et déjà existante. <code>.reduce()</code> peut combiner les valeurs d'un tableau en une valeur à l'aide d'une fonction en ligne.</p><p><code>.reduce()</code> utilise la syntaxe : <code>ArrayName.reduce()</code>. Voyons comment nous pourrions l'appeler sur le tableau <code>miles</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"42\" endIndex=\"47\" /><option startIndex=\"47\" endIndex=\"48\" /><option startIndex=\"48\" endIndex=\"54\" /><option startIndex=\"54\" endIndex=\"55\" /><option startIndex=\"55\" endIndex=\"56\" /><option correct=\"false\"><content><text value=\"list\" /></content></option></options></interaction></interactions><output><content><text value=\"        \" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>miles</code> suivi de <code>.</code> puis <code>reduce</code>, <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Passing Functions",
+            "id": 115253,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour indiquer à la fonction <code>.reduce()</code> comment combiner les valeurs, nous devons d'abord passer une fonction en tant que paramètre.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"63\" /><option startIndex=\"63\" endIndex=\"64\" /><option startIndex=\"64\" endIndex=\"65\" /><option startIndex=\"66\" endIndex=\"67\" /><option startIndex=\"67\" endIndex=\"68\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>function</code> suivi de <code>(</code> puis <code>)</code>, <code>{</code>, <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Parameters",
+            "id": 115255,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Notre fonction a besoin de deux paramètres : le premier pour accéder au résultat de la <strong>réduction</strong> précédente, et le second pour accéder à la valeur actuelle.</p><p>Ajoute deux paramètres : <code>prev</code> et <code>curr</code>, dans cet ordre.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"64\" endIndex=\"69\" /><option startIndex=\"70\" endIndex=\"74\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>prev,</code> suivi de <code>curr</code>.</p></body></html>"
+          },
+          {
+            "title": "Return",
+            "id": 115254,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>reduce()</code> parcourt un tableau et, à chaque valeur, effectue une opération avec les deux paramètres jusqu'à ce qu'il arrive à une seule valeur.</p><p>Par exemple, pour additionner les valeurs, la fonction inline renvoie la somme de la réduction <code>prev</code> et de la valeur <code>curr</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prev + curr;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"79\" endIndex=\"85\" /><option startIndex=\"86\" endIndex=\"97\" /></options></interaction></interactions><output><content><text value=\"207\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>return</code> suivi de <code>prev + curr</code>.</p></body></html>"
+          },
+          {
+            "title": "Arrow functions",
+            "id": 115258,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour simplifier notre syntaxe, nous pouvons incorporer une fonction fléchée JavaScript à la place de la fonction inline.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"(\" /><text value=\"prevVal, currVal\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" prevVal + currVal);\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"73\" /><option startIndex=\"74\" endIndex=\"76\" /><option startIndex=\"77\" endIndex=\"94\" /><option correct=\"false\"><content><text value=\"&lt;=\" /></content></option><option correct=\"false\"><content><text value=\"-\" /></content></option></options></interaction></interactions><output><content><text value=\"207\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>(prevVal, currVal)</code> suivi de <code>=&gt;</code> et enfin <code>prevVal + currVal</code>.</p></body></html>"
+          },
+          {
+            "title": "Parameters II",
+            "id": 115256,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Si nous incluons un troisième paramètre dans la fonction, nous pouvons également accéder à l'index de chaque itération.</p><p>Dans cet exemple, nous utilisons <code>.reduce()</code> pour additionner les <code>prices</code>, mais nous incorporons également <code>index</code> pour appliquer un facteur de réduction à partir d'un deuxième tableau.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"17.50\" class=\"number\" /><text value=\", \" /><text value=\"20.25\" class=\"number\" /><text value=\", \" /><text value=\"24.75\" class=\"number\" /><text value=\", \" /><text value=\"13.50\" class=\"number\" /><text value=\", \" /><text value=\"8.50\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" discountFactor = [\" /><text value=\"0.9\" class=\"number\" /><text value=\", \" /><text value=\"0.9\" class=\"number\" /><text value=\", \" /><text value=\"1.0\" class=\"number\" /><text value=\", \" /><text value=\"1.0\" class=\"number\" /><text value=\", \" /><text value=\"0.9\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = prices.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prevVal, currVal, index\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prevVal + (currVal * discountFactor[index]);\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"156\" endIndex=\"161\" /><option startIndex=\"209\" endIndex=\"214\" /></options></interaction></interactions><output><content><text value=\"81.625\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>index</code> suivi de <code>index</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Intro",
+            "id": 115259,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quelle fonction JavaScript pouvons-nous utiliser pour convertir une série de valeurs de tableau en une seule valeur ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>.reduce()</code></item><item value=\"2\" correct=\"false\"><code>.filter()</code></item></selection><p visible-if=\"wrong\">Assurez-vous de choisir <code>.reduce()</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Passing Functions",
+            "id": 115261,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que devons-nous passer en tant que paramètre pour indiquer à la fonction <code>.reduce()</code> comment combiner les valeurs ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Une fonction</item><item value=\"2\" correct=\"false\">Une variable</item></selection><p visible-if=\"wrong\">Une fonction.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters",
+            "id": 115262,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>À quoi le premier paramètre de la fonction inline donne-t-il accès à <code>reduce()</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Le résultat de la réduction précédente</item><item value=\"2\" correct=\"false\">La valeur du tableau de l'itération actuelle</item></selection><p visible-if=\"wrong\">Le résultat de la réduction précédente.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters",
+            "id": 115275,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>À quoi le deuxième paramètre de la fonction inline donne-t-il accès à <code>reduce()</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">La valeur du tableau de l'itération actuelle</item><item value=\"2\" correct=\"false\">Le résultat de la réduction précédente</item></selection><p visible-if=\"wrong\">La valeur du tableau de l'itération actuelle.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters II",
+            "id": 115263,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que peut-on accéder en ajoutant un troisième paramètre optionnel à la fonction ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">L'index</item><item value=\"2\" correct=\"false\">Le tableau appelant</item></selection><p visible-if=\"wrong\">Assurez-vous de choisir L'index.</p></body></html>"
+          },
+          {
+            "title": "Example: Calling .reduce on an Array",
+            "id": 115268,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Appelle la fonction <code>.reduce()</code> sur le tableau <code>prices</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"17.50\" class=\"number\" /><text value=\", \" /><text value=\"20.25\" class=\"number\" /><text value=\", \" /><text value=\"24.75\" class=\"number\" /><text value=\", \" /><text value=\"13.50\" class=\"number\" /><text value=\", \" /><text value=\"8.50\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = prices.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prevVal, currVal\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prevVal + currVal;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"65\" endIndex=\"71\" /><option startIndex=\"71\" endIndex=\"72\" /><option startIndex=\"72\" endIndex=\"78\" /></options></interaction></interactions><output><content><text value=\"84.5\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>prices</code> suivi de <code>.</code> et enfin <code>reduce</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Passing Functions",
+            "id": 115269,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ajoute une fonction inline dans la fonction <code>.reduce()</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" values = [\" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"3\" class=\"number\" /><text value=\", \" /><text value=\"2\" class=\"number\" /><text value=\", \" /><text value=\"1\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" factorial = values.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"61\" endIndex=\"69\" /><option startIndex=\"69\" endIndex=\"70\" /><option startIndex=\"70\" endIndex=\"71\" /><option startIndex=\"72\" endIndex=\"73\" /><option startIndex=\"73\" endIndex=\"74\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>function</code> suivi de <code>(</code> puis <code>)</code>, <code>{</code>, <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Parameters",
+            "id": 115270,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ajoute les paramètres appropriés pour donner à la fonction inline l'accès à la valeur de réduction précédente et à la valeur actuelle du tableau.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" values = [\" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"3\" class=\"number\" /><text value=\", \" /><text value=\"2\" class=\"number\" /><text value=\", \" /><text value=\"1\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" factorial = values.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prev * curr;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(factorial);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"70\" endIndex=\"74\" /></interactions><output><content><text value=\"24\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>prev</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Return",
+            "id": 115272,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Nous voulons que la fonction <code>.reduce()</code> concatène tous les <code>words</code> en une phrase.</p><p>Code le mot-clé correct dans la fonction inline afin qu'elle renvoie la valeur de réduction précédente concaténée avec le mot actuel.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" words = [\" /><text value=\"&quot;The&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;house&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;is&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;red&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" sentence = words.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prev + \" /><text value=\"&quot; &quot;\" class=\"string\" /><text value=\" + curr;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(sentence);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"99\" endIndex=\"105\" /></interactions><output><content><text value=\"The house is red\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>return</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Arrow functions",
+            "id": 115273,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Complète la fonction fléchée de sorte que <code>total</code> stocke la somme des valeurs du tableau <code>prices</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"17.50\" class=\"number\" /><text value=\", \" /><text value=\"20.25\" class=\"number\" /><text value=\", \" /><text value=\"24.75\" class=\"number\" /><text value=\", \" /><text value=\"13.50\" class=\"number\" /><text value=\", \" /><text value=\"8.50\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = prices.reduce(\" /><text value=\"(\" /><text value=\"prevVal, currVal\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" prevVal + currVal);\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"109\" endIndex=\"118\" /></interactions><output><content><text value=\"84.5\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>+ currVal</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

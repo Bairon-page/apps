@@ -1,0 +1,128 @@
+{
+  "tutorial": {
+    "id": 2646,
+    "version": 6,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Zufallszahlen - Teil 1",
+    "descriptionContent": "Erstelle ein Backend, das helfen kann, wenn du keine Münze oder keinen Würfel zur Hand hast",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2646-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14609,
+        "title": "Kapitel #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 129321,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Willkommen zum **Zufallszahlen**-Projekt. Wir werden eine einfache Serveranwendung erstellen, die Zufallszahlen generiert.\n\nWir beginnen mit der Einrichtung des Express-Servers.\n\n1. Deklariere eine Variable `express` und require das `express`-Modul.\n2. Deklariere eine Variable `app` und initialisiere sie, indem du die `express`-Funktion aufrufst.\n3. Deklariere eine Variable `port` und weise ihr den Wert `3000` zu.\n4. Verwende die `listen`-Funktion auf `app`, um die App auf dem von der Variablen `port` angegebenen Port lauschen zu lassen.\n5. Logge eine Nachricht in die Konsole innerhalb des Callbacks der `listen`-Funktion, damit wir wissen, dass unser Server ordnungsgemäß läuft.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Give your hint a title",
+                  "content": "Give your hint some content"
+                }
+              ],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129323,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir beginnen damit, eine Route zu erstellen, die einen Münzwurf simuliert. Wir verwenden die `get` Methode von `app`, um die GET-Anfrage am Pfad `/coinFlip` zu bearbeiten.\n\n1. Verwende die `app.get` Funktion, um einen neuen Endpunkt bei `/coinFlip` zu erstellen.\n2. Berechne innerhalb der Callback-Funktion (die `req` und `res` als Parameter nimmt) eine Zufallszahl von entweder 0 oder 1 (Kopf oder Zahl).\n3. Antworte mit einem JSON-Objekt, indem du die `json` Methode von `res` verwendest, wobei `result` `\"Heads\"` ist, wenn der Münzwurf 0 ist, und `\"Tails\"` andernfalls.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/coinFlip",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 129324,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nun, lass uns eine weitere Route hinzufügen, um einen sechsseitigen Würfel zu werfen.\n\n1. Ähnlich wie beim Münzwurf, erstelle eine `GET`-Route unter dem Pfad `/diceRoll`.\n2. Aktualisiere die Berechnung der Zufallszahl, um ein Ergebnis zwischen 1 und 6 (einschließlich) zu liefern.\n3. Antworte mit JSON, wobei `result` die zufällig gewürfelte Zahl ist.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});\n\napp.get('/diceRoll', function(req, res) {\n  const result = Math.floor(Math.random() * 6) + 1;\n  res.status(200).json({ result: result });\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/diceRoll",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 129325,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Abschließend lass uns eine Route erstellen, die eine zufällige Zahl zwischen 1 und 100 generiert.\n\n1. Erstelle eine weitere `GET`-Route unter dem Pfad '/randomNumber'.\n2. Ändere die Berechnung der Zufallszahl so, dass ein Ergebnis zwischen 1 und 100 (einschließlich) geliefert wird.\n3. Antworte mit JSON, wobei `result` die zufällig generierte Zahl ist.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});\n\napp.get('/diceRoll', function(req, res) {\n  const result = Math.floor(Math.random() * 6) + 1;\n  res.status(200).json({ result: result });\n});",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});\n\napp.get('/diceRoll', function(req, res) {\n  const result = Math.floor(Math.random() * 6) + 1;\n  res.status(200).json({ result: result });\n});\n\napp.get('/randomNumber', function(req, res) {\n  const result = Math.floor(Math.random() * 100) + 1;\n  res.status(200).json({ result: result });\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/randomNumber",
+                "body": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

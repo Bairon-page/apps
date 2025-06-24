@@ -1,0 +1,604 @@
+{
+  "tutorial": {
+    "id": 2610,
+    "version": 10,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "html",
+    "title": "Bot Comédien - Partie 1",
+    "descriptionContent": "Prêt pour quelques rires ? Préparons la scène pour notre propre Bot Comédien. Dans cette première partie, nous allons programmer notre bot pour qu'il raconte une blague, en veillant à ce que notre comédien virtuel commence avec un numéro d'ouverture fort.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2610-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14461,
+        "title": "Projet Partie 1 : Configuration",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 128905,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenue dans le projet **Comedian Bot**. Nous allons créer un bot simple censé raconter des blagues.\n\nAjoutons la structure de base d'un document HTML :\n1. `<!doctype html>` définit le type de document et la version de HTML.\n2. Ajoute les balises `<html>`, `<head>`, et `<body>`.\n3. Ajoute un `<title>` à l'intérieur du `<head>` et donne à la page un titre original.\n4. Lien également le fichier CSS en utilisant une balise `link` avec `rel=\"stylesheet\"` et `href=\"style.css\"`.\n5. Enfin, assure-toi de lier le fichier JavaScript en utilisant `<script src=\"script.js\"></script>` à l'intérieur du `body`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "",
+                  "solvedContent": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<script src=\"script.js\"></script>\n</body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 128906,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Pour commencer, ajoutons un en-tête à notre chat.\n\n1. Ajoute un `<div>` avec la classe `chat-header` à l'intérieur de la balise `<body>`.\n2. Ajoute une balise `<h2>` à l'intérieur du div et définis son contenu sur `Comedian Bot`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 128907,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sous notre en-tête, nous voulons ajouter une zone pour que le contenu du chat se remplisse.\n\n1. Sous le div `chat-header`, ajoute un nouveau div avec la classe `chat-content`. C'est ici que notre code JavaScript affichera les messages du bot.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 128908,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Passons maintenant à la partie JavaScript de notre projet.\n\n1. Créons un tableau appelé `joke`.\n2. Ajoute deux chaînes de caractères au tableau. `\"What did 0 say to 8?\"` et `\"Nice belt.\"`. Si tu veux utiliser une blague différente, n'hésite pas à le faire. Assure-toi simplement d'ajouter deux chaînes de caractères.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 128909,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous allons sélectionner le div `chat-content`, pour y ajouter les messages de notre bot.\n\n1. Déclare une variable `chatContent` et sélectionne le div `chat-content` en utilisant `document.querySelector(\".chat-content\")`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];",
+                  "solvedContent": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 128910,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite, nous devons créer une fonction pour créer un nouveau div, où le bot affichera son message.\n\n1. Crée une fonction nommée `appendBotMessage`, qui prend `messageText` comme paramètre.\n2. À l'intérieur de cette fonction, crée un nouveau div avec `const messageDiv = document.createElement(\"div\")`.\n3. Définit le nom de la classe `message bot-message` et assigne-le à une variable `messageDiv` en codant `messageDiv.className = \"message bot-message\"`.\n4. Ajoute le `messageDiv` au `chatContent`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\"What did 0 say to 8?\", \"Nice belt.\"];\nconst chatContent = document.querySelector(\".chat-content\");",
+                  "solvedContent": "const joke = [\"What did 0 say to 8?\", \"Nice belt.\"];\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n  const messageDiv = document.createElement(\"div\");\n  messageDiv.className = \"message bot-message\";\n  \n  chatContent.appendChild(messageDiv);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 128911,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous devons créer un nouveau div pour afficher l'avatar du bot à l'intérieur de la fonction. Nous utiliserons des illustrations de Font Awesome. Les classes `fas` et `fa-robot` peuvent sembler étranges, mais allons-y pour l'instant.\n\n1. À l'intérieur de la fonction `appendBotMessage`, crée un nouveau div avec le nom de classe `fas fa-robot message-avatar` et assigne-le à une variable `avatar`.\n2. Ajoute le `div` nouvellement créé (avatar) au `messageDiv` créé précédemment.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n\n    chatContent.appendChild(messageDiv);\n}",
+                  "solvedContent": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n\n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n\n    messageDiv.append(avatar);\n    chatContent.appendChild(messageDiv);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8",
+            "id": 128912,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite, nous voulons créer un nouveau div pour afficher le texte du message du bot.\n\n1. À l'intérieur de la fonction `appendBotMessage`, crée un nouveau `div` avec le nom de classe `message-content` et assigne-le à une variable `contentDiv`.\n2. Définit le `textContent` de `contentDiv` à `messageText`.\n3. Après avoir ajouté l'avatar, ajoute ce div nouvellement créé au `messageDiv`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n\n    messageDiv.append(avatar);\n    chatContent.appendChild(messageDiv);\n}",
+                  "solvedContent": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n\n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #9",
+            "id": 128914,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Jusqu'à présent, nous avons ajouté beaucoup de `divs` vides. Cela aura du sens dans un instant. Appelons notre fonction `appendBotMessage` lorsque notre page est chargée, avec un message de bienvenue du bot.\n\n1. Après la définition de la fonction, appelle la fonction `appendBotMessage`.\n2. Passe une chaîne de caractères en tant que paramètre pour afficher un message de bienvenue tel que `\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\"`",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}",
+                  "solvedContent": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #10",
+            "id": 128923,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous affichons maintenant le message de bienvenue de notre bot, mais nous devons encore montrer l'image de *Font Awesome* — Font Awesome fonctionne en reliant leur feuille de style et en définissant les classes correctes.\n\n1. Dans le fichier HTML, ajoute un autre `link` dans la section `head` avec `<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">` pour charger l'icône `fa-robot`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #11",
+            "id": 128915,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite, nous voulons que le bot nous raconte la blague. Ajoutons un délai avant qu'il ne `parle` à nouveau pour donner l'impression que le bot réfléchit.\n\n1. En bas de notre fichier JavaScript, ajoute un délai en codant `setTimeout(function() { }, 1000);`\n2. À l'intérieur de la fonction que nous passons au délai, appelle `appendBotMessage()` et passe-lui un autre message comme `\"Ok, got one.\"`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");",
+                  "solvedContent": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "How should my code look?",
+                  "content": "```JavaScript\nsetTimeout(function() {\n  appendBotMessage(\"Ok, got one.\");\n}, 1000);\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Lesson #12",
+            "id": 128916,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Maintenant, nous allons laisser le bot raconter la blague que nous avons stockée dans notre tableau `joke` en utilisant deux fonctions `setTimeout` supplémentaires.\n\n1. Crée deux fonctions `setTimeout` supplémentaires. La première des deux temporisations supplémentaires doit attendre `1500` millisecondes et l'autre `2000`.\n2. Dans la première, utilise `appendBotMessage` pour ajouter le premier élément du tableau `joke`.\n3. Dans la seconde, utilise `appendBotMessage` pour ajouter le deuxième élément du tableau `joke`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);    \n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);",
+                  "solvedContent": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);    \n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);\n\nsetTimeout(function() {\n    appendBotMessage(joke[0]);\n}, 1500);\n\nsetTimeout(function() {\n    appendBotMessage(joke[1]);\n}, 2000);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #13",
+            "id": 128917,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous ne pouvons pas considérer notre projet terminé sans le style CSS, n'est-ce pas ? Commençons par cela.\n\n1. Dans le fichier CSS, crée une règle pour `body` et `html`.\n2. Dans cette règle, définis la `font-family` à `sans-serif`.\n3. Défini la `margin` à `0` pour maximiser notre zone de visualisation.\n4. Défini la `height` à `100%`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);\n\nsetTimeout(function() {\n    appendBotMessage(joke[0]);\n}, 1500);\n\nsetTimeout(function() {\n    appendBotMessage(joke[1]);\n}, 2000);",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #14",
+            "id": 128918,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Stylisons notre en-tête de chat.\n\n1. Pour la classe `chat-header`, définis `padding` à `10px` et `background-color` à `salmon`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n",
+                  "solvedContent": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);    \n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);\n\nsetTimeout(function() {\n    appendBotMessage(joke[0]);\n}, 1500);\n\nsetTimeout(function() {\n    appendBotMessage(joke[1]);\n}, 2000);",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #15",
+            "id": 128919,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite, stylisons la div du contenu du chat.\n\n1. Crée une règle pour la classe `chat-content`.\n2. Applique `margin: auto`, `overflow-y: auto`, et `padding: 12px 20px` à la classe `chat-content`.\n3. Ajoute `display: flex` et `flex-direction: column` pour que les messages entrants s'affichent de haut en bas.\n4. Défini la largeur à `80%` de la largeur du conteneur.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n",
+                  "solvedContent": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n\n.chat-content {\n  margin: auto;\n  overflow-y: auto;\n  padding: 12px 20px;\n  display: flex;\n  flex-direction: column;\n  width: 80%;\n}\n"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);    \n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);\n\nsetTimeout(function() {\n    appendBotMessage(joke[0]);\n}, 1500);\n\nsetTimeout(function() {\n    appendBotMessage(joke[1]);\n}, 2000);",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #16",
+            "id": 128920,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Il est temps de styliser le message de chat.\n\n1. Crée une règle pour la classe `message`.\n2. Applique une `margin` de `12px 0` à `.message` pour mettre de l'espace entre les messages consécutifs.\n3. Définit `display: flex` et `align-items: flex-end` pour `.message`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n\n.chat-content {\n  margin: auto;\n  overflow-y: auto;\n  padding: 12px 20px;\n  display: flex;\n  flex-direction: column;\n  width: 80%;\n}\n",
+                  "solvedContent": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n\n.chat-content {\n  margin: auto;\n  overflow-y: auto;\n  padding: 12px 20px;\n  display: flex;\n  flex-direction: column;\n  width: 80%;\n}\n\n.message {\n  display: flex;\n  align-items: flex-end;\n  margin: 12px 0;\n}\n"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);    \n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);\n\nsetTimeout(function() {\n    appendBotMessage(joke[0]);\n}, 1500);\n\nsetTimeout(function() {\n    appendBotMessage(joke[1]);\n}, 2000);",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #17",
+            "id": 128921,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Stylisons le message actuel du bot.\n\n1. Style le contenu des messages du bot en ciblant les éléments avec la classe message-content à l'intérieur des éléments avec la classe bot-message en codant `.bot-message .message-content { }`.\n2. Pour le `bot-message .message-content`, définis `max-width` à `70%`, `padding` à `12px 16px`, `background-color` à `whitesmoke`, et `border-radius` à `16px`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n\n.chat-content {\n  margin: auto;\n  overflow-y: auto;\n  padding: 12px 20px;\n  display: flex;\n  flex-direction: column;\n  width: 80%;\n}\n\n.message {\n  display: flex;\n  align-items: flex-end;\n  margin: 12px 0;\n}\n",
+                  "solvedContent": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n\n.chat-content {\n  margin: auto;\n  overflow-y: auto;\n  padding: 12px 20px;\n  display: flex;\n  flex-direction: column;\n  width: 80%;\n}\n\n.message {\n  display: flex;\n  align-items: flex-end;\n  margin: 12px 0;\n}\n\n.bot-message .message-content {\n  max-width: 70%;\n  padding: 12px 16px;\n  background-color: whitesmoke;\n  border-radius: 16px;\n}\n"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);\n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);\n\nsetTimeout(function() {\n    appendBotMessage(joke[0]);\n}, 1500);\n\nsetTimeout(function() {\n    appendBotMessage(joke[1]);\n}, 2000);",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #18",
+            "id": 128922,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Enfin, l'avatar du bot a besoin d'un peu d'amour.\n\n1. Style le contenu des messages en ciblant les éléments avec la classe message-avatar à l'intérieur des éléments avec la classe message en codant `.message .message-avatar { }`.\n2. Applique une `font-size` de `16px`, un `margin-right` de `12px`, une `color` de `whitesmoke`, un `background-color` de `salmon`, un `padding` de `10px 8px`, et un `border-radius` de `50%` à la règle pour les classes `message` et `message-avatar`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n\t<title>Comedian Bot</title>\n\t<link rel=\"stylesheet\" href=\"style.css\">\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css\">\n</head>\n<body>\n\t<div class=\"chat-header\">\n\t\t<h2>Comedian Bot</h2>\n\t</div>\n\t\t<div class=\"chat-content\"></div>\n\t<script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n\n.chat-content {\n  margin: auto;\n  overflow-y: auto;\n  padding: 12px 20px;\n  display: flex;\n  flex-direction: column;\n  width: 80%;\n}\n\n.message {\n  display: flex;\n  align-items: flex-end;\n  margin: 12px 0;\n}\n\n.bot-message .message-content {\n  max-width: 70%;\n  padding: 12px 16px;\n  background-color: whitesmoke;\n  border-radius: 16px;\n}\n",
+                  "solvedContent": "body,\nhtml {\n  height: 100%;\n  margin: 0;\n  font-family: sans-serif;\n}\n\n.chat-header {\n  padding: 10px;\n  background-color: salmon;\n}\n\n.chat-content {\n  margin: auto;\n  overflow-y: auto;\n  padding: 12px 20px;\n  display: flex;\n  flex-direction: column;\n  width: 80%;\n}\n\n.message {\n  display: flex;\n  align-items: flex-end;\n  margin: 12px 0;\n}\n\n.bot-message .message-content {\n  max-width: 70%;\n  padding: 12px 16px;\n  background-color: whitesmoke;\n  border-radius: 16px;\n}\n\n.message .message-avatar {\n  font-size: 16px;\n  margin-right: 12px;\n  color: whitesmoke;\n  background-color: salmon;\n  padding: 10px 8px;\n  border-radius: 50%;\n}\n"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const joke = [\n    \"What did 0 say to 8?\",\n    \"Nice belt.\"\n];\n\nconst chatContent = document.querySelector(\".chat-content\");\n\nfunction appendBotMessage(messageText) {\n    const messageDiv = document.createElement(\"div\");\n    messageDiv.className = \"message bot-message\";\n    \n    const avatar = document.createElement(\"div\");\n    avatar.className = \"fas fa-robot message-avatar\";\n    \n    const contentDiv = document.createElement(\"div\");\n    contentDiv.className = \"message-content\";\n    contentDiv.textContent = messageText;\n\n    messageDiv.append(avatar, contentDiv);\n    chatContent.appendChild(messageDiv);    \n}\n\nappendBotMessage(\"Hello! I am Comedian Bot, here to make you laugh. Let me think of a joke.\");\n\nsetTimeout(function() {\n    appendBotMessage(\"Ok, got one.\");\n}, 1000);\n\nsetTimeout(function() {\n    appendBotMessage(joke[0]);\n}, 1500);\n\nsetTimeout(function() {\n    appendBotMessage(joke[1]);\n}, 2000);",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "tutorial": {
+    "id": 2547,
+    "version": 2,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "swift",
+    "title": "Группировка значений с помощью массивов",
+    "descriptionContent": "Группировка значений с помощью массивов",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 14291,
+        "title": "Массивы",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 126991,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Большие приложения группируют похожие значения, например, имена твоих друзей в социальной сети.</p><webview version=\"2\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html&gt;&#xA; &lt;head&gt;&#xA; &lt;style&gt;&#xA; .gridContainer {&#xA; display: grid;&#xA; grid-row-gap: 10px;&#xA; grid-template-columns: 300px;&#xA; grid-template-rows: 140px 50px 50px 50px;&#xA;}&#xA;&#xA;.gridItem {&#xA; background-color: white;&#xA; border: 1px;&#xA; border-radius: 5px;&#xA; padding-top: 5px;&#xA; padding-left: 10px;&#xA; font-size: 20px;&#xA;}&#xA;&#xA;.gridItem.tom {&#xA; text-align: left;&#xA; grid-column-start: 1;&#xA; grid-column-end: 2;&#xA; grid-row-start: 2;&#xA; grid-row-end: 3;&#xA;}&#xA;.gridItem.mia {&#xA; text-align: left;&#xA; grid-column-start: 1;&#xA; grid-column-end: 2;&#xA; grid-row-start: 3;&#xA; grid-row-end: 4;&#xA;}&#xA;.gridItem.lee {&#xA; text-align: left;&#xA; grid-column-start: 1;&#xA; grid-column-end: 2;&#xA; grid-row-start: 4;&#xA; grid-row-end: 5;&#xA;}&#xA;&#xA;body {&#xA; background-color: #bfdaf9;&#xA; display:flex; &#xA; justify-content: center;&#xA;}&#xA;&#xA;.gridItem img {&#xA; float: left;&#xA; height: 30px;&#xA; width: 30px;&#xA; margin-right: 10px;&#xA;}&#xA;&#xA;p {&#xA; margin: 0px;&#xA; font-size: 25px;&#xA; padding-top: 7px;&#xA; color: #3e416d;&#xA;}&#xA;&#xA;#meDiv {&#xA; border: 1px;&#xA; border-radius: 5px;&#xA; background-color: white;&#xA; text-align: center;&#xA; display: block;&#xA;}&#xA;&#xA;#me {&#xA; height: 137px;&#xA; width: 137px;&#xA;}&#xA;&#xA;#lee {&#xA; height: 26px;&#xA; width: 26px;&#xA;}&#xA; &lt;/style&gt;&#xA; &lt;/head&gt;&#xA; &lt;body&gt;&#xA; &lt;div class=&quot;gridContainer&quot;&gt;&#xA; &lt;div id=&quot;meDiv&quot;&gt;&#xA; &lt;img src=&quot;https://mimo.app/i/tom.png&quot; id=&quot;me&quot;&gt;&#xA; &lt;/div&gt;&#xA; &lt;div class=&quot;gridItem tom&quot;&gt;&#xA; &lt;p&gt;&lt;img src=&quot;https://mimo.app/i/elijah.png&quot;&gt;Tom&lt;/p&gt;&#xA; &lt;/div&gt;&#xA; &lt;div class=&quot;gridItem mia&quot;&gt;&#xA; &lt;p&gt;&lt;img src=&quot;https://mimo.app/i/portrait-cv.png&quot;&gt;Mia&lt;/p&gt;&#xA; &lt;/div&gt;&#xA; &lt;div class=&quot;gridItem lee&quot;&gt;&#xA; &lt;p&gt;&lt;img src=&quot;https://mimo.app/i/lee.png&quot; id=&quot;lee&quot;&gt;Lee&lt;/p&gt;&#xA; &lt;/div&gt;&#xA; &lt;/div&gt;&#xA; &#xA; &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;&#xA; &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Intro 2",
+            "id": 126992,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Создание переменной для каждого из твоих друзей сделает твой код длинным и сложным.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friend1 = \" /><text value=\"&quot;Tom&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"let\" class=\"keyword\" /><text value=\" friend2 = \" /><text value=\"&quot;Mia&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"let\" class=\"keyword\" /><text value=\" friend3 = \" /><text value=\"&quot;Lee&quot;\" class=\"string\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"4\" endIndex=\"11\" /><option startIndex=\"24\" endIndex=\"31\" /><option startIndex=\"44\" endIndex=\"51\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>friend1</code>, затем <code>friend2</code>, и наконец <code>friend3</code>.</p></body></html>"
+          },
+          {
+            "title": "Square brackets",
+            "id": 126993,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Вместо того чтобы создавать переменную для имени каждого друга, мы можем сгруппировать все значения в <strong>массив</strong>, используя <code>[</code> и <code>]</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Tom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Mia&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Lee&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(friends)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"14\" endIndex=\"15\" /><option startIndex=\"34\" endIndex=\"35\" /><option correct=\"false\"><content><text value=\"{\" /></content></option><option correct=\"false\"><content><text value=\"}\" /></content></option></options></interaction></interactions><output><content><text value=\"[&quot;Tom&quot;, &quot;Mia&quot;, &quot;Lee&quot;]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>[</code>, а затем <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Element",
+            "id": 126994,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Значения массива называются <strong>элементами</strong>. Например, <code>\"Tom\"</code>, <code>\"Mia\"</code> и <code>\"Lee\"</code> являются элементами этого массива.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Tom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Mia&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Lee&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(friends);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"29\" endIndex=\"34\" /><option correct=\"false\"><content><text value=\"3\" /></content></option></options></interaction></interactions><output><content><text value=\"[&quot;Tom&quot;, &quot;Mia&quot;, &quot;Lee&quot;]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>\"Lee\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Arrays",
+            "id": 126995,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Чтобы создать пустой массив в Swift, мы используем <code>[]</code>, тип массива и <code>()</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"String\" class=\"type\" /><text value=\"]()\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(friends)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"14\" endIndex=\"22\" /><option startIndex=\"22\" endIndex=\"23\" /><option startIndex=\"23\" endIndex=\"24\" /><option correct=\"false\"><content><text value=\"{\" /></content></option><option correct=\"false\"><content><text value=\"}\" /></content></option></options></interaction></interactions><output><content><text value=\"[]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>[String]</code>, затем <code>(</code>, и наконец <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Value in an array",
+            "id": 126996,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Размещение строки между скобками создает массив с одним значением, попробуй с <code>\"Tom\"</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Tom&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(friends)\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"15\" endIndex=\"20\" /></interactions><output><content><text value=\"[&quot;Tom&quot;]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>\"Tom\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Arrays",
+            "id": 126997,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы используем запятые <code>,</code> для разделения двух или более значений в массиве, например, <code>\"Tom\"</code> от <code>\"Mia\"</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Tom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Mia&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(friends)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option correct=\"false\"><content><text value=\".\" /></content></option><option startIndex=\"20\" endIndex=\"21\" /></options></interaction></interactions><output><content><text value=\"[&quot;Tom&quot;, &quot;Mia&quot;]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>,</code>.</p></body></html>"
+          },
+          {
+            "title": "Arrays",
+            "id": 126998,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Любое количество значений помещается в массив. Мы добавляем больше, кодируя запятую, а затем значение.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Tom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Mia&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Lee&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(friends)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"27\" endIndex=\"28\" /><option startIndex=\"29\" endIndex=\"34\" /><option correct=\"false\"><content><text value=\".\" /></content></option></options></interaction></interactions><output><content><text value=\"['Tom', 'Mia', 'Lee']\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>,</code>, а затем <code>\"Lee\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Square brackets",
+            "id": 126999,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какие символы используются для обрамления значений в массиве?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>[</code> и <code>]</code></item><item value=\"2\" correct=\"false\"><code>{</code> и <code>}</code></item></selection><p visible-if=\"wrong\"><code>[</code> и <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Element",
+            "id": 127000,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Как мы называем значения массива?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">\"Элементы\"</item><item value=\"2\" correct=\"false\">\"Условия\"</item></selection><p visible-if=\"wrong\">Обязательно выбери \"Элементы\".</p></body></html>"
+          },
+          {
+            "title": "Question: Empty array",
+            "id": 127001,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Сколько значений в этом массиве?</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" messages = [\" /><text value=\"String\" class=\"type\" /><text value=\"]()\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">0</item><item value=\"2\" correct=\"false\">1</item></selection><p visible-if=\"wrong\">Обязательно выбери 0.</p></body></html>"
+          },
+          {
+            "title": "Question: Value in an array",
+            "id": 127002,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какое значение имеет этот массив?</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" pet = [\" /><text value=\"&quot;Coco&quot;\" class=\"string\" /><text value=\"]\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>\"Coco\"</code></item><item value=\"2\" correct=\"false\">У него нет значений</item></selection><p visible-if=\"wrong\">Обязательно выбери <code>\"Coco\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Multiple values",
+            "id": 127003,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какой символ используется для разделения значений в массиве?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Запятая <code>,</code></item><item value=\"2\" correct=\"false\">Точка с запятой <code>;</code></item></selection><p visible-if=\"wrong\">Запятая <code>,</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Any number",
+            "id": 127004,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Сколько значений мы можем хранить в массиве?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Сколько угодно</item><item value=\"2\" correct=\"false\">3</item></selection><p visible-if=\"wrong\">Сколько угодно.</p></body></html>"
+          },
+          {
+            "title": "Example: Square brackets",
+            "id": 127005,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Присвой массив, содержащий <code>\"Luz\"</code>, константе <code>siblings</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" siblings = [\" /><text value=\"&quot;Luz&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(siblings)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"15\" endIndex=\"16\" /><option startIndex=\"16\" endIndex=\"21\" /><option startIndex=\"21\" endIndex=\"22\" /><option correct=\"false\"><content><text value=\"{\" /></content></option><option correct=\"false\"><content><text value=\"}\" /></content></option></options></interaction></interactions><output><content><text value=\"[&quot;Luz&quot;]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>[</code>, затем <code>\"Luz\"</code>, и наконец <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Empty array",
+            "id": 127006,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Присвой пустой массив константе <code>unicorns</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" unicorns = [\" /><text value=\"String\" class=\"type\" /><text value=\"]()\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(unicorns)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"15\" endIndex=\"25\" /><option correct=\"false\"><content><text value=\"[&quot;Jacob&quot;]\" /></content></option></options></interaction></interactions><output><content><text value=\"[]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>[String]()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Value in an array",
+            "id": 127007,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Создай константу <code>activeUsers</code>, которая хранит массив со значением <code>\"Finn\"</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" activeUsers = [\" /><text value=\"&quot;Finn&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;Active:&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(activeUsers)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"4\" endIndex=\"15\" /><option startIndex=\"18\" endIndex=\"19\" /><option startIndex=\"19\" endIndex=\"25\" /><option startIndex=\"25\" endIndex=\"26\" /><option correct=\"false\"><content><text value=\"&quot;Larry&quot;\" /></content></option></options></interaction></interactions><output><content><text value=\"Active:\" /><text type=\"break\" /><text value=\"[&quot;Finn&quot;]\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>activeUsers</code>, затем <code>[</code>, а затем <code>\"Finn\"</code>, <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Any number",
+            "id": 127008,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Создай массив с <code>\"peach\"</code>, а затем <code>\"bowser\"</code> в качестве последних двух значений.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" characters = [\" /><text value=\"&quot;mario&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;luigi&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;peach&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;bowser&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"36\" endIndex=\"43\" /><option startIndex=\"43\" endIndex=\"44\" /><option startIndex=\"45\" endIndex=\"53\" /><option correct=\"false\"><content><text value=\"&quot;apple&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"peach\"</code>, затем <code>,</code>, и наконец <code>\"bowser\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Multiple values",
+            "id": 127009,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Создай массив с двумя значениями, закодировав <code>, \"pistachio\"</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" flavors = [\" /><text value=\"&quot;vanilla&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;pistachio&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(flavors)\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"24\" endIndex=\"37\" /></interactions><output><content><text value=\"['vanilla', 'pistachio']\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>, \"pistachio\"</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

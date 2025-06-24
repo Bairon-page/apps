@@ -1,0 +1,331 @@
+{
+  "tutorial": {
+    "id": 1959,
+    "version": 7,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Contando con funciones flecha",
+    "descriptionContent": "Convierte un proyecto existente de JavaScript a ES6",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1959-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12608,
+        "title": "Contando con funciones flecha",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Starter Code",
+            "id": 114044,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Reescribirás el código existente de esta aplicación a la sintaxis de ES6. La aplicación es utilizada por los asistentes de estacionamiento para monitorear el número de autos actualmente estacionados.\n\nAquí tienes tu código inicial. Échale un buen vistazo. Tienes todo el código que necesitas, excepto por unas pocas líneas que agregaremos aquí. Tus tareas principales son reescribir parte del código a la sintaxis de ES6.\n\n1. Agrega estas dos líneas al código. El código representa algo llamado event listeners. Añaden funcionalidad a los botones detectando un clic y llamando a una función después de que ocurre este clic.\n\n```JavaScript\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n margin: 20px;\n padding: 0;\n background-color: #FFF9F5;\n color: #36454F;\n font-family: Arial, sans-serif;\n}\n\nbutton {\n background-color: #00BFFF;\n border: none;\n color: white;\n padding: 15px 30px;\n text-align: center;\n text-decoration: none;\n display: inline-block;\n font-size: 16px;\n border-radius: 10px;\n}\n\ndiv {\n width: 400px;\n margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "var banner = document.getElementById(\"banner\");\nvar message = document.getElementById(\"message\");\nvar count = 0;\nvar changeCount = () => banner.innerHTML = \"Car Count: \" + count;\n\nfunction errorMessage() {\n  message.innerHTML = \"No Cars To Subtract\";\n}\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");",
+                  "solvedContent": "var banner = document.getElementById(\"banner\");\nvar message = document.getElementById(\"message\");\nvar count = 0;\nvar changeCount = () => banner.innerHTML = \"Car Count: \" + count;\n\nfunction errorMessage() {\n  message.innerHTML = \"No Cars To Subtract\";\n}\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Let Variables",
+            "id": 115292,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Debido a que el valor de las variables `let` puede cambiar, podemos usarlas para variables como `count`. Vamos a actualizar `var` a la sintaxis de ES6 en todo nuestro código. La variable `count` necesita ser actualizada primero.\n\n1. Cambia la variable `count` de un `var` a un `let`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "var banner = document.getElementById(\"banner\");\nvar message = document.getElementById(\"message\");\nvar count = 0;\nvar changeCount = () => banner.innerHTML = \"Car Count: \" + count;\n\nfunction errorMessage() {\n  message.innerHTML = \"No Cars To Subtract\";\n}\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nvar buttonAdd = document.getElementById(\"add\");\nvar buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "var banner = document.getElementById(\"banner\");\nvar message = document.getElementById(\"message\");\nlet count = 0;\nvar changeCount = () => banner.innerHTML = \"Car Count: \" + count;\n\nfunction errorMessage() {\n  message.innerHTML = \"No Cars To Subtract\";\n}\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nvar buttonAdd = document.getElementById(\"add\");\nvar buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Const Variables",
+            "id": 115293,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "`const` puede ayudar a evitar errores porque no se puede reasignar. Usamos `const` cuando estamos seguros de que no necesitaremos cambiar una variable, como en casos cuando necesitamos almacenar una función en una variable. Actualmente tenemos tres funciones asignadas a variables `var` que necesitan ser actualizadas.\n\n1. Cambia la variable `banner` de un `var` a un `const`.\n2. Cambia la variable `message` de un `var` a un `const`.\n3. Cambia la variable `changeCount` de un `var` a un `const`.\n4. Cambia la variable `buttonAdd` de un `var` a un `const`.\n5. Cambia la variable `buttonSubtract` de un `var` a un `const`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "var banner = document.getElementById(\"banner\");\nvar message = document.getElementById(\"message\");\nlet count = 0;\nvar changeCount = () => banner.innerHTML = \"Car Count: \" + count;\n\nfunction errorMessage() {\n  message.innerHTML = \"No Cars To Subtract\";\n}\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nvar buttonAdd = document.getElementById(\"add\");\nvar buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\n\nfunction errorMessage() {\n  message.innerHTML = \"No Cars To Subtract\";\n}\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "One Statement Arrow Function",
+            "id": 115294,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Las funciones flecha reducen la cantidad de código y mejoran su legibilidad. La función `changeCount` aquí es un ejemplo de una función flecha de una sola declaración. Vamos a reescribir la función `errorMessage` en una función flecha.\n\n1. Elimina las llaves de apertura y cierre de la función `errorMessage`.\n2. Elimina la palabra clave `function`.\n3. Declara `errorMessage` como una variable `const`.\n4. Coloca el operador de asignación `=` entre `errorMessage` y los paréntesis.\n5. Coloca la flecha, ( `=>` ) después de los paréntesis.\n6. Mueve la declaración única, el contenido de la función, a la misma línea que la declaración de la variable, después de la flecha.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\n\nfunction errorMessage() {\n  message.innerHTML = \"No Cars To Subtract\";\n}\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Review the `changeCount` arrow function if you have problems with the conversion."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Arrow Function With Parameter",
+            "id": 115295,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Reescribamos la función `changeMessage` manteniendo su parámetro.\n\n1. Reescribe la función `changeMessage` como una función flecha. Asegúrate de dejar el parámetro `x` entre los paréntesis.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\n\nfunction changeMessage(x) {\n  message.innerHTML = \"One car was \" + x;\n}\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = \"One car was \" + x;\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Review the `changeCount` or `errorMessage` arrow functions if you have problems with the conversion."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Multiple Statement Arrow Function",
+            "id": 115296,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Las funciones flecha también pueden tener múltiples declaraciones. La única diferencia con una función flecha de una sola declaración es que utilizan llaves de apertura y cierre, y cada declaración está en una línea separada. Vamos a reescribir la función `add` en una función flecha.\n\n1. Elimina la palabra clave `function` en la función `add`.\n2. Declara `add` como una variable `const`.\n3. Coloca un operador de asignación entre `add` y los paréntesis.\n4. Coloca la flecha después de los paréntesis.\n5. Coloca un punto y coma después de la llave de cierre de la función.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = message.innerHTML =\n  \"One car was \" + x;\n\nfunction add() {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n}\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = message.innerHTML =\n  \"One car was \" + x;\nconst add = () => {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n};\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Multiple Statement Arrow Function 2",
+            "id": 115298,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Las funciones flecha con múltiples declaraciones también pueden tener un código más complejo, como condicionales. Vamos a transformar la función `subtract` en una función flecha. El condicional no necesita ser alterado.\n\n1. Reescribe la función `subtract` en una función flecha.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = message.innerHTML =\n  \"One car was \" + x;\nconst add = () => {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n};\n\nfunction subtract() {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n}\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = message.innerHTML =\n  \"One car was \" + x;\nconst add = () => {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n};\nconst subtract = () => {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n};\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Review the `add` arrow function if you have problems with the conversion."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Template Literal",
+            "id": 115304,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Las plantillas literales facilitan la combinación de variables con cadenas de texto. También permiten cadenas de texto que se extienden a lo largo de múltiples líneas. Vamos a transformar la función `changeCount` en una función flecha que use plantillas literales.\n\n1. En la función flecha `changeCount`, elimina las comillas dobles en la declaración.\n2. Coloca una comilla invertida al principio de la cadena de texto.\n3. Elimina el signo más.\n4. Coloca un signo `$` y una llave de apertura antes de la variable `count`.\n5. Coloca una llave de cierre al final de la variable.\n6. Cierra la plantilla literal con una comilla invertida después de la llave de cierre.\n7. Elimina el espacio extra entre los dos puntos y el signo `$`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = \"Car Count: \" + count;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = message.innerHTML =\n  \"One car was \" + x;\nconst add = () => {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n};\nconst subtract = () => {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n};\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = `Car Count: ${count}`;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = message.innerHTML =\n  \"One car was \" + x;\nconst add = () => {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n};\nconst subtract = () => {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n};\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Template Literal 2",
+            "id": 115305,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Los literales de plantilla también pueden recibir un parámetro. Vamos a actualizar la función `changeMessage` para que use un literal de plantilla.\n\n1. Reescribe la función flecha `changeMessage` para que use un literal de plantilla. Asegúrate de que el parámetro `x` esté dentro de los paréntesis.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <title>Parking Lot Car Counter</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div>\n      <button id=\"add\">Add</button>\n      <h1 id=\"banner\">Car Count: 0</h1>\n      <h1 id=\"message\">Waiting For First Click</h1>\n      <button id=\"subtract\">Subtract</button>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 20px;\n  padding: 0;\n  background-color: #FFF9F5;\n  color: #36454F;\n  font-family: Arial, sans-serif;\n}\n\nbutton {\n  background-color: #00BFFF;\n  border: none;\n  color: white;\n  padding: 15px 30px;\n  text-align: center;\n  text-decoration: none;\n  display: inline-block;\n  font-size: 16px;\n  border-radius: 10px;\n}\n\ndiv {\n  width: 400px;\n  margin: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = `Car Count: ${count}`;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = \"One car was \" + x;\nconst add = () => {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n};\nconst subtract = () => {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n};\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);",
+                  "solvedContent": "const banner = document.getElementById(\"banner\");\nconst message = document.getElementById(\"message\");\nlet count = 0;\nconst changeCount = () => banner.innerHTML = `Car Count: ${count}`;\nconst errorMessage = () => message.innerHTML = \"No Cars To Subtract\";\nconst changeMessage = (x) => message.innerHTML = `One car was ${x}`;\nconst add = () => {\n  count += 1;\n  changeCount();\n  changeMessage(\"added\");\n};\nconst subtract = () => {\n  if (count > 0) {\n    count -= 1;\n    changeCount();\n    changeMessage(\"subtracted\");\n  } else {\n    errorMessage();\n  }\n};\nconst buttonAdd = document.getElementById(\"add\");\nconst buttonSubtract = document.getElementById(\"subtract\");\nbuttonAdd.addEventListener(\"click\", add);\nbuttonSubtract.addEventListener(\"click\", subtract);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Review the template literal in the `changeCount` function if you have problems with the conversion."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

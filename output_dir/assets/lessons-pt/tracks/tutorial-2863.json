@@ -1,0 +1,184 @@
+{
+  "tutorial": {
+    "id": 2863,
+    "version": 2,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Manipulação de Respostas",
+    "descriptionContent": "Trabalhe com o objeto de resposta para extrair os dados que você precisa",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 14947,
+        "title": "Código de status",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 131794,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Fazer a chamada da API é apenas a primeira parte; você também precisa lidar adequadamente com a resposta, verificar o status e extrair os dados de que precisa.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2",
+            "id": 131795,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ao fazer uma chamada de API, recebemos de volta um objeto de resposta que contém o código de status, os cabeçalhos e o conteúdo real que recebemos.</p><p>Se imprimirmos o objeto de resposta, veremos o código de status.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"17\" endIndex=\"25\" /><option startIndex=\"95\" endIndex=\"103\" /></options></interaction></interactions><output><content><text value=\"&lt;Response [200]&gt;\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>response</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3",
+            "id": 131796,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cada objeto de resposta inclui um código de status indicando o resultado da solicitação.</p><p>Nós acessamos o código de status usando <code>response.status_code</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response.status_code)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"95\" endIndex=\"103\" /><option startIndex=\"103\" endIndex=\"104\" /><option startIndex=\"104\" endIndex=\"115\" /></options></interaction></interactions><output><content><text value=\"200\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>.</code> e finalmente <code>status_code</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 131815,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um código de status 2xx indica uma solicitação bem-sucedida.</p><p>Códigos específicos como <code>200 OK</code> significam que a solicitação foi processada corretamente, enquanto <code>201 Created</code> indica que um novo recurso foi criado com sucesso.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response.status_code)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"95\" endIndex=\"103\" /><option startIndex=\"103\" endIndex=\"104\" /><option startIndex=\"104\" endIndex=\"115\" /></options></interaction></interactions><output><content><text value=\"200\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>.</code> e finalmente <code>status_code</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3 - Copy - Copy",
+            "id": 131816,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um código de status 4xx indica um erro do cliente, o que significa que a solicitação foi inválida ou não pode ser atendida.</p><p>Exemplos incluem 400 Bad Request, 401 Unauthorized e 404 Not Found.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/mimo&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response.status_code)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"92\" endIndex=\"100\" /><option startIndex=\"100\" endIndex=\"101\" /><option startIndex=\"101\" endIndex=\"112\" /></options></interaction></interactions><output><content><text value=\"404\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>.</code> e finalmente <code>status_code</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 132008,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Imprima o código de status do objeto de resposta.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response.status_code)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"95\" endIndex=\"103\" /><option startIndex=\"103\" endIndex=\"104\" /><option startIndex=\"104\" endIndex=\"115\" /></options></interaction></interactions><output><content><text value=\"200\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>.</code> e finalmente <code>status_code</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7",
+            "id": 132009,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que este código imprimirá, assumindo que não existe um Pokémon chamado <em>Mimo</em>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/mimo&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response.status_code)\" /></content><output><content><text value=\"404\" /></content></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">404</item><item value=\"2\" correct=\"false\">200</item></selection><p visible-if=\"wrong\">Certifique-se de escolher 404.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3 - Copy - - Copy",
+            "id": 132014,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Acesse o código de status do objeto de resposta.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response.status_code)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"95\" endIndex=\"103\" /><option startIndex=\"103\" endIndex=\"104\" /><option startIndex=\"104\" endIndex=\"115\" /><option correct=\"false\"><content><text value=\"code\" /></content></option></options></interaction></interactions><output><content><text value=\"200\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>.</code> e finalmente <code>status_code</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #8",
+            "id": 132010,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como você recuperaria o código de status de uma resposta de uma solicitação HTTP?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Usando <code>response.status_code</code></item><item value=\"2\" correct=\"false\">Usando <code>response.code</code></item></selection><p visible-if=\"wrong\">Usando <code>response.status_code</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #9 - Copy",
+            "id": 132012,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que um código de status <code>404</code> significa em uma resposta?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Isso significa que o recurso solicitado não foi encontrado</item><item value=\"2\" correct=\"false\">Indica que a solicitação não foi autorizada</item></selection><p visible-if=\"wrong\">Isso significa que o recurso solicitado não foi encontrado.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 14949,
+        "title": "Acessando JSON",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 131808,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Vamos explorar como trabalhar com dados JSON em respostas de API, um formato comum para troca de informações entre clientes e servidores.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2",
+            "id": 131809,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Já vimos o objeto de resposta; precisamos do mesmo para analisar e trabalhar com dados JSON retornados da API.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"print(response)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"17\" endIndex=\"25\" /><option startIndex=\"95\" endIndex=\"103\" /></options></interaction></interactions><output><content><text value=\"&lt;Response [200]&gt;\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>response</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3",
+            "id": 131810,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos descompactar os dados JSON desta resposta usando a função <code>json</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"104\" endIndex=\"111\" /></options></interaction></interactions><output><content><text value=\"{\" /><text type=\"break\" /><text value=\"  &quot;name&quot;: &quot;pikachu&quot;,\" /><text type=\"break\" /><text value=\"  &quot;id&quot;: 25\" /><text type=\"break\" /><text value=\"}\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>.json()</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 132020,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ao trabalhar com uma API, muitas vezes é útil imprimir todos os dados da resposta para ver se recebemos o que esperamos.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"89\" endIndex=\"93\" /><option startIndex=\"118\" endIndex=\"122\" /><option startIndex=\"96\" endIndex=\"111\" /></options></interaction></interactions><output><content><text value=\"{\" /><text type=\"break\" /><text value=\"  &quot;name&quot;: &quot;pikachu&quot;,\" /><text type=\"break\" /><text value=\"  &quot;id&quot;: 25\" /><text type=\"break\" /><text value=\"}\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>data</code> seguido de <code>response.json()</code> e finalmente <code>data</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 131811,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><br />Em Python, os dados JSON são analisados em uma estrutura semelhante a um dicionário, permitindo que você acesse os valores usando chaves.</p><p>Definimos a chave como uma string dentro de colchetes para acessar o valor correspondente no dicionário.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data[\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"122\" endIndex=\"123\" /><option startIndex=\"123\" endIndex=\"129\" /><option startIndex=\"129\" endIndex=\"130\" /></options></interaction></interactions><output><content><text value=\"pikachu\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>[</code> seguido de <code>\"name\"</code> e finalmente <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5",
+            "id": 131812,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Desde que o dicionário tenha a chave que estamos usando, podemos acessar quantos campos quisermos.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data[\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\"])\" /><text type=\"break\" /><text value=\"print(data[\" /><text value=\"&quot;height&quot;\" class=\"string\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"118\" endIndex=\"122\" /><option startIndex=\"138\" endIndex=\"142\" /></options></interaction></interactions><output><content><text value=\"pikachu\" /><text type=\"break\" /><text value=\"4\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>data</code> seguido de <code>data</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 131817,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ao trabalhar com dados JSON, às vezes o nível superior é um array, o que significa que toda a resposta é uma lista de objetos em vez de um único objeto.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"81\" endIndex=\"85\" /><option startIndex=\"110\" endIndex=\"114\" /></options></interaction></interactions><output><content><text value=\"[\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"    &quot;name&quot;: &quot;bulbasaur&quot;,\" /><text type=\"break\" /><text value=\"    &quot;url&quot;: &quot;https://pokedex.mimo.dev/api/pokemon/1/&quot;,\" /><text type=\"break\" /><text value=\"    &quot;id&quot;: &quot;1&quot;\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"    &quot;name&quot;: &quot;ivysaur&quot;,\" /><text type=\"break\" /><text value=\"    &quot;url&quot;: &quot;https://pokedex.mimo.dev/api/pokemon/2/&quot;,\" /><text type=\"break\" /><text value=\"    &quot;id&quot;: &quot;2&quot;\" /><text type=\"break\" /><text value=\"  },\" /><text type=\"break\" /><text value=\"  {\" /><text type=\"break\" /><text value=\"    &quot;name&quot;: &quot;venusaur&quot;,\" /><text type=\"break\" /><text value=\"    &quot;url&quot;: &quot;https://pokedex.mimo.dev/api/pokemon/3/&quot;,\" /><text type=\"break\" /><text value=\"    &quot;id&quot;: &quot;3&quot;\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\"]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>data</code> seguido de <code>data</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy - Copy",
+            "id": 131818,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Depois de desempacotar o array, você pode percorrer seus elementos ou acessar diretamente um item pelo seu índice.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"for\" class=\"keyword\" /><text value=\" pokemon \" /><text value=\"in\" class=\"keyword\" /><text value=\" data:\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"f&quot;Name: \" /><text value=\"{pokemon[\" /><text value=\"'name'\" class=\"string\" /><text value=\"]}\" /><text value=\", ID: \" /><text value=\"{pokemon[\" /><text value=\"'id'\" class=\"string\" /><text value=\"]}\" /><text value=\"&quot;\" /><text value=\") \" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"104\" endIndex=\"107\" /><option startIndex=\"108\" endIndex=\"115\" /><option startIndex=\"116\" endIndex=\"118\" /><option startIndex=\"119\" endIndex=\"123\" /></options></interaction></interactions><output><content><text value=\"Name: bulbasaur, ID: 1\" /><text type=\"break\" /><text value=\"Name: ivysaur&quot;, ID: 2\" /><text type=\"break\" /><text value=\"Name: venusaur, ID: 3\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>for</code> seguido de <code>pokemon</code> e depois <code>in</code>, <code>data</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy - Copy - Copy",
+            "id": 131819,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Você pode acessar diretamente os elementos usando seu índice se estiver trabalhando com um array como a estrutura de nível superior.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data[\" /><text value=\"0\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"110\" endIndex=\"114\" /><option startIndex=\"114\" endIndex=\"115\" /><option startIndex=\"115\" endIndex=\"116\" /><option startIndex=\"116\" endIndex=\"117\" /></options></interaction></interactions><output><content><text value=\"{\" /><text type=\"break\" /><text value=\"  &quot;name&quot;: &quot;bulbasaur&quot;,\" /><text type=\"break\" /><text value=\"  &quot;url&quot;: &quot;https://pokedex.mimo.dev/api/pokemon/1/&quot;,\" /><text type=\"break\" /><text value=\"  &quot;id&quot;: &quot;1&quot;\" /><text type=\"break\" /><text value=\"}\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>data</code> seguido de <code>[</code> e depois <code>0</code>, <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 132018,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Desembrulhe os dados JSON desta resposta usando a função <code>json</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"96\" endIndex=\"104\" /><option startIndex=\"104\" endIndex=\"105\" /><option startIndex=\"105\" endIndex=\"109\" /><option startIndex=\"109\" endIndex=\"111\" /></options></interaction></interactions><output><content><text value=\"{\" /><text type=\"break\" /><text value=\"  &quot;name&quot;: &quot;pikachu&quot;,\" /><text type=\"break\" /><text value=\"  &quot;id&quot;: 25\" /><text type=\"break\" /><text value=\"}\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>response</code> seguido de <code>.</code> e depois <code>json</code>, <code>()</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy - Copy - Copy - Copy",
+            "id": 132025,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Assumindo que a resposta é um array, acesse o primeiro valor.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data[\" /><text value=\"0\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"110\" endIndex=\"114\" /><option startIndex=\"114\" endIndex=\"115\" /><option startIndex=\"115\" endIndex=\"116\" /><option startIndex=\"116\" endIndex=\"117\" /><option correct=\"false\"><content><text value=\".\" /></content></option><option correct=\"false\"><content><text value=\"(\" /></content></option><option correct=\"false\"><content><text value=\")\" /></content></option></options></interaction></interactions><output><content><text value=\"{\" /><text type=\"break\" /><text value=\"  &quot;name&quot;: &quot;bulbasaur&quot;,\" /><text type=\"break\" /><text value=\"  &quot;url&quot;: &quot;https://pokedex.mimo.dev/api/pokemon/1/&quot;,\" /><text type=\"break\" /><text value=\"  &quot;id&quot;: &quot;1&quot;\" /><text type=\"break\" /><text value=\"}\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>data</code> seguido de <code>[</code> e depois <code>0</code>, <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5 - Copy",
+            "id": 132026,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Use a notação de colchetes para acessar dados em um objeto JSON.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"import\" class=\"keyword\" /><text value=\" requests\" /><text type=\"break\" /><text type=\"break\" /><text value=\"response = requests.get(\" /><text value=\"&quot;https://pokedex.mimo.dev/api/pokemon/pikachu&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"data = response.json()\" /><text type=\"break\" /><text value=\"print(data[\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"118\" endIndex=\"122\" /><option startIndex=\"122\" endIndex=\"123\" /><option startIndex=\"123\" endIndex=\"129\" /><option startIndex=\"129\" endIndex=\"130\" /><option correct=\"false\"><content><text value=\"(\" /></content></option><option correct=\"false\"><content><text value=\")\" /></content></option><option correct=\"false\"><content><text value=\".\" /></content></option></options></interaction></interactions><output><content><text value=\"pikachu\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>data</code> seguido de <code>[</code> e depois <code>\"name\"</code>, <code>]</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

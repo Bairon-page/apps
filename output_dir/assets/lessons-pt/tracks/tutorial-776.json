@@ -1,0 +1,167 @@
+{
+  "tutorial": {
+    "id": 776,
+    "version": 18,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Alterando Valores em Arrays",
+    "descriptionContent": "Aprenda o que os arrays podem armazenar e como alterar seus valores com o índice.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 8410,
+        "title": "Índice",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro 1",
+            "id": 73661,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Vamos nos aprofundar nos valores que um array pode armazenar e como podemos atualizá-los. Assim como um aplicativo de clima pode acompanhar as temperaturas.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;    &lt;title&gt;Weather App&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        body {&#xA;            font-family: Arial, sans-serif;&#xA;            display: flex;&#xA;            justify-content: center;&#xA;            align-items: center;&#xA;            margin: 24px auto;&#xA;            background: url('background-image.jpg') no-repeat center center;&#xA;            background-size: cover;&#xA;            color: #fff;&#xA;        }&#xA;        .weather-container {&#xA;            background-color: #1e90ff;&#xA;            border-radius: 10px;&#xA;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);&#xA;            padding: 20px;&#xA;            width: 300px;&#xA;            text-align: center;&#xA;        }&#xA;        .weather-header {&#xA;            font-size: 24px;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-days {&#xA;            display: flex;&#xA;            justify-content: space-around;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-day {&#xA;            cursor: pointer;&#xA;            padding: 10px;&#xA;            background-color: rgba(255, 255, 255, 0.2);&#xA;        }&#xA;        .weather-day.active {&#xA;            background-color: rgba(255, 255, 255, 0.4);&#xA;        }&#xA;        .weather-forecast {&#xA;            font-size: 16px;&#xA;        }&#xA;        .weather-forecast .time {&#xA;            display: flex;&#xA;            justify-content: space-between;&#xA;            margin-bottom: 10px;&#xA;        }&#xA;        .weather-forecast .time div {&#xA;            flex: 1;&#xA;            text-align: center;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;div class=&quot;weather-container&quot;&gt;&#xA;        &lt;div class=&quot;weather-header&quot;&gt;New York&lt;/div&gt;&#xA;        &lt;div class=&quot;weather-days&quot;&gt;&#xA;            &lt;div class=&quot;weather-day active&quot; data-day=&quot;1&quot;&gt;🌞 Fri, June 1&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;2&quot;&gt;🌧️ Sat, June 2&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;3&quot;&gt;⛅ Sun, June 3&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;weather-forecast&quot;&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;1&quot;&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;9:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;12:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;24°&lt;br&gt;18:00 🌤️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;16°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;2&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;9:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;12:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;27°&lt;br&gt;15:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;25°&lt;br&gt;18:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;21°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;3&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;19°&lt;br&gt;9:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;23°&lt;br&gt;12:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;28°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;18:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;script&gt;&#xA;        document.addEventListener('DOMContentLoaded', function() {&#xA;            const days = document.querySelectorAll('.weather-day');&#xA;            const forecasts = document.querySelectorAll('.weather-forecast .time');&#xA;&#xA;            days.forEach(day =&gt; {&#xA;                day.addEventListener('click', function() {&#xA;                    days.forEach(d =&gt; d.classList.remove('active'));&#xA;                    this.classList.add('active');&#xA;&#xA;                    const day = this.getAttribute('data-day');&#xA;                    forecasts.forEach(forecast =&gt; {&#xA;                        if (forecast.getAttribute('data-day') === day) {&#xA;                            forecast.style.display = 'flex';&#xA;                        } else {&#xA;                            forecast.style.display = 'none';&#xA;                        }&#xA;                    });&#xA;                });&#xA;            });&#xA;        });&#xA;    &lt;/script&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Intro 2",
+            "id": 73679,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um array pode armazenar diferentes valores de temperatura e ser atualizado à medida que novos dados chegam das estações meteorológicas ao longo do dia.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;    &lt;title&gt;Weather App&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        body {&#xA;            font-family: Arial, sans-serif;&#xA;            display: flex;&#xA;            justify-content: center;&#xA;            align-items: center;&#xA;            margin: 24px auto;&#xA;            background: url('background-image.jpg') no-repeat center center;&#xA;            background-size: cover;&#xA;            color: #fff;&#xA;        }&#xA;        .weather-container {&#xA;            background-color: #1e90ff;&#xA;            border-radius: 10px;&#xA;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);&#xA;            padding: 20px;&#xA;            width: 300px;&#xA;            text-align: center;&#xA;        }&#xA;        .weather-header {&#xA;            font-size: 24px;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-days {&#xA;            display: flex;&#xA;            justify-content: space-around;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-day {&#xA;            cursor: pointer;&#xA;            padding: 10px;&#xA;            background-color: rgba(255, 255, 255, 0.2);&#xA;        }&#xA;        .weather-day.active {&#xA;            background-color: rgba(255, 255, 255, 0.4);&#xA;        }&#xA;        .weather-forecast {&#xA;            font-size: 16px;&#xA;        }&#xA;        .weather-forecast .time {&#xA;            display: flex;&#xA;            justify-content: space-between;&#xA;            margin-bottom: 10px;&#xA;        }&#xA;        .weather-forecast .time div {&#xA;            flex: 1;&#xA;            text-align: center;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;div class=&quot;weather-container&quot;&gt;&#xA;        &lt;div class=&quot;weather-header&quot;&gt;New York&lt;/div&gt;&#xA;        &lt;div class=&quot;weather-days&quot;&gt;&#xA;            &lt;div class=&quot;weather-day active&quot; data-day=&quot;1&quot;&gt;🌞 Fri, June 1&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;2&quot;&gt;🌧️ Sat, June 2&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;3&quot;&gt;⛅ Sun, June 3&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;weather-forecast&quot;&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;1&quot;&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;9:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;12:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;24°&lt;br&gt;18:00 🌤️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;16°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;2&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;9:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;12:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;27°&lt;br&gt;15:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;25°&lt;br&gt;18:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;21°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;3&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;19°&lt;br&gt;9:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;23°&lt;br&gt;12:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;28°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;18:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;script&gt;&#xA;        document.addEventListener('DOMContentLoaded', function() {&#xA;            const days = document.querySelectorAll('.weather-day');&#xA;            const forecasts = document.querySelectorAll('.weather-forecast .time');&#xA;&#xA;            days.forEach(day =&gt; {&#xA;                day.addEventListener('click', function() {&#xA;                    days.forEach(d =&gt; d.classList.remove('active'));&#xA;                    this.classList.add('active');&#xA;&#xA;                    const day = this.getAttribute('data-day');&#xA;                    forecasts.forEach(forecast =&gt; {&#xA;                        if (forecast.getAttribute('data-day') === day) {&#xA;                            forecast.style.display = 'flex';&#xA;                        } else {&#xA;                            forecast.style.display = 'none';&#xA;                        }&#xA;                    });&#xA;                });&#xA;            });&#xA;        });&#xA;    &lt;/script&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Any value",
+            "id": 73662,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Imagine um array como uma cômoda. Uma gaveta pode armazenar qualquer variável ou valor, seja uma string, booleano ou número como <code>17</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"];\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"22\" endIndex=\"24\" /><option correct=\"false\"><content><text value=\"&quot;17&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>17</code>.</p></body></html>"
+          },
+          {
+            "title": "Index",
+            "id": 73663,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "841bb221-569c-4748-ab76-f5261dcadd13"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Todo elemento em um array tem uma posição numerada chamada de índice.</p><img src=\"841bb221-569c-4748-ab76-f5261dcadd13\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "Start at zero",
+            "id": 73665,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Os índices começam em 0 e aumentam com cada valor subsequente. Isso significa que o segundo elemento em <code>temperatures</code> está no índice <code>1</code>. Codifique esse índice.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(temperatures[\" /><text value=\"1\" class=\"number\" /><text value=\"]);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"64\" endIndex=\"65\" /></interactions><output><content><text value=\"20\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>1</code>.</p></body></html>"
+          },
+          {
+            "title": "Access element",
+            "id": 73666,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para acessar um elemento como <code>26</code>, codifique o nome do array <code>temperatures</code> seguido pelo índice do elemento entre colchetes <code>[2]</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(temperatures[\" /><text value=\"2\" class=\"number\" /><text value=\"]);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"51\" endIndex=\"63\" /><option startIndex=\"63\" endIndex=\"64\" /><option startIndex=\"64\" endIndex=\"65\" /><option startIndex=\"65\" endIndex=\"66\" /><option correct=\"false\"><content><text value=\"3\" /></content></option></options></interaction></interactions><output><content><text value=\"26\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>temperatures</code> seguido de <code>[</code> e depois <code>2</code>, <code>]</code>.</p></body></html>"
+          },
+          {
+            "title": "Change value",
+            "id": 73668,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para atualizar o valor da temperatura no segundo índice, acesse-o através de <code>temperatures[2]</code>, em seguida, use <code>=</code> para atribuir um novo valor como <code>25</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"temperatures[\" /><text value=\"2\" class=\"number\" /><text value=\"] = \" /><text value=\"25\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(temperatures);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"39\" endIndex=\"54\" /><option startIndex=\"55\" endIndex=\"56\" /><option startIndex=\"57\" endIndex=\"59\" /><option correct=\"false\"><content><text value=\"3\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 17, 20, 25, 24 ]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>temperatures[2]</code> seguido de <code>=</code> e finalmente <code>25</code>.</p></body></html>"
+          },
+          {
+            "title": "Valid index",
+            "id": 73667,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Apesar de ter quatro elementos no array, o último índice que podemos acessar é <code>3</code> porque a indexação começa em 0.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"25\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"temperatures[\" /><text value=\"3\" class=\"number\" /><text value=\"] = \" /><text value=\"20\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(temperatures);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"52\" endIndex=\"53\" /><option correct=\"false\"><content><text value=\"4\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 17, 25, 26, 20 ]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>3</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Any value",
+            "id": 73682,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quais tipos de valores um array pode armazenar?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Qualquer valor, incluindo strings, números e booleans</item><item value=\"2\" correct=\"false\">Apenas strings</item></selection><p visible-if=\"wrong\">Qualquer valor, incluindo strings, números e booleans.</p></body></html>"
+          },
+          {
+            "title": "Question: Index",
+            "id": 73683,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como chamamos a posição de um elemento em um array?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">O índice do elemento</item><item value=\"2\" correct=\"false\">O número do elemento</item></selection><p visible-if=\"wrong\">O índice do elemento.</p></body></html>"
+          },
+          {
+            "title": "Question: Start at zero",
+            "id": 73684,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual índice o elemento neste array possui?</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Kim&quot;\" class=\"string\" /><text value=\"];\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>0</code></item><item value=\"2\" correct=\"false\"><code>1</code></item></selection><p visible-if=\"wrong\">Certifique-se de escolher <code>0</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Access element",
+            "id": 73685,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como acessamos um elemento neste array?</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" cars = [\" /><text value=\"&quot;Fiat&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tesla&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Saab&quot;\" class=\"string\" /><text value=\"];\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>cars[1]</code></item><item value=\"2\" correct=\"false\"><code>cars[\"Tesla\"]</code></item></selection><p visible-if=\"wrong\">Certifique-se de escolher <code>cars[1]</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Change value",
+            "id": 73686,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como atualizamos um valor em um array?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Nós acessamos o valor pelo seu índice e, em seguida, atribuímos outro valor</item><item value=\"2\" correct=\"false\">Não podemos atualizar valores em arrays</item></selection><p visible-if=\"wrong\">Nós acessamos o valor pelo seu índice e, em seguida, atribuímos outro valor.</p></body></html>"
+          },
+          {
+            "title": "Question: Valid index",
+            "id": 73687,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quais índices podemos acessar em um array com dois elementos?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>0</code> e <code>1</code></item><item value=\"2\" correct=\"false\"><code>1</code> e <code>2</code></item></selection><p visible-if=\"wrong\"><code>0</code> e <code>1</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Any value",
+            "id": 73690,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Codifique o valor <code>false</code> neste array.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" options = [\" /><text value=\"true\" class=\"literal\" /><text value=\", \" /><text value=\"false\" class=\"literal\" /><text value=\"];\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"23\" endIndex=\"28\" /></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>false</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Index",
+            "id": 73691,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Certifique-se de que <code>\"cat\"</code> esteja no índice <code>0</code>, e <code>\"dog\"</code> esteja no índice <code>1</code>, codificando <code>\"cat\"</code> e depois <code>\"dog\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" animals = [\" /><text value=\"&quot;cat&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dog&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(animals);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"17\" endIndex=\"22\" /><option startIndex=\"24\" endIndex=\"29\" /><option correct=\"false\"><content><text value=\"&quot;parrot&quot;\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'cat', 'dog' ]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"cat\"</code> seguido de <code>\"dog\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Start at zero",
+            "id": 73692,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Codifique o valor <code>9</code> no índice zero.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" lockCombination = [\" /><text value=\"9\" class=\"number\" /><text value=\", \" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"7\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(lockCombination);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"25\" endIndex=\"26\" /></interactions><output><content><text value=\"[ 9, 4, 7 ]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>9</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Access element",
+            "id": 73693,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Codifique <code>items[1]</code> para exibir o segundo elemento, <code>\"tomato\"</code>, no array.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" items = [\" /><text value=\"&quot;milk&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;tomato&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;apple&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(items[\" /><text value=\"1\" class=\"number\" /><text value=\"]);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"63\" /><option correct=\"false\"><content><text value=\"items[2]\" /></content></option></options></interaction></interactions><output><content><text value=\"tomato\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>items[1]</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Change value",
+            "id": 73694,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Atualize o primeiro elemento do array de <code>3</code> para <code>2</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" even = [\" /><text value=\"3\" class=\"number\" /><text value=\", \" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"6\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"even[\" /><text value=\"0\" class=\"number\" /><text value=\"] = \" /><text value=\"2\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(even);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"24\" endIndex=\"31\" /><option startIndex=\"32\" endIndex=\"33\" /><option startIndex=\"34\" endIndex=\"35\" /></options></interaction></interactions><output><content><text value=\"[ 2, 4, 6 ]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>even[0]</code> seguido de <code>=</code> e finalmente <code>2</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Valid index",
+            "id": 73695,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Acesse o terceiro elemento do array.<br /></p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" topSpeeds = [\" /><text value=\"100\" class=\"number\" /><text value=\", \" /><text value=\"130\" class=\"number\" /><text value=\", \" /><text value=\"240\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(topSpeeds[\" /><text value=\"2\" class=\"number\" /><text value=\"]);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"57\" endIndex=\"58\" /></interactions><output><content><text value=\"240\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>2</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

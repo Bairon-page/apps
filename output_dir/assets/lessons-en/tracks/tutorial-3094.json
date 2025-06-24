@@ -1,0 +1,323 @@
+{
+  "tutorial": {
+    "id": 3094,
+    "version": 4,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "jsx",
+    "title": "Pokédex - Part 1",
+    "descriptionContent": "Lay the foundation for your Pokédex by fetching Pokémon data from an API and displaying it",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-3094-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 15385,
+        "title": "Chapter #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 135395,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Welcome to the **Pokedex** project. We'll use a provided Pokemon API to display different types of Pokemon.\n\nIn this project, we already have the React boilerplate code available and a few more empty files to hit the ground running.\n\nLet's start by adding content and a navigation system to our app. We'll set the foundation with React Router and create separate components for the Home page and the Pokédex.\n\n1. In the `App.jsx` file, import `BrowserRouter` from `react-router-dom`.\n2. Render an empty `BrowserRouter` element.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pokédex</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst App = () => (<></>);\n\nexport default App;",
+                  "solvedContent": "import React from \"react\";\nimport { BrowserRouter } from \"react-router-dom\";\n\nconst App = () => (\n  <BrowserRouter>\n  </BrowserRouter>\n);\n\nexport default App;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Home.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Pokedex.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 135396,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Now we'll integrate the navigation bar and add links to the first two parts's we'll work on: *Home* and *Pokédex*.\n\n1. In `App.jsx`, import `Link` from `react-router-dom`.\n1. In `App.jsx`, create a new component `NavigationBar`, which returns a `nav` element.\n2. Inside the `nav`, add `Link` elements for  *Home* that should lead to `\"/\"` and *Pokédex* that should lead to `\"/pokedex\"`.\n3. Add the `NavigationBar` component to the return statement inside the `BrowserRouter` to display it.\n",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Pokédex</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { BrowserRouter } from \"react-router-dom\";\n\nconst App = () => <BrowserRouter></BrowserRouter>;\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { BrowserRouter, Link } from \"react-router-dom\";\n\nconst NavigationBar = () => {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/pokedex\">Pokédex</Link>\n    </nav>\n  );\n};\n\nconst App = () => (\n  <BrowserRouter>\n    <NavigationBar />\n  </BrowserRouter>\n);\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Home.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Pokedex.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 135397,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Next, we'll set up routing to display components based on the path. We'll add routes for the home page and the Pokédex.\n\n1. In the `Home.jsx` file, create a `Home` component that returns an `h1` with a welcome message and a `p` with a short description of the Pokédex. Remember to import `React` to make the code work. Ensure that you export the component as well.\n2. In the `Pokedex.jsx` file, create a `Pokedex` component that returns an `h1` with the text *Pokédex* and export the component.\n3. Import the `Home` and `Pokedex` components in `App.jsx`.\n4. Import `Route` and `Routes` from `react-router-dom`.\n5. Inside the `BrowseRouter`, below the navigation bar, add a `Routes` component.\n6. Add two `Route` components inside `Routes`.\n   - One for the Home path `\"/\"`.\n   - One for the Pokédex path `\"/pokedex\"`.\n    - Assign `element` attributes to these routes with corresponding components,`Home` and `Pokedex`.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Pokédex</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { BrowserRouter, Link } from \"react-router-dom\";\n\nconst NavigationBar = () => {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/pokedex\">Pokédex</Link>\n    </nav>\n  );\n};\n\nconst App = () => (\n  <BrowserRouter>\n    <NavigationBar />\n  </BrowserRouter>\n);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { BrowserRouter, Routes, Route, Link } from \"react-router-dom\";\nimport Home from \"./Home\";\nimport Pokedex from \"./Pokedex\";\n\nconst NavigationBar = () => {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/pokedex\">Pokédex</Link>\n    </nav>\n  );\n};\n\nconst App = () => (\n  <BrowserRouter>\n    <NavigationBar />\n    <Routes>\n      <Route path=\"/\" element={<Home />} />\n      <Route path=\"/pokedex\" element={<Pokedex />} />\n    </Routes>\n  </BrowserRouter>\n);\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Home.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": "import React from \"react\";\n\nconst Home = () => {\n  return (\n    <div>\n      <h1>Welcome to the Pokédex App</h1>\n      <p>Explore the world of Pokémon with our comprehensive Pokédex.</p>\n    </div>\n  );\n};\n\nexport default Home;\n"
+                },
+                {
+                  "name": "Pokedex.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": "import React from \"react\";\n\nconst Pokedex = () => {\n  return <h1>All Pokémon</h1>;\n};\n\nexport default Pokedex;\n"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 135402,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's style the basic layout of our application by setting some global styles and typography. This will ensure that the app has a consistent appearance.\n\n1. In the `App.jsx` file, load the `App.css` file.\n2. Wrap the `Routes` component in a `div` and give that `div` the class `\"content\"`.\n3. In `App.css`, add an `@import` statement for an external font: `@import url(\"https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap\");`\n4. Define basic global styles like `body`:\n   - Set the `font-family` to `\"Press Start 2P\", sans-serif`.\n   - Set the `background-color` to `#F7E39C`.\n   - Set the `text-align` to `center`.\n   - Set the `margin` to `0`.\n5. Define styles for the `.content` class:\n   - Set the `width` to `90%`.\n   - Set the `max-width` to `640px`.\n   - Set the `margin` to `0 auto`.\n6. Define styles for the `p` elements:\n   - Set the `line-height` to `1.5`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Pokédex</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { BrowserRouter, Routes, Route, Link } from \"react-router-dom\";\nimport Home from \"./Home\";\nimport Pokedex from \"./Pokedex\";\n\nconst NavigationBar = () => {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/pokedex\">Pokédex</Link>\n    </nav>\n  );\n};\n\nconst App = () => (\n  <BrowserRouter>\n    <NavigationBar />\n    <Routes>\n      <Route path=\"/\" element={<Home />} />\n      <Route path=\"/pokedex\" element={<Pokedex />} />\n    </Routes>\n  </BrowserRouter>\n);\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport { BrowserRouter, Routes, Route, Link } from \"react-router-dom\";\nimport \"./App.css\";\nimport Home from \"./Home\";\nimport Pokedex from \"./Pokedex\";\n\nconst NavigationBar = () => {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/pokedex\">Pokédex</Link>\n    </nav>\n  );\n};\n\nconst App = () => (\n  <BrowserRouter>\n    <NavigationBar />\n    <div className=\"content\">\n      <Routes>\n        <Route path=\"/\" element={<Home />} />\n        <Route path=\"/pokedex\" element={<Pokedex />} />\n      </Routes>\n    </div>\n  </BrowserRouter>\n);\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": "@import url(\"https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap\");\n\nbody {\n  margin: 0;\n  font-family: \"Press Start 2P\", sans-serif;\n  background-color: #F7E39C;\n  text-align: center;\n}\n\n.content {\n  width: 90%;\n  max-width: 640px;\n  margin: 0 auto;\n}\n\np {\n  line-height: 1.5;\n}"
+                },
+                {
+                  "name": "Home.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Home = () => {\n  return (\n    <div>\n      <h1>Welcome to the Pokédex App</h1>\n      <p>Explore the world of Pokémon with our comprehensive Pokédex.</p>\n    </div>\n  );\n};\n\nexport default Home;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Pokedex.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Pokedex = () => {\n  return <h1>All Pokémon</h1>;\n};\n\nexport default Pokedex;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3 - Copy - Copy",
+            "id": 135403,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "With the basic styles in place, let's continue to style the navigation and adjust the layout of the content area.\n\n1. In `App.css`, add styles for `nav` to ensure proper alignment and color scheme:\n   - Set the `display` to `flex`.\n   - Set the `justify-content` to `center`.\n   - Set the `gap` to `10px`.\n   - Set the `padding` to `10px`.\n   - Set the `background-color` to `#D13325`.\n   - Set the `position` to `sticky`.\n   - Set the `top` to `0`.\n   - Set the `z-index` to `1000`.\n2. Create another rule to target `nav a` and declare the following inside that rule:\n   - Set the `text-decoration` to `none`.\n   - Set the `font-weight` to `bold`.\n   - Set the `color` to `#F7E39C`.\n   - Set the `margin` to `0 4px`.\n3. Create yet another rule to target the hover state with `nav a:hover`.\n   - Set the `color` to `black`.",
+              "preselectedFileIndex": 3,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Pokédex</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { BrowserRouter, Routes, Route, Link } from \"react-router-dom\";\nimport \"./App.css\";\nimport Home from \"./Home\";\nimport Pokedex from \"./Pokedex\";\n\nconst NavigationBar = () => {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/pokedex\">Pokédex</Link>\n    </nav>\n  );\n};\n\nconst App = () => (\n  <BrowserRouter>\n    <NavigationBar />\n    <div className=\"content\">\n      <Routes>\n        <Route path=\"/\" element={<Home />} />\n        <Route path=\"/pokedex\" element={<Pokedex />} />\n      </Routes>\n    </div>\n  </BrowserRouter>\n);\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "@import url(\"https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap\");\n\nbody {\n  margin: 0;\n  font-family: \"Press Start 2P\", sans-serif;\n  background-color: #F7E39C;\n  text-align: center;\n}\n\n.content {\n  width: 90%;\n  max-width: 640px;\n  margin: 0 auto;\n}\n\np {\n  line-height: 1.5;\n}",
+                  "solvedContent": "@import url(\"https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap\");\n\nbody {\n  margin: 0;\n  font-family: \"Press Start 2P\", sans-serif;\n  background-color: #F7E39C;\n  text-align: center;\n}\n\n.content {\n  width: 90%;\n  max-width: 640px;\n  margin: 0 auto;\n}\n\np {\n  line-height: 1.5;\n}\n\nnav {\n  display: flex;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  background-color: #D13325;\n  position: sticky;\n  top: 0;\n  z-index: 1000;\n}\n\nnav a {\n  text-decoration: none;\n  font-weight: bold;\n  color: #F7E39C;\n  margin: 0 4px;\n}\n\nnav a:hover {\n  color: black;\n}"
+                },
+                {
+                  "name": "Home.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Home = () => {\n  return (\n    <div>\n      <h1>Welcome to the Pokédex App</h1>\n      <p>Explore the world of Pokémon with our comprehensive Pokédex.</p>\n    </div>\n  );\n};\n\nexport default Home;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Pokedex.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Pokedex = () => {\n  return <h1>All Pokémon</h1>;\n};\n\nexport default Pokedex;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 135398,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "It's time to add functionality to our Pokédex, which will include fetching data from an external API.\n\n1. In the `Pokedex.jsx` file, import the necessary hooks `useState` and `useEffect`.\n2. Initialize a state variable `pokemons` for storing Pokémon data using `useState`. Initialize it with an empty array.\n3. Implement an async function `fetchPokemons` that fetches the Pokémon data.\n   - Use `fetch` to get the data from `https://pokedex.mimo.dev/api/pokemon`.\n   - Once you receive a response, access the JSON data and update the `pokemon` state variable with it.\n4. Use `useEffect` to call `fetchPokemons` only once when the component mounts by setting an empty dependency array.\n5. In the `return` statement, below the header, iterate over the state variable `pokemons` to display their names that you access via `.name` in an unordered list. Set the `index` as the key.",
+              "preselectedFileIndex": 5,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pokédex</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { BrowserRouter, Routes, Route, Link } from \"react-router-dom\";\nimport \"./App.css\";\nimport Home from \"./Home\";\nimport Pokedex from \"./Pokedex\";\n\nconst NavigationBar = () => {\n  return (\n    <nav>\n      <Link to=\"/\">Home</Link>\n      <Link to=\"/pokedex\">Pokédex</Link>\n    </nav>\n  );\n};\n\nconst App = () => (\n  <BrowserRouter>\n    <NavigationBar />\n    <div className=\"content\">\n      <Routes>\n        <Route path=\"/\" element={<Home />} />\n        <Route path=\"/pokedex\" element={<Pokedex />} />\n      </Routes>\n    </div>\n  </BrowserRouter>\n);\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "@import url(\"https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap\");\n\nbody {\n  margin: 0;\n  font-family: \"Press Start 2P\", sans-serif;\n  background-color: #F7E39C;\n  text-align: center;\n}\n\n.content {\n  width: 90%;\n  max-width: 640px;\n  margin: 0 auto;\n}\n\np {\n  line-height: 1.5;\n}\n\nnav {\n  display: flex;\n  justify-content: center;\n  gap: 10px;\n  padding: 10px;\n  background-color: #D13325;\n  position: sticky;\n  top: 0;\n  z-index: 1000;\n}\n\nnav a {\n  text-decoration: none;\n  font-weight: bold;\n  color: #F7E39C;\n  margin: 0 4px;\n}\n\nnav a:hover {\n  color: black;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Home.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Home = () => {\n  return (\n    <div>\n      <h1>Welcome to the Pokédex App</h1>\n      <p>Explore the world of Pokémon with our comprehensive Pokédex.</p>\n    </div>\n  );\n};\n\nexport default Home;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Pokedex.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Pokedex = () => {\n  return <h1>All Pokémon</h1>;\n};\n\nexport default Pokedex;\n",
+                  "solvedContent": "import React, { useState, useEffect } from \"react\";\n\nconst Pokedex = () => {\n  const [pokemons, setPokemons] = useState([]);\n\n  const fetchPokemons = async () => {\n    fetch(\"https://pokedex.mimo.dev/api/pokemon\")\n      .then((response) => response.json())\n      .then((data) => setPokemons(data));\n  };\n\n  useEffect(() => {\n    fetchPokemons();\n  }, []);\n\n  return (\n    <>\n      <h1>All Pokémon</h1>\n      <ul>\n        {pokemons.map((pokemon, index) => (\n          <li key={index}>{pokemon.name}</li>\n        ))}\n      </ul>\n    </>\n  );\n};\n\nexport default Pokedex;\n"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

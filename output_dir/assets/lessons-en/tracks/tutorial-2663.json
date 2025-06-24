@@ -1,0 +1,183 @@
+{
+  "tutorial": {
+    "id": 2663,
+    "version": 5,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Food Order System - Part 1",
+    "descriptionContent": "Embark on a culinary journey: an Italian food ordering system. Dive into the delicious world of pizzas and pasta as you build a delivery service",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2663-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14638,
+        "title": "Chapter #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 129468,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Welcome to the **Food Order System** project. We'll build a system to order your favorite food. Let's start the project by creating a list of traditional Italian meals we want to include on our menu.\n\n1. Create a list named `italian_food`. In this list, include four string values of dishes like `\"Pasta Bolognese\"`, `\"Pepperoni pizza\"`, `\"Margherita pizza\"`, and `\"Lasagna\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129469,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Next, create a function to check if a meal is ready to order.\n\n1. Define a function named `find_meal` that accepts two parameters: `name` and `menu`.\n2. In the function, return the name if you can find it in the passed menu (which should represent a list like the one defined above).\n3. If the meal (passed as the first parameter) is not found in the menu (passed as the second parameter), return `None`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 129470,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "After successfully defining the search function, it's time to tailor it to our case.\n\n1. Create a `select_meal` function with `name` as a parameter.\n2. Inside the `select_meal` function, call the `find_meal` function and pass the name along with the pre-defined `italian_food` list to the `find_meal` function.\n3. The `select_meal` function should then return what it receives from the `find_meal` function.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 129471,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Now, create another function to display the menu to the customers.\n\n1. Define a function named `display_available_meals`.\n2. Within the function, use a `print` function to print `Available Italian Meals:`.\n3. Use a loop to iterate through the `italian_food` list and print each meal.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 129472,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Create a function to summarize your food order or notify you if that meal is not found on our menu.\n\n1. Define a function named `create_summary`. The function should take two arguments, `name`, and `amount`.\n2. Inside the function, create a variable named `order` and assign to it the result of calling `select_meal` with the `name` parameter.\n3. Add a conditional statement that checks if the food was found.\n   - Return a formatted string stating the quantities and name of the meal if the `order` is found.\n   - If  `order` is `None`, return `Meal not found`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)\n\ndef create_summary(name, amount):\n  order = select_meal(name)\n  if order:\n    return f\"You ordered {amount} {name}\"\n  else:\n    return \"Meal not found\""
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 129473,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Time to interact with the virtual customer and let them make an order.\n\n1. At the very end of your code, print the welcoming message `Welcome to the Food Order System!`.\n2. Afterward, call the `display_available_meals` function.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)\n\ndef create_summary(name, amount):\n  order = select_meal(name)\n  if order:\n    return f\"You ordered {amount} {name}\"\n  else:\n    return \"Meal not found\"",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)\n\ndef create_summary(name, amount):\n  order = select_meal(name)\n  if order:\n    return f\"You ordered {amount} {name}\"\n  else:\n    return \"Meal not found\"\n\nprint(\"Welcome to the Food Order System!\")\ndisplay_available_meals()"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 129474,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Next up: receiving the customer's order.\n\n1. At the end of your code, add two `input` functions.\n   - The first one should get the meal choice and be saved in a variable called `name_input`.\n   - The second one should ask for the order quantity and save it in a variable called `amount_input`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)\n\ndef create_summary(name, amount):\n  order = select_meal(name)\n  if order:\n    return f\"You ordered {amount} {name}\"\n  else:\n    return \"Meal not found\"\n\nprint(\"Welcome to the Food Order System!\")\ndisplay_available_meals()",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)\n\ndef create_summary(name, amount):\n  order = select_meal(name)\n  if order:\n    return f\"You ordered {amount} {name}\"\n  else:\n    return \"Meal not found\"\n\nprint(\"Welcome to the Food Order System!\")\ndisplay_available_meals()\nname_input = input(\"Enter the name of the meal you want to order: \")\namount_input = int(input(\"Enter the quantity you want to order: \"))"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8",
+            "id": 129475,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Display the order summary or inform the customer that the chosen meal is not on the menu.\n\n1. Now, call the`create_summary` function and pass the arguments `name_input` and `amount_input`. Create a variable `result` which stores the return value of the function call.\n2. Then, print the value of `result`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)\n\ndef create_summary(name, amount):\n  order = select_meal(name)\n  if order:\n    return f\"You ordered {amount} {name}\"\n  else:\n    return \"Meal not found\"\n\nprint(\"Welcome to the Food Order System!\")\ndisplay_available_meals()\nname_input = input(\"Enter the name of the meal you want to order: \")\namount_input = int(input(\"Enter the quantity you want to order: \"))",
+                  "solvedContent": "italian_food = [\n  \"Pasta Bolognese\",\n  \"Pepperoni pizza\",\n  \"Margherita pizza\",\n  \"Lasagna\"\n]\n\ndef find_meal(name, menu):\n  return name if name in menu else None\n\ndef select_meal(name):\n  return find_meal(name, italian_food)\n\ndef display_available_meals():\n  print(\"Available Italian Meals:\")\n  for meal in italian_food:\n    print(meal)\n\ndef create_summary(name, amount):\n  order = select_meal(name)\n  if order:\n    return f\"You ordered {amount} {name}\"\n  else:\n    return \"Meal not found\"\n\nprint(\"Welcome to the Food Order System!\")\ndisplay_available_meals()\nname_input = input(\"Enter the name of the meal you want to order: \")\namount_input = int(input(\"Enter the quantity you want to order: \"))\n\nresult = create_summary(name_input, amount_input)\nprint(result)"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

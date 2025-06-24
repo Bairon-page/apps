@@ -1,0 +1,444 @@
+{
+  "tutorial": {
+    "id": 2589,
+    "version": 18,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "html",
+    "title": "Convertidor de Unidades - Parte 2",
+    "descriptionContent": "Ahora que tenemos nuestro convertidor básico en funcionamiento, es hora de hacerlo más interactivo y mejorar su estilo.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2589-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14377,
+        "title": "Proyecto - Parte 2",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Input",
+            "id": 127928,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Continuemos con la segunda parte de nuestro proyecto de **Convertidor de Unidades**. Aquí, mejoraremos el HTML y añadiremos algo de CSS. Como primer paso, vamos a crear un elemento de entrada para la entrada del usuario.\n\n1. Debajo del elemento `h1`, añade un elemento `input` que tenga estos atributos:\n   - `type=\"number\"`\n   - `placeholder=\"Enter number...\"`\n   - `id=\"userInput\"`",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputdddValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Select 1",
+            "id": 127936,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para permitir a los usuarios elegir la dirección de conversión, vamos a crear un menú desplegable.\n\n1. Añade un elemento `select`\n   - Asígnale el atributo `id=\"unit\"`.\n   - Luego, inserta dos elementos `option` dentro del `select` para las opciones de unidad \"Miles to Kilometers\" y \"Kilometers to Miles\".",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option>Miles to Kilometers</option>\n      <option>Kilometers to Miles</option>\n    </select>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Select 2",
+            "id": 129069,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "También queremos definir el valor de las dos opciones utilizando un atributo `value`.\n\n1. Para ambas opciones, añade un atributo `value` y establece su valor en `\"milesToKm\"` y `\"kmToMiles\"` para las dos opciones.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option>Miles to Kilometers</option>\n      <option>Kilometers to Miles</option>\n    </select>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Button",
+            "id": 127937,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para activar el proceso de conversión, añadiremos un botón.\n\n1. Inserta un elemento `button` debajo del elemento `select`. Dale al `button` un título descriptivo, como `Convert`.\n2. Añade el atributo `onclick=\"convert()\"` al botón.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Stylesheet",
+            "id": 127938,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora que nuestra estructura HTML está lista, vamos a enlazar el archivo CSS.\n\n1. Agrega un elemento `head` en la parte superior de la página después de `html`. Dentro del elemento `head`, añade una etiqueta <link> para enlazar el archivo CSS, llamado `style.css`, dentro del `head`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Body style",
+            "id": 127939,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación: estiliza nuestro documento HTML. Comenzaremos con el elemento `body`.\n\n1. Crea una regla para apuntar al elemento `body`.\n2. Establece el color de fondo del `body` a un color de tu elección y añade `20px` de padding.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": "body {\n padding: 20px;\n background-color: lightblue;\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "h1",
+            "id": 127940,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Cada página web decente necesita un elemento `h1` con estilo. Eso es lo que haremos ahora.\n\n1. Crea una regla para apuntar al elemento `h1`.\n2. Dale al elemento `h1` algo de padding.\n3. Añade un fondo `white`.\n4. Añade esquinas redondeadas.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightblue;\n  padding: 20px;\n}",
+                  "solvedContent": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "p",
+            "id": 127941,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a estilizar el elemento `p`.\n\n1. Crea una regla para el elemento `p` y añade lo siguiente.\n   - Establece el color de fondo a un color que te guste.\n   - Establece el `color` a un valor que se ajuste al color de fondo que elegiste.\n   - Añade esquinas redondeadas.\n   - Establece el `width` a algo como `200px`.\n   - Establece el `height` a algo como `20px`.\n   - Incluye algo de `padding`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}",
+                  "solvedContent": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}\n\np {\n  background-color: magenta;\n  color: white;\n  border-radius: 5px;\n  width: 200px;\n  height: 20px;\n  padding: 5px;\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\n\nlet result = 0;\n\nif (milesToKm === true) {\n result = inputValue * 1.60934;\n} else {\n result = inputValue / 1.60934;\n}\n\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\n\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Button work",
+            "id": 127944,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora, hagamos que el botón funcione. Para hacerlo, necesitamos encapsular la lógica existente dentro de una función `convert()`.\n\nEl resultado de la conversión desaparecerá, pero lo añadiremos de nuevo más tarde.\n\n1. Crea una función de JavaScript llamada `convert()`.\n2. Pon todo el código existente en esa función.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}\n\np {\n  background-color: magenta;\n  color: white;\n  border-radius: 5px;\n  width: 200px;\n  height: 20px;\n  padding: 5px;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const inputValue = 10;\nconst milesToKm = true;\nlet result = 0;\nif (milesToKm === true) {\n  result = inputValue * 1.60934;\n} else {\n  result = inputValue / 1.60934;\n}\nconst resultString = inputValue + \" miles are \" + result + \" km\";\nconsole.log(resultString);\nconst resultElement = document.getElementById('resultElement');\nresultElement.innerHTML = resultString;",
+                  "solvedContent": "function convert() {\n  const inputValue = 10;\n  const milesToKm = true;\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Input value",
+            "id": 127945,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Debemos modificar nuestro código para obtener la entrada del usuario desde los elementos HTML. Reemplazaremos el `inputValue` predefinido con código que recupere el valor ingresado por el usuario desde el elemento de entrada HTML.\n\n1. Usa `document.getElementById` para recuperar el elemento con el id `userInput` y guarda ese valor dentro de la variable `inputValue`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}\n\np {\n  background-color: magenta;\n  color: white;\n  border-radius: 5px;\n  width: 200px;\n  height: 20px;\n  padding: 5px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function convert() {\n  const inputValue = 10;\n  const milesToKm = true;\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n}",
+                  "solvedContent": "function convert() {\n  const inputValue = document.getElementById(\"userInput\").value;\n  const milesToKm = true;\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "How to do that?",
+                  "content": "Replace the existing code \n\n```js\nconst inputValue = 10;\n```\n\nwith the following:\n\n```js\nconst inputValue = document.getElementById('userInput').value;\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Update Unit Conversion",
+            "id": 127946,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, cambiaremos el código para determinar el tipo de conversión basado en la selección del usuario desde el elemento `<select>` de HTML.\n\nObtendremos el valor del elemento `<select>` con el atributo `id` establecido en `\"unit\"` en el código HTML y lo guardaremos dentro de una variable.\n\n1. Debajo de la variable `inputValue`, crea una variable `unit`.\n2. Accede al elemento con el id `unit` en JavaScript usando `document.getElementById()` y almacena el valor en la nueva variable creada.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}\n\np {\n  background-color: magenta;\n  color: white;\n  border-radius: 5px;\n  width: 200px;\n  height: 20px;\n  padding: 5px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function convert() {\n  const inputValue = document.getElementById(\"userInput\").value;\n  const milesToKm = true;\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n}",
+                  "solvedContent": "function convert() {\n  const inputValue = document.getElementById(\"userInput\").value;\n  const unit = document.getElementById(\"unit\").value;\n  const milesToKm = true;\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Determine the Conversion Type:",
+            "id": 127947,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Determinemos el tipo de conversión. En este paso, estableceremos la variable `milesToKm` a `true` o `false` según la unidad seleccionada por el usuario.\n\n1. Ya tenemos una variable llamada `milesToKm` debajo de la variable `unit`. Actualmente, siempre está configurada como `true`. Cambiemos eso.\n2. En su lugar, establece la variable `milesToKm` comparando el valor de `unit` con la cadena `\"milesToKm\"` (`unit === \"milesToKm\"`). Si el valor de `unit` es `\"milesToKm\"`, entonces la comparación se evaluará como `true`, de lo contrario como `false`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}\n\np {\n  background-color: magenta;\n  color: white;\n  border-radius: 5px;\n  width: 200px;\n  height: 20px;\n  padding: 5px;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function convert() {\n  const inputValue = document.getElementById(\"userInput\").value;\n  const unit = document.getElementById('unit').value;\n  const milesToKm = true;\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n}",
+                  "solvedContent": "function convert() {\n  const inputValue = document.getElementById(\"userInput\").value;\n  const unit = document.getElementById('unit').value;\n  const milesToKm = unit === 'milesToKm';\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Paragraph",
+            "id": 127949,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a actualizar el código HTML para asegurarnos de que haya contenido visible en el elemento `p` para que no parezca un elemento sin altura.\n\n1. Modifica el elemento `p` para incluir el texto `Result: 0`.\n2. Añade un elemento `span` alrededor del `0`.\n3. Luego mueve el id `resultElement` para que pertenezca al elemento `span` en lugar del elemento `p`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p id=\"resultElement\"></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Unit Converter</h1>\n    <input type=\"number\" id=\"userInput\" placeholder=\"Enter number...\">\n    <select id=\"unit\">\n      <option value=\"milesToKm\">Miles to Kilometers</option>\n      <option value=\"kmToMiles\">Kilometers to Miles</option>\n    </select>\n    <button onclick=\"convert()\">Convert</button>\n    <p>Result: <span id=\"resultElement\">0</span></p>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightblue;\n  padding: 20px;\n}\n\nh1 {\n  padding: 20px;\n  background-color: white;\n  border-radius: 5px;\n}\n\np {\n  background-color: magenta;\n  color: white;\n  border-radius: 5px;\n  width: 200px;\n  height: 20px;\n  padding: 5px;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function convert() {\n  const inputValue = document.getElementById(\"userInput\").value;\n  const unit = document.getElementById('unit').value;\n  const milesToKm = unit === 'milesToKm';\n  let result = 0;\n  if (milesToKm === true) {\n    result = inputValue * 1.60934;\n  } else {\n    result = inputValue / 1.60934;\n  }\n  const resultString = inputValue + \" miles are \" + result + \" km\";\n  console.log(resultString);\n  const resultElement = document.getElementById('resultElement');\n  resultElement.innerHTML = resultString;\n  }",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

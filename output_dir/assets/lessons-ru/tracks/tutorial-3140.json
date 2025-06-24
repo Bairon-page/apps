@@ -1,0 +1,395 @@
+{
+  "tutorial": {
+    "id": 3140,
+    "version": 2,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "jsx",
+    "title": "Пиксельная сетка - Часть 2",
+    "descriptionContent": "Во второй части ты настроишь front-end для использования API и отображения сетки, которую возвращает back-end.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-3140-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 15459,
+        "title": "Глава №1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 135919,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Добро пожаловать в фронтенд-часть проекта **Pixel Grid**. В этой первой фронтенд-части мы будем использовать API и отображать сетку, которую возвращает бэкенд.\n\nМы начнем с создания компонента `PixelGrid` для отображения сетки.\n\n1. В файле `PixelGrid.jsx` создайте новый React-компонент под названием `PixelGrid`, который принимает свойства. Убедитесь, что вы импортировали `React` и экспортировали компонент.\n2. Верните элемент `div` с `className`, установленным в `\"grid\"`.\n3. Внутри `div` выполните цикл по переданному свойству `grid`, который будет массивом, возвращаемым базой данных.\n   - Отобразите `div` для каждого элемента в переданном массиве `grid`.\n   - Каждый отрендеренный элемент должен иметь `className`, установленный в `\"gridItem\"`.\n4. В файле `App.jsx` импортируйте компонент `PixelGrid` и отобразите его. При рендеринге передайте ему массив с несколькими элементами в качестве свойства `grid`.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./App.css\";\n\nconst App = () => {\n  return <div></div>;\n};\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst App = () => {\n  return (\n    <div>\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={[1, 2, 3]}/>\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": "import React from \"react\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          className=\"gridItem\"\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n"
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": ""
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #1 - Copy",
+            "id": 135925,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Давайте стилизуем пиксели, чтобы они были видимы.\n\n1. Импортируй файл `PixelGrid.css` в файл `PixelGrid.jsx`.\n2. Переключись на файл `PixelGrid.css`, чтобы стилизовать класс `.grid` для отображения сетки из 20 на 20 элементов размером 20px на 20px:\n   - Установи `display` в `grid`.\n   - Установи `grid-template-columns` в `repeat(20, 20px)`.\n   - Установи `grid-template-rows` в `repeat(20, 20px)`.\n3. Добавь еще одно правило для класса `.gridItem`:\n   - Установи `width` в `20px`.\n   - Установи `height` в `20px`.\n   - Установи `border` в `1px solid lightgray`.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst App = () => {\n  return (\n    <div>\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={[1, 2, 3]}/>\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          className=\"gridItem\"\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n",
+                  "solvedContent": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          className=\"gridItem\"\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n"
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n"
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 135920,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Давайте сотворим магию, подключив front-end к back-end. Сначала нам нужно получить данные, чтобы наше приложение могло их отображать. Пока это просто белые пиксели. Но, эй, мы уже загружаем их из нашего back-end!\n\nВо время руководимого проекта ты можешь использовать `process.env.BACKEND_URL` в качестве back-end. Этот back-end работает, пока ты работаешь над руководимым проектом. После этого ты можешь продолжить разработку, используя общедоступный URL с твоего собственного сервера на Mimo.\n\n1. В `App.jsx` импортируй `useEffect` и `useState` из React.\n2. Создай переменную состояния с именем `grid` с помощью `useState` и инициализируй её как пустой массив.\n3. Используй `useEffect`, чтобы сделать GET-запрос к эндпоинту `\"/grid\"` на back-end. Установи результат в переменную состояния `grid`.\n4. В случае ошибки, поймай её и выведи в консоль.\n5. Передай переменную состояния `grid` в компонент `PixelGrid` вместо ранее определенного массива. Если ты это сделаешь, ты должен увидеть сетку 20 на 20.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst App = () => {\n  return (\n    <div>\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={[1, 2, 3]} />\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div>\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          className=\"gridItem\"\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 135935,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Теперь, когда у нас есть полные 400 пикселей для отображения, давайте добавим больше стилей, чтобы оптимизировать сетку для мобильных устройств.\n\n1. В файле `PixelGrid.css` добавь media query для файлов с максимальной шириной 440px.\n2. Внутри media query нацелься на класс `.grid`:\n   - Установи `grid-template-columns` в `repeat(20, 4vw)`.\n   - Установи `grid-template-rows` в `repeat(20, 4vw)`.\n3. Добавь еще одно правило для класса `.gridItem` внутри media query:\n   - Установи `width` в `4vw`.\n   - Установи `height` в `4vw`.",
+              "preselectedFileIndex": 5,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div>\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          className=\"gridItem\"\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n",
+                  "solvedContent": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n"
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 135921,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Давайте обновим наш компонент `PixelGrid`, чтобы отобразить каждый элемент ячейки сетки с его соответствующим цветом. Каждый пиксель по-прежнему будет белым, так как бэкэнд инициализировал каждый пиксель белым цветом. Вскоре мы также позволим фронтенду изменять цвет!\n\n1. В компоненте `PixelGrid`, при итерации по переданному свойству `grid`, установите `key` и добавьте свойство `style`.\n   - Установите свойство `key` на что-то уникальное, например, индекс или комбинацию значений x и y элемента.\n   - Установите `backgroundColor` на свойство `color` элемента.\n   - Установите `gridColumnStart` на значение `x` `+ 1` элемента.\n   - Установите `gridRowStart` на значение `y` `+ 1` элемента.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div>\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          className=\"gridItem\"\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n",
+                  "solvedContent": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n"
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 135922,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Наконец, мы хотим добавить некоторые общие стили CSS, чтобы сделать приложение визуально привлекательным.\n\n1. Импортируй файл `App.css` в файл `App.jsx`.\n2. Убедись, что элемент верхнего уровня, который рендерит компонент `App`, является `div` с классом `\"content-wrapper\"`, который содержит компонент `PixlGrid`.\n2. Переключись на файл `App.css`, чтобы создать правило, которое нацелено на `html`, `body` и класс `.content-wrapper`:\n   - Установи `height` в `100%`.\n   - Установи `display` в `flex`.\n   - Установи `flex-direction` в `column`.\n   - Установи `justify-content` в `center`.\n   - Установи `align-items` в `center`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div>\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n"
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

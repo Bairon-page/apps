@@ -1,0 +1,139 @@
+{
+  "tutorial": {
+    "id": 2132,
+    "version": 9,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Routenparameter",
+    "descriptionContent": "Lerne, wie man Routenparameter mit Express JS erstellt",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 13583,
+        "title": "Routen und Parameter",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro 1",
+            "id": 122193,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "2b3ea393-2db4-4f19-8df3-fb4d9d1d7d75"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>In Express verwenden wir Routen, um eingehende Anfragen zu bearbeiten. Eine Route ist ein spezifizierter URL-Pfad und eine HTTP-Methode.</p><p>Wenn eine Anfrage einer Route zugeordnet wird, verarbeitet die Route die Anfrage und eine Antwort wird gesendet.</p><img src=\"2b3ea393-2db4-4f19-8df3-fb4d9d1d7d75\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "Intro II (New)",
+            "id": 122384,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>In Express kann der Pfad einer Route ein String, ein Stringmuster oder sogar ein regulärer Ausdruck sein!</p><p>Diese Flexibilität im Pfad ermöglicht es uns, eine Vielzahl von Anfragen zu matchen und zu bearbeiten.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"'/movies'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the movies directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/movies/:id'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello from the movies directory for movie ID: \" /><text value=\"${req.params.id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"10\" endIndex=\"16\" /><option startIndex=\"97\" endIndex=\"103\" /><option startIndex=\"104\" endIndex=\"107\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>movies</code>, gefolgt von <code>movies</code> und schließlich <code>:id</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Accessing Specific Endpoints",
+            "id": 122194,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Routen können auf Verzeichnisse verweisen. Zum Beispiel leitet der <code>/</code> Pfad Benutzer zum Stammverzeichnis.</p><p>Lass uns die Benutzer im zweiten Pfad zum <code>/movies</code>-Verzeichnis leiten.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"'/'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the root directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/movies'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the movies directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"88\" endIndex=\"89\" /><option startIndex=\"89\" endIndex=\"96\" /><option correct=\"false\"><content><text value=\"books\" /></content></option><option correct=\"false\"><content><text value=\"songs\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>/</code>, gefolgt von <code>movies'</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Static Routing Limitations ",
+            "id": 122195,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Was ist, wenn wir auf einen Film mit der ID <code>35</code> zugreifen möchten? Wir können eine spezifische GET-Route mit dem Pfad <code>/movies/35</code> hinzufügen.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"'/movies'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the movies directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/movies/35'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text type=\"break\" /><text value=\"  \" /><text value=\"'Hello. I am the movie with the id 35 in the movies directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"96\" endIndex=\"106\" /></interactions></code><p visible-if=\"wrong\">Gib <code>/movies/35</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Dynamic Path Parameters",
+            "id": 122196,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Aber was ist, wenn wir viele Filme haben? Da kommen die dynamischen Pfadparameter von Express ins Spiel.</p><p>Wir fügen <code>/:</code> und den Parameternamen zum Pfad hinzu. Wie hier mit <code>id</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"'/movies'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the movies directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/movies/:id'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello there. I am a route with a parameter called id!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"103\" endIndex=\"104\" /><option startIndex=\"104\" endIndex=\"105\" /><option startIndex=\"105\" endIndex=\"107\" /><option correct=\"false\"><content><text value=\"year\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>/</code>, gefolgt von <code>:</code> und schließlich <code>id</code> aus.</p></body></html>"
+          },
+          {
+            "title": "req.params",
+            "id": 122197,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Erinnerst du dich an <code>req.params</code> aus dem Request-Objekt? Damit können wir auf die Parameterwerte zugreifen, die im Routenpfad angegeben sind.</p><p>Hier, wenn wir den Wert der <code>id</code> des Films haben möchten, schreiben wir <code>req.params.id</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"'/movies/:id'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text type=\"break\" /><text value=\"  \" /><text value=\"`Hello. I am the movie with the id \" /><text value=\"${req.params.id}\" class=\"subst\" /><text value=\" in the movies directory!`\" /><text type=\"break\" /><text value=\"  );\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"89\" endIndex=\"92\" /><option startIndex=\"92\" endIndex=\"99\" /><option startIndex=\"99\" endIndex=\"102\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>req</code>, gefolgt von <code>.params</code> und schließlich <code>.id</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Multiple Params ",
+            "id": 122198,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wir können einem Routenpfad mehr als einen Parameter hinzufügen, wie zum Beispiel einen <code>name</code>-Parameter für das <code>movies</code>-Verzeichnis.</p><p>Hier gibt eine Anfrage mit dem Pfad <code>/movies/35/Aliens</code> den Wert <code>35</code> an den <code>id</code>-Parameter und <code>Aliens</code> an den <code>name</code>-Parameter.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"'/movies/:id/:name'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text type=\"break\" /><text value=\"  \" /><text value=\"`Hello. I am the movie with the id \" /><text value=\"${req.params.id}\" class=\"subst\" /><text value=\" \" /><text type=\"break\" /><text value=\"   and the name \" /><text value=\"${req.params.name}\" class=\"subst\" /><text value=\" \" /><text type=\"break\" /><text value=\"   in the movies directory!`\" /><text type=\"break\" /><text value=\"  );\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"95\" endIndex=\"108\" /><option startIndex=\"129\" endIndex=\"144\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>req.params.id</code>, gefolgt von <code>req.params.name</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Destructuring Multiple Params",
+            "id": 122206,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wir können auch Destructuring verwenden, um Parameterwerte aus dem <code>req.params</code>-Objekt zuzugreifen und sie in Variablen zu speichern.</p><p>Lass uns die Parameter mit der Syntax <code>const { id, name } = req.params</code> destrukturieren, um sie in zwei Variablen, <code>id</code> und <code>name</code>, zu speichern.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"'/movies/:id/:name'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" { id, name } = req.params;\" /><text type=\"break\" /><text value=\" res.send(\" /><text type=\"break\" /><text value=\"  \" /><text value=\"`Hello. I am the movie with \" /><text type=\"break\" /><text value=\"  the id \" /><text value=\"${id}\" class=\"subst\" /><text value=\" and the name \" /><text value=\"${name}\" class=\"subst\" /><text value=\" \" /><text type=\"break\" /><text value=\"  in the movies directory!`\" /><text type=\"break\" /><text value=\"  );\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"58\" endIndex=\"62\" /><option startIndex=\"67\" endIndex=\"77\" /><option correct=\"false\"><content><text value=\"res\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>name</code>, gefolgt von <code>req.params</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Route Paths",
+            "id": 122199,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Was ist ein Routenpfad in Express?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Ein Routenpfad ist ein String, ein String-Muster oder ein regulärer Ausdruck, der mit einem Pfad übereinstimmt, der mit einer HTTP-Anfrage gesendet wird</item><item value=\"2\" correct=\"false\">Ein Routenpfad ist ein Wert, der niemals dynamisch geändert werden kann</item></selection><p visible-if=\"wrong\">Ein Routenpfad ist ein String, ein String-Muster oder ein regulärer Ausdruck, der mit einem Pfad übereinstimmt, der mit einer HTTP-Anfrage gesendet wird.</p></body></html>"
+          },
+          {
+            "title": "Example: Accessing Specific Endpoints",
+            "id": 122200,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Richte die <code>users</code>-Route für eine GET-Anfrage ein.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" express = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"'express'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" app = express();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the root directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/users'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the users directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.listen(\" /><text value=\"3000\" class=\"number\" /><text value=\", () =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Server is running on port \" /><text value=\"${port}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"143\" endIndex=\"146\" /><option startIndex=\"148\" endIndex=\"149\" /><option startIndex=\"149\" endIndex=\"154\" /><option correct=\"false\"><content><text value=\"post\" /></content></option></options></interaction></interactions><output><content><text value=\"Server is running on port 3000\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>get</code>, gefolgt von <code>/</code> und schließlich <code>users</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Static Routing Limitations",
+            "id": 122201,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Greife auf den Benutzer mit dem Namen <code>john</code> aus dem <code>users</code>-Verzeichnis über eine feste Route zu.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" express = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"'express'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" app = express();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the root directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/users/john'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'You are now on John\\'s profile page!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.listen(\" /><text value=\"3000\" class=\"number\" /><text value=\", () =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Server is running on port \" /><text value=\"${port}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"149\" endIndex=\"154\" /><option startIndex=\"155\" endIndex=\"159\" /><option correct=\"false\"><content><text value=\"name=john\" /></content></option></options></interaction></interactions><output><content><text value=\"Server is running on port 3000\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>users</code>, gefolgt von <code>john</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Route Parameters",
+            "id": 122202,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie lautet die korrekte Syntax, um einen Parameter zu einem Pfad in Express hinzuzufügen?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Der Pfad, der von <code>/:</code> und dem Namen des Parameters gefolgt wird</item><item value=\"2\" correct=\"false\">Der Pfad, der vom Namen des Parameters, <code>=</code>, und dem Wert des Parameters gefolgt wird</item></selection><p visible-if=\"wrong\">Der Pfad, der von <code>/:</code> und dem Namen des Parameters gefolgt wird.</p></body></html>"
+          },
+          {
+            "title": "Example: Route Parameters",
+            "id": 122203,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Füge dem <code>chapters</code>-Verzeichnis einen <code>lesson</code>-Parameter hinzu. Füge dann dem <code>tracks</code>-Verzeichnis einen <code>id</code>-Parameter hinzu.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" express = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"'express'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" app = express();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the root directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/chapters/:lesson'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text type=\"break\" /><text value=\"  \" /><text value=\"'Hello. I am a specific lesson in the chapters directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/tracks/:id'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello. I am a specific track in the tracks directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.listen(\" /><text value=\"3000\" class=\"number\" /><text value=\", () =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Server is running on port \" /><text value=\"${port}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"158\" endIndex=\"165\" /><option startIndex=\"273\" endIndex=\"279\" /><option startIndex=\"280\" endIndex=\"283\" /><option correct=\"false\"><content><text value=\"name\" /></content></option><option correct=\"false\"><content><text value=\"/\" /></content></option></options></interaction></interactions><output><content><text value=\"Server is running on port 3000\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>:lesson</code>, gefolgt von <code>tracks</code> und schließlich <code>:id</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: req.params",
+            "id": 122204,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie können wir auf den Film mit der ID <code>125</code> aus dem <code>movies</code>-Verzeichnis zugreifen, wenn der Routenpfad <code>/movies/:id</code> ist?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>localhost:3000/movies/125</code></item><item value=\"2\" correct=\"false\"><code>localhost:3000/movies/id=125</code></item></selection><p visible-if=\"wrong\">Wähle <code>localhost:3000/movies/125</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Multiple Params",
+            "id": 122205,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Drucke die Parameter <code>brand</code> und <code>color</code>, die spezifisch für die <code>phone</code>-Route sind.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" express = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"'express'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" app = express();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the root directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/phone/:brand/:color'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text type=\"break\" /><text value=\"  \" /><text value=\"`Phone's brand: \" /><text value=\"${req.params.brand}\" class=\"subst\" /><text value=\" \" /><text type=\"break\" /><text value=\" - Phone's color: \" /><text value=\"${req.params.color}\" class=\"subst\" /><text value=\"`\" /><text type=\"break\" /><text value=\"  );\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.listen(\" /><text value=\"3000\" class=\"number\" /><text value=\", () =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Server is running on port \" /><text value=\"${port}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"218\" endIndex=\"234\" /><option startIndex=\"257\" endIndex=\"273\" /></options></interaction></interactions><output><content><text value=\"Server is running on port 3000\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>req.params.brand</code>, gefolgt von <code>req.params.color</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Destructuring Multiple Params",
+            "id": 122207,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Hilf dabei, die Parameter <code>color</code> und <code>make</code> des <code>cars</code>-Verzeichnisses zu dekonstruieren.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" express = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"'express'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" app = express();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"'Hello from the root directory!'\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.get(\" /><text value=\"'/cars/:make:/color'\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" { make, color } = req.params;\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Car's make: \" /><text value=\"${make}\" class=\"subst\" /><text value=\" - Car's color: \" /><text value=\"${color}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"app.listen(\" /><text value=\"3000\" class=\"number\" /><text value=\", () =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Server is running on port \" /><text value=\"${port}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"210\" endIndex=\"220\" /></interactions><output><content><text value=\"Server is running on port 3000\" /></content></output></code><p visible-if=\"wrong\">Gib <code>req.params</code> ein.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

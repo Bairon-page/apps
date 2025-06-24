@@ -1,0 +1,226 @@
+{
+  "tutorial": {
+    "id": 1483,
+    "version": 5,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "Finding MIN, MAX,  and Average",
+    "descriptionContent": "Finding MIN, MAX, and Average",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 10548,
+        "title": "MIN and MAX",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 96457,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Beyond just selecting items, we can use queries to perform operations on a table's data, like that in <code>ticket</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database></body></html>"
+          },
+          {
+            "title": "MIN",
+            "id": 96458,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>One of these operations is selecting the smallest value in a column.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MIN\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"7\" endIndex=\"17\" /><option correct=\"false\"><content><text value=\"DISTINCT\" /></content></option></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"MIN(price)\" /></row><row><data content=\"0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>MIN(price)</code>.</p></body></html>"
+          },
+          {
+            "title": "MIN 2",
+            "id": 96475,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>To select the <em>smallest</em> value in a column like <code>price</code>, we code <code>MIN</code> and the column's name between parentheses.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MIN\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"10\" endIndex=\"11\" /><option startIndex=\"11\" endIndex=\"16\" /><option startIndex=\"16\" endIndex=\"17\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"MIN(price)\" /></row><row><data content=\"0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>MIN</code> followed by <code>(</code> and then <code>price</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "MAX",
+            "id": 96478,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>For the <em>greatest</em> value, we code <code>MAX</code> and the column <code>price</code> between parentheses <code>()</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MAX\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"7\" endIndex=\"17\" /></interactions><output><table name=\"Result\"><row><header content=\"MAX(price)\" /></row><row><data content=\"17\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to type <code>MAX(price)</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: MIN 2",
+            "id": 96917,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What operation selects the smallest value in a column?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>MIN</code></item><item value=\"2\" correct=\"false\"><code>BETWEEN</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>MIN</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: MAX",
+            "id": 96918,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What operation selects the largest value in a column?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>MAX</code></item><item value=\"2\" correct=\"false\"><code>MIN</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>MAX</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: MIN",
+            "id": 96920,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Select the smallest <code>km</code> value.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10.2);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 8.7);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10.2\" /></row><row><data content=\"mae\" /><data content=\"8.7\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MIN\" class=\"keyword\" /><text value=\"(km)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"10\" endIndex=\"11\" /><option startIndex=\"11\" endIndex=\"13\" /><option startIndex=\"13\" endIndex=\"14\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"MIN(km)\" /></row><row><data content=\"5\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>SELECT</code> followed by <code>MIN</code> and then <code>(</code>, <code>km</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: MAX",
+            "id": 96922,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Select the largest <code>km</code> value with <code>SELECT</code> and then <code>MAX(km)</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10.2);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 8.7);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10.2\" /></row><row><data content=\"mae\" /><data content=\"8.7\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MAX\" class=\"keyword\" /><text value=\"(km)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"14\" /></interactions><output><table name=\"Result\"><row><header content=\"MAX(km)\" /></row><row><data content=\"10.2\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to type <code>SELECT MAX(km)</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 10552,
+        "title": "Aggregate functions",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Result of an operation",
+            "id": 96476,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>You'll see in the result table that the selected column is no longer <code>price</code>, but <code>MAX(price)</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MAX\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"10\" endIndex=\"11\" /><option startIndex=\"11\" endIndex=\"16\" /><option startIndex=\"16\" endIndex=\"17\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"MAX(price)\" /></row><row><data content=\"17\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>SELECT</code> followed by <code>MAX</code> and then <code>(</code>, <code>price</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Result of an operation 2",
+            "id": 96480,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>That is because we're actually selecting the result of an operation. Think of it as a mathematical operation.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MAX\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"17\" /><option startIndex=\"18\" endIndex=\"29\" /><option startIndex=\"29\" endIndex=\"30\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"MAX(price)\" /></row><row><data content=\"17\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>SELECT MAX(price)</code>, followed by <code>FROM ticket</code>, and finally <code>;</code>.</p></body></html>"
+          },
+          {
+            "title": "Aggregate functions",
+            "id": 96481,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Operations like <code>MIN</code> and <code>MAX</code> are called <strong>aggregate functions</strong> because they return a single result.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MIN\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"7\" endIndex=\"17\" /><option correct=\"false\"><content><text value=\"price\" /></content></option></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"MIN(price)\" /></row><row><data content=\"0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>MIN(price)</code>.</p></body></html>"
+          },
+          {
+            "title": "Aliasing",
+            "id": 96482,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>We can use an alias to rename the result. Here, we're renaming <code>MIN(price)</code> to <code>cheapest</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);&#xA;&#xA;&#xA;&#xA;&#xA;\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MIN\" class=\"keyword\" /><text value=\"(price) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" cheapest\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"18\" endIndex=\"20\" /><option startIndex=\"21\" endIndex=\"29\" /><option correct=\"false\"><content><text value=\"most_expensive\" /></content></option></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"cheapest\" /></row><row><data content=\"0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>AS</code>, followed by <code>cheapest</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Result of an operation 2",
+            "id": 96924,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What column name will be in the result table after running this query?</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10.2);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 8.7);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10.2\" /></row><row><data content=\"mae\" /><data content=\"8.7\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MIN\" class=\"keyword\" /><text value=\"(km)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><output><table name=\"Result\"><row><header content=\"MIN(km)\" /></row><row><data content=\"5\" /></row></table></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>MIN(km)</code> since we're selecting the result of an operation, and not a column</item><item value=\"2\" correct=\"false\"><code>km</code> since we're selecting a column</item></selection><p visible-if=\"wrong\"><code>MIN(km)</code> since we're selecting the result of an operation, and not a column.</p></body></html>"
+          },
+          {
+            "title": "Question: Aggregate functions",
+            "id": 96925,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What do aggregate functions like <code>MIN</code> and <code>MAX</code> give us?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">A single value, the result of an operation</item><item value=\"2\" correct=\"false\">All the values in a column</item></selection><p visible-if=\"wrong\">A single value, the result of an operation.</p></body></html>"
+          },
+          {
+            "title": "Question: Aliasing",
+            "id": 96926,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What column name will we see in the result table?</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10.2);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 8.7);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10.2\" /></row><row><data content=\"mae\" /><data content=\"8.7\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MIN\" class=\"keyword\" /><text value=\"(km) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" shortest_distance\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><output><table name=\"Result\"><row><header content=\"shortest_distance\" /></row><row><data content=\"5\" /></row></table></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>shortest_distance</code> since we're using an alias</item><item value=\"2\" correct=\"false\"><code>MIN(km)</code></item></selection><p visible-if=\"wrong\"><code>shortest_distance</code> since we're using an alias.</p></body></html>"
+          },
+          {
+            "title": "Example: Aggregate functions",
+            "id": 96929,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Use an aggregate function to select the largest <code>km</code> value.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10.2);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 8.7);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10.2\" /></row><row><data content=\"mae\" /><data content=\"8.7\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MAX\" class=\"keyword\" /><text value=\"(km)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"7\" endIndex=\"14\" /><option correct=\"false\"><content><text value=\"DISTINCT km\" /></content></option><option correct=\"false\"><content><text value=\"ORDER BY km\" /></content></option></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"MAX(km)\" /></row><row><data content=\"10.2\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>MAX(km)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Aliasing",
+            "id": 96930,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Use <code>AS</code> to rename the result to <code>longest_distance</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10.2);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 8.7);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10.2\" /></row><row><data content=\"mae\" /><data content=\"8.7\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"MAX\" class=\"keyword\" /><text value=\"(km) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" longest_distance\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"15\" endIndex=\"34\" /></interactions><output><table name=\"Result\"><row><header content=\"longest_distance\" /></row><row><data content=\"10.2\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to type <code>AS longest_distance</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 10553,
+        "title": "Average",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Average",
+            "id": 96483,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Another example of an aggregate function is finding the <em>average</em> of a column's values.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"AVG\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"7\" endIndex=\"17\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"AVG(price)\" /></row><row><data content=\"10.0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>SELECT</code>, followed by <code>AVG(price)</code>.</p></body></html>"
+          },
+          {
+            "title": "AVG",
+            "id": 96484,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>For the average of a column like <code>price</code>, we use <code>AVG</code> and the column's name between parentheses.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"AVG\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"10\" endIndex=\"11\" /><option startIndex=\"11\" endIndex=\"16\" /><option startIndex=\"16\" endIndex=\"17\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"AVG(price)\" /></row><row><data content=\"10.0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>AVG</code> followed by <code>(</code> and then <code>price</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "AVG 2",
+            "id": 96485,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>AVG</code> adds all column values and then divides the result by the number of values. Here, that's <code>(17 + 0 + 14 + 9) / 4</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"AVG\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"7\" endIndex=\"10\" /></interactions><output><table name=\"Result\"><row><header content=\"AVG(price)\" /></row><row><data content=\"10.0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to type <code>AVG</code>.</p></body></html>"
+          },
+          {
+            "title": "Aliasing",
+            "id": 96486,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Like before, we can rename the result with an alias like <code>average_price</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE ticket (&#xA; museum varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Louvre', 17);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Petit Palais', 0);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Centre Pompidou', 14);&#xA;&#xA;INSERT INTO ticket (museum, price)&#xA;VALUES ('Musée Rodin', 9);\"><tables><table name=\"ticket\"><row><header content=\"museum\" /><header content=\"price\" /></row><row><data content=\"Louvre\" /><data content=\"17\" /></row><row><data content=\"Petit Palais\" /><data content=\"0\" /></row><row><data content=\"Centre Pompidou\" /><data content=\"14\" /></row><row><data content=\"Musée Rodin\" /><data content=\"9\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"AVG\" class=\"keyword\" /><text value=\"(price) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" average_price\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" ticket;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"18\" endIndex=\"20\" /><option startIndex=\"21\" endIndex=\"34\" /><option correct=\"false\"><content><text value=\"AVG\" /></content></option></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"average_price\" /></row><row><data content=\"10.0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to pick <code>AS</code>, followed by <code>average_price</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Average",
+            "id": 96931,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Why is <code>AVG</code> an aggregate function?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Because it returns a single value, the average of a column's values</item><item value=\"2\" correct=\"false\">Since it selects the largest value in a column</item></selection><p visible-if=\"wrong\">Because it returns a single value, the average of a column's values.</p></body></html>"
+          },
+          {
+            "title": "Question: AVG",
+            "id": 96932,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What keyword do we use to find the average of a column's values?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>AVG</code></item><item value=\"2\" correct=\"false\"><code>AVERAGE</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>AVG</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: AVG 2",
+            "id": 96933,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>How do we calculate the average value?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">By adding up all values and then dividing by the number of values</item><item value=\"2\" correct=\"false\">By adding up all values</item></selection><p visible-if=\"wrong\">By adding up all values and then dividing by the number of values.</p></body></html>"
+          },
+          {
+            "title": "Question: Aliasing",
+            "id": 96934,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What column name will we see in the result table?</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 12);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10\" /></row><row><data content=\"mae\" /><data content=\"12\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"AVG\" class=\"keyword\" /><text value=\"(km) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" average_distance\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><output><table name=\"Result\"><row><header content=\"average_distance\" /></row><row><data content=\"9.0\" /></row></table></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>average_distance</code></item><item value=\"2\" correct=\"false\"><code>AVG(km)</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>average_distance</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: AVG",
+            "id": 96936,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code <code>SELECT</code> and <code>AVG(km)</code> to calculate the average running distance.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 12);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10\" /></row><row><data content=\"mae\" /><data content=\"12\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"AVG\" class=\"keyword\" /><text value=\"(km)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"14\" /></interactions><output><table name=\"Result\"><row><header content=\"AVG(km)\" /></row><row><data content=\"9.0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to type <code>SELECT AVG(km)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Aliasing",
+            "id": 96938,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Use aliasing with <code>AS</code> to rename the result to <code>average_distance</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE running_distance (&#xA; user varchar(255),&#xA; km numeric(3,2)&#xA;);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('andy', 5);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('jen', 10);&#xA;&#xA;INSERT INTO running_distance (user, km)&#xA;VALUES ('mae', 12);&#xA;&#xA;\"><tables><table name=\"running_distance\"><row><header content=\"user\" /><header content=\"km\" /></row><row><data content=\"andy\" /><data content=\"5\" /></row><row><data content=\"jen\" /><data content=\"10\" /></row><row><data content=\"mae\" /><data content=\"12\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"AVG\" class=\"keyword\" /><text value=\"(km) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" average_distance\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" running_distance;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"15\" endIndex=\"34\" /></interactions><output><table name=\"Result\"><row><header content=\"average_distance\" /></row><row><data content=\"9.0\" /></row></table></output></code><p visible-if=\"wrong\">Make sure to type <code>AS average_distance</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

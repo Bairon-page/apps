@@ -1,0 +1,457 @@
+{
+  "tutorial": {
+    "id": 3141,
+    "version": 3,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "jsx",
+    "title": "Пиксельная сетка - Часть 4",
+    "descriptionContent": "В заключительной части ты расширишь фронтенд, чтобы пользователи могли рисовать на цифровом холсте и отображать обновленный рисунок.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-3141-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 15460,
+        "title": "Глава №1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 135926,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Добро пожаловать обратно в проект **Pixel Grid**. В финальной части мы расширим фронтенд, чтобы пользователи могли рисовать на цифровом холсте.\n\n1. В файле `Toolbar.jsx` создайте новый React-компонент под названием `Toolbar`. Убедитесь, что вы импортировали `React` и экспортировали компонент.\n2. Убедитесь, что компонент принимает `selectedColor` и `setSelectedColor` как пропсы.\n3. Внутри компонента определите массив под названием `colors`, содержащий 8 CSS-цветов: `\"black\"`, `\"red\"`, `\"green\"`, `\"blue\"`, `\"yellow\"`, `\"purple\"`, `\"orange\"` и `\"pink\"`.\n4. Верните элемент `div` с `className`, установленным в `\"toolbar\"`.\n5. Внутри `div` выполните цикл по массиву `colors`.\n   - Отобразите `button` для каждого элемента в массиве.\n   - Установите уникальный ключ для каждой отрисованной кнопки.\n   - Используйте свойство `style`, чтобы установить цвет фона элемента, который должен быть CSS-цветом.\n   - Убедитесь, что при нажатии на кнопку вызывается переданная функция `setSelectedColor` с цветом кнопки в качестве аргумента.",
+              "preselectedFileIndex": 6,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": "import React from \"react\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;"
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 135927,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Пора интегрировать новый компонент Toolbar.\n\n1. Импортируй компонент `Toolbar` в компонент `App`.\n2. Определи новый хук `useState` для хранения `selectedColor` в компоненте `App`. Установи его значение по умолчанию как `\"black\"`.\n3. Отрендери компонент `Toolbar` под компонентом `PixelGrid`.\n4. Передай `selectedColor` и `setSelectedColor` как пропсы в компонент `Toolbar`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\nimport Toolbar from \"./Toolbar\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [selectedColor, setSelectedColor] = useState(\"black\");\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n      <Toolbar\n        selectedColor={selectedColor}\n        setSelectedColor={setSelectedColor}\n      />\n    </div>\n  );\n};\n\nexport default App;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          className={selectedColor === color ? \"selected-color\" : \"\"}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 135933,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Давайте добавим стили для компонента `Toolbar`, чтобы он выглядел лучше.\n\n1. Импортируй файл `Toolbar.css` в файл `Toolbar.jsx`.\n2. В файле `Toolbar.css` создай правило `.toolbar`:\n   - Установи `display` в `flex`.\n   - Установи `margin` в `40px auto`.\n   - Установи `padding` в `12px`.\n   - Установи `border` в `1px solid lightgray`.\n   - Установи `border-radius` в `32px`.\n   - Установи `gap` в `8px`.\n3. Создай правило `.toolbar > button`:\n   - Установи `width` в `40px`.\n   - Установи `height` в `40px`.\n   - Установи `border-radius` в `20px`.\n   - Установи `border` в `2px solid white`.\n   - Установи `cursor` в `pointer`.\n4. Создай правило `.selected-color`:\n   - Установи `outline` в `outline: 3px solid black;`.\n   - Установи `box-shadow` в `0 4px 8px rgba(0, 0, 0, 0.3)`.",
+              "preselectedFileIndex": 6,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\nimport Toolbar from \"./Toolbar\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [selectedColor, setSelectedColor] = useState(\"black\");\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n      <Toolbar\n        selectedColor={selectedColor}\n        setSelectedColor={setSelectedColor}\n      />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          className={selectedColor === color ? \"selected-color\" : \"\"}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;",
+                  "solvedContent": "import React from \"react\";\nimport \"./Toolbar.css\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          className={selectedColor === color ? \"selected-color\" : \"\"}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;"
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": ".toolbar {\n  display: flex;\n  margin: 40px auto;\n  padding: 12px;\n  border: 1px solid lightgray;\n  border-radius: 32px;\n  gap: 8px;\n}\n\n.toolbar > button {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  border: 2px solid white;\n  cursor: pointer;\n}\n\n.selected-color {\n  outline: 3px solid black;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2 - Copy - Copy",
+            "id": 135936,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Мы оптимизировали сетку для мобильных устройств, и нам следует сделать то же самое для панели инструментов.\n\n1. В файле `Toolbar.css` добавь медиа-запрос для файлов с максимальной шириной 440px.\n2. Нацелься на класс `.toolbar` внутри медиа-запроса:\n   - Установи `padding` на `2vw`.\n   - Установи `gap` на `1vw`.\n3. Создай правило `.toolbar > button`:\n   - Установи `width` на `10vw`.\n   - Установи `height` на `10vw`.",
+              "preselectedFileIndex": 7,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\nimport Toolbar from \"./Toolbar\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [selectedColor, setSelectedColor] = useState(\"black\");\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n      <Toolbar\n        selectedColor={selectedColor}\n        setSelectedColor={setSelectedColor}\n      />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Toolbar.css\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          className={selectedColor === color ? \"selected-color\" : \"\"}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": ".toolbar {\n  display: flex;\n  margin: 40px auto;\n  padding: 12px;\n  border: 1px solid lightgray;\n  border-radius: 32px;\n  gap: 8px;\n}\n\n.toolbar > button {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  border: 2px solid white;\n  cursor: pointer;\n}\n\n.selected-color {\n  outline: 3px solid black;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);\n}\n",
+                  "solvedContent": ".toolbar {\n  display: flex;\n  margin: 40px auto;\n  padding: 12px;\n  border: 1px solid lightgray;\n  border-radius: 32px;\n  gap: 8px;\n}\n\n.toolbar > button {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  border: 2px solid white;\n  cursor: pointer;\n}\n\n.selected-color {\n  outline: 3px solid black;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);\n}\n\n@media (max-width: 440px) {\n.toolbar {\n    padding: 2vw;\n    gap: 1vw;\n}\n\n  .toolbar > button {\n    width: 10vw;\n    height: 10vw;\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 135928,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Мы добавили функцию выбора цвета. Однако нам все еще нужно знать, какой пиксель следует обновить. Давайте сделаем возможным взаимодействие с каждым элементом сетки и изменение его цвета.\n\n1. Добавь событие `onClick` для каждого элемента сетки. При нажатии вызови функцию `updateColor` с координатами элемента. Передай значение x в качестве первого аргумента и значение y в качестве второго аргумента.\n2. Функция `updateColor` должна передаваться через props.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\nimport Toolbar from \"./Toolbar\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [selectedColor, setSelectedColor] = useState(\"black\");\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n      <Toolbar\n        selectedColor={selectedColor}\n        setSelectedColor={setSelectedColor}\n      />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;",
+                  "solvedContent": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid, updateColor }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n          onClick={() => updateColor(cell.x, cell.y)}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;"
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Toolbar.css\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          className={selectedColor === color ? \"selected-color\" : \"\"}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": ".toolbar {\n  display: flex;\n  margin: 40px auto;\n  padding: 12px;\n  border: 1px solid lightgray;\n  border-radius: 32px;\n  gap: 8px;\n}\n\n.toolbar > button {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  border: 2px solid white;\n  cursor: pointer;\n}\n\n.selected-color {\n  outline: 3px solid black;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);\n}\n\n@media (max-width: 440px) {\n.toolbar {\n    padding: 2vw;\n    gap: 1vw;\n}\n\n  .toolbar > button {\n    width: 10vw;\n    height: 10vw;\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 135929,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Как только мы кликаем на пиксель, мы вызываем переданную функцию `updateColor`. Но эта функция пока не существует. Пора это изменить.\n\n1. Добавь новую функцию `updateColor` в компонент `App`, которая принимает два аргумента, `x` и `y`.\n2. Передай эту функцию в качестве свойства `updateColor` компоненту `PixelGrid`.\n3. Сделай запрос с помощью `fetch`, чтобы обновить цвет сетки, вызвав конечную точку `\"/setGridColor\"` на нашем бэкенде.\n   - Установи `method` в `\"POST\"`.\n   - Установи `headers` в `{ \"Content-Type\": \"application/json\" }`.\n   - Установи `body` в `JSON.stringify({ x, y, color: selectedColor })`, где `x` и `y` — это аргументы функции, а `selectedColor` — это переменная состояния.\n4. Ответ конечной точки `\"/setGridColor\"` будет JSON, содержащий ключ `grid`. Получи значение для этого ключа и обнови переменную состояния `grid` с его помощью.\n5. В случае ошибки, выведи ошибку в лог.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\nimport Toolbar from \"./Toolbar\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [selectedColor, setSelectedColor] = useState(\"black\");\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} />\n      <Toolbar\n        selectedColor={selectedColor}\n        setSelectedColor={setSelectedColor}\n      />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\nimport Toolbar from \"./Toolbar\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [selectedColor, setSelectedColor] = useState(\"black\");\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  const updateColor = async (x, y) => {\n    try {\n      const response = await fetch(`${URL}/setGridColor`, {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ x, y, color: selectedColor }),\n      });\n      const { grid: updatedGrid } = await response.json();\n      setGrid(updatedGrid);\n    } catch (error) {\n      console.error(\"Error updating grid color:\", error);\n    }\n  };\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} updateColor={updateColor} />\n      <Toolbar\n        selectedColor={selectedColor}\n        setSelectedColor={setSelectedColor}\n      />\n    </div>\n  );\n};\n\nexport default App;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid, updateColor }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n          onClick={() => updateColor(cell.x, cell.y)}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Toolbar.css\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          className={selectedColor === color ? \"selected-color\" : \"\"}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": ".toolbar {\n  display: flex;\n  margin: 40px auto;\n  padding: 12px;\n  border: 1px solid lightgray;\n  border-radius: 32px;\n  gap: 8px;\n}\n\n.toolbar > button {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  border: 2px solid white;\n  cursor: pointer;\n}\n\n.selected-color {\n  outline: 3px solid black;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);\n}\n\n@media (max-width: 440px) {\n.toolbar {\n    padding: 2vw;\n    gap: 1vw;\n}\n\n  .toolbar > button {\n    width: 10vw;\n    height: 10vw;\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 135931,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Давайте закончим, улучшив стили для элементов сетки, чтобы обеспечить обратную связь с пользователем во время взаимодействия.\n\n1. В файле `PixelGrid.css` выберите `.gridItem:hover`:\n   - Установите `border` на `1px solid gray`.\n   - Установите `transform` на `scale(1.25)`.\n   - Установите `box-shadow` на `0 4px 8px rgba(0, 0, 0, 0.3)`.\n2. В правило `.gridItem` добавьте следующее:\n   - Установите `cursor` на `pointer`.",
+              "preselectedFileIndex": 5,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Pixel Grid</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useEffect, useState } from \"react\";\nimport \"./App.css\";\nimport PixelGrid from \"./PixelGrid\";\nimport Toolbar from \"./Toolbar\";\n\nconst URL = process.env.BACKEND_URL;\n\nconst App = () => {\n  const [selectedColor, setSelectedColor] = useState(\"black\");\n  const [grid, setGrid] = useState([]);\n\n  useEffect(() => {\n    fetch(`${URL}/grid`)\n      .then((response) => response.json())\n      .then((data) => setGrid(data.grid))\n      .catch((error) => console.error(\"Error fetching grid data:\", error));\n  }, []);\n\n  const updateColor = async (x, y) => {\n    try {\n      const response = await fetch(`${URL}/setGridColor`, {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ x, y, color: selectedColor }),\n      });\n      const { grid: updatedGrid } = await response.json();\n      setGrid(updatedGrid);\n    } catch (error) {\n      console.error(\"Error updating grid color:\", error);\n    }\n  };\n\n  return (\n    <div className=\"content-wrapper\">\n      <h1>Pixel Grid</h1>\n      <PixelGrid grid={grid} updateColor={updateColor} />\n      <Toolbar\n        selectedColor={selectedColor}\n        setSelectedColor={setSelectedColor}\n      />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "html,\nbody,\n.content-wrapper {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./PixelGrid.css\";\n\nconst PixelGrid = ({ grid, updateColor }) => {\n  return (\n    <div className=\"grid\">\n      {grid.map((cell) => (\n        <div\n          key={`${cell.x}-${cell.y}`}\n          className=\"gridItem\"\n          style={{\n            backgroundColor: cell.color,\n            gridColumnStart: cell.x + 1,\n            gridRowStart: cell.y + 1,\n          }}\n          onClick={() => updateColor(cell.x, cell.y)}\n        ></div>\n      ))}\n    </div>\n  );\n};\n\nexport default PixelGrid;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "PixelGrid.css",
+                  "codeLanguage": "css",
+                  "content": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n",
+                  "solvedContent": ".grid {\n  display: grid;\n  grid-template-columns: repeat(20, 20px);\n  grid-template-rows: repeat(20, 20px);\n}\n\n.gridItem {\n  width: 20px;\n  height: 20px;\n  border: 1px solid lightgray;\n  cursor: pointer;\n}\n\n@media (max-width: 440px) {\n  .grid {\n    grid-template-columns: repeat(20, 4vw);\n    grid-template-rows: repeat(20, 4vw);\n  }\n\n  .gridItem {\n    width: 4vw;\n    height: 4vw;\n  }\n}\n\n.gridItem:hover {\n  border: 1px solid gray;\n  transform: scale(1.25);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);\n}\n"
+                },
+                {
+                  "name": "Toolbar.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Toolbar.css\";\n\nconst Toolbar = ({ selectedColor, setSelectedColor }) => {\n  const colors = [\n    \"black\",\n    \"red\",\n    \"green\",\n    \"blue\",\n    \"yellow\",\n    \"purple\",\n    \"orange\",\n    \"pink\",\n  ];\n  return (\n    <div className=\"toolbar\">\n      {colors.map((color) => (\n        <button\n          key={color}\n          className={selectedColor === color ? \"selected-color\" : \"\"}\n          style={{ backgroundColor: color }}\n          onClick={() => setSelectedColor(color)}\n        ></button>\n      ))}\n    </div>\n  );\n};\n\nexport default Toolbar;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Toolbar.css",
+                  "codeLanguage": "css",
+                  "content": ".toolbar {\n  display: flex;\n  margin: 40px auto;\n  padding: 12px;\n  border: 1px solid lightgray;\n  border-radius: 32px;\n  gap: 8px;\n}\n\n.toolbar > button {\n  width: 40px;\n  height: 40px;\n  border-radius: 20px;\n  border: 2px solid white;\n  cursor: pointer;\n}\n\n.selected-color {\n  outline: 3px solid black;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);\n}\n\n@media (max-width: 440px) {\n.toolbar {\n    padding: 2vw;\n    gap: 1vw;\n}\n\n  .toolbar > button {\n    width: 10vw;\n    height: 10vw;\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

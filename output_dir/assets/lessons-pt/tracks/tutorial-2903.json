@@ -1,0 +1,163 @@
+{
+  "tutorial": {
+    "id": 2903,
+    "version": 3,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Lista de Tarefas - Parte 1",
+    "descriptionContent": "Muito para fazer? Muitas coisas para equilibrar ao mesmo tempo? Neste projeto, vamos construir um gerenciador de tarefas para ajudar com isso!",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2903-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14994,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #2",
+            "id": 132190,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bem-vindo ao projeto **Lista de Tarefas**. Vamos criar um programa que permite aos usuários visualizar uma lista e adicionar tarefas.\n\nA primeira coisa que precisamos é de um array para armazenar nossas tarefas.\n\n1. Declare uma variável `items` e inicialize-a como um array vazio.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const items = [];"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132191,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Em seguida, vamos criar uma função que possa exibir uma lista de itens fornecida.\n\n1. Declare uma função `displayList` que receba um parâmetro `items`.\n2. Dentro da função, percorra todos os itens do array `items` passado e exiba cada item na lista junto com seu índice. Comece a contar a partir de `1`, não de `0`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const items = [];",
+                  "solvedContent": "const items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132192,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Também precisamos de uma função que adicione um novo item à lista.\n\n1. Declare uma função `addItem` que receba dois parâmetros `items` e `itemToAdd`.\n2. Adicione `itemToAdd` ao array `items` que foi passado para a função.\n3. Se quiser, imprima que o novo item foi adicionado com sucesso à lista de itens.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}",
+                  "solvedContent": "const items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #1",
+            "id": 132189,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos usar `@mimo-org/input` para capturar a entrada do usuário.\n\n1. No topo do arquivo, declare uma variável `input` e requisite o módulo `input`. Estamos usando `@mimo-org/input` para interagir com o usuário no console.\n   ```const input = require(\"@mimo-org/input\");```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132193,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Com as funções de exibição e adição da lista concluídas, podemos agora configurar nosso loop principal e menu.\n\n1. Declare um booleano chamado `running` e defina-o como `true`.\n2. Implemente um loop `while` com a condição da variável `running`.\n3. Dentro do loop, mostre ao usuário as opções possíveis.\n   - Informe ao usuário que digitar `1` exibirá a lista.\n   - Explique que digitar `2` adicionará um novo item.\n   - Mostre ao usuário que `3` encerrará o programa.\n4. Solicite uma entrada do usuário e salve-a em uma variável chamada `choice`.\n5. Se a escolha do usuário for `3`, defina `running` como `false` para sair do loop `while`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 3) {\n    running = false;\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 132194,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Finalmente, vamos determinar a ação a ser realizada com base na escolha do usuário.\n\n1. Para o caso `1`, chame a função `displayList` com o argumento `items`.\n2. O caso `2` não deve fazer nada agora. Vamos cuidar disso depois.\n3. Se algo diferente de `1`, `2` ou `3` for inserido, imprima uma mensagem de erro.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 3) {\n    running = false;\n  }\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n\n  } else if (choice == 3) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132211,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos cuidar de adicionar novos itens.\n\n1. Para o caso `2`, antes de chamar `addItem`, declare a variável `newItem` e defina seu valor usando o prompt. Peça ao usuário para inserir uma nova tarefa.\n2. Após capturar o novo item do usuário em `newItem`, chame a função `addItem` com os argumentos `items` e `newItem` para adicionar o novo item.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n\n  } else if (choice == 3) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

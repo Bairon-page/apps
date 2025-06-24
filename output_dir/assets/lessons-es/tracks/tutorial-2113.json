@@ -1,0 +1,319 @@
+{
+  "tutorial": {
+    "id": 2113,
+    "version": 15,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Comunicándose con una API",
+    "descriptionContent": "Aprende sobre las APIs. Qué son, cómo funcionan y por qué las usamos.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 13266,
+        "title": "Tu primer Endpoint",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 119226,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><em>Interfaces de programación de aplicaciones</em>, también conocidas como <code>API</code>, permiten la comunicación entre dos programas.</p><p>Permiten que un programa envíe solicitudes y reciba respuestas de otro, permitiendo que los sistemas interactúen y compartan datos de manera eficiente.</p></body></html>"
+          },
+          {
+            "title": "Intro: Similar real life example I",
+            "id": 119237,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Muchos sistemas del mundo real funcionan como una <strong>API</strong>. Una API es como un camarero que lleva tu pedido (<em>request</em>) a la cocina.</p><p>La cocina (servidor) lo procesa y envía la comida (<em>respuesta</em>) de vuelta a través del camarero.</p></body></html>"
+          },
+          {
+            "title": "GET",
+            "id": 132243,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "906453c7-49b9-498a-a1e9-217d327dccf9"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Una solicitud común de API es una solicitud <code>GET</code>, como pedirle al camarero un menú.</p><p>Una solicitud <code>GET</code> pide información al servidor. Luego, el servidor responde con los datos necesarios.</p><img src=\"906453c7-49b9-498a-a1e9-217d327dccf9\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "Express - Copy",
+            "id": 132289,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "696c8f33-dd3d-4182-b8ae-71f0a5e912e1"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Usamos <strong>Node</strong> para ejecutar JavaScript en el servidor y el framework <strong>Express</strong> para construir la funcionalidad del servidor, como solicitudes y respuestas.</p><p>Express es un popular framework web para Node que simplifica la creación de servidores.</p><img src=\"696c8f33-dd3d-4182-b8ae-71f0a5e912e1\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "GET requests",
+            "id": 119239,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Aquí está el primer endpoint en Express. Está sucediendo mucho aquí, pero ya entiendes que esta es una solicitud <code>GET</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"4\" endIndex=\"7\" /></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>get</code>.</p></body></html>"
+          },
+          {
+            "title": "GET requests - Copy",
+            "id": 132301,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como sabes, se supone que una API debe devolver algo. Hagamos eso aquí también y enviemos de vuelta <code>\"Here is your menu!\"</code>.</p><p>El servidor envía una respuesta a través de <code>res</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"43\" endIndex=\"63\" /></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>\"Here is your menu!\"</code>.</p></body></html>"
+          },
+          {
+            "title": "GET requests - Copy",
+            "id": 132287,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>El <code>GET</code> en una solicitud <code>GET</code> se refiere al método HTTP que se está utilizando. Es uno de varios métodos usados para recuperar datos del servidor.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"4\" endIndex=\"7\" /><option correct=\"false\"><content><text value=\"retrieve\" /></content></option></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>get</code>.</p></body></html>"
+          },
+          {
+            "title": "GET requests 2",
+            "id": 132246,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Una <em>ruta</em> es un camino en el servidor que envía una respuesta específica cuando se solicita, como <code>/menu</code> devolviendo un menú.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"15\" /></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>\"/menu\"</code>.</p></body></html>"
+          },
+          {
+            "title": "GET requests 3",
+            "id": 132247,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cada endpoint define una ruta, como <code>/menu</code>, y tiene una función que toma <code>req</code> (solicitud) y <code>res</code> (respuesta) para manejar la solicitud y responder.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"18\" endIndex=\"22\" /><option startIndex=\"23\" endIndex=\"26\" /><option startIndex=\"34\" endIndex=\"37\" /></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>req,</code> seguido de <code>res</code> y finalmente <code>res</code>.</p></body></html>"
+          },
+          {
+            "title": "GET requests 4",
+            "id": 132248,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>En este ejemplo, no necesitamos usar el parámetro <code>req</code>, pero usamos <code>res</code> para enviar una respuesta de vuelta al cliente, como entregar el menú.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"23\" endIndex=\"26\" /><option startIndex=\"34\" endIndex=\"37\" /><option startIndex=\"37\" endIndex=\"42\" /></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>res</code> seguido de <code>res</code> y finalmente <code>.send</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 1",
+            "id": 119248,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Escribe una solicitud <code>GET</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"3\" /><option startIndex=\"4\" endIndex=\"7\" /></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>app</code> seguido de <code>get</code>.</p></body></html>"
+          },
+          {
+            "title": "Question 1",
+            "id": 119227,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué significa <code>API</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Interfaz de Programación de Aplicaciones</item><item value=\"2\" correct=\"false\">Interfaz de Programación de Asistencia</item></selection><p visible-if=\"wrong\">Interfaz de Programación de Aplicaciones.</p></body></html>"
+          },
+          {
+            "title": "Example 2",
+            "id": 119249,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Asegúrate de que el endpoint <code>/menu</code> envíe una respuesta.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; { \" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\"); \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"35\" endIndex=\"38\" /><option startIndex=\"38\" endIndex=\"39\" /><option startIndex=\"39\" endIndex=\"43\" /></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>res</code> seguido de <code>.</code> y finalmente <code>send</code>.</p></body></html>"
+          },
+          {
+            "title": "Question 2",
+            "id": 119243,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Aquí tienes otro ejemplo de la vida real. Rellenas un formulario de solicitud en línea para un préstamo bancario, ¿cuál es el papel correcto para cada parte involucrada?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Tú eres el remitente, el formulario de solicitud en línea es el <code>API</code>, el banco es el receptor</item><item value=\"2\" correct=\"false\">Tú eres el <code>API</code>, el formulario de solicitud en línea es el remitente, el banco es el receptor</item><item value=\"3\" correct=\"false\">Tú eres el remitente, el formulario de solicitud en línea es el receptor, el banco es el <code>API</code></item></selection><p visible-if=\"wrong\">Tú eres el remitente, el formulario de solicitud en línea es el <code>API</code>, el banco es el receptor.</p></body></html>"
+          },
+          {
+            "title": "Example 3",
+            "id": 132249,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Define la ruta <code>/menu</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; { \" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\"); \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"15\" /><option correct=\"false\"><content><text value=\"&quot;/&quot;\" /></content></option></options></interaction></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>\"/menu\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Question 3",
+            "id": 119244,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo funciona una <code>API</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Envía la solicitud del remitente al receptor y la respuesta del receptor al remitente</item><item value=\"2\" correct=\"false\">Simplemente conecta al remitente y al receptor y les permite hacer lo suyo</item><item value=\"3\" correct=\"false\">Simplemente monitorea para asegurarse de que el remitente y el receptor se estén enviando mensajes entre sí</item></selection><p visible-if=\"wrong\">Envía la solicitud del remitente al receptor y la respuesta del receptor al remitente.</p></body></html>"
+          },
+          {
+            "title": "Example 4",
+            "id": 132250,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Asegúrate de que la ruta <code>/menu</code> pueda manejar una solicitud <code>GET</code> y enviar una respuesta al cliente.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/menu&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; { \" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Here is your menu!&quot;\" class=\"string\" /><text value=\"); \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"4\" endIndex=\"7\" /></interactions><output><content><text value=\"Here is your menu!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>get</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 13269,
+        "title": "Iniciando un servidor",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "APIs",
+            "id": 119251,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "9e38976a-0aca-4e11-8369-1243822de4d5"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ahora que sabes qué es un <code>API</code>, hablemos sobre cómo iniciar tu propio servidor.</p><img src=\"9e38976a-0aca-4e11-8369-1243822de4d5\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "npm init",
+            "id": 132302,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ejecuta <code>node app.js</code> en el terminal para iniciar un servidor local, donde app.js es el archivo que contiene tu código de servidor.</p><p>Sin embargo, en Mimo, nos encargamos de eso por ti. Si vas a la sección de proyectos, puedes crear un nuevo servidor con un clic de botón.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"node app.js\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"4\" /><option startIndex=\"5\" endIndex=\"11\" /></options></interaction></interactions><output><content><text value=\"Server is running on port 3000\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>node</code> seguido de <code>app.js</code>.</p></body></html>"
+          },
+          {
+            "title": "Localhost",
+            "id": 132258,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>http://localhost:3000</code> se refiere a la máquina local (tu computadora) que ejecuta el servidor en el puerto 3000, permitiéndote acceder a la aplicación.</p><p>En Mimo, nos encargamos de eso por ti. Ejecutamos el servidor y lo hacemos fácilmente accesible para ti.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"http://localhost:3000\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"21\" /></options></interaction></interactions><output><content><text value=\"Server is running on port 3000\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>http://localhost:3000</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #18 - Copy - Copy",
+            "id": 132253,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Una vez que tu servidor esté iniciado, puedes usar un navegador para llamar a un endpoint. Para obtener una respuesta, ingresa <code>http://localhost:3000/menu</code> en el navegador.</p><p>En nuestro caso, el servidor responde con <code>\"Here is your menu!\"</code>.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;html&gt;&lt;body&gt;&lt;p&gt;Here is your menu!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "API Tools - Copy",
+            "id": 132276,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Los navegadores pueden llamar a un endpoint de API. Sin embargo, a veces es más eficiente usar un probador de API.</p><p>Usando un probador de API, defines el tipo de solicitud (como <code>GET</code>), la URL del endpoint y más. En Mimo, proporcionamos uno fácil de usar.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;  &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;  &lt;title&gt;Simple API Tester&lt;/title&gt;&#xA;  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;&#xA;  &lt;style&gt;&#xA;    body {&#xA;      padding: 20px;&#xA;    }&#xA;    .response-box {&#xA;      margin-top: 20px;&#xA;      padding: 15px;&#xA;      background-color: #f8f9fa;&#xA;      border-radius: 5px;&#xA;    }&#xA;  &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;&#xA;  &lt;div class=&quot;container&quot;&gt;&#xA;    &lt;h1&gt;API Request Tester&lt;/h1&gt;&#xA;&#xA;    &lt;form id=&quot;apiForm&quot;&gt;&#xA;      &lt;div class=&quot;input-group mb-4&quot;&gt;&#xA;        &lt;select class=&quot;form-select flex-grow-0 w-auto&quot; id=&quot;methodSelect&quot;&gt;&#xA;          &lt;option value=&quot;GET&quot; selected&gt;GET&lt;/option&gt;&#xA;          &lt;option value=&quot;POST&quot; disabled&gt;POST&lt;/option&gt;&#xA;          &lt;option value=&quot;PUT&quot; disabled&gt;PUT&lt;/option&gt;&#xA;          &lt;option value=&quot;DELETE&quot; disabled&gt;DELETE&lt;/option&gt;&#xA;        &lt;/select&gt;&#xA;        &lt;input id=&quot;urlInput&quot; required class=&quot;form-control&quot; type=&quot;url&quot; value=&quot;http://localhost:3000/menu&quot; /&gt;&#xA;        &lt;button id=&quot;sendRequest&quot; type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Send&lt;/button&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/form&gt;&#xA;&#xA;    &lt;div id=&quot;response&quot; class=&quot;response-box d-none&quot;&gt;&#xA;      &lt;h3&gt;Response&lt;/h3&gt;&#xA;      &lt;br&gt;&#xA;      &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; &lt;span id=&quot;status&quot;&gt;200 OK&lt;/span&gt;&lt;/p&gt;&#xA;      &lt;p&gt;&lt;strong&gt;Response:&lt;/strong&gt; &lt;span id=&quot;responseBody&quot;&gt;200 OK&lt;/span&gt;&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;script&gt;&#xA;    document.getElementById('apiForm').addEventListener('submit', function(e) {&#xA;      e.preventDefault();&#xA;&#xA;      // Get the selected method and URL&#xA;      const method = document.getElementById('methodSelect').value;&#xA;      const url = document.getElementById('urlInput').value;&#xA;&#xA;      if (method === 'GET') {&#xA;        // Simulate a GET request and a simple string response&#xA;        const responseBody = &quot;Here is your menu!&quot;;&#xA;&#xA;        // Display the simulated response&#xA;        document.getElementById('responseBody').innerText = responseBody;&#xA;        document.getElementById('status').innerText = '200 OK';&#xA;        document.getElementById('response').classList.remove('d-none');&#xA;      } else {&#xA;        alert('Only GET requests are supported in this example.');&#xA;      }&#xA;    });&#xA;  &lt;/script&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&#xA;\" /></body></html>"
+          },
+          {
+            "title": "API Tools",
+            "id": 119260,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Si analizas la respuesta que nos devuelve el probador de API, ves un <em>status</em> que está configurado en <code>200 OK</code>.</p><p>Las APIs devuelven un código de estado para identificar rápidamente si todo salió según lo planeado. <code>200 OK</code> es la respuesta estándar para las solicitudes <code>GET</code>.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;  &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;  &lt;title&gt;Simple API Tester&lt;/title&gt;&#xA;  &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;&#xA;  &lt;style&gt;&#xA;    body {&#xA;      padding: 20px;&#xA;    }&#xA;    .response-box {&#xA;      margin-top: 20px;&#xA;      padding: 15px;&#xA;      background-color: #f8f9fa;&#xA;      border-radius: 5px;&#xA;    }&#xA;  &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;&#xA;  &lt;div class=&quot;container&quot;&gt;&#xA;    &lt;h1&gt;API Request Tester&lt;/h1&gt;&#xA;&#xA;    &lt;form id=&quot;apiForm&quot;&gt;&#xA;      &lt;div class=&quot;input-group mb-4&quot;&gt;&#xA;        &lt;select class=&quot;form-select flex-grow-0 w-auto&quot; id=&quot;methodSelect&quot;&gt;&#xA;          &lt;option value=&quot;GET&quot; selected&gt;GET&lt;/option&gt;&#xA;          &lt;option value=&quot;POST&quot; disabled&gt;POST&lt;/option&gt;&#xA;          &lt;option value=&quot;PUT&quot; disabled&gt;PUT&lt;/option&gt;&#xA;          &lt;option value=&quot;DELETE&quot; disabled&gt;DELETE&lt;/option&gt;&#xA;        &lt;/select&gt;&#xA;        &lt;input id=&quot;urlInput&quot; required class=&quot;form-control&quot; type=&quot;url&quot; value=&quot;http://localhost:3000/menu&quot; /&gt;&#xA;        &lt;button id=&quot;sendRequest&quot; type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Send&lt;/button&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/form&gt;&#xA;&#xA;    &lt;div id=&quot;response&quot; class=&quot;response-box d-none&quot;&gt;&#xA;      &lt;h3&gt;Response&lt;/h3&gt;&#xA;      &lt;br&gt;&#xA;      &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; &lt;span id=&quot;status&quot;&gt;200 OK&lt;/span&gt;&lt;/p&gt;&#xA;      &lt;p&gt;&lt;strong&gt;Response:&lt;/strong&gt; &lt;span id=&quot;responseBody&quot;&gt;200 OK&lt;/span&gt;&lt;/p&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&#xA;  &lt;script&gt;&#xA;    document.getElementById('apiForm').addEventListener('submit', function(e) {&#xA;      e.preventDefault();&#xA;&#xA;      // Get the selected method and URL&#xA;      const method = document.getElementById('methodSelect').value;&#xA;      const url = document.getElementById('urlInput').value;&#xA;&#xA;      if (method === 'GET') {&#xA;        // Simulate a GET request and a simple string response&#xA;        const responseBody = &quot;Here is your menu!&quot;;&#xA;&#xA;        // Display the simulated response&#xA;        document.getElementById('responseBody').innerText = responseBody;&#xA;        document.getElementById('status').innerText = '200 OK';&#xA;        document.getElementById('response').classList.remove('d-none');&#xA;      } else {&#xA;        alert('Only GET requests are supported in this example.');&#xA;      }&#xA;    });&#xA;  &lt;/script&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&#xA;\" /></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132274,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cuál es el papel del llamador de la API?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">El programa o usuario que realiza la solicitud a la API</item><item value=\"2\" correct=\"false\">El servidor que recibe la solicitud</item><item value=\"3\" correct=\"false\">La función que maneja errores de API</item></selection><p visible-if=\"wrong\">El programa o usuario que realiza la solicitud a la API.</p></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132275,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo inicias un servidor Express desde la terminal?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>node app.js</code></item><item value=\"2\" correct=\"false\"><code>npm install</code></item><item value=\"3\" correct=\"false\"><code>express start</code></item></selection><p visible-if=\"wrong\"><code>node app.js</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #13",
+            "id": 132277,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué significa un código de estado <code>200 OK</code> en una respuesta de API?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">La solicitud fue exitosa, y el servidor ha enviado los datos solicitados</item><item value=\"2\" correct=\"false\">La solicitud no era válida</item><item value=\"3\" correct=\"false\">El servidor no puede encontrar el recurso solicitado</item></selection><p visible-if=\"wrong\">La solicitud fue exitosa, y el servidor ha enviado los datos solicitados.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 13270,
+        "title": "Llamar a una API con fetch",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 119529,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "51cdb5e9-febe-4d11-a6a4-2f8761c9b60e"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ahora que sabes cómo funciona una API, es hora de aprender cómo enviar una solicitud a ella.</p><img src=\"51cdb5e9-febe-4d11-a6a4-2f8761c9b60e\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "fetch()",
+            "id": 119262,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Node tiene un método incorporado para enviar solicitudes a APIs: <code>fetch</code>. Intenta completar la solicitud <code>GET</code> usando <code>fetch</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"5\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>fetch</code>.</p></body></html>"
+          },
+          {
+            "title": "fetch() 2",
+            "id": 119343,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>fetch</code> usa <code>GET</code> por defecto, pero podemos cambiar el <code>method</code> o establecer explícitamente <code>GET</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\", { \" /><text type=\"break\" /><text value=\" \" /><text value=\"method\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;GET&quot;\" class=\"string\" /><text value=\" \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"5\" /><option startIndex=\"49\" endIndex=\"52\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>fetch</code> seguido de <code>GET</code>.</p></body></html>"
+          },
+          {
+            "title": "fetch() 2 - Copy",
+            "id": 132278,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cuando usamos <code>fetch</code>, primero definimos el endpoint al que queremos llamar.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"5\" /><option startIndex=\"6\" endIndex=\"34\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>fetch</code> seguido de <code>\"http://localhost:3000/menu\"</code>.</p></body></html>"
+          },
+          {
+            "title": "fetch() 2 - Copy - Copy",
+            "id": 132279,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>A continuación, usamos <code>.then</code> para manejar la respuesta del servidor. Una vez que la solicitud es exitosa, se llama al método de callback.</p><p>Un método de callback es una función que le das a otra función para que se llame más tarde.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" .then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" { });\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"38\" endIndex=\"43\" /><option startIndex=\"44\" endIndex=\"61\" /></options></interaction></interactions><output><content><text value=\"API Request successfully sent!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>.then</code> seguido de <code>(response) =&gt; { }</code>.</p></body></html>"
+          },
+          {
+            "title": "fetch() 2 - Copy - Copy - Copy",
+            "id": 132303,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Una vez que la solicitud es exitosa, registramos que la solicitud de la API se envió correctamente utilizando el método de callback.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" .then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" { \" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;API Request successfully sent!&quot;\" class=\"string\" /><text value=\"); \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"62\" endIndex=\"108\" /><option startIndex=\"44\" endIndex=\"59\" /><option startIndex=\"110\" endIndex=\"111\" /></options></interaction></interactions><output><content><text value=\"API Request successfully sent!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>(response) =&gt; {</code> seguido de <code>console.log(\"API Request successfully sent!\");</code> y finalmente <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "fetch() 2 - Copy - Copy - Copy",
+            "id": 132280,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Recibimos un objeto <code>response</code> de vuelta. Contiene información sobre la solicitud, como su estado y cualquier dato que el servidor haya devuelto.</p><p>Registra el objeto de respuesta para ver qué contiene.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" .then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" { \" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(response); \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"62\" endIndex=\"74\" /><option startIndex=\"74\" endIndex=\"82\" /><option startIndex=\"82\" endIndex=\"84\" /></options></interaction></interactions><output><content><text value=\"{type: &quot;cors&quot;, url: &quot;http://localhost:3000/menu&quot;, status: 200, statusText: &quot;OK&quot;, ...}\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>console.log(</code> seguido de <code>response</code> y finalmente <code>);</code>.</p></body></html>"
+          },
+          {
+            "title": "Question 3",
+            "id": 119346,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Para qué podemos usar <code>fetch</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Realiza llamadas API a servidores externos</item><item value=\"2\" correct=\"false\">Accediendo a los datos del sistema de archivos local<br /></item><item value=\"3\" correct=\"false\">Ejecutando consultas de base de datos</item><item value=\"4\" correct=\"false\">Manipulación de elementos del DOM</item></selection><p visible-if=\"wrong\">Realiza llamadas API a servidores externos.</p></body></html>"
+          },
+          {
+            "title": "Example 1",
+            "id": 119347,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Escribe el código para enviar una solicitud <code>GET</code> al endpoint <code>/menu</code> en localhost usando <code>fetch</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" .then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" { \" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;API Request successfully sent!&quot;\" class=\"string\" /><text value=\"); \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"5\" /><option startIndex=\"7\" endIndex=\"28\" /><option startIndex=\"28\" endIndex=\"33\" /><option correct=\"false\"><content><text value=\"GET\" /></content></option><option correct=\"false\"><content><text value=\"/users\" /></content></option></options></interaction></interactions><output><content><text value=\"API Request successfully sent!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>fetch</code> seguido de <code>http://localhost:3000</code> y finalmente <code>/menu</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #10",
+            "id": 132281,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>En el contexto de <code>fetch</code>, ¿cuál es el propósito del método <code>.then</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Para procesar la respuesta del servidor cuando se recibe</item><item value=\"2\" correct=\"false\">Para enviar la solicitud al servidor</item><item value=\"3\" correct=\"false\">Para verificar si el servidor está caído</item></selection><p visible-if=\"wrong\">Para procesar la respuesta del servidor cuando se recibe.</p></body></html>"
+          },
+          {
+            "title": "Example 2",
+            "id": 119348,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Escribe el código para enviar una solicitud <code>GET</code> a <code>http://localhost:3000/menu</code> usando <code>fetch</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"fetch(\" /><text value=\"&quot;http://localhost:3000/menu&quot;\" class=\"string\" /><text value=\", { \" /><text type=\"break\" /><text value=\" \" /><text value=\"method\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;GET&quot;\" class=\"string\" /><text value=\" \" /><text type=\"break\" /><text value=\"}).then(\" /><text value=\"(\" /><text value=\"response\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" { \" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;API Request successfully sent!&quot;\" class=\"string\" /><text value=\"); \" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"40\" endIndex=\"46\" /><option startIndex=\"48\" endIndex=\"49\" /><option startIndex=\"49\" endIndex=\"52\" /><option startIndex=\"52\" endIndex=\"53\" /><option correct=\"false\"><content><text value=\"endpoint\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>method</code> seguido de <code>\"</code> y luego <code>GET</code>, <code>\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132282,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cuál de los siguientes se puede acceder desde el objeto <code>response</code> en una solicitud <code>fetch</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">El código de estado del servidor (por ejemplo, <code>200</code>)</item><item value=\"2\" correct=\"false\">El método de solicitud (por ejemplo, <code>GET</code>)</item></selection><p visible-if=\"wrong\">El código de estado del servidor (por ejemplo, <code>200</code>).</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

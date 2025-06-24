@@ -1,0 +1,477 @@
+{
+  "tutorial": {
+    "id": 2272,
+    "version": 1,
+    "type": "practiceOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Синхронность и асинхронность в JS",
+    "descriptionContent": "Синхронность и асинхронность в JS",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 13429,
+        "title": "Синхронность и асинхронность в JS",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Code 1/.filter()",
+            "id": 120809,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Заверши `divisibleByThree`, используя метод `.filter(callback)` на массиве `arr`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const arr = [3, 5, 6, 8, 9, 11, 12, 14, 15];\nconst callback = (num) => num % 3 === 0;\nlet divisibleByThree = null;\n\nfunction doMath() {\n divisibleByThree =    (callback);\n return divisibleByThree;\n}\ndoMath();\nconsole.log(divisibleByThree);\nconsole.log(\"These numbers are divisible by 3\");",
+                  "solvedContent": "const arr = [3, 5, 6, 8, 9, 11, 12, 14, 15];\nconst callback = (num) => num % 3 === 0;\nlet divisibleByThree = null;\n\nfunction doMath() {\n divisibleByThree = arr.filter(callback);\n return divisibleByThree;\n}\ndoMath();\nconsole.log(divisibleByThree);\nconsole.log(\"These numbers are divisible by 3\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 2/.map()",
+            "id": 120810,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Заверши синтаксис переназначения значения `newArray`. Используй метод `.map()` на массиве `arr`. Используй `tripleTheNum` в качестве callback-функции для `.map()`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const arr = [1, 2, 3, 4, 5];\nconst tripleTheNum = (num) => num * 3;\nlet newArray = null;\nfunction doMath() {\n newArray = ();\n return newArray;\n}\ndoMath();\nconsole.log(newArray);\nconsole.log(\"The values in the array have been tripled\");",
+                  "solvedContent": "const arr = [1, 2, 3, 4, 5];\nconst tripleTheNum = (num) => num * 3;\nlet newArray = null;\nfunction doMath() {\n newArray = arr.map(tripleTheNum);\n return newArray;\n}\ndoMath();\nconsole.log(newArray);\nconsole.log(\"The values in the array have been tripled\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 3/Callback",
+            "id": 120814,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Передай имя `\"Rachel\"` как параметр функции `sayHello` и используй функцию обратного вызова `sayGoodbye()` для параметра `callback`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function sayHello(name, callback) {\n console.log(`Hello, ${name}!`);\n callback();\n}\n\nfunction sayGoodbye() {\n console.log(\"Goodbye!\");\n}\nsayHello();",
+                  "solvedContent": "function sayHello(name, callback) {\n console.log(`Hello, ${name}!`);\n callback();\n}\n\nfunction sayGoodbye() {\n console.log(\"Goodbye!\");\n}\nsayHello(\"Rachel\", sayGoodbye);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 4/Asynchronous Callback",
+            "id": 120812,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Метод `setTimeout()` является асинхронным. Заверши вывод в консоль строками `first` и `last`, чтобы вывод появился в правильном порядке. Вывод должен выглядеть следующим образом:\n\n```\nExecuted first\nExecuted last\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function callbackFunc() {\n console.log(\"Executed \");\n}\nsetTimeout(callbackFunc, 1500);\nconsole.log(\"Executed \");",
+                  "solvedContent": "function callbackFunc() {\n console.log(\"Executed last\");\n}\nsetTimeout(callbackFunc, 1500);\nconsole.log(\"Executed first\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 5/Custom Callback",
+            "id": 120813,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Вызови `doSomeMath`. Используй любое положительное целое число от `1` до `1000` для первого аргумента. Используй `multiplyCallback()` для второго аргумента.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function multiplyCallback(num) {\n const result = num * 5;\n console.log(\n  `The custom callback function gives ${result} as the result.`);\n}\n\nfunction doSomeMath(input, callback) {\n console.log(\"We're multiplying the input by 5.\");\n callback(input);\n}\n",
+                  "solvedContent": "function multiplyCallback(num) {\n const result = num * 5;\n console.log(\n  `The custom callback function gives ${result} as the result.`);\n}\n\nfunction doSomeMath(input, callback) {\n console.log(\"We're multiplying the input by 5.\");\n callback(input);\n}\ndoSomeMath(2, multiplyCallback);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 6/ES6 Callback",
+            "id": 120811,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Перепиши пользовательскую функцию обратного вызова `sayHello`, используя синтаксис стрелочной функции ES6. Не изменяй имя или порядок параметров и консольные логи.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function sayHello(name, callback) {\n console.log(`Hello, ${name}!`);\n callback();\n}\nconst sayGoodbye = () => console.log(\"Goodbye!\");\nsayHello(\"Sam\", sayGoodbye);",
+                  "solvedContent": "const sayHello = (name, callback) => {\n console.log(`Hello, ${name}!`);\n callback();\n};\nconst sayGoodbye = () => console.log(\"Goodbye!\");\nsayHello(\"Sam\", sayGoodbye);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 7/Aynchronous Callback 2",
+            "id": 120815,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Используй `reverseCallback` в качестве первого аргумента для асинхронного метода `setTimeout()`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const word = \"enola\";\n\nfunction reverseCallback() {\n const result = word.split(\"\").reverse().join(\"\");\n console.log(`The string reversed is: \"${result}\"`);\n console.log(\"Executed last because we're using asynchronous code.\");\n}\nsetTimeout( , 1500);\nconsole.log('Executed first');",
+                  "solvedContent": "const word = \"enola\";\n\nfunction reverseCallback() {\n const result = word.split(\"\").reverse().join(\"\");\n console.log(`The string reversed is: \"${result}\"`);\n console.log(\"Executed last because we're using asynchronous code.\");\n}\nsetTimeout(reverseCallback, 1500);\nconsole.log('Executed first');"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      },
+      {
+        "id": 13430,
+        "title": "Таймауты и интервалы в JS",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Code 1",
+            "id": 120826,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Добавь синтаксис для заказа десерта с задержкой в `1000` миллисекунд.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "(() => {\n console.log(\"Dessert\");\n}, );\nconsole.log(\"Starters\");",
+                  "solvedContent": "setTimeout(() => {\n console.log(\"Dessert\");\n}, 1000);\nconsole.log(\"Starters\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 2",
+            "id": 120827,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Вызови `setTimeout()` с `callbackFunc` и задержкой в `500` миллисекунд.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const callbackFunc = () => {\n console.log(\"I am the callback\");\n };\n\n ",
+                  "solvedContent": "const callbackFunc = () => {\n console.log(\"I am the callback\");\n };\nsetTimeout(callbackFunc, 500);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 3",
+            "id": 120828,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Вызови `setTimeout()` с функцией обратного вызова и параметром `delay` по умолчанию.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function callback() {\n console.log(\"The callback was executed as soon as possible\");\n}\nsetTimeout();",
+                  "solvedContent": "function callback() {\n console.log(\"The callback was executed as soon as possible\");\n}\nsetTimeout(callback, 0);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 4",
+            "id": 120829,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Вызови `setInterval()` с функцией `callback` и интервалом в `300` миллисекунд. Сохрани возвращаемое значение в переменной `intervalID`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const callback = () => console.log(\"Flash\");\nconst intervalID = ;\nsetTimeout(() => {\n clearInterval(intervalID);\n console.log(\"Stopped the paparazzi\");\n}, 1500);",
+                  "solvedContent": "const callback = () => console.log(\"Flash\");\nconst intervalID = setInterval(callback, 300);\nsetTimeout(() => {\n clearInterval(intervalID);\n console.log(\"Stopped the paparazzi\");\n}, 1500);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 5",
+            "id": 120831,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Твои друзья слишком часто пишут тебе сообщения, давай отключим уведомления из группового чата. В `setTimeout()` используй `clearInterval()`, чтобы остановить выполнение обратного вызова `setInterval()`. Передай ему `intervalID` в качестве аргумента.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function callback() {\n console.log(\"New Message\");\n}\nconst intervalID = setInterval(callback, 500);\nsetTimeout(() => {\n  ();\n   console.log(\"Muted chat\");\n}, 1500);",
+                  "solvedContent": "function callback() {\n console.log(\"New Message\");\n}\nconst intervalID = setInterval(callback, 500);\nsetTimeout(() => {\n clearInterval(intervalID);\n console.log(\"Muted chat\");\n}, 1500);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 6",
+            "id": 120832,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "После 2 ставок, `clearInterval` остановит варианты ставок на сайте ставок. В теле функции `start()` переназначьте `intervalID` на возвращаемое значение `setInterval()`. Используйте функцию `makeBet` и `500` миллисекунд в качестве аргументов.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let count = 0;\nlet intervalID = null;\n\nfunction makeBet() {\n if (count < 2) {\n  count++;\n  console.log(\"New Bet\");\n } else {\n  clearInterval(intervalID);\n  console.log(\"The interval was cleared after 2 bets\");\n }\n}\n\nfunction start() {\n\n \n}\nstart();",
+                  "solvedContent": "let count = 0;\nlet intervalID = null;\n\nfunction makeBet() {\n if (count < 2) {\n  count++;\n  console.log(\"New Bet\");\n } else {\n  clearInterval(intervalID);\n  console.log(\"The interval was cleared after 2 bets\");\n }\n}\n\nfunction start() {\n intervalID = setInterval(makeBet, 500);\n}\nstart();"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 7",
+            "id": 120830,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "В аукционе система проверяет предложения от пользователей каждые `400` миллисекунд. Сохрани возвращаемое значение метода `setInterval()` в переменной `const` с именем `intervalID`, чтобы мы могли использовать его в методе `clearInterval`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const checkOffer = () => console.log(\"New Offer\");\n setInterval(checkOffer, 400);\nsetTimeout(() => {\n clearInterval(intervalID);\n console.log(\"Stop offers after 1300 ms.\");\n}, 1300);",
+                  "solvedContent": "const checkOffer = () => console.log(\"New Offer\");\nconst intervalID = setInterval(checkOffer, 400);\nsetTimeout(() => {\n clearInterval(intervalID);\n console.log(\"Stop offers after 1300 ms.\");\n}, 1300);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code 8",
+            "id": 120833,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Приложение для отслеживания дикой природы проверяет местоположение животных, чтобы убедиться, что они находятся в своих назначенных местах, дважды в день. В пользовательской функции `checkLocation()` завершите `setInterval()` внутри оператора `else`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let count = 0;\nlet intervalID = null;\n\nfunction checkLocation() {\n if (count < 2) {\n  count++;\n  console.log(\"Track Lions\");\n } else {\n   ();\n  console.log(\"Turn off tracking\");\n }\n}\n\nfunction start() {\n intervalID = setInterval(checkLocation, 500);\n}\nstart();",
+                  "solvedContent": "let count = 0;\nlet intervalID = null;\n\nfunction checkLocation() {\n if (count < 2) {\n  count++;\n  console.log(\"Track Lions\");\n } else {\n  clearInterval(intervalID);\n  console.log(\"Turn off tracking\");\n }\n}\n\nfunction start() {\n intervalID = setInterval(checkLocation, 500);\n}\nstart();"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      },
+      {
+        "id": 13425,
+        "title": "Ожидание в JS",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Code: Creating a Promise Object",
+            "id": 120741,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Создай пустое promise, используя метод конструктора `Promise`. Присвой его переменной `promise`. Наконец, передай пустую функцию в метод конструктора, которая имеет два параметра `resolve` и `reject`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let promise",
+                  "solvedContent": "let promise = new Promise(function(resolve, reject) {});"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code: Burger Sandwich",
+            "id": 120742,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Проверь, есть ли в `burgerSandwich` лук. Если `true`, измени на `false`. Затем, определи новое значение лука внутри условия `if`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const burgerSandwich = {\n pattySource: 'chicken',\n tomato: true,\n lettuce: true,\n onion: true,\n cheese: true\n};\n\nfunction customizeOrder() {\n return new Promise(function(resolve) {\n\n  \n });\n}\ncustomizeOrder();",
+                  "solvedContent": "const burgerSandwich = {\n pattySource: 'chicken',\n tomato: true,\n lettuce: true,\n onion: true,\n cheese: true\n};\n\nfunction customizeOrder() {\n return new Promise(function(resolve) {\n  if (burgerSandwich.onion) {\n   burgerSandwich.onion = false;\n   resolve(burgerSandwich.onion);\n  }\n });\n}\ncustomizeOrder();"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code: The \"A\" Gift",
+            "id": 120757,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Напишите код, чтобы проверить, является ли оценка `A`, и верните сообщение по вашему выбору. Если оценка отличается от `A`, отклоните с сообщением, отличным от сообщения при успешной проверке.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const grade = 'A';\n\nfunction giftBuyDecision() {\n return new Promise(function(resolve, reject) {\n    \n });\n}\ngiftBuyDecision();",
+                  "solvedContent": "const grade = 'A';\n\nfunction giftBuyDecision() {\n return new Promise(function(resolve, reject) {\n  if (grade === 'A') {\n   resolve(\"Excellent work...\");\n  } else {\n   reject(\"Maybe next semester...\");\n  }\n });\n}\ngiftBuyDecision();"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code: Find the Intruder Data Type",
+            "id": 120758,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Заполни `.then`, чтобы вывести разрешенное сообщение, а затем заполни метод `.catch`, чтобы вывести отклоненное сообщение.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const data = ['Hello', 'foo', 'bar', 7, 'smith'];\nconst intruder = data.find((i) => typeof i !== 'string');\n\nfunction checkIfIntruderFound() {\n return new Promise(function(resolve, reject) {\n  if (intruder) {\n   resolve(`Intruder has been found. It is item ${intruder}`);\n  } else {\n   reject(\"Intruder not found..\");\n  }\n });\n}\n\nfunction callOutTheIntruder() {\n checkIfIntruderFound(\n  .then(function() {\n  console.log(result);\n }).catch(function() {\n  consle.log(error);\n });\n}\ncallOutTheIntruder();",
+                  "solvedContent": "const data = ['Hello', 'foo', 'bar', 7, 'smith'];\nconst intruder = data.find((i) => typeof i !== 'string');\n\nfunction checkIfIntruderFound() {\n return new Promise(function(resolve, reject) {\n  if (intruder) {\n   resolve(`Intruder has been found. It is item ${intruder}`);\n  } else {\n   reject(\"Intruder not found..\");\n  }\n });\n}\n\nfunction callOutTheIntruder() {\n checkIfIntruderFound()\n   .then(function(result) {\n  console.log(result);\n }).catch(function(error) {\n  consle.log(error);\n });\n}\ncallOutTheIntruder();"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code: Wash the Dishes",
+            "id": 120759,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Соедини функцию `putDishesAway` с функцией display, используя метод `.then`. После этого добавь `.catch` в цепочку.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let cleanDishes = [false, false];\nlet allClean = false;\n\nfunction loadDishwasher() {\n return new Promise(function(resolve) {\n  for (let i = 0; i < cleanDishes.length; i++) {\n   if (!cleanDishes[i]) {\n    cleanDishes[i] = true;\n   }\n  }\n  setTimeout(function() {\n   allClean = true;\n   console.log(\n    `All ${cleanDishes.length} dishes are now clean...`);\n   resolve(allClean);\n  }, 1000);\n });\n}\n\nfunction putDishesAway(areAllDishesClean) {\n return new Promise(function(resolve, reject) {\n  if (areAllDishesClean) {\n   setTimeout(function() {\n    resolve(\"No more dishes to wash.\");\n   }, 1000);\n  } else {\n   setTimeout(function() {\n    reject(\"Some dishes are not clean yet.\");\n   }, 1000);\n  }\n });\n}\n\nfunction startDishWashingProcess() {\n return loadDishwasher()\n .then(function(allDishesClean) {\n  return putDishesAway(allDishesClean)\n  .(function(result) {\n   console.log(result);\n  }).(function(error) {\n   console.log(error);\n  });\n });\n}\nstartDishWashingProcess();",
+                  "solvedContent": "let cleanDishes = [false, false];\nlet allClean = false;\n\nfunction loadDishwasher() {\n return new Promise(function(resolve) {\n  for (let i = 0; i < cleanDishes.length; i++) {\n   if (!cleanDishes[i]) {\n    cleanDishes[i] = true;\n   }\n  }\n  setTimeout(function() {\n   allClean = true;\n   console.log(\n    `All ${cleanDishes.length} dishes are now clean...`);\n   resolve(allClean);\n  }, 1000);\n });\n}\n\nfunction putDishesAway(areAllDishesClean) {\n return new Promise(function(resolve, reject) {\n  if (areAllDishesClean) {\n   setTimeout(function() {\n    resolve(\"No more dishes to wash.\");\n   }, 1000);\n  } else {\n   setTimeout(function() {\n    reject(\"Some dishes are not clean yet.\");\n   }, 1000);\n  }\n });\n}\n\nfunction startDishWashingProcess() {\n return loadDishwasher()\n .then(function(allDishesClean) {\n  return putDishesAway(allDishesClean)\n  .then(function(result) {\n   console.log(result);\n  }).catch(function(error) {\n   console.log(error);\n  });\n });\n}\nstartDishWashingProcess();"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code: An async function",
+            "id": 120772,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Сделай функцию `prepareDinner` асинхронной.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function prepareDinner() {\n setTimeout(function() {\n  console.log(\"Dinner is prepared...\");\n }, 1000);\n}\nprepareDinner();",
+                  "solvedContent": "async function prepareDinner() {\n setTimeout(function() {\n  console.log(\"Dinner is prepared...\");\n }, 1000);\n}\nprepareDinner();"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Code: Wait for the bus",
+            "id": 120773,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Преобразуй функцию `boardTheBus` в асинхронную. Затем используй `await`, чтобы переменная `message` ожидала, пока `waitForBusArrival` не будет разрешена.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const randomWaitTime = Math.floor(Math.random() * 1000);\nlet waitForBusArrival = new Promise((resolve, reject) => {\n setTimeout(() => resolve(\n  \"The bus has finally arrived! Now boarding..\"), randomWaitTime);\n});\n\nfunction boardTheBus() {\n let message;\n console.log(message);\n}\nboardTheBus();",
+                  "solvedContent": "const randomWaitTime = Math.floor(Math.random() * 1000);\nlet waitForBusArrival = new Promise((resolve, reject) => {\n setTimeout(() => resolve(\n  \"The bus has finally arrived! Now boarding..\"), randomWaitTime);\n});\nasync function boardTheBus() {\n let message = await waitForBusArrival;\n console.log(message);\n}\nboardTheBus();"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

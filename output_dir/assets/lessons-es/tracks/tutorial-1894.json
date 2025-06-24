@@ -1,0 +1,351 @@
+{
+  "tutorial": {
+    "id": 1894,
+    "version": 8,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Base de datos simulada",
+    "descriptionContent": "Usa programas reutilizables para crear una base de datos simulada",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1894-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12373,
+        "title": "Base de datos simulada",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "getAll()",
+            "id": 112139,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para este proyecto, simularemos consultas de base de datos para entender cuándo se ejecutan ciertos bloques de código dentro de una función con la ayuda de condicionales.\n\nPara comenzar, empecemos con una función para obtener todos los usuarios dentro de una base de datos. Para esta función, la palabra clave `return` devolverá todos los usuarios una vez que el bucle esté completo.\n\n1. Dentro de `getAll()`, inicializa una variable `allUsers` como un array vacío.\n2. Crea un bucle `for` que itere la longitud de `userArr`.\n3. Agrega usuarios a `allUsers` en cada iteración.\n4. Fuera y debajo del bucle for, devuelve `allUsers`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n}\n\nfunction checkExistingUser(e) {}\n\nfunction checkLastLogin() {}\n\nfunction checkLocation(e) {}\n\nfunction checkContributions(e) {}\n\nfunction deleteUser() {}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {}\n\nfunction checkLastLogin() {}\n\nfunction checkLocation(e) {}\n\nfunction checkContributions(e) {}\n\nfunction deleteUser() {}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "checkExistingUser(e) 1/2",
+            "id": 112140,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Otra consulta útil a una base de datos es verificar si existe un usuario. En esta función, una condicional nos ayudará a ejecutar las instrucciones deseadas para comprobar si un usuario existe.\n\n1. Dentro de `checkExistingUser(e)`, crea un bucle `for` que itere a través de la longitud de `userArr`.\n2. Crea una declaración `if` que verifique si el nombre de la iteración actual es estrictamente igual al valor de entrada del formulario.\n3. Registra en el log el objeto de usuario de la iteración actual si se cumple la condicional.\n4. Devuelve `true`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n}\n\nfunction checkLastLogin() {\n\n}\n\nfunction checkLocation(e) {\n\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n}\n\nfunction checkLastLogin() {\n\n}\n\nfunction checkLocation(e) {\n\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `e.currentTarget.name.value` to check if the current iteration's name is strictly equal to the form's input value. This syntax gets the value entered into the `input` element (in index.html) when its button is clicked and the event triggers this function."
+                }
+              ]
+            }
+          },
+          {
+            "title": "checkExistingUser(e) 2/2",
+            "id": 112141,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Continuando con la función `checkExistingUser`, vamos a completar la lógica incluyendo instrucciones para cuando la declaración `if` no se cumpla. `checkExistingUser(e)` seguirá proporcionando datos significativos al devolver `false`.\n\n1. Registra `\"User does not exist\"` fuera y debajo del bucle `for`.\n2. Devuelve `false`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n\n}\n\nfunction checkLastLogin() {\n\n}\n\nfunction checkLocation(e) {\n\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n\n}\n\nfunction checkLocation(e) {\n\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `return` to return values. For example, `return val;`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "checkLastLogin()",
+            "id": 112174,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "La siguiente consulta simulada en la que nos centraremos es verificar la última vez que un usuario ha iniciado sesión. Una condicional verificará si un usuario no ha iniciado sesión durante una cierta cantidad de días, y la palabra clave `return` devolverá cualquier resultado.\n\n1. Dentro de `checkLastLogin()`, inicializa una variable `results` como un array vacío.\n2. Crea un bucle `for` que itere la longitud de `userArr`.\n3. Usa una declaración `if` para verificar si el último inicio de sesión del objeto del usuario actual es `mayor que` 10.\n4. Agrega el objeto del usuario actual al array `results` si se cumple la condición.\n5. Fuera y debajo del bucle for, devuelve `results`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n\n}\n\nfunction checkLocation(e) {\n\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Use `return` to return values. Example, `return val;`.\n2. To push an element into an array, use `push()`. Example, `array.push(element)`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "checkLocation(e) 1/2",
+            "id": 112175,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, vamos a crear una función que consulte la base de datos simulada y devuelva todos los usuarios de una ubicación específica. En esta primera parte, devolveremos los resultados de nuestras condiciones si se cumplen.\n\n1. Dentro de `checkLocation()`, inicializa una variable `results` como un array vacío.\n2. Usa un bucle `for` para iterar a través de la longitud de `userArr`.\n3. Crea una declaración `if` que verifique si la ubicación del objeto del usuario actual es estrictamente igual al valor de entrada del formulario.\n4. Agrega el objeto del usuario actual al array `results` cuando se cumpla la condición.\n5. Fuera y debajo del bucle for, verifica si la longitud de `results` es `mayor que` 0.\n6. Si se cumple la condición anterior, entonces registra y devuelve `results`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n   console.log(results);\n   return results;\n  }\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `e.currentTarget.location.value` to check if the current iteration's name is strictly equal to the form's input value."
+                }
+              ]
+            }
+          },
+          {
+            "title": "checkLocation(e) 2/2",
+            "id": 112176,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para completar la lógica de esta función, necesitaremos una declaración `else`. Cuando la longitud de `results` no sea mayor que 0 y la condición no se cumpla, nuestra declaración else mostrará `\"No results found\"` y devolverá `false`.\n\n1. Crea el bloque de código de la declaración `else`.\n2. Registra `\"No results found\"`.\n3. Devuelve `false`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n   console.log(results);\n   return results;\n  }\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n   console.log(results);\n   return results;\n  } else {\n   console.log(\"No results found\");\n   return false;\n  }\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The structure of `if..else` statement is:\n```javascript\nif(condition) {\n\n} else {\n\n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "checkContributions(e) 1/2",
+            "id": 112177,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, escribiremos una función que verifique si un usuario ha hecho una cierta cantidad de contribuciones. En esta primera parte, devolveremos todos los objetos de usuario que satisfacen la condición. Usaremos otra condición para verificar la longitud del array de resultados.\n\n1. Dentro de `checkContributions()`, inicializa una variable `validContributions` como un array vacío.\n2. Crea un bucle `for` que itere a través de la longitud de `userArr`.\n3. Crea una declaración `if` que verifique si las contribuciones del objeto de usuario actual son `mayores que` el valor de entrada del formulario.\n4. Agrega el objeto de usuario actual a `validContributions` cuando se cumpla la condición.\n5. Fuera y debajo del bucle for, verifica si la longitud de `validContributions` es `mayor que` 0.\n6. Si se cumple la condición anterior, registra y devuelve `validContributions`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n   console.log(results);\n   return results;\n  } else {\n   console.log(\"No results found\");\n   return false;\n  }\n}\n\nfunction checkContributions(e) {\n\n}\n\nfunction deleteUser() {\n\n}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n   console.log(results);\n   return results;\n  } else {\n   console.log(\"No results found\");\n   return false;\n  }\n}\n\nfunction checkContributions(e) {\n  const validContributions = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].contributions > e.currentTarget.contributions.value) {\n      validContributions.push(userArr[i]);\n    }\n  }\n  if (validContributions.length > 0) {\n   console.log(validContributions);\n   return validContributions;\n  }\n}\n\nfunction deleteUser() {\n\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `e.currentTarget.contributions.value` to check if the current user object's contributions are `greater than` the form's input value."
+                }
+              ]
+            }
+          },
+          {
+            "title": "checkContributions(e) 2/2",
+            "id": 112178,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para completar esta función, necesitaremos una declaración `else` para cuando la longitud de `validContributions` no satisfaga la condición.\n\n1. Crea el bloque de código de la declaración `else`.\n2. Registra `\"No results found\"`.\n3. Devuelve `false`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n    console.log(results);\n    return results;\n  } else {\n    console.log(\"No results found\");\n    return false;\n  }\n}\n\nfunction checkContributions(e) {\n  const validContributions = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].contributions > e.currentTarget.contributions.value) {\n      validContributions.push(userArr[i]);\n    }\n  }\n  if (validContributions.length > 0) {\n    console.log(validContributions);\n    return validContributions;\n  }\n}\n\nfunction deleteUser() {}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n    console.log(results);\n    return results;\n  } else {\n    console.log(\"No results found\");\n    return false;\n  }\n}\n\nfunction checkContributions(e) {\n  const validContributions = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].contributions > e.currentTarget.contributions.value) {\n      validContributions.push(userArr[i]);\n    }\n  }\n  if (validContributions.length > 0) {\n    console.log(validContributions);\n    return validContributions;\n  } else {\n    console.log(\"No results found\");\n    return false;\n  }\n}\n\nfunction deleteUser() {}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The structure of `if..else` statement is:\n```javascript\nif(condition) {\n\n} else {\n\n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "deleteUser()",
+            "id": 112179,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Por último, echemos un vistazo a una función que elimina un usuario de la base de datos. Usaremos la palabra clave `return` para devolver `true` si un usuario es eliminado con éxito.\n\n1. Crea un bucle `for` que itere a través de la longitud de `userArr`.\n2. Verifica si el nombre del objeto de usuario actual es estrictamente igual a `\"Selene\"`.\n3. Usa `splice` con el índice del objeto de usuario actual y elimina el objeto cuando se cumpla la condición.\n4. Registra `\"User deleted successfully\", userArr`.\n5. Devuelve `true`.\n6. Registra `\"User not found\"` fuera y debajo del bucle for.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <form onsubmit=\"event.preventDefault(); checkExistingUser(event);\">\n      <label for=\"name-query\">Name Query:</label>\n      <input type=\"text\" name=\"name\" placeholder=\"Enter a name\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkLocation(event);\">\n      <label for=\"location-query\">Location Query:</label>\n      <input type=\"text\" name=\"location\" placeholder=\"Enter a location\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <form onsubmit=\"event.preventDefault(); checkContributions(event);\">\n      <label for=\"contributions-query\">Contributions Query</label>\n      <input type=\"number\" name=\"contributions\" placeholder=\"Enter an amount\">\n      <button type=\"submit\">submit</button>\n    </form>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    background-color: #3E416D;\n    color: whitesmoke;\n    font-family: 'Lato', sans-serif;\n}\n\nbutton {\n    background-color: #62d76b;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n    console.log(results);\n    return results;\n  } else {\n    console.log(\"No results found\");\n    return false;\n  }\n}\n\nfunction checkContributions(e) {\n  const validContributions = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].contributions > e.currentTarget.contributions.value) {\n      validContributions.push(userArr[i]);\n    }\n  }\n  if (validContributions.length > 0) {\n    console.log(validContributions);\n    return validContributions;\n  } else {\n    console.log(\"No results found\");\n    return false;\n  }\n}\n\nfunction deleteUser() {\n}",
+                  "solvedContent": "const userArr = [{\n  name: \"Brian\",\n  lastLoggedOn: 5,\n  location: \"Illinois\",\n  contributions: 79\n}, {\n  name: \"Brent\",\n  lastLoggedOn: 30,\n  location: \"Austria\",\n  contributions: 25\n}, {\n  name: \"Selene\",\n  lastLoggedOn: 2,\n  location: \"Illinois\",\n  contributions: 116\n}, ];\n\nfunction getAll() {\n  const allUsers = [];\n  for (let i = 0; i < userArr.length; i++) {\n    allUsers.push(userArr[i]);\n  }\n  return allUsers;\n}\n\nfunction checkExistingUser(e) {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === e.currentTarget.name.value) {\n      console.log(userArr[i]);\n      return true;\n    }\n  }\n  console.log(\"User does not exist\");\n  return false;\n}\n\nfunction checkLastLogin() {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].lastLoggedOn > 10) {\n      results.push(userArr[i]);\n    }\n  }\n  return results;\n}\n\nfunction checkLocation(e) {\n  const results = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].location === e.currentTarget.location.value) {\n      results.push(userArr[i]);\n    }\n  }\n  if (results.length > 0) {\n    console.log(results);\n    return results;\n  } else {\n    console.log(\"No results found\");\n    return false;\n  }\n}\n\nfunction checkContributions(e) {\n  const validContributions = [];\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].contributions > e.currentTarget.contributions.value) {\n      validContributions.push(userArr[i]);\n    }\n  }\n  if (validContributions.length > 0) {\n    console.log(validContributions);\n    return validContributions;\n  } else {\n    console.log(\"No results found\");\n    return false;\n  }\n}\n\nfunction deleteUser() {\n  for (let i = 0; i < userArr.length; i++) {\n    if (userArr[i].name === \"Selene\") {\n      userArr.splice(i, 1);\n      console.log(\"User deleted successfully\", userArr);\n      return true;\n    }\n  }\n  console.log(\"User not found\");\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "`.splice()` expects two arguments - a starting index and the number of items to remove. In this lesson, remove only one.\n"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

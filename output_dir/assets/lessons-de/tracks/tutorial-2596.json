@@ -1,0 +1,215 @@
+{
+  "tutorial": {
+    "id": 2596,
+    "version": 9,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "html",
+    "title": "Ratespiel - Teil 2",
+    "descriptionContent": "Bereit, den Einsatz zu erhöhen? Jetzt führen wir Leben in unser Spiel ein und fügen eine zusätzliche Ebene der Herausforderung und Spannung hinzu. Bereit, Spieler 1?",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2596-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14376,
+        "title": "Lernen",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Attempts",
+            "id": 128007,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Willkommen zurück beim **Guessing Game**-Projekt. Wir werden jetzt die Versuche unserer Spieler verfolgen, um das Spiel etwas herausfordernder zu gestalten.\n\n1. Deklariere unterhalb der Variable `randomNumber`, aber oberhalb der Funktion, eine neue Variable namens `attempts` und initialisiere sie mit `10`, was die Anzahl der Versuche angibt, die der Spieler hat.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Guessing Game</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container\">\n      <h1>Guessing Game</h1>\n      <p>Guess a number between 1 and 100</p>\n      <input type=\"number\" id=\"guess\">\n      <button onclick=\"checkGuess()\">Submit Guess</button>\n      <p id=\"feedback\"></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    background-color: gold;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n}\n\n.container {\n    background-color: white;\n    padding: 40px;\n    border-radius: 8px;\n    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    width: 320px;\n    max-width: 90%;\n}\n\ninput {\n    width: 80%;\n    padding: 12px;\n    font-size: 24px;\n    margin-bottom: 12px;\n}\n\nbutton {\n    width: 100%;\n    padding: 12px;\n    font-weight: bold;\n    background-color: blue;\n    border: 2px solid blue;\n    color: white;\n    border-radius: 5px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: white;\n    color: blue;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let randomNumber = Math.floor(Math.random() * 100) + 1;\n\nfunction checkGuess() {\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  if (guess == randomNumber) {\n    feedbackElement.innerHTML = \"Congratulations!\";\n    feedbackElement.style.color = \"green\";\n  } else if (guess < randomNumber) {\n    feedbackElement.innerHTML = \"Too low! Try again.\";\n    feedbackElement.style.color = \"red\";\n  } else {\n    feedbackElement.innerHTML = \"Too high! Try again.\";\n    feedbackElement.style.color = \"red\";\n  }\n}",
+                  "solvedContent": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  if (guess == randomNumber) {\n    feedbackElement.innerHTML = \"Congratulations!\";\n    feedbackElement.style.color = \"green\";\n  } else if (guess < randomNumber) {\n    feedbackElement.innerHTML = \"Too low! Try again.\";\n    feedbackElement.style.color = \"red\";\n  } else {\n    feedbackElement.innerHTML = \"Too high! Try again.\";\n    feedbackElement.style.color = \"red\";\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Try",
+            "id": 128008,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Natürlich müssen wir auch die verwendeten Versuche im Auge behalten.\n\n1. Zu Beginn der Funktion `checkGuess` möchten wir die Anzahl der Versuche um `1` reduzieren, jedes Mal, wenn der Spieler einen Tipp abgibt.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Guessing Game</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container\">\n      <h1>Guessing Game</h1>\n      <p>Guess a number between 1 and 100</p>\n      <input type=\"number\" id=\"guess\">\n      <button onclick=\"checkGuess()\">Submit Guess</button>\n      <p id=\"feedback\"></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    background-color: gold;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n}\n\n.container {\n    background-color: white;\n    padding: 40px;\n    border-radius: 8px;\n    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    width: 320px;\n    max-width: 90%;\n}\n\ninput {\n    width: 80%;\n    padding: 12px;\n    font-size: 24px;\n    margin-bottom: 12px;\n}\n\nbutton {\n    width: 100%;\n    padding: 12px;\n    font-weight: bold;\n    background-color: blue;\n    border: 2px solid blue;\n    color: white;\n    border-radius: 5px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: white;\n    color: blue;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  if (guess == randomNumber) {\n    feedbackElement.innerHTML = \"Congratulations!\";\n    feedbackElement.style.color = \"green\";\n  } else if (guess < randomNumber) {\n    feedbackElement.innerHTML = \"Too low! Try again.\";\n    feedbackElement.style.color = \"red\";\n  } else {\n    feedbackElement.innerHTML = \"Too high! Try again.\";\n    feedbackElement.style.color = \"red\";\n  }\n}",
+                  "solvedContent": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  if (guess == randomNumber) {\n    feedbackElement.innerHTML = \"Congratulations!\";\n    feedbackElement.style.color = \"green\";\n  } else if (guess < randomNumber) {\n    feedbackElement.innerHTML = \"Too low! Try again.\";\n    feedbackElement.style.color = \"red\";\n  } else {\n    feedbackElement.innerHTML = \"Too high! Try again.\";\n    feedbackElement.style.color = \"red\";\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "While",
+            "id": 128009,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir verwenden eine while-Schleife, um die Vermutungen so lange zu überprüfen, wie der Benutzer noch Versuche hat.\n\n1. Umschließe die bestehende Logik zur Überprüfung der Vermutungen mit einer while-Schleife, die überprüft, ob `attempts` größer als `0` ist.\n2. Füge eine `break`-Anweisung am Ende des `if`-Blocks sowie am Ende des `else if`- und `else`-Blocks hinzu, um aus der Schleife zu springen.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Guessing Game</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container\">\n      <h1>Guessing Game</h1>\n      <p>Guess a number between 1 and 100</p>\n      <input type=\"number\" id=\"guess\">\n      <button onclick=\"checkGuess()\">Submit Guess</button>\n      <p id=\"feedback\"></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    background-color: gold;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 1005;\n}\n\n.container {\n    background-color: white;\n    padding: 40px;\n    border-radius: 8px;\n    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    width: 320px;\n    max-width: 90%;\n}\n\ninput {\n    width: 80%;\n    padding: 12px;\n    font-size: 24px;\n    margin-bottom: 12px;\n}\n\nbutton {\n    width: 100%;\n    padding: 12px;\n    font-weight: bold;\n    background-color: blue;\n    border: 2px solid blue;\n    color: white;\n    border-radius: 5px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: white;\n    color: blue;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  if (guess == randomNumber) {\n    feedbackElement.innerHTML = \"Congratulations!\";\n    feedbackElement.style.color = \"green\";\n  } else if (guess < randomNumber) {\n    feedbackElement.innerHTML = \"Too low! Try again.\";\n    feedbackElement.style.color = \"red\";\n  } else {\n    feedbackElement.innerHTML = \"Too high! Try again.\";\n    feedbackElement.style.color = \"red\";\n  }\n}",
+                  "solvedContent": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  while (attempts > 0) {\n    if (guess == randomNumber) {\n      feedbackElement.innerHTML = \"Congratulations!\";\n      feedbackElement.style.color = \"green\";\n      break;\n    } else if (guess < randomNumber) {\n      feedbackElement.innerHTML = \"Too low! Try again.\";\n      feedbackElement.style.color = \"red\";\n      break;\n    } else {\n      feedbackElement.innerHTML = \"Too high! Try again.\";\n      feedbackElement.style.color = \"red\";\n      break;\n    }\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Feedback",
+            "id": 128010,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Aktualisiere die Feedback-Nachrichten, um den Benutzer über die verbleibende Anzahl an Versuchen zu informieren.\n\n1. Ändere die Feedback-Nachrichten, indem du die Anzahl der verbleibenden Versuche sowohl für den Fall \"zu hoch\" als auch \"zu niedrig\" hinzufügst.\n2. Stelle sicher, dass dem Spieler weiterhin mitgeteilt wird, ob der Tipp `zu niedrig` oder `zu hoch` ist.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Guessing Game</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container\">\n      <h1>Guessing Game</h1>\n      <p>Guess a number between 1 and 100</p>\n      <input type=\"number\" id=\"guess\">\n      <button onclick=\"checkGuess()\">Submit Guess</button>\n      <p id=\"feedback\"></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    background-color: gold;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n}\n\n.container {\n    background-color: white;\n    padding: 40px;\n    border-radius: 8px;\n    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    width: 320px;\n    max-width: 90%;\n}\n\ninput {\n    width: 80%;\n    padding: 12px;\n    font-size: 24px;\n    margin-bottom: 12px;\n}\n\nbutton {\n    width: 100%;\n    padding: 12px;\n    font-weight: bold;\n    background-color: blue;\n    border: 2px solid blue;\n    color: white;\n    border-radius: 5px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: white;\n    color: blue;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  while (attempts > 0) {\n    if (guess == randomNumber) {\n      feedbackElement.innerHTML = \"Congratulations!\";\n      feedbackElement.style.color = \"green\";\n      break;\n    } else if (guess < randomNumber) {\n      feedbackElement.innerHTML = \"Too low! Try again.\";\n      feedbackElement.style.color = \"red\";\n      break;\n    } else {\n      feedbackElement.innerHTML = \"Too high! Try again.\";\n      feedbackElement.style.color = \"red\";\n      break;\n    }\n  }\n}",
+                  "solvedContent": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  while (attempts > 0) {\n    if (guess == randomNumber) {\n      feedbackElement.innerHTML = \"Congratulations!\";\n      feedbackElement.style.color = \"green\";\n      break;\n    } else if (guess < randomNumber) {\n      feedbackElement.innerHTML = `Too low! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    } else {\n      feedbackElement.innerHTML = `Too high! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    }\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Game over #1",
+            "id": 128011,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sobald der Spieler richtig rät, möchten wir nicht, dass er weiterspielt.\n\n1. Wenn der Spieler richtig rät, beende das Spiel, indem du `attempts` im `if`-Block auf `0` setzt.\n\nDein Code sollte wie folgt aussehen:\n```JavaScript\nwhile (attempts > 0) {\n  if (guess == randomNumber) {\n    attempts = 0;\n    ...\n    break;\n  } else if (guess < randomNumber) {\n    ...\n    break;\n  } else {\n    ...\n    break;\n  }\n}\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Guessing Game</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container\">\n      <h1>Guessing Game</h1>\n      <p>Guess a number between 1 and 100</p>\n      <input type=\"number\" id=\"guess\">\n      <button onclick=\"checkGuess()\">Submit Guess</button>\n      <p id=\"feedback\"></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    background-color: gold;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n}\n\n.container {\n    background-color: white;\n    padding: 40px;\n    border-radius: 8px;\n    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    width: 320px;\n    max-width: 90%;\n}\n\ninput {\n    width: 80%;\n    padding: 12px;\n    font-size: 24px;\n    margin-bottom: 12px;\n}\n\nbutton {\n    width: 100%;\n    padding: 12px;\n    font-weight: bold;\n    background-color: blue;\n    border: 2px solid blue;\n    color: white;\n    border-radius: 5px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: white;\n    color: blue;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  while (attempts > 0) {\n    if (guess == randomNumber) {\n      feedbackElement.innerHTML = \"Congratulations!\";\n      feedbackElement.style.color = \"green\";\n      break;\n    } else if (guess < randomNumber) {\n      feedbackElement.innerHTML = `Too low! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    } else {\n      feedbackElement.innerHTML = `Too high! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    }\n  }\n}",
+                  "solvedContent": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  while (attempts > 0) {\n    if (guess == randomNumber) {\n      attempts = 0;\n      feedbackElement.innerHTML = \"Congratulations!\";\n      feedbackElement.style.color = \"green\";\n      break;\n    } else if (guess < randomNumber) {\n      feedbackElement.innerHTML = `Too low! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    } else {\n      feedbackElement.innerHTML = `Too high! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    }\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Game over #2",
+            "id": 128012,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nach der while-Schleife überprüfen wir, ob der Spieler keine Versuche mehr hat und nicht richtig geraten hat. Wenn ja, informiere ihn, dass er keine Versuche mehr hat und enthülle die richtige Zahl.\n\n1. Füge nach der while-Schleife eine `if`-Anweisung hinzu, die überprüft, ob `attempts` gleich `0` ist und ob `guess` nicht gleich `randomNumber` ist.\n2. Innerhalb des `if`-Blocks setze die Farbe des `feedbackElement` auf `rot` und teile dem Spieler mit, was die richtige Zahl ist, zusammen mit einer \"Game over\"-Nachricht.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Guessing Game</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container\">\n      <h1>Guessing Game</h1>\n      <p>Guess a number between 1 and 100</p>\n      <input type=\"number\" id=\"guess\">\n      <button onclick=\"checkGuess()\">Submit Guess</button>\n      <p id=\"feedback\"></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    background-color: gold;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n}\n\n.container {\n    background-color: white;\n    padding: 40px;\n    border-radius: 8px;\n    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);\n    text-align: center;\n    width: 320px;\n    max-width: 90%;\n}\n\ninput {\n    width: 80%;\n    padding: 12px;\n    font-size: 24px;\n    margin-bottom: 12px;\n}\n\nbutton {\n    width: 100%;\n    padding: 12px;\n    font-weight: bold;\n    background-color: blue;\n    border: 2px solid blue;\n    color: white;\n    border-radius: 5px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: white;\n    color: blue;\n}\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  while (attempts > 0) {\n    if (guess == randomNumber) {\n      attempts = 0;\n      feedbackElement.innerHTML = \"Congratulations!\";\n      feedbackElement.style.color = \"green\";\n      break;\n    } else if (guess < randomNumber) {\n      feedbackElement.innerHTML = `Too low! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    } else {\n      feedbackElement.innerHTML = `Too high! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    }\n  }\n}",
+                  "solvedContent": "let randomNumber = Math.floor(Math.random() * 100) + 1;\nlet attempts = 10;\n\nfunction checkGuess() {\n  attempts--;\n  const inputElement = document.getElementById(\"guess\");\n  const feedbackElement = document.getElementById(\"feedback\");\n  const guess = inputElement.value;\n  while (attempts > 0) {\n    if (guess == randomNumber) {\n      attempts = 0;\n      feedbackElement.innerHTML = \"Congratulations!\";\n      feedbackElement.style.color = \"green\";\n      break;\n    } else if (guess < randomNumber) {\n      feedbackElement.innerHTML = `Too low! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    } else {\n      feedbackElement.innerHTML = `Too high! Try again. ${attempts} attempts remaining.`;\n      feedbackElement.style.color = \"red\";\n      break;\n    }\n  }\n  if (attempts === 0 && guess != randomNumber) {\n    feedbackElement.innerHTML =\n      `Sorry, you're out of attempts! The correct number was ${randomNumber}.`;\n    feedbackElement.style.color = \"red\";\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

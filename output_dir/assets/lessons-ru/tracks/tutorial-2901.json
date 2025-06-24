@@ -1,0 +1,103 @@
+{
+  "tutorial": {
+    "id": 2901,
+    "version": 3,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Четное или нечетное - Часть 2",
+    "descriptionContent": "Во второй части проекта мы расширим игру до формата \"лучший из трех\"",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2901-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14992,
+        "title": "Глава №1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132178,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Добро пожаловать обратно в **Odd or Even**. Мы изменим программу, чтобы поддерживать несколько раундов и подсчитывать очки. Для начала мы будем отслеживать победы игрока и компьютера и использовать счетчик для подсчета раундов.\n\nДавайте создадим переменные для этого.\n\n1. Объяви переменную `playerWins` и установи ее начальное значение `0`.\n2. Сделай то же самое и создай другую переменную `computerWins`.\n3. Нам также нужен счетчик для отслеживания раундов. Объяви переменную `rounds` и установи ее значение `0`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}\n\nconsole.log(`Player chose ${playerNumber} (${playerChoice})`);\nconsole.log(`Computer chose ${computerNumber} (${computerChoice})`);\nconsole.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\nif (result === playerChoice) {\n  console.log(\"Player wins!\");\n} else {\n  console.log(\"Computer wins!\");\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerWins = 0;\nlet computerWins = 0;\nlet rounds = 0;\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}\n\nconsole.log(`Player chose ${playerNumber} (${playerChoice})`);\nconsole.log(`Computer chose ${computerNumber} (${computerChoice})`);\nconsole.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\nif (result === playerChoice) {\n  console.log(\"Player wins!\");\n} else {\n  console.log(\"Computer wins!\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132179,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Далее мы реализуем несколько раундов игры, поместив существующий код в цикл `while`.\n\n1. Ниже объявления переменных начни цикл `while` и установи его условие так, чтобы он выполнялся, пока rounds меньше 3.\n2. В каждой итерации цикла увеличивай rounds на 1. Размести увеличение в конце цикла.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerWins = 0;\nlet computerWins = 0;\nlet rounds = 0;\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}\n\nconsole.log(`Player chose ${playerNumber} (${playerChoice})`);\nconsole.log(`Computer chose ${computerNumber} (${computerChoice})`);\nconsole.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\nif (result === playerChoice) {\n  console.log(\"Player wins!\");\n} else {\n  console.log(\"Computer wins!\");\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerWins = 0;\nlet computerWins = 0;\nlet rounds = 0;\n\nwhile (rounds < 3) {\n  let playerChoice = input(\"Choose 'odd' or 'even': \");\n  let playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\n  let computerNumber = Math.floor(Math.random() * 5) + 1;\n  let computerChoice = \"\";\n  if (playerChoice === \"odd\") {\n    computerChoice = \"even\";\n  } else {\n    computerChoice = \"odd\";\n  }\n\n  let sum = playerNumber + computerNumber;\n\n  let result = \"\";\n  if (sum % 2 === 0) {\n    result = \"even\";\n  } else {\n    result = \"odd\";\n  }\n\n  console.log(`Player chose ${playerNumber} (${playerChoice})`);\n  console.log(`Computer chose ${computerNumber} (${computerChoice})`);\n  console.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\n  if (result === playerChoice) {\n    console.log(\"Player wins!\");\n  } else {\n    console.log(\"Computer wins!\");\n  }\n  rounds++;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132180,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Сейчас, когда игрок или компьютер выигрывает, мы просто выводим сообщение в консоль. Но нам нужно увеличивать счет.\n\n1. В случае, если игрок выигрывает, увеличьте `playerWins` на `1`.\n2. В случае, если компьютер выигрывает, увеличьте `computerWins` на `1`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerWins = 0;\nlet computerWins = 0;\nlet rounds = 0;\n\nwhile (rounds < 3) {\n  let playerChoice = input(\"Choose 'odd' or 'even': \");\n  let playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\n  let computerNumber = Math.floor(Math.random() * 5) + 1;\n  let computerChoice = \"\";\n  if (playerChoice === \"odd\") {\n    computerChoice = \"even\";\n  } else {\n    computerChoice = \"odd\";\n  }\n\n  let sum = playerNumber + computerNumber;\n\n  let result = \"\";\n  if (sum % 2 === 0) {\n    result = \"even\";\n  } else {\n    result = \"odd\";\n  }\n\n  console.log(`Player chose ${playerNumber} (${playerChoice})`);\n  console.log(`Computer chose ${computerNumber} (${computerChoice})`);\n  console.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\n  if (result === playerChoice) {\n    console.log(\"Player wins!\");\n  } else {\n    console.log(\"Computer wins!\");\n  }\n  rounds++;\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerWins = 0;\nlet computerWins = 0;\nlet rounds = 0;\n\nwhile (rounds < 3) {\n  let playerChoice = input(\"Choose 'odd' or 'even': \");\n  let playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\n  let computerNumber = Math.floor(Math.random() * 5) + 1;\n  let computerChoice = \"\";\n  if (playerChoice === \"odd\") {\n    computerChoice = \"even\";\n  } else {\n    computerChoice = \"odd\";\n  }\n\n  let sum = playerNumber + computerNumber;\n\n  let result = \"\";\n  if (sum % 2 === 0) {\n    result = \"even\";\n  } else {\n    result = \"odd\";\n  }\n\n  console.log(`Player chose ${playerNumber} (${playerChoice})`);\n  console.log(`Computer chose ${computerNumber} (${computerChoice})`);\n  console.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\n  if (result === playerChoice) {\n    console.log(\"Player wins!\");\n    playerWins++;\n  } else {\n    console.log(\"Computer wins!\");\n    computerWins++;\n  }\n  rounds++;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132181,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Наконец, после того как все раунды сыграны, мы хотим отобразить общее количество раундов, которые выиграл каждый игрок.\n\n1. После цикла `while` выведите, сколько раундов выиграл первый игрок и сколько раундов выиграл компьютер.\n2. Отобразите, кто выиграл в серии из трех.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerWins = 0;\nlet computerWins = 0;\nlet rounds = 0;\n\nwhile (rounds < 3) {\n  let playerChoice = input(\"Choose 'odd' or 'even': \");\n  let playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\n  let computerNumber = Math.floor(Math.random() * 5) + 1;\n  let computerChoice = \"\";\n  if (playerChoice === \"odd\") {\n    computerChoice = \"even\";\n  } else {\n    computerChoice = \"odd\";\n  }\n\n  let sum = playerNumber + computerNumber;\n\n  let result = \"\";\n  if (sum % 2 === 0) {\n    result = \"even\";\n  } else {\n    result = \"odd\";\n  }\n\n  console.log(`Player chose ${playerNumber} (${playerChoice})`);\n  console.log(`Computer chose ${computerNumber} (${computerChoice})`);\n  console.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\n  if (result === playerChoice) {\n    console.log(\"Player wins!\");\n    playerWins++;\n  } else {\n    console.log(\"Computer wins!\");\n    computerWins++;\n  }\n  rounds++;\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerWins = 0;\nlet computerWins = 0;\nlet rounds = 0;\n\nwhile (rounds < 3) {\n  let playerChoice = input(\"Choose 'odd' or 'even': \");\n  let playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\n  let computerNumber = Math.floor(Math.random() * 5) + 1;\n  let computerChoice = \"\";\n  if (playerChoice === \"odd\") {\n    computerChoice = \"even\";\n  } else {\n    computerChoice = \"odd\";\n  }\n\n  let sum = playerNumber + computerNumber;\n\n  let result = \"\";\n  if (sum % 2 === 0) {\n    result = \"even\";\n  } else {\n    result = \"odd\";\n  }\n\n  console.log(`Player chose ${playerNumber} (${playerChoice})`);\n  console.log(`Computer chose ${computerNumber} (${computerChoice})`);\n  console.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\n  if (result === playerChoice) {\n    console.log(\"Player wins!\");\n    playerWins++;\n  } else {\n    console.log(\"Computer wins!\");\n    computerWins++;\n  }\n  rounds++;\n}\n\nconsole.log(`Player won ${playerWins} round(s).`);\nconsole.log(`Computer won ${computerWins} round(s).`);\n\nif (playerWins > computerWins) {\n  console.log(\"Player wins the best of three!\");\n} else {\n  console.log(\"Computer wins the best of three!\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

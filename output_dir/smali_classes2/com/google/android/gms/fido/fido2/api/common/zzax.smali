@@ -1,0 +1,33 @@
+.class public final Lcom/google/android/gms/fido/fido2/api/common/zzax;
+.super Ljava/lang/Exception;
+.source "SourceFile"
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 4
+
+    move-object v1, p0
+
+    filled-new-array {p1}, [Ljava/lang/Object;
+
+    move-result-object v3
+
+    move-object p1, v3
+
+    const-string v3, "User verification requirement %s not supported"
+
+    move-object v0, v3
+
+    invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object p1, v3
+
+    invoke-direct {v1, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "Smob - Mod obfuscation tool v4.6 by Kirlif\'"
+
+    return-void
+.end method

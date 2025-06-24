@@ -1,0 +1,268 @@
+{
+  "tutorial": {
+    "id": 1780,
+    "version": 9,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Calculadora de Ahorros",
+    "descriptionContent": "Usa bucles para crear un programa de recibos de clientes",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1780-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 11755,
+        "title": "Calculadora de Descuentos",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Step 1",
+            "id": 107602,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a usar nuestro conocimiento de Programas Reutilizables para calcular descuentos en una tienda de gangas.\n\nPrimero, familiaricémonos con el código proporcionado: hay un array que contiene los precios de los artículos y una función para devolver el número de centavos de ese precio. La función utiliza `.toString()` para convertir el precio de un número a una cadena. Luego utiliza `.split(\".\")` para dividir el precio en dólares y centavos usando el `.` pasado como argumento, y devuelve el segundo elemento del array resultante.\n\nPara comenzar, escribirás dos funciones auxiliares. Vamos a abordar la primera: `getsDiscount(rec)`. Esta función primero sumará los precios del recibo usando un bucle `for`. Luego, usando una declaración `if-else`, la función devolverá verdadero si el total es mayor a $50, de lo contrario, devolverá falso.\n\nTen en cuenta que la función `getDiscount(rec)` tiene un parámetro `rec`, que tomará arrays que contienen el recibo.\n\n1. Dentro del cuerpo de la función, declara una variable `total` y establece su valor igual a 0.\n2. Escribe un bucle `for` para iterar desde 0 hasta la longitud del array `rec`.\n3. Actualiza la variable `total` durante cada iteración del bucle `for` sumando un nuevo recibo.\n4. Finalmente, después del bucle `for`, escribe una declaración `if-else` que devuelva `true` si el `total` es mayor a $50 y `false` en caso contrario.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {}",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 2",
+            "id": 107606,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, escribamos la segunda función auxiliar, `findDiscount()`. Esta función tomará un solo parámetro: `price`. Basándose en el número de centavos en el precio, la función usará declaraciones `if`, `else-if` y `else` para devolver un \"factor de descuento\" (un % de descuento expresado como un decimal).\n\n1. Primero, declara la función `findDiscount()`. La función debe tomar un solo parámetro: `price`.\n2. A continuación, declara una variable llamada `cents`. Usa la función proporcionada `getCents()` para almacenar el número de centavos del precio en la variable `cents`.\n3. Finalmente, escribe una serie de declaraciones `if`, `else-if` y `else` para devolver factores de descuento basados en el número de `cents`.\n    - Si el precio es de 67 centavos, la función debe devolver `0.3`, representando un 30% de descuento.\n    - Si el precio es de 95 centavos, la función debe devolver `0.4`, representando un 40% de descuento.\n    - Si el precio es de 99 centavos, la función debe devolver `0.5`, representando un 50% de descuento.\n    - De lo contrario, la función debe devolver `0`, representando ningún descuento.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Syntax of calling a function and storing its return value in a variable: `const varName = functionName(arg1, arg2...)`.\n2. Because the cents are returned in string format from `getCents()`, we must use the equality operator `==` instead of the strict equality operator `===`.\n3. Use a `return` statement to return a value from a function.\n"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 3",
+            "id": 107607,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora que hemos creado nuestras dos funciones auxiliares, escribamos la función para calcular el total del recibo, considerando cualquier descuento aplicable.\n\n1. Declara una función `calculateTotal` que tome un parámetro `receipt`. Al igual que la función `getsDiscount`, el parámetro `receipt` tomará arrays que contengan los recibos.\n2. Dentro de la función, inicializa dos variables `total` y `totalSavings` a 0. `total` almacenará la cantidad total después del descuento y `totalSavings` almacenará la cantidad total ahorrada después del descuento.\n3. Llama a la función `calculateTotal()` al final del archivo `index.js`, para que podamos llevar un seguimiento de los resultados. Pasa `receipt` como el valor.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n}\ncalculateTotal(receipt);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `let` to initialize `total` and `totalSavings` since the values of the variables will change depending on the prices."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 4",
+            "id": 107608,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, escribiremos un bucle `for` para iterar a través del array `receipt` y obtener los precios originales.\n\n1. Después de las declaraciones de variables, escribe un bucle `for` que use una variable contador para iterar a través de los elementos de `receipt`.\n2. Luego, dentro del cuerpo del bucle, guarda el elemento actual de `receipt` en una variable llamada `originalPrice`.\n3. Para verificar si el bucle itera correctamente a través del array `receipt`, muestra el valor de `originalPrice` dentro del bucle. La salida debería verse como el fragmento dado a continuación.\n\n```javascript\n21.99\n10.67\n18.5\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n}\ncalculateTotal(receipt);",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    console.log(originalPrice);\n  }\n}\ncalculateTotal(receipt);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. To access the current element of an array based on the iteration, you can use `array[counter]`. For example, if the counter variable is `i`, the current element of the `arr` array would be `arr[i]` in a loop.\n2. Start the `for` loop's counter with 0 since an array's index starts from 0."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 5",
+            "id": 107609,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, escribamos la lógica para aplicar un descuento a cada precio. Escribiremos una declaración `if` que verifique si la función `getsDiscount()` devuelve `true` o `false` (recuerda que los descuentos adicionales solo se aplican cuando el cliente gasta más de $50).\n\n1. Elimina la declaración que registra `originalPrice` en la consola ya que ya no la necesitamos.\n2. Escribe una declaración `if` que use el resultado de la función `getsDiscount()` como su condición.\n3. Luego, si `getsDiscount(receipt)` devuelve `true`, declara una variable `discountRate`.\n4. La variable `discountRate` debe almacenar el resultado de llamar a la función `findDiscount()` con la variable `originalPrice` como su parámetro.\n5. Similar al precio original, muestra `discountRate` en la consola dentro del condicional para verificar si está funcionando correctamente. La salida debería verse así:\n\n```javascript\n0.5\n0.3\n0\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    console.log(originalPrice);\n  }\n}\n\ncalculateTotal(receipt);",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      console.log(discountRate);\n    }\n  }\n}\n\ncalculateTotal(receipt);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Syntax of calling a function and storing it in a variable : `const varName = functionName(arg1, arg2...)`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 6",
+            "id": 107610,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora, tenemos un bucle que itera a través de cada precio en el array `receipt` y encuentra su factor de descuento. Ahora calcularemos los ahorros para cada artículo multiplicando el precio por el factor de descuento. Finalmente, sumaremos cada cantidad de ahorros en la variable `totalSavings` que creamos anteriormente para que podamos mostrar esta información al usuario más adelante.\n\n1. Elimina la declaración que registra `discountRate` en la consola ya que ya no la necesitamos.\n2. Inmediatamente después de la declaración de la variable `discountRate`, declara una variable llamada `savings` y asígnale el resultado de multiplicar `originalPrice` con `discountRate`.\n3. A continuación, suma `savings` a `totalSavings` y almacena la suma resultante en la variable `totalSavings`.\n4. Desde dentro de la condicional, muestra `totalSavings` en la consola para verificar que todo esté funcionando. Aquí tienes un fragmento de la salida:\n\n```javascript\n10.995\n14.196\n14.196\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      console.log(discountRate);\n    }\n  }\n}\ncalculateTotal(receipt);",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      console.log(totalSavings);\n    }\n  }\n}\ncalculateTotal(receipt);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use arithmetic operators (`+`, `-`, `*`, `/`) to perform arithmetic operations on variables."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 7",
+            "id": 108070,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora que hemos calculado los ahorros, calculemos cada precio con descuento. Primero restaremos los ahorros calculados en el paso anterior del `originalPrice`. Luego, sumaremos estos precios con descuento en la variable `total` que creamos anteriormente, dándonos un total para el cliente.\n\n1. Elimina la declaración que registra `totalSavings` en la consola ya que ya no la necesitamos.\n2. Inmediatamente después de la operación para sumar `totalSavings`, crea una variable llamada `discountedPrice` para almacenar la diferencia entre las variables `originalPrice` y `savings`.\n3. A continuación, añade el `discountedPrice` a la variable `total` y almacena este resultado en la variable `total`.\n4. Muestra `total` en la consola desde dentro de la condicional. La salida debería verse así:\n\n```javascript\n10.995\n18.464\n36.964\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      console.log(totalSavings);\n    }\n  }\n}\ncalculateTotal(receipt);",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      const discountedPrice = originalPrice - savings;\n      total += discountedPrice;\n      console.log(total);\n    }\n  }\n}\ncalculateTotal(receipt);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use arithmetic operators (`+`, `-`, `*`, `/`) to perform arithmetic operations on variables."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 8",
+            "id": 108071,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora necesitamos escribir la lógica para cuando el cliente no obtiene un descuento. No habrá factor de descuento ni ahorros que calcular, por lo que simplemente podemos sumar estos precios en la variable `total`.\n\n1. Elimina la declaración que registra `total` dentro de la declaración `if`.\n2. Escribe una declaración `else` que sume el `originalPrice` a la variable `total` y luego guarde este resultado en la variable `total`.\n3. Muestra el valor de `total` nuevamente, dentro de la declaración `else`.\n4. Con el arreglo actual `receipt`, la declaración `else` no se ejecutará. Por lo tanto, la ejecutaremos con otro arreglo que la active. Lo eliminaremos más tarde.\n    - Después de la definición del arreglo `receipt`, crea otro arreglo llamado `rec2` que almacene `[2.99, 1.46, 5.67]`.\n    - En la llamada a la función `calculateTotal`, pasa `rec2` como valor en lugar de `receipt`.\n5. La salida debería verse así:\n\n```javascript\n2.99\n4.45\n10.120000000000001\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      const discountedPrice = originalPrice - savings;\n      total += discountedPrice;\n      console.log(total);\n    }\n  }\n}\ncalculateTotal(receipt);",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\nconst rec2 = [2.99, 1.46, 5.67];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      const discountedPrice = originalPrice - savings;\n      total += discountedPrice;\n    } else {\n      total += originalPrice;\n      console.log(total);\n    }\n  }\n}\ncalculateTotal(rec2);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The syntax for `if-else` statement is:\n```javascript\nif(condition) {\n\n} else {\n\n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 9",
+            "id": 107611,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Finalmente, vamos a añadir una declaración `console.log` para asegurarnos de que nuestra lógica está funcionando correctamente. Escribiremos una declaración `if` al final del bloque `if` (pero aún dentro del bloque `if`) que verifica si hay un descuento. Si lo hay, entonces el programa mostrará los ahorros en el siguiente formato:\n\n```javascript\nItem 1 Savings: $4.50\n```\n\n1. Elimina la declaración que registra `total` dentro de la declaración `else`.\n2. Elimina el código de definición del array `rec2`. Además, en la llamada a la función `calculateTotal`, cambia el valor de `rec2` a `receipt` nuevamente.\n3. Dentro del bloque `if` después de su código existente, escribe otra declaración `if` que verifique si `discountRate` no es igual a 0.\n4. Si no es igual a 0, entonces registra los ahorros del artículo en la consola según el ejemplo de formato anterior.\n5. Para formatear los valores a dos números después del punto decimal, añade `.toFixed(2)` al final de `savings`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\nconst rec2 = [2.99, 1.46, 5.67];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      const discountedPrice = originalPrice - savings;\n      total += discountedPrice;\n    } else {\n      total += originalPrice;\n      console.log(total);\n    }\n  }\n}\ncalculateTotal(rec2);",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      const discountedPrice = originalPrice - savings;\n      total += discountedPrice;\n      if (discountRate !== 0) {\n        console.log(\"Item \" + i + \" Savings: $\" + savings.toFixed(2));\n      }\n    } else {\n      total += originalPrice;\n    }\n  }\n}\ncalculateTotal(receipt);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `console.log` to display the result in the console."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 10",
+            "id": 107612,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Termina el programa registrando un mensaje para el usuario que resuma sus ahorros. ¡Una vez que tus cambios estén completos, llama a la función al final del programa!\n\n1. Escribe una declaración `console.log` al final de la función `calculateTotal` que registre la variable `totalSavings` en un formato similar al ejemplo a continuación.\n2. Escribe otra declaración `console.log` al final de la función `calculateTotal` que registre la variable `total` en un formato similar al ejemplo a continuación.\n3. Llama a la función `calculateTotal()` al final del archivo `index.js`.\n\n```javascript\nTotal Saved: $16.56\nTotal Post-Discount: $48.56\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      const discountedPrice = originalPrice - savings;\n      total += discountedPrice;\n      if (discountRate !== 0) {\n        console.log(\"Item \" + i + \" Savings: $\" + savings.toFixed(2));\n      }\n    } else {\n      total += originalPrice;\n    }\n  }\n}\ncalculateTotal(receipt);",
+                  "solvedContent": "const receipt = [21.99, 10.67, 18.50];\n\nfunction getCents(price) {\n  const splitPrice = price.toString().split(\".\");\n  return splitPrice[1];\n}\n\nfunction getsDiscount(rec) {\n  let total = 0;\n  for (let i = 0; i < rec.length; i++) {\n    total += rec[i];\n  }\n  if (total > 50) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nfunction findDiscount(price) {\n  const cents = getCents(price);\n  if (cents == 67) {\n    return 0.3;\n  } else if (cents == 95) {\n    return 0.4;\n  } else if (cents == 99) {\n    return 0.5;\n  } else {\n    return 0;\n  }\n}\n\nfunction calculateTotal(receipt) {\n  let total = 0;\n  let totalSavings = 0;\n  for (let i = 0; i < receipt.length; i++) {\n    const originalPrice = receipt[i];\n    if (getsDiscount(receipt)) {\n      const discountRate = findDiscount(originalPrice);\n      const savings = originalPrice * discountRate;\n      totalSavings += savings;\n      const discountedPrice = originalPrice - savings;\n      total += discountedPrice;\n      if (discountRate !== 0) {\n        console.log(\"Item \" + i + \" Savings: $\" + savings.toFixed(2));\n      }\n    } else {\n      total += originalPrice;\n    }\n  }\n  console.log(\"Total Saved: $\" + totalSavings.toFixed(2));\n  console.log(\"Total Post-Discount: $\" + total.toFixed(2));\n}\ncalculateTotal(receipt);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `console.log` to display the result in the console."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

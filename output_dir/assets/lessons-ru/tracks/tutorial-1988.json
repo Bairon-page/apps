@@ -1,0 +1,173 @@
+{
+  "tutorial": {
+    "id": 1988,
+    "version": 9,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Приложение для настройки рабочего стола",
+    "descriptionContent": "Используй свои знания о классах JavaScript, чтобы создать простой сервис заказа и настройки столов",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1988-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12698,
+        "title": "Домашний офис-магазин",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Creating the Class",
+            "id": 116162,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Давайте узнаем, как мы можем использовать классы JS в этом уроке. Мы создадим небольшое приложение для компании, которая строит и доставляет на заказ столы.\n\nНачнем с создания класса JS.\n\n1. Создайте пустой класс `Desk`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "class Desk {}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Setting up The Desk Class",
+            "id": 116163,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Отлично. Теперь нам нужно настроить наш класс. Мы добавим некоторые свойства и установим их начальные значения.\n\n1. Создай функцию `constructor` и добавь свойства `width`, `height` и `color` в класс `Desk`.\n2. Установи начальное значение каждого свойства равным самому себе. Например, `this.width = width`.\n3. Создай дополнительное свойство `price` и установи его начальное значение равным `0`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Desk {}",
+                  "solvedContent": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Calculating the Price",
+            "id": 116164,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Теперь нам нужно реализовать способ расчета цены стола. Ниже мы предоставили возможный метод ценообразования. Таким образом, мы устанавливаем цену на основе высоты и ширины стола.\n\n1. Внутри класса `Desk` создайте метод `calculatePrice`.\n2. Скопируйте и вставьте следующий код внутрь метода.\n```\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n}",
+                  "solvedContent": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Creating Custom Desks",
+            "id": 116165,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Теперь у нас есть базовый класс, с помощью которого мы можем создавать экземпляры. Но что, если пользователь хочет добавить больше пользовательских опций к своему столу, таких как электрическая регулировка высоты, ящики и т.д.? Давайте расширим текущий класс, чтобы позволить эти опции.\n\n1. Создайте пустой класс под названием `CustomDesk`. Убедитесь, что он является подклассом оригинального класса `Desk`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}",
+                  "solvedContent": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}\nclass CustomDesk extends Desk {}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Adding Custom Desk Properties",
+            "id": 116166,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Поскольку `CustomDesk` является подклассом, он также должен иметь те же свойства, что и класс `Desk`, плюс любые дополнительные, которые мы добавим.\n\n1. Создай пустой метод `constructor()`. Добавь правильные параметры в конструктор, следуя другим инструкциям.\n2. Убедись, что оригинальные свойства класса `Desk` присутствуют и установлены правильно. Проверь подсказки для освежения памяти.\n3. Создай уникальные свойства `drawerUnitsAmount`, `hasCableManagement` и `adjustingMechanism`.\n4. Установи начальное значение каждого нового уникального свойства равным самому себе.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}\nclass CustomDesk extends Desk {}",
+                  "solvedContent": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}\nclass CustomDesk extends Desk {\n  constructor(width, height, color, drawerUnitsAmount, hasCableManagement,\n    adjustingMechanism) {\n    super(width, height, color);\n    this.drawerUnitsAmount = drawerUnitsAmount;\n    this.hasCableManagement = hasCableManagement;\n    this.adjustingMechanism = adjustingMechanism;\n  }\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use the `super()` method to refer to the original properties correctly."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Calculating the Custom Desk Price",
+            "id": 116168,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Далее мы хотим рассчитать цену настраиваемого стола, основываясь на предпочтениях пользователя и выбранных дополнениях. Мы создали логику для расчета цены настраиваемого стола для тебя. Тебе нужно будет только создать метод для расчета, добавить правильные переменные и скопировать и вставить приведенный ниже код внутрь него.\n\n1. Создай пользовательский метод `calculatePrice` в классе `CustomDesk`.\n2. Создай локальную переменную `cableManagementPrice` и установи ей значение `20`.\n3. Создай локальную переменную `electricAdjustingPrice` и установи ей значение `125`.\n4. Создай локальную переменную `manualAdjustingPrice` и установи ей значение `25`.\n5. Создай локальную переменную `drawerUnitPrice` и установи ей значение `30`.\n6. Создай локальную переменную `initialCost` и установи ей значение `(this.width / 100 + this.height / 100) * 100`.\n7. Скопируй и вставь код ниже внутрь метода `calculatePrice()`, под переменными.\n\n```\n    // логика для расчета цены на основе настроек и выбора пользователя\n    if (this.adjustingMechanism === 'electric') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n            electricAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount\n            ;\n      } else {\n        this.price = initialCost + electricAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    } else if (this.adjustingMechanism === 'manual') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n            manualAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount;\n      } else {\n        this.price = initialCost + manualAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    }\n    console.log(this.price);\n\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}\nclass CustomDesk extends Desk {\n  constructor(width, height, color, drawerUnitsAmount, hasCableManagement,\n    adjustingMechanism) {\n    super(width, height, color);\n    this.drawerUnitsAmount = drawerUnitsAmount;\n    this.hasCableManagement = hasCableManagement;\n    this.adjustingMechanism = adjustingMechanism;\n  }\n}",
+                  "solvedContent": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}\nclass CustomDesk extends Desk {\n  constructor(width, height, color, drawerUnitsAmount, hasCableManagement,\n    adjustingMechanism) {\n    super(width, height, color);\n    this.drawerUnitsAmount = drawerUnitsAmount;\n    this.hasCableManagement = hasCableManagement;\n    this.adjustingMechanism = adjustingMechanism;\n  }\n  calculatePrice() {\n    let cableManagementPrice = 20;\n    let electricAdjustingPrice = 125;\n    let manualAdjustingPrice = 25;\n    let drawerUnitPrice = 30;\n    let initialCost = (this.width / 100 + this.height / 100) * 100;\n    if (this.adjustingMechanism === 'electric') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n          electricAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount;\n      } else {\n        this.price = initialCost + electricAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    } else if (this.adjustingMechanism === 'manual') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n          manualAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount;\n      } else {\n        this.price = initialCost + manualAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    }\n    console.log(this.price);\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Creating Instances",
+            "id": 116169,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Отлично! Теперь всё должно быть настроено правильно. Давайте посмотрим наш код в действии. Для этого мы создадим несколько экземпляров!\n\n1. Создай экземпляр класса `Desk` и назови его `basicDesk`. Задай ему `width` равный `200`, `height` равный `80` и цвет `white`.\n2. Создай экземпляр `CustomDesk` и назови его `awesomeDesk`. Задай ему `width` равный `200`, `height` равный `110` и цвет `blue`. Убедись, что у него есть `1` блок ящиков, блок для управления кабелями и \"electric\" механизм регулировки.\n3. Рассчитай цену базового стола и посмотри, что выводится в консоль.\n4. Рассчитай цену потрясающего стола и посмотри, что выводится в консоль.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}\nclass CustomDesk extends Desk {\n  constructor(width, height, color, drawerUnitsAmount, hasCableManagement,\n    adjustingMechanism) {\n    super(width, height, color);\n    this.drawerUnitsAmount = drawerUnitsAmount;\n    this.hasCableManagement = hasCableManagement;\n    this.adjustingMechanism = adjustingMechanism;\n  }\n  calculatePrice() {\n    let cableManagementPrice = 20;\n    let electricAdjustingPrice = 125;\n    let manualAdjustingPrice = 25;\n    let drawerUnitPrice = 30;\n    let initialCost = (this.width / 100 + this.height / 100) * 100;\n    if (this.adjustingMechanism === 'electric') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n          electricAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount;\n      } else {\n        this.price = initialCost + electricAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    } else if (this.adjustingMechanism === 'manual') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n          manualAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount;\n      } else {\n        this.price = initialCost + manualAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    }\n    console.log(this.price);\n  }\n}",
+                  "solvedContent": "class Desk {\n  constructor(width, height, color) {\n    this.price = 0;\n    this.width = width;\n    this.height = height;\n    this.color = color;\n  }\n  calculatePrice() {\n    this.price = (this.width / 100 + this.height / 100) * 100;\n    console.log(this.price);\n  }\n}\nclass CustomDesk extends Desk {\n  constructor(width, height, color, drawerUnitsAmount, hasCableManagement,\n    adjustingMechanism) {\n    super(width, height, color);\n    this.drawerUnitsAmount = drawerUnitsAmount;\n    this.hasCableManagement = hasCableManagement;\n    this.adjustingMechanism = adjustingMechanism;\n  }\n  calculatePrice() {\n    let cableManagementPrice = 20;\n    let electricAdjustingPrice = 125;\n    let manualAdjustingPrice = 25;\n    let drawerUnitPrice = 30;\n    let initialCost = (this.width / 100 + this.height / 100) * 100;\n    if (this.adjustingMechanism === 'electric') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n          electricAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount;\n      } else {\n        this.price = initialCost + electricAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    } else if (this.adjustingMechanism === 'manual') {\n      if (this.hasCableManagement) {\n        this.price = initialCost + cableManagementPrice +\n          manualAdjustingPrice + drawerUnitPrice * this.drawerUnitsAmount;\n      } else {\n        this.price = initialCost + manualAdjustingPrice + drawerUnitPrice *\n          this.drawerUnitsAmount;\n      }\n    }\n    console.log(this.price);\n  }\n}\nconst basicDesk = new Desk(200, 80, 'white');\nconst awesomeDesk = new CustomDesk(200, 110, 'blue', 1, true, 'electric');\nbasicDesk.calculatePrice();\nawesomeDesk.calculatePrice();"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "If you observe the logic we use to calculate the custom desk price, you see that the `hasCableManagement` is a boolean (either `true` or `false`). Take that into account when creating the `awesomeDesk` instance.\n\nFor the `adjustingMechanism`, the user input is either `manual` or `electric`.\n\n\n"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

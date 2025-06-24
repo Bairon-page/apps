@@ -1,0 +1,147 @@
+{
+  "tutorial": {
+    "id": 3139,
+    "version": 2,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Pixelraster - Teil 3",
+    "descriptionContent": "Im dritten Teil implementierst du einen neuen Endpoint, damit deine Benutzer Pixel im Raster aktualisieren können.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-3139-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 15458,
+        "title": "Kapitel #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #2",
+            "id": 135915,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Willkommen zurück im **Pixel Grid** Back-End. In diesem Teil werden wir einen `POST`-Endpunkt implementieren, damit unsere Benutzer Pixel im Raster aktualisieren können.\n\nAls Voraussetzung werden wir dem Server erlauben, JSON-Payloads mit der eingebauten JSON-Middleware von Express zu parsen.\n\n1. Sorge dafür, dass die App die JSON-Middleware von Express verwendet, um unserem Server zu ermöglichen, JSON-Daten in eingehenden Anfragen zu verarbeiten.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\napp.use(express.json());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nconst rowCount = db.prepare(\"SELECT COUNT(*) AS count FROM grid\").get().count;\n\nif (rowCount === 0) {\n  const grid = [];\n  for (let x = 0; x < 20; x++) {\n    for (let y = 0; y < 20; y++) {\n      grid.push({ x, y, color: \"white\" });\n    }\n  }\n\n  const insertStatement = db.prepare(\n    `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`,\n  );\n  const insertTransaction = db.transaction((rows) => {\n    for (const row of rows) {\n      insertStatement.run(row.x, row.y, row.color);\n    }\n  });\n\n  insertTransaction(grid);\n}\n\nmodule.exports = db;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/grid",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 135916,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Jetzt werden wir beginnen, einen neuen Endpoint hinzuzufügen, um die Farbe eines Pixels im Pixelraster zu aktualisieren. Als ersten Schritt definiere die Route und extrahiere die Daten in der Anfrage, um ihre Integrität zu überprüfen. Eine Anfrage ohne Farbe sollte ungültig sein.\n\n1. Erstelle einen neuen `POST`-Routen-Handler für `\"/setGridColor\"`.\n2. Destrukturiere `x`, `y` und `color` aus dem Body des Anfrageobjekts.\n3. Wenn die `color` fehlt, setze den Status auf `400` und antworte mit einem JSON mit einer Eigenschaft *message* und einer passenden Fehlermeldung.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\napp.use(express.json());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\napp.use(express.json());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.post(\"/setGridColor\", (req, res) => {\n  const { x, y, color } = req.body;\n\n  if (!color) {\n    return res.status(400).json({ message: \"Invalid color value\" });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nconst rowCount = db.prepare(\"SELECT COUNT(*) AS count FROM grid\").get().count;\n\nif (rowCount === 0) {\n  const grid = [];\n  for (let x = 0; x < 20; x++) {\n    for (let y = 0; y < 20; y++) {\n      grid.push({ x, y, color: \"white\" });\n    }\n  }\n\n  const insertStatement = db.prepare(\n    `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`,\n  );\n  const insertTransaction = db.transaction((rows) => {\n    for (const row of rows) {\n      insertStatement.run(row.x, row.y, row.color);\n    }\n  });\n\n  insertTransaction(grid);\n}\n\nmodule.exports = db;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "POST",
+                "path": "/setGridColor",
+                "body": "{ \"x\": 1, \"y\": 1, \"color\": \"black\" }"
+              }
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 135917,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Als nächstes validiere die Koordinaten, die in der Anfrage empfangen wurden, da der Client die Koordinaten zusammen mit der Farbe senden sollte, damit das Back-End weiß, welches Pixel in welcher Farbe zu malen ist.\n\n1. Wähle die Zeile aus der Datenbank mit den gegebenen `x` und `y` Koordinaten aus, indem du `db.prepare(\"SELECT * FROM grid WHERE x = ? AND y = ?\").get(x, y);` verwendest.\n2. Wenn keine Zeile gefunden wird, setze den Status auf `400` und antworte mit einem JSON, das eine Eigenschaft *message* und eine passende Fehlermeldung enthält.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\napp.use(express.json());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.post(\"/setGridColor\", (req, res) => {\n  const { x, y, color } = req.body;\n\n  if (!color) {\n    return res.status(400).json({ message: \"Invalid color value\" });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\napp.use(express.json());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.post(\"/setGridColor\", (req, res) => {\n  const { x, y, color } = req.body;\n\n  if (!color) {\n    return res.status(400).json({ message: \"Invalid color value\" });\n  }\n\n  const row = db.prepare(\"SELECT * FROM grid WHERE x = ? AND y = ?\").get(x, y);\n\n  if (!row) {\n    return res.status(400).json({ message: \"Invalid coordinates\" });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nconst rowCount = db.prepare(\"SELECT COUNT(*) AS count FROM grid\").get().count;\n\nif (rowCount === 0) {\n  const grid = [];\n  for (let x = 0; x < 20; x++) {\n    for (let y = 0; y < 20; y++) {\n      grid.push({ x, y, color: \"white\" });\n    }\n  }\n\n  const insertStatement = db.prepare(\n    `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`,\n  );\n  const insertTransaction = db.transaction((rows) => {\n    for (const row of rows) {\n      insertStatement.run(row.x, row.y, row.color);\n    }\n  });\n\n  insertTransaction(grid);\n}\n\nmodule.exports = db;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "POST",
+                "path": "/setGridColor",
+                "body": "{ \"x\": 1, \"y\": 1, \"color\": \"black\" }"
+              }
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 135918,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Schließlich werden wir die Farbe des Pixels in der Datenbank aktualisieren und das aktualisierte Raster in der Antwort zurückgeben. Wir möchten das vollständige Raster zurückgeben, um sicherzustellen, dass der Benutzer auf dem neuesten Stand ist, falls ein anderer Benutzer in der Zwischenzeit Teile des Rasters aktualisiert.\n\n1. Aktualisiere die Farbe der vorgesehenen Rasterzelle:\n   - Bereite eine Anweisung mit `db.prepare(\"UPDATE ...\")` vor.\n   - Führe die vorbereitete Anweisung mit den übergebenen Werten aus.\n2. Nachdem die Farbe des Pixels aktualisiert wurde, rufe das vollständige Raster aus der Datenbank ab.\n3. Antworte mit dem aktualisierten Raster und einer Erfolgsmeldung. Setze den Statuscode auf `200` und stelle sicher, dass das Antwortobjekt ein JSON mit einer *message*- und einer *grid*-Eigenschaft zurückgibt.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\napp.use(express.json());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.post(\"/setGridColor\", (req, res) => {\n  const { x, y, color } = req.body;\n\n  if (!color) {\n    return res.status(400).json({ message: \"Invalid color value\" });\n  }\n\n  const row = db.prepare(\"SELECT * FROM grid WHERE x = ? AND y = ?\").get(x, y);\n\n  if (!row) {\n    return res.status(400).json({ message: \"Invalid coordinates\" });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});",
+                  "solvedContent": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\napp.use(express.json());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.post(\"/setGridColor\", (req, res) => {\n  const { x, y, color } = req.body;\n\n  if (!color) {\n    return res.status(400).json({ message: \"Invalid color value\" });\n  }\n\n  const row = db.prepare(\"SELECT * FROM grid WHERE x = ? AND y = ?\").get(x, y);\n\n  if (!row) {\n    return res.status(400).json({ message: \"Invalid coordinates\" });\n  }\n\n  db.prepare(\"UPDATE grid SET color = ? WHERE x = ? AND y = ?\").run(\n    color,\n    x,\n    y,\n  );\n\n  const updatedGrid = db.prepare(\"SELECT * FROM grid\").all();\n  res.status(200).json({ message: \"Grid color updated\", grid: updatedGrid });\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nconst rowCount = db.prepare(\"SELECT COUNT(*) AS count FROM grid\").get().count;\n\nif (rowCount === 0) {\n  const grid = [];\n  for (let x = 0; x < 20; x++) {\n    for (let y = 0; y < 20; y++) {\n      grid.push({ x, y, color: \"white\" });\n    }\n  }\n\n  const insertStatement = db.prepare(\n    `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`,\n  );\n  const insertTransaction = db.transaction((rows) => {\n    for (const row of rows) {\n      insertStatement.run(row.x, row.y, row.color);\n    }\n  });\n\n  insertTransaction(grid);\n}\n\nmodule.exports = db;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "POST",
+                "path": "/setGridColor",
+                "body": "{ \"x\": 1, \"y\": 1, \"color\": \"black\" }"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "tutorial": {
+    "id": 1443,
+    "version": 6,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Абстракция объектов",
+    "descriptionContent": "Абстракция",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 10382,
+        "title": "Абстракция",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 93541,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Давай используем ООП, чтобы смоделировать сложный объект, такой как автомобиль. Когда мы ведем машину, нам не нужно понимать ее внутренние механизмы.</p><p>Точно так же, работая с кодом, мы хотим понять основные методы, не утопая в деталях.</p></body></html>"
+          },
+          {
+            "title": "Real objects have many functions",
+            "id": 93529,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Автомобиль выполняет множество задач одновременно. Например, автомобиль впрыскивает и воспламеняет топливо тысячи раз в минуту, чтобы просто оставаться в рабочем состоянии.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"&quot;Spraying fuel&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"&quot;Boom!&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"45\" endIndex=\"60\" /><option startIndex=\"60\" endIndex=\"61\" /><option startIndex=\"96\" endIndex=\"97\" /><option startIndex=\"104\" endIndex=\"105\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"Spraying fuel\"</code>, затем <code>)</code>, а затем <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "OOP without abstraction is hard to use",
+            "id": 93530,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Моделирование <code>car</code> в Python работает так же. Однако многократный вызов методов может затруднить чтение и использование.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"car = Car();\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.igniteFuel()\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.igniteFuel()\" /></content><output><content><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Boom!\" /><text type=\"break\" /><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Boom!\" /></content></output></code></body></html>"
+          },
+          {
+            "title": "OOP without abstraction can lead to bugs",
+            "id": 93531,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Кроме того, управление каждым отдельным вызовом метода самостоятельно увеличивает вероятность того, что мы совершим ошибку и вызовем нежелательные эффекты.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"car = Car();\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.igniteFuel()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"137\" endIndex=\"153\" /></options></interaction></interactions><output><content><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Boom!\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>car.injectFuel()</code>.</p></body></html>"
+          },
+          {
+            "title": "Abstraction 1",
+            "id": 93528,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Автомобили выполняют всю эту низкоуровневую функциональность за нас, и нам нужно только их завести. Сокрытие этих деталей называется <strong>абстракцией</strong>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"__init__\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"startUp\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"    \" /><text value=\"while\" class=\"keyword\" /><text value=\" self.on:\" /><text type=\"break\" /><text value=\"      self.injectFuel()\" /><text type=\"break\" /><text value=\"      self.igniteFuel()\" /></content></code></body></html>"
+          },
+          {
+            "title": "Abstraction 2",
+            "id": 93736,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы реализуем абстракцию в ООП, написав несколько основных функций, которые обрабатывают всю низкоуровневую работу.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"__init__\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"startUp\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"    \" /><text value=\"while\" class=\"keyword\" /><text value=\" self.on:\" /><text type=\"break\" /><text value=\"      self.injectFuel()\" /><text type=\"break\" /><text value=\"      self.igniteFuel()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"156\" endIndex=\"169\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>startUp(self)</code>.</p></body></html>"
+          },
+          {
+            "title": "Abstraction 3",
+            "id": 93532,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><strong>Абстракция</strong> позволяет другим разработчикам использовать класс, не зная, какие у него есть низкоуровневые методы и как они вообще работают.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"car = Car()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"6\" endIndex=\"9\" /><option startIndex=\"9\" endIndex=\"10\" /><option startIndex=\"10\" endIndex=\"11\" /><option correct=\"false\"><content><text value=\"Plane()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>Car</code>, затем <code>(</code>, и наконец <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Abstraction 4",
+            "id": 93882,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Другие разработчики могут создать новый объект из нашего класса <code>Car</code> и использовать его, просто вызывая несколько основных методов.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"car = Car()\" /><text type=\"break\" /><text value=\"car.startUp()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"16\" endIndex=\"23\" /><option startIndex=\"23\" endIndex=\"24\" /><option startIndex=\"24\" endIndex=\"25\" /><option correct=\"false\"><content><text value=\"igniteFuel()\" /></content></option><option correct=\"false\"><content><text value=\"injectFuel()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>startUp</code>, затем <code>(</code>, и наконец <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Question 1",
+            "id": 93538,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Что такое абстракция?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Упрощение взаимодействия с объектами до нескольких методов</item><item value=\"2\" correct=\"false\">Уменьшение общего количества методов, которые имеют объекты</item></selection><p visible-if=\"wrong\">Упрощение взаимодействия с объектами до нескольких методов.</p></body></html>"
+          },
+          {
+            "title": "Question 2",
+            "id": 93533,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Как мы реализуем абстракцию?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"2\" correct=\"true\">Напиши несколько основных методов, которые обрабатывают низкоуровневые функции</item><item value=\"3\" correct=\"false\">Предоставляя все низкоуровневые методы для вызова другими разработчиками</item></selection><p visible-if=\"wrong\">Напиши несколько основных методов, которые обрабатывают низкоуровневые функции.</p></body></html>"
+          },
+          {
+            "title": "Question 3",
+            "id": 93535,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Почему реализация абстракции важна?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Чтобы другие могли использовать класс, не зная, как он работает</item><item value=\"2\" correct=\"false\">Так что другие узнают, как работает класс, только после его тестирования </item></selection><p visible-if=\"wrong\">Чтобы другие могли использовать класс, не зная, как он работает.</p></body></html>"
+          },
+          {
+            "title": "Question 4",
+            "id": 93534,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какова одна из преимуществ абстракции?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Меньше ошибок, вызванных ошибками пользователя</item><item value=\"2\" correct=\"false\">Пользователи имеют более прямой контроль над поведением объекта</item></selection><p visible-if=\"wrong\">Меньше ошибок, вызванных ошибками пользователя.</p></body></html>"
+          },
+          {
+            "title": "Question 5",
+            "id": 93543,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какой из этих методов может быть основным для камеры?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>take_photo()</code></item><item value=\"4\" correct=\"false\"><code>close_shutter()</code></item></selection><p visible-if=\"wrong\">Обязательно выбери <code>take_photo()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 1",
+            "id": 93536,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Абстрагируй этот класс, создав метод <code>makeCoffee()</code>, который нагревает воду, добавляет её к кофейной гущи и фильтрует кофе.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Coffeemaker\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"heatWater\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Heating water'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"brew\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Adding water to grounds'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"filterCoffee\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Filtering coffee'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"makeCoffee\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.heatWater()\" /><text type=\"break\" /><text value=\"    self.brew()\" /><text type=\"break\" /><text value=\"    self.filterCoffee()\" /><text type=\"break\" /><text type=\"break\" /><text value=\"coffeMaker = Coffeemaker()\" /><text type=\"break\" /><text value=\"coffeMaker.makeCoffee()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"248\" endIndex=\"267\" /><option startIndex=\"189\" endIndex=\"205\" /><option startIndex=\"211\" endIndex=\"215\" /><option startIndex=\"237\" endIndex=\"241\" /></options></interaction></interactions><output><content><text value=\"Heating water\" /><text type=\"break\" /><text value=\"Adding water to grounds\" /><text type=\"break\" /><text value=\"Filtering coffee\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>makeCoffee(self)</code>, затем <code>self</code>, а затем <code>brew</code>, <code>self.filterCoffee()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 2",
+            "id": 93537,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Чтобы сделать мороженое, мы должны как взбить, так и заморозить сливки. Вызови метод <code>iceCreamMaker</code>, который делает и то, и другое за нас.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"IceCreamMaker\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"churn\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"   print(\" /><text value=\"'Churning cream'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"freeze\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"   print(\" /><text value=\"'Freezing cream'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"makeIceCream\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.churn()\" /><text type=\"break\" /><text value=\"    self.freeze()\" /><text type=\"break\" /><text type=\"break\" /><text value=\"iceCreamMaker = IceCreamMaker()\" /><text type=\"break\" /><text type=\"break\" /><text value=\"iceCreamMaker.makeIceCream()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"211\" endIndex=\"224\" /><option startIndex=\"224\" endIndex=\"225\" /><option startIndex=\"225\" endIndex=\"237\" /><option startIndex=\"237\" endIndex=\"238\" /><option startIndex=\"238\" endIndex=\"239\" /><option correct=\"false\"><content><text value=\"freeze()\" /></content></option><option correct=\"false\"><content><text value=\" churn()\" /></content></option></options></interaction></interactions><output><content><text value=\"Churning cream\" /><text type=\"break\" /><text value=\"Freezing cream\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>iceCreamMaker</code>, затем <code>.</code>, а затем <code>makeIceCream</code>, <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 3",
+            "id": 93539,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Напиши код <code>translateLive()</code>, чтобы путешественники могли мгновенно переводить то, что они говорят, в текст, который местные жители могут прочитать.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Translator\" class=\"title\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"record\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Recording audio'\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"transcribeRecording\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Converting audio to text'\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"translateText\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Translating text'\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"translateLive\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    self.record() \" /><text type=\"break\" /><text value=\"    self.transcribeRecording() \" /><text type=\"break\" /><text value=\"    self.translateText()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"292\" endIndex=\"312\" /><option startIndex=\"260\" endIndex=\"264\" /><option startIndex=\"264\" endIndex=\"265\" /><option startIndex=\"284\" endIndex=\"285\" /><option startIndex=\"285\" endIndex=\"286\" /><option startIndex=\"241\" endIndex=\"245\" /><option startIndex=\"245\" endIndex=\"246\" /><option startIndex=\"246\" endIndex=\"252\" /><option startIndex=\"252\" endIndex=\"253\" /><option startIndex=\"253\" endIndex=\"254\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>self</code>, затем <code>.</code>, а затем <code>record</code>, <code>(</code>, <code>)</code>, <code>self</code>, <code>.</code>, <code>(</code>, <code>)</code>, <code>self.translateText()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 4",
+            "id": 93540,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Вызови правильный метод ядра, который обрабатывает низкоуровневую функциональность смены слайдов после отображения каждого из них.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Slideshow\" class=\"title\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"__init__\" class=\"title\" /><text value=\"(self, slides)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    self.slides = slides \" /><text type=\"break\" /><text value=\"    self.current = \" /><text value=\"1\" class=\"number\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"viewNextSlide\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    self.current += \" /><text value=\"1\" class=\"number\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"play\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    \" /><text value=\"while\" class=\"keyword\" /><text value=\" self.current &lt;= self.slides: \" /><text type=\"break\" /><text value=\"      print(\" /><text value=\"'Slide'\" class=\"string\" /><text value=\", self.current) \" /><text type=\"break\" /><text value=\"      self.viewNextSlide() \" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"slideshow = Slideshow(\" /><text value=\"5\" class=\"number\" /><text value=\") \" /><text type=\"break\" /><text value=\"slideshow.play()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"305\" endIndex=\"321\" /><option correct=\"false\"><content><text value=\"viewNextSlide()\" /></content></option></options></interaction></interactions><output><content><text value=\"Slide 1\" /><text type=\"break\" /><text value=\"Slide 2\" /><text type=\"break\" /><text value=\"Slide 3\" /><text type=\"break\" /><text value=\"Slide 4\" /><text type=\"break\" /><text value=\"Slide 5\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>slideshow.play()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 5",
+            "id": 93544,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Выберите правильный основной метод для использования из объекта <code>camera</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"camera = Camera()\" /><text type=\"break\" /><text value=\"camera.takePhoto()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"25\" endIndex=\"36\" /><option correct=\"false\"><content><text value=\"moveStabilizerLeft()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>takePhoto()</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

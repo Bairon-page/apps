@@ -1,0 +1,107 @@
+{
+  "tutorial": {
+    "id": 2915,
+    "version": 1,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Fehlerbehandlung",
+    "descriptionContent": "Lerne, wie man Fehler in Express elegant behandelt",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 15016,
+        "title": "Kapitel #1",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132438,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Fehlerbehandlung in Express ist ein entscheidender Teil.</p><p>Wir können nicht erwarten, dass der Client perfekte und fehlerfreie Daten sendet, daher ist es wichtig, zu validieren.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132439,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Mit <code>res.status</code> setzen wir den HTTP-Status für die Antwort.</p><p>Der <code>500 Internal Server Error</code> zeigt an, dass der Server auf ein unerwartetes Problem gestoßen ist, das ihn daran gehindert hat, die Anfrage zu bearbeiten.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.status(\" /><text value=\"500\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"30\" endIndex=\"33\" /><option startIndex=\"33\" endIndex=\"34\" /><option startIndex=\"34\" endIndex=\"40\" /><option startIndex=\"40\" endIndex=\"41\" /><option startIndex=\"41\" endIndex=\"44\" /><option startIndex=\"44\" endIndex=\"45\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>res</code>, gefolgt von <code>.</code> und schließlich <code>status</code>, <code>(</code>, <code>500</code>, <code>)</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 132444,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Es ist eine bewährte Praxis, eine Fehlermeldung und den Statuscode zurückzusenden.</p><p>Es stellt sicher, dass der Client eine klare und maschinenlesbare Fehlerbeschreibung erhält, die häufig in APIs verwendet wird, um die Fehlerbehandlung zu standardisieren.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" res.status(\" /><text value=\"500\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"  \" /><text value=\"error\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;An error occurred&quot;\" class=\"string\" /><text type=\"break\" /><text value=\" });\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"61\" /><option startIndex=\"62\" endIndex=\"81\" /><option startIndex=\"45\" endIndex=\"50\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>.json</code>, gefolgt von <code>error:</code> und schließlich <code>\"An error occurred\"</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132441,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wenn wir einen bestimmten Parameter benötigen, um eine Anfrage zu verarbeiten, ist es am besten, ihn zu validieren, bevor wir fortfahren.<br /><br /><br /></p><p>Wenn der Parameter fehlt, können wir eine Antwort mit dem HTTP-Statuscode <code>400 Bad Request</code> zurückgeben.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!req.query.id) {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Missing id parameter&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\";\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`You passed in \" /><text value=\"${req.query.id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"30\" endIndex=\"32\" /><option startIndex=\"34\" endIndex=\"47\" /><option startIndex=\"64\" endIndex=\"67\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>if</code>, gefolgt von <code>!req.query.id</code> und schließlich <code>400</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132442,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Das Gleiche gilt für Routenparameter. Ein erforderlicher Routenparameter sollte validiert werden.</p><p>Wir müssen sicherstellen, dass alle erforderlichen Informationen vorhanden sind und, falls nicht, dem Kunden eine klare und aussagekräftige Fehlermeldung geben.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/user/:id&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!req.params.id) {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Missing id parameter&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\";\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`User ID: \" /><text value=\"${req.params.id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"73\" endIndex=\"76\" /><option startIndex=\"83\" endIndex=\"105\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>400</code>, gefolgt von <code>\"Missing id parameter\"</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5 - Copy",
+            "id": 132445,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wir geben <code>404 Not Found</code> zurück, wenn wir die Ressource, die der Client anfordert, nicht finden können. Wir müssen <code>return</code>, um zu vermeiden, dass versucht wird, eine weitere Antwort zu senden.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/user/:id&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" userId = req.params.id;\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" user = database.find(userId);\" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!user) {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"404\" class=\"number\" /><text value=\").json({ \" /><text value=\"error\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;User not found&quot;\" class=\"string\" /><text value=\" });\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\";\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\" res.json({ \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"`User ID: \" /><text value=\"${userId}\" class=\"subst\" /><text value=\"`\" /><text value=\", user });\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"135\" endIndex=\"138\" /><option startIndex=\"147\" endIndex=\"153\" /><option startIndex=\"154\" endIndex=\"170\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>404</code>, gefolgt von <code>error:</code> und schließlich <code>\"User not found\"</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Request Parameters",
+            "id": 122449,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Was ist ein Grund, warum wir sicherstellen wollen, dass wir genau wissen, welche Informationen der Kunde anfordert?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Wenn der Server die angeforderten Informationen nicht hat, müssen wir eine Fehlermeldung generieren</item><item value=\"2\" correct=\"false\">Genau zu wissen, was der Kunde anfordert, ist nicht immer wichtig</item></selection><p visible-if=\"wrong\">Wenn der Server die angeforderten Informationen nicht hat, müssen wir eine Fehlermeldung generieren.</p></body></html>"
+          },
+          {
+            "title": "Question: Set Status",
+            "id": 122452,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Welche Methode können wir verwenden, um dem Client eine Antwort auf seine Anfrage zu zeigen?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>.send()</code></item><item value=\"2\" correct=\"false\"><code>.format()</code></item></selection><p visible-if=\"wrong\">Wähle <code>.send()</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Set Status",
+            "id": 122450,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Welchen HTTP-Antwortstatus fügen wir dem Antwortobjekt hinzu, wenn der Server die von einer <code>GET</code>-Methode angeforderten Daten nicht hat?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>404</code></item><item value=\"2\" correct=\"false\"><code>500</code></item></selection><p visible-if=\"wrong\">Wähle <code>404</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy - Copy",
+            "id": 132447,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Greife auf den Abfrageparameter <code>id</code> zu und speichere ihn in der Variablen mit dem Namen <code>id</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" id = req.query.id;\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (id === \" /><text value=\"undefined\" class=\"literal\" /><text value=\") {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Missing id parameter&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\";\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`You passed in \" /><text value=\"${req.query.id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"41\" endIndex=\"44\" /><option startIndex=\"44\" endIndex=\"50\" /><option startIndex=\"50\" endIndex=\"54\" /><option correct=\"false\"><content><text value=\".params\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>req</code>, gefolgt von <code>.query</code> und schließlich <code>.id;</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Back-end Errors",
+            "id": 120219,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Was ist ein Beispiel für eine angemessene Antwort vom Server, wenn ein Fehler auftritt?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Dem Benutzer Informationen über den Fehler anzeigen</item><item value=\"2\" correct=\"false\">Eine fehlerhafte Client-Anfrage</item></selection><p visible-if=\"wrong\">Dem Benutzer Informationen über den Fehler anzeigen.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5 - Copy - Copy - Copy",
+            "id": 132449,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Setze den entsprechenden Statuscode, um anzuzeigen, dass die angeforderte Ressource nicht gefunden werden konnte.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/product/:id&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" productId = req.params.id;\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" product = database.find(productId);\" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!product) {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"404\" class=\"number\" /><text value=\").json({ \" /><text value=\"error\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;Product not found&quot;\" class=\"string\" /><text value=\" });\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\";\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\" res.json({ \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"`Product ID: \" /><text value=\"${productId}\" class=\"subst\" /><text value=\"`\" /><text value=\", product });\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"150\" endIndex=\"153\" /></interactions></code><p visible-if=\"wrong\">Gib <code>404</code> ein.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "tutorial": {
+    "id": 918,
+    "version": 27,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Wiederverwendung von Code mit Funktionen",
+    "descriptionContent": "Lerne, wie du Code wiederverwenden kannst, indem du Funktionen mit einem Parameter und einem Rückgabewert erstellst.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 8451,
+        "title": "Erstelle eine Funktion",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 74193,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Websites und Apps wie die untenstehende müssen regelmäßig die gleiche Aufgabe immer wieder ausführen.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html&gt;&#xA; &lt;head&gt;&#xA;  &lt;style&gt;&#xA;   body {&#xA;    text-align: center;&#xA;    height: 275px;&#xA;    font-size: 16px;&#xA;    margin: 0 auto;&#xA;    background-color: #F0F8FF;&#xA;   }&#xA;   &#xA;   button {&#xA;    background-color: darkBlue;&#xA;    border: none;&#xA;    border-radius: 8px;&#xA;    color: white;&#xA;    text-align: center;&#xA;    text-decoration: none;&#xA;    display: inline-block;&#xA;    font-size: 14px;&#xA;    padding: 6px 12px;&#xA;    margin: 0 12px 0 0;&#xA;   }&#xA;   &#xA;   h2 {&#xA;    text-align: center;&#xA;   }&#xA;   &#xA;   #playerList {&#xA;    text-align: left;&#xA;   }&#xA;  &lt;/style&gt;&#xA; &lt;/head&gt;&#xA; &lt;body&gt;&#xA;  &lt;img height=180 src=&quot;https://mimo.app/i/volume-icon.png&quot;&gt;&lt;br&gt;&#xA;  &lt;button onclick=&quot;increase()&quot;&gt;Increase volume&lt;/button&gt;&#xA;  &lt;p id=&quot;container&quot;&gt;&#xA;   &lt;/div&gt;&#xA;   &lt;script&gt;&#xA;    let volume = 0;&#xA;    &#xA;    function increase() {&#xA;     document.getElementById(&quot;container&quot;).innerHTML =&#xA;      &quot;Volume increased!&quot;;&#xA;     let s = document.getElementById('container').style;&#xA;     s.display = &quot;block&quot;;&#xA;     s.opacity = 1;&#xA;     (function fade() {&#xA;      if ((s.opacity -= .1) &lt; 0) s.display = &quot;none&quot;;&#xA;      else setTimeout(fade, 150);&#xA;     })();&#xA;    }&#xA;   &lt;/script&gt;&#xA; &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Intro 2",
+            "id": 74468,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Statt viel unterschiedlichen Code zu erstellen, verwenden Websites <strong>Funktionen</strong>, um zusammengehörigen Code zu gruppieren und die Aufgabe an einem Ort auszuführen.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html&gt;&#xA; &lt;head&gt;&#xA;  &lt;style&gt;&#xA;   body {&#xA;    text-align: center;&#xA;    height: 275px;&#xA;    font-size: 16px;&#xA;    margin: 0 auto;&#xA;    background-color: #F0F8FF;&#xA;   }&#xA;   &#xA;   button {&#xA;    background-color: darkBlue;&#xA;    border: none;&#xA;    border-radius: 8px;&#xA;    color: white;&#xA;    text-align: center;&#xA;    text-decoration: none;&#xA;    display: inline-block;&#xA;    font-size: 14px;&#xA;    padding: 6px 12px;&#xA;    margin: 0 12px 0 0;&#xA;   }&#xA;   &#xA;   h2 {&#xA;    text-align: center;&#xA;   }&#xA;   &#xA;   #playerList {&#xA;    text-align: left;&#xA;   }&#xA;  &lt;/style&gt;&#xA; &lt;/head&gt;&#xA; &lt;body&gt;&#xA;  &lt;img height=180 src=&quot;https://mimo.app/i/volume-icon.png&quot;&gt;&lt;br&gt;&#xA;  &lt;button onclick=&quot;decrease()&quot;&gt;Decrease volume&lt;/button&gt;&#xA;  &lt;p id=&quot;container&quot;&gt;&#xA;   &lt;/div&gt;&#xA;   &lt;script&gt;&#xA;    let volume = 0;&#xA;    &#xA;    function decrease() {&#xA;     document.getElementById(&quot;container&quot;).innerHTML =&#xA;      &quot;Volume decreased!&quot;;&#xA;     let s = document.getElementById('container').style;&#xA;     s.display = &quot;block&quot;;&#xA;     s.opacity = 1;&#xA;     (function fade() {&#xA;      if ((s.opacity -= .1) &lt; 0) s.display = &quot;none&quot;;&#xA;      else setTimeout(fade, 150);&#xA;     })();&#xA;    }&#xA;   &lt;/script&gt;&#xA; &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Function",
+            "id": 74194,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um zusammengehörigen Code zu gruppieren, beginnen wir mit dem Programmieren des Schlüsselworts <code>function</code>.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"8\" /></interactions></code><p visible-if=\"wrong\">Gib <code>function</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Function name",
+            "id": 74181,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Als nächstes kommt der Name der Funktion in Camel Case, wie <code>greetUser</code>, gefolgt von Klammern, <code>(</code> und <code>)</code>.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"9\" endIndex=\"18\" /><option startIndex=\"18\" endIndex=\"19\" /><option startIndex=\"19\" endIndex=\"20\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>greetUser</code>, gefolgt von <code>(</code> und schließlich <code>)</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Braces",
+            "id": 74192,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Geschweifte Klammern <code>{</code> und <code>}</code> kennzeichnen den Codeblock, der zur Funktion gehört.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"21\" endIndex=\"22\" /><option startIndex=\"25\" endIndex=\"26\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>{</code>, gefolgt von <code>}</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Between braces",
+            "id": 74187,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Der Code, den wir zusammenfassen möchten, steht zwischen den geschweiften Klammern. Diese Funktion fasst zwei zusammenhängende <code>console.log()</code>-Anweisungen zusammen.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Good morning Anna&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Welcome back&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"59\" endIndex=\"66\" /><option startIndex=\"66\" endIndex=\"67\" /><option startIndex=\"67\" endIndex=\"70\" /><option startIndex=\"71\" endIndex=\"85\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>console</code>, gefolgt von <code>.</code> und schließlich <code>log</code>, <code>\"Welcome back\"</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Calling the function",
+            "id": 74183,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um den Code auszuführen, müssen wir die Funktion <strong>aufrufen</strong>. Das tun wir, indem wir ihren Namen gefolgt von Klammern schreiben, wie <code>greetUser();</code>.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Good morning Anna&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Welcome back&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text type=\"break\" /><text value=\"greetUser();\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"91\" endIndex=\"103\" /></interactions><output><content><text value=\"Good morning Anna\" /><text type=\"break\" /><text value=\"Welcome back\" /></content></output></code><p visible-if=\"wrong\">Gib <code>greetUser();</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Question: Function",
+            "id": 74211,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie fangen wir an, zusammengehörigen Code zu gruppieren?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Durch Hinzufügen des <code>function</code>-Schlüsselworts</item><item value=\"2\" correct=\"false\">Durch das Hinzufügen von Klammern</item></selection><p visible-if=\"wrong\">Durch Hinzufügen des <code>function</code>-Schlüsselworts.</p></body></html>"
+          },
+          {
+            "title": "Question: Function name",
+            "id": 74212,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie benennen wir eine Funktion?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Durch die Verwendung von camel case</item><item value=\"2\" correct=\"false\">Indem du Leerzeichen im Namen der Funktion einfügst</item></selection><p visible-if=\"wrong\">Durch die Verwendung von camel case.</p></body></html>"
+          },
+          {
+            "title": "Question: Braces",
+            "id": 74213,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Was bewirken die geschweiften Klammern <code>{</code> und <code>}</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Sie markieren den Codeblock, der zur Funktion gehört</item><item value=\"2\" correct=\"false\">Sie geben an, welchen Code die Funktion überspringen soll</item></selection><p visible-if=\"wrong\">Sie markieren den Codeblock, der zur Funktion gehört.</p></body></html>"
+          },
+          {
+            "title": "Question: Between braces",
+            "id": 74214,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wohin kommt der Code, den wir zusammenfassen wollen?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Zwischen den geschweiften Klammern <code>{</code> und <code>}</code></item><item value=\"2\" correct=\"false\">Zwischen den Klammern <code>(</code> und <code>)</code></item></selection><p visible-if=\"wrong\">Zwischen den geschweiften Klammern <code>{</code> und <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Calling the function",
+            "id": 74215,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie führen wir den Code innerhalb einer Funktion aus?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Indem du es aufrufst</item><item value=\"2\" correct=\"false\">Indem du eine Variable daraus erstellst</item></selection><p visible-if=\"wrong\">Indem du es aufrufst.</p></body></html>"
+          },
+          {
+            "title": "Example: Function",
+            "id": 74217,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code das <code>function</code>-Schlüsselwort, um die Funktion zu vervollständigen.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"weatherUpdate\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Weather update&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Sunny skies ahead&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"weatherUpdate();\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"8\" /></interactions><output><content><text value=\"Weather update\" /><text type=\"break\" /><text value=\"Sunny skies ahead\" /></content></output></code><p visible-if=\"wrong\">Gib <code>function</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Example: Function name",
+            "id": 74218,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Gib dieser Funktion einen Namen im Camel Case.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"nightRoutine\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Lights off&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Alarm set&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"nightRoutine();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"9\" endIndex=\"21\" /><option correct=\"false\"><content><text value=\"nightroutine\" /></content></option></options></interaction></interactions><output><content><text value=\"Lights off\" /><text type=\"break\" /><text value=\"Alarm set\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>nightRoutine</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Braces",
+            "id": 74219,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Markiere den Code, der zur Funktion gehört.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"morningRoutine\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Lights on&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Alarm off&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"morningRoutine();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"26\" endIndex=\"27\" /><option startIndex=\"82\" endIndex=\"83\" /><option correct=\"false\"><content><text value=\"function\" /></content></option></options></interaction></interactions><output><content><text value=\"Lights on\" /><text type=\"break\" /><text value=\"Alarm off\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>{</code>, gefolgt von <code>}</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Between braces",
+            "id": 74220,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Erstelle eine abschließende <code>console.log()</code>-Anweisung innerhalb der Funktion.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"launch\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;2&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;1&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Launch!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"launch();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"78\" endIndex=\"85\" /><option startIndex=\"85\" endIndex=\"86\" /><option startIndex=\"86\" endIndex=\"89\" /><option startIndex=\"90\" endIndex=\"99\" /></options></interaction></interactions><output><content><text value=\"3\" /><text type=\"break\" /><text value=\"2\" /><text type=\"break\" /><text value=\"1\" /><text type=\"break\" /><text value=\"Launch!\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>console</code>, gefolgt von <code>.</code> und schließlich <code>log</code>, <code>\"Launch!\"</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Calling the function",
+            "id": 74221,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Rufe die Funktion auf, indem du <code>greet();</code> codierst.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greet\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Good evening&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"greet();\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"51\" endIndex=\"59\" /></interactions><output><content><text value=\"Good evening\" /></content></output></code><p visible-if=\"wrong\">Gib <code>greet();</code> ein.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

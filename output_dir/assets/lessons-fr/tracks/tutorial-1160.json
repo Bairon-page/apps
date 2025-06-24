@@ -1,0 +1,198 @@
+{
+  "tutorial": {
+    "id": 1160,
+    "version": 16,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Utiliser des décisions complexes",
+    "descriptionContent": "Apprends à prendre des décisions complexes.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 9032,
+        "title": "Opérateur AND",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 79734,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Examinons comment des programmes intelligents agissent sur des décisions complexes, comme activer le bouton <code>Rent</code> uniquement lorsque toutes les cases sont cochées.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html&gt;&#xA;  &lt;head&gt;&#xA;    &lt;style&gt;&#xA;      body {&#xA;        text-align: center;&#xA;        font-size: 18px;&#xA;        margin: 0 auto;&#xA;        height: 400px;&#xA;        background-color: #f9fafe;&#xA;      }&#xA;&#xA;      button {&#xA;        width: 200px;&#xA;        height: 30px;&#xA;        font-size: 20px;&#xA;        border-radius: 5px;&#xA;        margin: 0 auto;&#xA;        display: block;&#xA;        color: white;&#xA;        outline: none;&#xA;        cursor: not-allowed;&#xA;      }&#xA;&#xA;      .disabled {&#xA;        background-color: #d2d3da;&#xA;      }&#xA;&#xA;      .enabled {&#xA;        background-color: black;&#xA;        cursor: pointer;&#xA;      }&#xA;&#xA;      #inputDiv {&#xA;        padding: 11px;&#xA;        border-radius: 10px;&#xA;        margin: auto;&#xA;        width: auto;&#xA;        text-align: left;&#xA;        display: table;&#xA;        background-color: white;&#xA;      }&#xA;&#xA;      .disabledDiv {&#xA;        border: 1px solid #d2d3da;&#xA;      }&#xA;&#xA;      .enabledDiv {&#xA;        border: 1px solid #6d3acf;&#xA;      }&#xA;&#xA;      #outherDiv {&#xA;        margin: auto;&#xA;        width: auto;&#xA;        padding: 0px 10px 10px 12px;&#xA;      }&#xA;    &lt;/style&gt;&#xA;  &lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;h2&gt;Rent-a-Ride&lt;/h2&gt;&#xA;    &lt;div id=&quot;outherDiv&quot;&gt;&#xA;      &lt;div id=&quot;inputDiv&quot; class=&quot;disabledDiv&quot;&gt;&#xA;        &lt;input type=&quot;checkbox&quot; id=&quot;ageCheckbox&quot; name=&quot;ageCheckbox&quot; /&gt;&#xA;        &lt;label for=&quot;ageCheckbox&quot;&gt; I'm over 16 years old&lt;/label&gt;&lt;br /&gt;&#xA;        &lt;input type=&quot;checkbox&quot; id=&quot;permitCheckbox&quot; name=&quot;permitCheckbox&quot; /&gt;&#xA;        &lt;label for=&quot;permitCheckbox&quot;&gt; I have a permit&lt;/label&gt;&lt;br /&gt;&#xA;        &lt;input type=&quot;checkbox&quot; id=&quot;insuredCheckbox&quot; name=&quot;insuredCheckbox&quot; /&gt;&#xA;        &lt;label for=&quot;insuredCheckbox&quot;&gt; I'm insured&lt;/label&gt;&lt;br /&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;    &lt;button id=&quot;rentBtn&quot; class=&quot;disabled&quot;&gt;Rent&lt;/button&gt;&#xA;    &lt;script&gt;&#xA;      let btn = document.getElementById(&quot;rentBtn&quot;);&#xA;      let inputDiv = document.getElementById(&quot;inputDiv&quot;);&#xA;      rentBtn.className = &quot;disabled&quot;;&#xA;      inputDiv.className = &quot;disabledDiv&quot;;&#xA;&#xA;      let ageCheck = document.getElementById(&quot;ageCheckbox&quot;);&#xA;      let permitCheck = document.getElementById(&quot;permitCheckbox&quot;);&#xA;      let insuredCheck = document.getElementById(&quot;insuredCheckbox&quot;);&#xA;&#xA;      ageCheck.addEventListener(&quot;click&quot;, enableIfChecked);&#xA;      permitCheck.addEventListener(&quot;click&quot;, enableIfChecked);&#xA;      insuredCheck.addEventListener(&quot;click&quot;, enableIfChecked);&#xA;&#xA;      function enableIfChecked() {&#xA;        if (ageCheck.checked &amp;&amp; permitCheck.checked &amp;&amp; insuredCheck.checked) {&#xA;          rentBtn.className = &quot;enabled&quot;;&#xA;          inputDiv.className = &quot;enabledDiv&quot;;&#xA;        } else {&#xA;          rentBtn.className = &quot;disabled&quot;;&#xA;          inputDiv.className = &quot;disabledDiv&quot;;&#xA;        }&#xA;      }&#xA;&#xA;      rentBtn.addEventListener(&quot;click&quot;, function () {&#xA;        if (rentBtn.className === &quot;enabled&quot;) {&#xA;          document.body.innerHTML = &quot;&lt;h2&gt;Processing request ..&lt;/h2&gt;&quot;;&#xA;        }&#xA;      });&#xA;    &lt;/script&gt;&#xA;  &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Simple condition",
+            "id": 79744,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Nous savons comment exécuter ou ignorer du code en fonction d'une condition comme <code>age &gt; 16</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"age = \" /><text value=\"17\" class=\"number\" /><text type=\"break\" /><text value=\"has_permit = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" age &gt; \" /><text value=\"16\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Can drive&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"31\" endIndex=\"34\" /><option startIndex=\"35\" endIndex=\"36\" /><option startIndex=\"37\" endIndex=\"39\" /></options></interaction></interactions><output><content><text value=\"Can drive\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>age</code> suivi de <code>&gt;</code> et enfin <code>16</code>.</p></body></html>"
+          },
+          {
+            "title": "Two conditions",
+            "id": 79745,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que faire si nous voulions exécuter ou ignorer du code en fonction de <em>deux</em> conditions ? Comme <code>age &gt; 16</code> et ensuite <code>has_permit</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"age = \" /><text value=\"17\" class=\"number\" /><text type=\"break\" /><text value=\"has_permit = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" age &gt; \" /><text value=\"16\" class=\"number\" /><text value=\" \" /><text value=\"and\" class=\"keyword\" /><text value=\" has_permit:\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Can drive&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"31\" endIndex=\"39\" /><option correct=\"false\"><content><text value=\"age == 16\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>age &gt; 16</code>.</p></body></html>"
+          },
+          {
+            "title": "and operator",
+            "id": 79746,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>L'opérateur <code>and</code> nous permet d'exécuter du code uniquement si les deux conditions <code>age &gt; 16</code> et <code>has_permit</code> sont <code>True</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"age = \" /><text value=\"17\" class=\"number\" /><text type=\"break\" /><text value=\"has_permit = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" age &gt; \" /><text value=\"16\" class=\"number\" /><text value=\" \" /><text value=\"and\" class=\"keyword\" /><text value=\" has_permit:\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Can drive&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"40\" endIndex=\"43\" /></interactions><output><content><text value=\"Can drive\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>and</code>.</p></body></html>"
+          },
+          {
+            "title": "Skips code",
+            "id": 79747,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>L'opérateur <code>and</code> saute le bloc de code si une ou plusieurs conditions sont <code>False</code>, comme <code>age &gt; 18</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"age = \" /><text value=\"17\" class=\"number\" /><text type=\"break\" /><text value=\"has_permit = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" age &gt; \" /><text value=\"18\" class=\"number\" /><text value=\" \" /><text value=\"and\" class=\"keyword\" /><text value=\" has_permit == \" /><text value=\"True\" class=\"literal\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Can drive&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"31\" endIndex=\"39\" /><option correct=\"false\"><content><text value=\"has_permit &gt; 17\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>age &gt; 18</code>.</p></body></html>"
+          },
+          {
+            "title": "As many as we want",
+            "id": 79748,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Nous pouvons ajouter autant de conditions que nous le souhaitons, comme ici, où nous pouvons ajouter un autre <code>and</code>, puis <code>is_insured</code> pour compléter la condition.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"age = \" /><text value=\"17\" class=\"number\" /><text type=\"break\" /><text value=\"has_permit = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"is_insured = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" age &gt; \" /><text value=\"16\" class=\"number\" /><text value=\" \" /><text value=\"and\" class=\"keyword\" /><text value=\" has_permit \" /><text value=\"and\" class=\"keyword\" /><text value=\" is_insured:\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Can drive&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"73\" endIndex=\"76\" /><option startIndex=\"77\" endIndex=\"87\" /></options></interaction></interactions><output><content><text value=\"Can drive\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>and</code> suivi de <code>is_insured</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: and operator",
+            "id": 79859,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>À quoi sert l'opérateur <code>and</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Pour lier plusieurs conditions</item><item value=\"2\" correct=\"false\">Pour nier des conditions</item></selection><p visible-if=\"wrong\">Pour lier plusieurs conditions.</p></body></html>"
+          },
+          {
+            "title": "Question: Skips code",
+            "id": 79860,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quand est-ce que l'opérateur <code>and</code> saute le bloc de code ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Quand une ou plusieurs conditions sont fausses</item><item value=\"2\" correct=\"false\">Seulement lorsque toutes les conditions sont fausses</item></selection><p visible-if=\"wrong\">Quand une ou plusieurs conditions sont fausses.</p></body></html>"
+          },
+          {
+            "title": "Question: As many as we want",
+            "id": 79864,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Combien de conditions peut-on lier avec l'opérateur <code>and</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Autant que nous voulons</item><item value=\"2\" correct=\"false\">Au plus deux</item></selection><p visible-if=\"wrong\">Autant que nous voulons.</p></body></html>"
+          },
+          {
+            "title": "Example: and operator ",
+            "id": 79862,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code <code>and</code> pour afficher <code>Valid entry</code> uniquement lorsque <code>year</code> est supérieur à <code>1900</code> et inférieur à <code>2020</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"year = \" /><text value=\"1998\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" year &gt; \" /><text value=\"1900\" class=\"number\" /><text value=\" \" /><text value=\"and\" class=\"keyword\" /><text value=\" year &lt; \" /><text value=\"2020\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Valid entry&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"28\" endIndex=\"31\" /></interactions><output><content><text value=\"Valid entry\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>and</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: As many as we want",
+            "id": 79865,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ajoute <code>subway_defect</code>, puis <code>is_sunny</code>, et ensuite <code>distance &lt;= 2</code> comme conditions pour l'instruction <code>if</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"subway_defect = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"is_sunny = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"distance = \" /><text value=\"2\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" subway_defect \" /><text value=\"and\" class=\"keyword\" /><text value=\" is_sunny \" /><text value=\"and\" class=\"keyword\" /><text value=\" distance &lt;= \" /><text value=\"2\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Walk to work&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"54\" endIndex=\"67\" /><option startIndex=\"68\" endIndex=\"71\" /><option startIndex=\"72\" endIndex=\"80\" /><option startIndex=\"81\" endIndex=\"84\" /><option startIndex=\"85\" endIndex=\"98\" /></options></interaction></interactions><output><content><text value=\"Walk to work\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>subway_defect</code> suivi de <code>and</code> puis <code>is_sunny</code>, <code>and</code>, <code>distance &lt;= 2</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 9035,
+        "title": "Opérateur OR",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 80573,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Nous utilisons l'opérateur <code>or</code> pour des conditions alternatives, comme activer le bouton <code>Apply</code> si au moins une condition est remplie.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html&gt;&#xA;  &lt;head&gt;&#xA;    &lt;style&gt;&#xA;      body {&#xA;        text-align: center;&#xA;        font-size: 18px;&#xA;        margin: 0 auto;&#xA;        height: 400px;&#xA;        background-color: #f9fafe;&#xA;      }&#xA;&#xA;      button {&#xA;        width: 210px;&#xA;        height: 30px;&#xA;        font-size: 20px;&#xA;        border-radius: 5px;&#xA;        margin: 0 auto;&#xA;        display: block;&#xA;        color: white;&#xA;        outline: none;&#xA;        cursor: not-allowed;&#xA;      }&#xA;&#xA;      button.enabled {&#xA;        cursor: pointer;&#xA;      }&#xA;&#xA;      .disabled {&#xA;        background-color: #d2d3da;&#xA;      }&#xA;&#xA;      .enabled {&#xA;        background-color: black;&#xA;      }&#xA;&#xA;      #inputDiv {&#xA;        padding: 20px;&#xA;        border-radius: 10px;&#xA;        margin: auto;&#xA;        width: auto;&#xA;        text-align: left;&#xA;        display: table;&#xA;        background-color: white;&#xA;      }&#xA;&#xA;      .disabledDiv {&#xA;        border: 1px solid #d2d3da;&#xA;      }&#xA;&#xA;      .enabledDiv {&#xA;        border: 1px solid #6d3acf;&#xA;      }&#xA;&#xA;      #outherDiv {&#xA;        margin: auto;&#xA;        width: auto;&#xA;        padding: 0px 10px 10px 12px;&#xA;      }&#xA;    &lt;/style&gt;&#xA;  &lt;/head&gt;&#xA;  &lt;body&gt;&#xA;    &lt;h2&gt;Student Scholarships&lt;/h2&gt;&#xA;    &lt;div id=&quot;outherDiv&quot;&gt;&#xA;      &lt;div id=&quot;inputDiv&quot; class=&quot;disabledDiv&quot;&gt;&#xA;        &lt;input type=&quot;checkbox&quot; id=&quot;gradeCheckbox&quot; /&gt;&#xA;        &lt;label for=&quot;gradeCheckbox&quot;&gt; Average grade: A&lt;/label&gt;&lt;br /&gt;&#xA;        &lt;input type=&quot;checkbox&quot; id=&quot;scoreCheckbox&quot; /&gt;&#xA;        &lt;label for=&quot;scoreCheckbox&quot;&gt; Final score: &gt;= 1300&lt;/label&gt;&lt;br /&gt;&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;    &lt;button id=&quot;applyBtn&quot; class=&quot;disabled&quot;&gt;Apply&lt;/button&gt;&#xA;    &lt;script&gt;&#xA;      let applyBtn = document.getElementById(&quot;applyBtn&quot;);&#xA;      let inputDiv = document.getElementById(&quot;inputDiv&quot;);&#xA;      applyBtn.className = &quot;disabled&quot;;&#xA;      inputDiv.className = &quot;disabledDiv&quot;;&#xA;&#xA;      let gradeCheck = document.getElementById(&quot;gradeCheckbox&quot;);&#xA;      gradeCheck.addEventListener(&quot;click&quot;, function () {&#xA;        enableIfChecked();&#xA;      });&#xA;&#xA;      document&#xA;        .getElementById(&quot;scoreCheckbox&quot;)&#xA;        .addEventListener(&quot;click&quot;, function () {&#xA;          enableIfChecked();&#xA;        });&#xA;&#xA;      function enableIfChecked() {&#xA;        if (&#xA;          gradeCheck.checked ||&#xA;          document.getElementById(&quot;scoreCheckbox&quot;).checked&#xA;        ) {&#xA;          applyBtn.className = &quot;enabled&quot;;&#xA;          inputDiv.className = &quot;enabledDiv&quot;;&#xA;        } else {&#xA;          applyBtn.className = &quot;disabled&quot;;&#xA;          inputDiv.className = &quot;disabledDiv&quot;;&#xA;        }&#xA;      }&#xA;&#xA;      applyBtn.addEventListener(&quot;click&quot;, function () {&#xA;        if (applyBtn.className === &quot;enabled&quot;) {&#xA;          document.body.innerHTML = &quot;&lt;h2&gt;Processing request ..&lt;/h2&gt;&quot;;&#xA;        }&#xA;      });&#xA;    &lt;/script&gt;&#xA;  &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "or operator",
+            "id": 79750,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour exécuter du code lorsque l'une des conditions est <code>True</code>, nous utilisons l'opérateur <code>or</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"average_grade = \" /><text value=\"&quot;A&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"final_score = \" /><text value=\"1400\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" average_grade == \" /><text value=\"&quot;A&quot;\" class=\"string\" /><text value=\" \" /><text value=\"or\" class=\"keyword\" /><text value=\" final_score &gt;= \" /><text value=\"1300\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Certificate achieved!&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"64\" endIndex=\"66\" /></interactions><output><content><text value=\"Certificate achieved!\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>or</code>.</p></body></html>"
+          },
+          {
+            "title": "Runs code 1",
+            "id": 79752,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Avec <code>or</code>, le code est ignoré uniquement si <em>toutes</em> les conditions sont <code>False</code>, comme <code>average_grade == \"A\"</code> et <code>final_score &gt;= 1500</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"average_grade = \" /><text value=\"&quot;B&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"final_score = \" /><text value=\"1400\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" average_grade == \" /><text value=\"&quot;A&quot;\" class=\"string\" /><text value=\" \" /><text value=\"or\" class=\"keyword\" /><text value=\" final_score &gt;= \" /><text value=\"1500\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Certificate achieved!&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"64\" endIndex=\"66\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>or</code>.</p></body></html>"
+          },
+          {
+            "title": "Runs code 2",
+            "id": 79751,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ici, <code>final_score &gt;= 1500</code> est <code>False</code>, mais le code s'exécute toujours parce que <code>average_grade == \"A\"</code> est <code>True</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"average_grade = \" /><text value=\"&quot;A&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"final_score = \" /><text value=\"1400\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" average_grade == \" /><text value=\"&quot;A&quot;\" class=\"string\" /><text value=\" \" /><text value=\"or\" class=\"keyword\" /><text value=\" final_score &gt;= \" /><text value=\"1500\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Certificate achieved!&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"16\" endIndex=\"19\" /><option startIndex=\"43\" endIndex=\"63\" /></options></interaction></interactions><output><content><text value=\"Certificate achieved!\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>\"A\"</code> suivi de <code>average_grade == \"A\"</code>.</p></body></html>"
+          },
+          {
+            "title": "As many as we want",
+            "id": 79753,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Nous pouvons utiliser <code>or</code> pour ajouter autant de conditions que nous le souhaitons, comme ajouter également <code>won_competition</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"average_grade = \" /><text value=\"&quot;B&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"final_score = \" /><text value=\"1400\" class=\"number\" /><text type=\"break\" /><text value=\"won_competition = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" average_grade == \" /><text value=\"&quot;A&quot;\" class=\"string\" /><text value=\" \" /><text value=\"or\" class=\"keyword\" /><text value=\" final_score &gt;= \" /><text value=\"1500\" class=\"number\" /><text value=\" \" /><text value=\"or\" class=\"keyword\" /><text value=\" won_competition:\" /><text type=\"break\" /><text value=\" print(\" /><text value=\"&quot;Certificate achieved!&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"110\" endIndex=\"112\" /><option startIndex=\"113\" endIndex=\"128\" /><option correct=\"false\"><content><text value=\"and\" /></content></option></options></interaction></interactions><output><content><text value=\"Certificate achieved!\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>or</code> suivi de <code>won_competition</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: or operator",
+            "id": 79882,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que fait l'opérateur <code>or</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Il nous aide à lier des conditions alternatives</item><item value=\"2\" correct=\"false\">Il n'y a pas d'opérateur <code>or</code></item></selection><p visible-if=\"wrong\">Il nous aide à lier des conditions alternatives.</p></body></html>"
+          },
+          {
+            "title": "Question: Runs code 1",
+            "id": 79883,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quand est-ce que l'opérateur <code>or</code> saute le bloc de code ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Seulement lorsque toutes les conditions liées sont <code>False</code></item><item value=\"2\" correct=\"false\">Quand au moins une condition est <code>False</code></item></selection><p visible-if=\"wrong\">Seulement lorsque toutes les conditions liées sont <code>False</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Runs code 2",
+            "id": 79884,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que cela affiche-t-il dans la console ?</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"is_summer = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text value=\"is_warm = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" is_summer \" /><text value=\"or\" class=\"keyword\" /><text value=\" is_warm:\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Go for a swim&quot;\" class=\"string\" /><text value=\")\" /></content><output><content><text value=\"Go for a swim\" /></content></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>Go for a swim</code></item><item value=\"2\" correct=\"false\">Rien, parce que <code>is_summer</code> est <code>False</code></item></selection><p visible-if=\"wrong\"><code>Go for a swim</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: As many as we want",
+            "id": 79885,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Combien de conditions alternatives pouvons-nous lier avec <code>or</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Autant que nous voulons</item><item value=\"2\" correct=\"false\">Seulement deux conditions</item></selection><p visible-if=\"wrong\">Autant que nous voulons.</p></body></html>"
+          },
+          {
+            "title": "Example: or operator",
+            "id": 79886,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Utilise <code>or</code> pour lier les options alternatives <code>is_weekend</code> et ensuite <code>on_vacation</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"is_weekend = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text value=\"on_vacation = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" is_weekend \" /><text value=\"or\" class=\"keyword\" /><text value=\" on_vacation:\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Go on a roadtrip&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"53\" endIndex=\"55\" /><option startIndex=\"56\" endIndex=\"67\" /><option correct=\"false\"><content><text value=\"and\" /></content></option></options></interaction></interactions><output><content><text value=\"Go on a roadtrip\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>or</code> suivi de <code>on_vacation</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Runs code 1",
+            "id": 79887,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Assigne <code>False</code> aux deux variables pour éviter d'exécuter le bloc de code.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"mobile_internet = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text value=\"wifi = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" mobile_internet \" /><text value=\"or\" class=\"keyword\" /><text value=\" wifi:\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Loading inbox ...&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"18\" endIndex=\"23\" /><option startIndex=\"31\" endIndex=\"36\" /><option correct=\"false\"><content><text value=\"True\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>False</code> suivi de <code>False</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Runs code 2",
+            "id": 79888,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Assigne une valeur à <code>level</code> pour exécuter le bloc de code.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"highest_score = \" /><text value=\"100\" class=\"number\" /><text type=\"break\" /><text value=\"score = \" /><text value=\"70\" class=\"number\" /><text type=\"break\" /><text value=\"level = \" /><text value=\"5\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" score &gt; highest_score \" /><text value=\"or\" class=\"keyword\" /><text value=\" level == \" /><text value=\"5\" class=\"number\" /><text value=\": \" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;You won!&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"39\" endIndex=\"40\" /><option correct=\"false\"><content><text value=\"0\" /></content></option><option correct=\"false\"><content><text value=\"False\" /></content></option></options></interaction></interactions><output><content><text value=\"You won!\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>5</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: As many as we want",
+            "id": 79890,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code <code>likes &gt;= 60</code> pour ajouter une nouvelle condition.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"promote_article = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text value=\"views = \" /><text value=\"100\" class=\"number\" /><text type=\"break\" /><text value=\"shares = \" /><text value=\"30\" class=\"number\" /><text type=\"break\" /><text value=\"likes = \" /><text value=\"70\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" views &gt; \" /><text value=\"150\" class=\"number\" /><text value=\" \" /><text value=\"or\" class=\"keyword\" /><text value=\" shares &gt;= \" /><text value=\"50\" class=\"number\" /><text value=\" \" /><text value=\"or\" class=\"keyword\" /><text value=\" likes &gt;= \" /><text value=\"60\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  promote_article = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\"  \" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"94\" endIndex=\"105\" /></interactions></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>likes &gt;= 60</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

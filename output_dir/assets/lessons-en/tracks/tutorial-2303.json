@@ -1,0 +1,228 @@
+{
+  "tutorial": {
+    "id": 2303,
+    "version": 1,
+    "type": "practiceOptional",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "SQL Joins 2",
+    "descriptionContent": "SQL Joins 2",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 13190,
+        "title": "Using RIGHT JOINs",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Code 1",
+            "id": 118613,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Set the condition to join the tables based on the properties `id` and `store_id`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\r\nFROM stores\r\nRIGHT JOIN production",
+                  "solvedContent": "SELECT *\r\nFROM stores\r\nRIGHT JOIN production\r\nON stores.id = production.store_id;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"stores\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"location\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"stock\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Agile Stores\"},{\"CellType\":\"Data\",\"Content\":\"Bronx\"},{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"11\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Drop Stores\"},{\"CellType\":\"Data\",\"Content\":\"Houston\"},{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"7\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Switch Store\"},{\"CellType\":\"Data\",\"Content\":\"Bronx\"},{\"CellType\":\"Data\",\"Content\":\"432\"},{\"CellType\":\"Data\",\"Content\":\"10\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Storescape\"},{\"CellType\":\"Data\",\"Content\":\"Alaska\"},{\"CellType\":\"Data\",\"Content\":\"9912\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Anytime Store\"},{\"CellType\":\"Data\",\"Content\":\"Times Square\"},{\"CellType\":\"Data\",\"Content\":\"664\"},{\"CellType\":\"Data\",\"Content\":\"120\"}]}]},{\"Name\":\"production\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"store_id\"},{\"CellType\":\"Header\",\"Content\":\"status\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"Processing\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"Completed\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"location\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"stock\"},{\"CellType\":\"Header\",\"Content\":\"store_id\"},{\"CellType\":\"Header\",\"Content\":\"status\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Agile Stores\"},{\"CellType\":\"Data\",\"Content\":\"Bronx\"},{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"11\"},{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"Processing\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Drop Stores\"},{\"CellType\":\"Data\",\"Content\":\"Houston\"},{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"7\"},{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"Completed\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code 2",
+            "id": 118603,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Join the `video_info` and `premium_users` tables based on the common properties `uploader` and `name` in such a way that *only* the matching rows are displayed in the resulting table.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT * FROM video_info",
+                  "solvedContent": "SELECT * FROM video_info\r\nINNER JOIN premium_users\r\nON video_info.uploader = premium_users.name;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"video_info\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"uploader\"},{\"CellType\":\"Header\",\"Content\":\"id\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Experiment for phones\"},{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"1234\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kevin\\u0027s birthday\"},{\"CellType\":\"Data\",\"Content\":\"Joy Family\"},{\"CellType\":\"Data\",\"Content\":\"7531\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Make pizza in 2 minutes only\"},{\"CellType\":\"Data\",\"Content\":\"2 minutes only\"},{\"CellType\":\"Data\",\"Content\":\"6536\"}]}]},{\"Name\":\"premium_users\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"12314\"},{\"CellType\":\"Data\",\"Content\":\"Creator\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kiana\"},{\"CellType\":\"Data\",\"Content\":\"41351\"},{\"CellType\":\"Data\",\"Content\":\"Creator\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Anonymous\"},{\"CellType\":\"Data\",\"Content\":\"98746\"},{\"CellType\":\"Data\",\"Content\":\"Viewer\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"uploader\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Experiment for phones\"},{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"1234\"},{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"12314\"},{\"CellType\":\"Data\",\"Content\":\"Creator\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code 3",
+            "id": 118604,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Join the `video_info` and `premium_users` tables based on the common properties `uploader` and `name` in such a way that all the rows of the right table and only the matching rows from the left table are displayed in the resulting table. ",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT * FROM video_info",
+                  "solvedContent": "SELECT * FROM video_info\r\nRIGHT JOIN premium_users\r\nON video_info.uploader = premium_users.name;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"video_info\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"uploader\"},{\"CellType\":\"Header\",\"Content\":\"id\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Experiment for phones\"},{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"1234\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kevin\\u0027s birthday\"},{\"CellType\":\"Data\",\"Content\":\"Joy Family\"},{\"CellType\":\"Data\",\"Content\":\"7531\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Make pizza in 2 minutes only\"},{\"CellType\":\"Data\",\"Content\":\"2 minutes only\"},{\"CellType\":\"Data\",\"Content\":\"6536\"}]}]},{\"Name\":\"premium_users\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"12314\"},{\"CellType\":\"Data\",\"Content\":\"Creator\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kiana\"},{\"CellType\":\"Data\",\"Content\":\"41351\"},{\"CellType\":\"Data\",\"Content\":\"Creator\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Anonymous\"},{\"CellType\":\"Data\",\"Content\":\"98746\"},{\"CellType\":\"Data\",\"Content\":\"Viewer\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"uploader\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Experiment for phones\"},{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"1234\"},{\"CellType\":\"Data\",\"Content\":\"DoeTech\"},{\"CellType\":\"Data\",\"Content\":\"12314\"},{\"CellType\":\"Data\",\"Content\":\"Creator\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"Kiana\"},{\"CellType\":\"Data\",\"Content\":\"41351\"},{\"CellType\":\"Data\",\"Content\":\"Creator\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"Anonymous\"},{\"CellType\":\"Data\",\"Content\":\"98746\"},{\"CellType\":\"Data\",\"Content\":\"Viewer\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code 4",
+            "id": 118605,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Join the `passengers` and `available_seats` tables based on the properties `preferred_coach` and `coach` in such a way that all the rows of the right table and only the matching rows from the left table are displayed in the resultant table. Also, alias the `available_seats` table as `a`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT p.name, a.*\r\nFROM passengers AS p",
+                  "solvedContent": "SELECT p.name, a.*\r\nFROM passengers AS p\r\nRIGHT JOIN available_seats AS a\r\nON p.preferred_coach = a.coach;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"passengers\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"preferred_coach\"},{\"CellType\":\"Header\",\"Content\":\"budget\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sheetal\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kyle\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"30\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Samaira\"},{\"CellType\":\"Data\",\"Content\":\"non ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]}]},{\"Name\":\"available_seats\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"coach\"},{\"CellType\":\"Header\",\"Content\":\"upper_seats\"},{\"CellType\":\"Header\",\"Content\":\"lower_seats\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"non ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"0\"},{\"CellType\":\"Data\",\"Content\":\"0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"seater\"},{\"CellType\":\"Data\",\"Content\":\"0\"},{\"CellType\":\"Data\",\"Content\":\"30\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"premium\"},{\"CellType\":\"Data\",\"Content\":\"50\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"coach\"},{\"CellType\":\"Header\",\"Content\":\"upper_seats\"},{\"CellType\":\"Header\",\"Content\":\"lower_seats\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sheetal\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kyle\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Samaira\"},{\"CellType\":\"Data\",\"Content\":\"non ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"0\"},{\"CellType\":\"Data\",\"Content\":\"0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"seater\"},{\"CellType\":\"Data\",\"Content\":\"0\"},{\"CellType\":\"Data\",\"Content\":\"30\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"premium\"},{\"CellType\":\"Data\",\"Content\":\"50\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code 5",
+            "id": 118606,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Change the code so that all passengers show up in the final table and only the matching rows show up from the `available_seats` table.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT p.name, a.*\r\nFROM passengers AS p\r\nRIGHT JOIN available_seats AS a\r\nON p.preferred_coach = a.coach;",
+                  "solvedContent": "SELECT p.name, a.*\r\nFROM available_seats AS a\r\nRIGHT JOIN passengers AS p\r\nON p.preferred_coach = a.coach;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"passengers\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"preferred_coach\"},{\"CellType\":\"Header\",\"Content\":\"budget\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sheetal\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kyle\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"30\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Samaira\"},{\"CellType\":\"Data\",\"Content\":\"non ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]}]},{\"Name\":\"available_seats\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"coach\"},{\"CellType\":\"Header\",\"Content\":\"upper_seats\"},{\"CellType\":\"Header\",\"Content\":\"lower_seats\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"non ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"0\"},{\"CellType\":\"Data\",\"Content\":\"0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"seater\"},{\"CellType\":\"Data\",\"Content\":\"0\"},{\"CellType\":\"Data\",\"Content\":\"30\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"premium\"},{\"CellType\":\"Data\",\"Content\":\"50\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"coach\"},{\"CellType\":\"Header\",\"Content\":\"upper_seats\"},{\"CellType\":\"Header\",\"Content\":\"lower_seats\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sheetal\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Kyle\"},{\"CellType\":\"Data\",\"Content\":\"ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"20\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Samaira\"},{\"CellType\":\"Data\",\"Content\":\"non ac sleeper\"},{\"CellType\":\"Data\",\"Content\":\"0\"},{\"CellType\":\"Data\",\"Content\":\"0\"}]}]}]}"
+            }
+          }
+        ]
+      },
+      {
+        "id": 13201,
+        "title": "Using FULL OUTER JOINs",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Code 1",
+            "id": 118656,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Join the `user` and `blocked` tables based on the common property `id` in such a way that only the matching rows from the right table are displayed in the result table. ",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT * FROM  user",
+                  "solvedContent": "SELECT * FROM  user\r\nLEFT JOIN blocked\r\nON user.id = blocked.id;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"user\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"username\"},{\"CellType\":\"Header\",\"Content\":\"followers\"},{\"CellType\":\"Header\",\"Content\":\"following\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"John123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"123\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"412\"},{\"CellType\":\"Data\",\"Content\":\"Stella24\"},{\"CellType\":\"Data\",\"Content\":\"5120\"},{\"CellType\":\"Data\",\"Content\":\"12\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Starseed101\"},{\"CellType\":\"Data\",\"Content\":\"223000\"},{\"CellType\":\"Data\",\"Content\":\"5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"AmGaming247\"},{\"CellType\":\"Data\",\"Content\":\"599\"},{\"CellType\":\"Data\",\"Content\":\"1023\"}]}]},{\"Name\":\"blocked\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"reason\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Spamming\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"Misconduct\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"910\"},{\"CellType\":\"Data\",\"Content\":\"None\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"username\"},{\"CellType\":\"Header\",\"Content\":\"followers\"},{\"CellType\":\"Header\",\"Content\":\"following\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"reason\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"John123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"412\"},{\"CellType\":\"Data\",\"Content\":\"Stella24\"},{\"CellType\":\"Data\",\"Content\":\"5120\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Starseed101\"},{\"CellType\":\"Data\",\"Content\":\"223000\"},{\"CellType\":\"Data\",\"Content\":\"5\"},{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Spamming\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"AmGaming247\"},{\"CellType\":\"Data\",\"Content\":\"599\"},{\"CellType\":\"Data\",\"Content\":\"1023\"},{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"Misconduct\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code 2",
+            "id": 118658,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Join the `user` and `blocked` tables based on the common property `id` in such a way that the result table becomes a combination of left and right join.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT * FROM user",
+                  "solvedContent": "SELECT * FROM user\r\nFULL OUTER JOIN blocked\r\nON user.id = blocked.id;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"user\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"username\"},{\"CellType\":\"Header\",\"Content\":\"followers\"},{\"CellType\":\"Header\",\"Content\":\"following\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"John123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"123\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"412\"},{\"CellType\":\"Data\",\"Content\":\"Stella24\"},{\"CellType\":\"Data\",\"Content\":\"5120\"},{\"CellType\":\"Data\",\"Content\":\"12\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Starseed101\"},{\"CellType\":\"Data\",\"Content\":\"223000\"},{\"CellType\":\"Data\",\"Content\":\"5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"AmGaming247\"},{\"CellType\":\"Data\",\"Content\":\"599\"},{\"CellType\":\"Data\",\"Content\":\"1023\"}]}]},{\"Name\":\"blocked\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"reason\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Spamming\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"Misconduct\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"910\"},{\"CellType\":\"Data\",\"Content\":\"None\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"username\"},{\"CellType\":\"Header\",\"Content\":\"followers\"},{\"CellType\":\"Header\",\"Content\":\"following\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"reason\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"John123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"412\"},{\"CellType\":\"Data\",\"Content\":\"Stella24\"},{\"CellType\":\"Data\",\"Content\":\"5120\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Starseed101\"},{\"CellType\":\"Data\",\"Content\":\"223000\"},{\"CellType\":\"Data\",\"Content\":\"5\"},{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Spamming\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"AmGaming247\"},{\"CellType\":\"Data\",\"Content\":\"599\"},{\"CellType\":\"Data\",\"Content\":\"1023\"},{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"Misconduct\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"910\"},{\"CellType\":\"Data\",\"Content\":\"None\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code 3",
+            "id": 118663,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Swap the left and right tables. Currently, `user` is our left table, and `blocked` is our right table. ",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT * FROM blocked",
+                  "solvedContent": "SELECT * FROM blocked\r\nFULL OUTER JOIN user\r\nON blocked.id = user.id;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"user\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"username\"},{\"CellType\":\"Header\",\"Content\":\"followers\"},{\"CellType\":\"Header\",\"Content\":\"following\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"John123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"123\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"412\"},{\"CellType\":\"Data\",\"Content\":\"Stella24\"},{\"CellType\":\"Data\",\"Content\":\"5120\"},{\"CellType\":\"Data\",\"Content\":\"12\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Starseed101\"},{\"CellType\":\"Data\",\"Content\":\"223000\"},{\"CellType\":\"Data\",\"Content\":\"5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"AmGaming247\"},{\"CellType\":\"Data\",\"Content\":\"599\"},{\"CellType\":\"Data\",\"Content\":\"1023\"}]}]},{\"Name\":\"blocked\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"reason\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Spamming\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"Misconduct\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"910\"},{\"CellType\":\"Data\",\"Content\":\"None\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"reason\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"username\"},{\"CellType\":\"Header\",\"Content\":\"followers\"},{\"CellType\":\"Header\",\"Content\":\"following\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Spamming\"},{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"Starseed101\"},{\"CellType\":\"Data\",\"Content\":\"223000\"},{\"CellType\":\"Data\",\"Content\":\"5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"Misconduct\"},{\"CellType\":\"Data\",\"Content\":\"378\"},{\"CellType\":\"Data\",\"Content\":\"AmGaming247\"},{\"CellType\":\"Data\",\"Content\":\"599\"},{\"CellType\":\"Data\",\"Content\":\"1023\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"910\"},{\"CellType\":\"Data\",\"Content\":\"None\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"John123\"},{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"123\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"412\"},{\"CellType\":\"Data\",\"Content\":\"Stella24\"},{\"CellType\":\"Data\",\"Content\":\"5120\"},{\"CellType\":\"Data\",\"Content\":\"12\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code 4",
+            "id": 118660,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Join the given tables in a `FULL OUTER JOIN`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "",
+                  "solvedContent": "SELECT * FROM stores\r\nFULL OUTER JOIN production\r\nON stores.id = production.store_id;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"stores\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"location\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"stock\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Agile Stores\"},{\"CellType\":\"Data\",\"Content\":\"Bronx\"},{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"11\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Drop Stores\"},{\"CellType\":\"Data\",\"Content\":\"Houston\"},{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"7\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Switch Store\"},{\"CellType\":\"Data\",\"Content\":\"Bronx\"},{\"CellType\":\"Data\",\"Content\":\"432\"},{\"CellType\":\"Data\",\"Content\":\"10\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Storescape\"},{\"CellType\":\"Data\",\"Content\":\"Alaska\"},{\"CellType\":\"Data\",\"Content\":\"9912\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Anytime Store\"},{\"CellType\":\"Data\",\"Content\":\"Times Square\"},{\"CellType\":\"Data\",\"Content\":\"664\"},{\"CellType\":\"Data\",\"Content\":\"120\"}]}]},{\"Name\":\"production\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"store_id\"},{\"CellType\":\"Header\",\"Content\":\"status\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"Processing\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"Completed\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"location\"},{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"stock\"},{\"CellType\":\"Header\",\"Content\":\"store_id\"},{\"CellType\":\"Header\",\"Content\":\"status\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Agile Stores\"},{\"CellType\":\"Data\",\"Content\":\"Bronx\"},{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"11\"},{\"CellType\":\"Data\",\"Content\":\"324\"},{\"CellType\":\"Data\",\"Content\":\"Processing\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Drop Stores\"},{\"CellType\":\"Data\",\"Content\":\"Houston\"},{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"7\"},{\"CellType\":\"Data\",\"Content\":\"1324\"},{\"CellType\":\"Data\",\"Content\":\"Completed\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Switch Store\"},{\"CellType\":\"Data\",\"Content\":\"Bronx\"},{\"CellType\":\"Data\",\"Content\":\"432\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Storescape\"},{\"CellType\":\"Data\",\"Content\":\"Alaska\"},{\"CellType\":\"Data\",\"Content\":\"9912\"},{\"CellType\":\"Data\",\"Content\":\"1\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Anytime Store\"},{\"CellType\":\"Data\",\"Content\":\"Times Square\"},{\"CellType\":\"Data\",\"Content\":\"664\"},{\"CellType\":\"Data\",\"Content\":\"120\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"\"}]}]}]}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

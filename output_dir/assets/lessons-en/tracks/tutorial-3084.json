@@ -1,0 +1,573 @@
+{
+  "tutorial": {
+    "id": 3084,
+    "version": 3,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "jsx",
+    "title": "Wordle Clone",
+    "descriptionContent": "Recreate the world-famous word game by building its core logic and mechanics, step by step",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-3084-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 15372,
+        "title": "Chapter #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1 - Copy",
+            "id": 135288,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Welcome to the **Wordle Clone** project. We'll use React to build a clone of the world-famous Wordle game. The game is all about guessing a 5-letter word.\n\nLet's start by adding some styling via the `App.css` file.\n\n1. In the `App` component, import the `App.css` file.\n2. Switch to the `App.css` file to style the `body` element:\n   - Set `margin` to `0`.\n   - Set `font-family` to `Arial, sans-serif`.\n   - Set `height` to `100vh`.\n   - Set `background` to `linear-gradient(135deg, #f3e7e9, #e3eeff)`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Wordle</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst App = () => {\n\n  return (\n    <div>\n      <h1>Wordle</h1>\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport \"./App.css\";\n\nconst App = () => {\n\n  return (\n    <div>\n      <h1>Wordle</h1>\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}"
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #11",
+            "id": 135282,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "As a second step, we want to create a class for the main container inside the `App` component that we can target for additional styling.\n\n1. In the `App` component, set `\"main-container\"` as the value for the `className` of the `div` element.\n2. Switch to the `App.css` file to add styling for the `.main-container` class:\n   - Set `display` to `flex`.\n   - Set `flex-direction` to `column`.\n   - Set `align-items` to `center`.\n   - Set `justify-content` to `center`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Wordle</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./App.css\";\n\nconst App = () => {\n\n  return (\n    <div>\n      <h1>Wordle</h1>\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport \"./App.css\";\n\nconst App = () => {\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}"
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 135275,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We'll now start with the logic. To help us work on the app, we'll immediately add some demo data to display.\n\n1. Update the import statement to include `useState` from React.\n2. Define a new constant `targetWord` and assign the value `\"REACT\"`. This will be the word the player needs to guess.\n3. Create a new state variable `guesses` initialized with an array of guess words. For now, we'll simulate three guesses. Use `[\"PARTY\", \"DRAFT\", \"REACT\"]` for the initial value of the `guesses` array.\n4. Iterate over the `guesses` array and render every value in the `guesses` state variable.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Wordle</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./App.css\";\n\nconst App = () => {\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport \"./App.css\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        guess\n      ))}\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": "import React from \"react\";\n\nconst Row = ({ guess, targetWord }) => {\n  return <div className=\"word-row\">{guess}</div>;\n};\n\nexport default Row;\n"
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 135291,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Next, let's integrate the `Row` component to display each word guess.\n\n1. In the `Row.jsx` file, create a new React component called `Row`. Ensure that you import `React` and export the component as well.\n2. Ensure the component takes `guess` and `targetWord` as props.\n3. Return a `div` element with the `className` set to `\"word-row\"` and display the passed `guess` inside.\n4. Import the `Row` component at the top of the `App.jsx` file.\n5. In the `map` function, where you iterate over the `guesses` array, render a `Row` component for each guess.\n6. Set the `index` as `key` and pass `guess` and `targetWord` as props to each `Row`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Wordle</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        guess\n      ))}\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "",
+                  "solvedContent": "import React from \"react\";\n\nconst Row = ({ guess, targetWord }) => {\n  return <div className=\"word-row\">{guess}</div>;\n};\n\nexport default Row;\n"
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 135277,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We want to give the player some hints by indicating if a given letter is correctly guessed or not. We also want to show if a letter is present in the word but not at the right position.\n\n1. In the `Row` component, define a helper function `getLetterStatus` inside the component to determine if each letter in the guess is `correct`, `present`, or `absent` compared to the target word.\n   - The function should accept two parameters, `letter` and `index`.\n   - First, check if the letter is equal to the letter at the provided index in the target word: `letter === targetWord[index]`\n   - If that's the case, return `\"correct\"`.\n   - If that's not the case, check if the target word includes the letter: `targetWord.includes(letter)`.\n   - If that's the case, return `\"present\"`.\n   - If none of the above is true, return `\"absent\"`.\n2. Inside the `return` statement, split the guess into individual letters to receive an array of letters instead of a word: `guess.split(\"\")`.\n3. Use `map` to iterate over the newly created array. For each letter, return a `span` element.\n   - Set the `key` to `index`.\n   - Set the `className` to `\"letter\"` and either `'correct\"`, `\"present\"`, or `\"absent\"` by coding the following: ``className={`letter ${getLetterStatus(letter, index)}`}``.\n   - Display the letter as the content of the `span` element.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Wordle</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Row = ({ guess, targetWord }) => {\n  return <div className=\"word-row\">{guess}</div>;\n};\n\nexport default Row;\n",
+                  "solvedContent": "import React from \"react\";\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;\n"
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8",
+            "id": 135279,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Next up: styling for the `Row` component using CSS.\n\n1. Still, in the `Row` component, import the `Row.css` file.\n1. In the `Row.css` file, create rules for `.word-row` to define the layout of the row:\n   - Set `display` to `flex`.\n   - Set `justify-content` to `center`.\n   - Set `margin` to `5px`.\n2. Also, create a `.letter` rule to style individual letters:\n   - Set `width` to `40px`.\n   - Set `height` to `40px`.\n   - Set `display` to `inline-flex`.\n   - Set `justify-content` to `center`.\n   - Set `align-items` to `center`.\n   - Set `margin` to `2px`.\n   - Set `color` to `white`.\n   - Set `font-weight` to `bold`.\n   - Set `font-size` to `1.2em`.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Wordle</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;",
+                  "solvedContent": "import React from \"react\";\nimport \"./Row.css\";\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;"
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": ".word-row {\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n}\n\n.letter {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 2px;\n  color: white;\n  font-weight: bold;\n  font-size: 1.2em;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #9",
+            "id": 135280,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We want to make use of letter-specific styles for correct, present, and absent letters.\n\n1. In the `Row.css` file, add specific styles for `.letter.correct`, `.letter.present`, and `.letter.absent`. Set the background color to `\"green\"`, `\"gold\"`, and `\"lightgray\"`, respectively.",
+              "preselectedFileIndex": 5,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n    <title>Wordle</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Row.css\";\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": ".word-row {\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n}\n\n.letter {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 2px;\n  color: white;\n  font-weight: bold;\n  font-size: 1.2em;\n}",
+                  "solvedContent": ".word-row {\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n}\n\n.letter {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 2px;\n  color: white;\n  font-weight: bold;\n  font-size: 1.2em;\n}\n\n.letter.correct {\n  background-color: green;\n}\n\n.letter.present {\n  background-color: gold;\n}\n\n.letter.absent {\n  background-color: lightgray;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 135284,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Next, we need to handle the player input within our app to allow guesses to be entered and managed.\n\n1.  Inside the `App` component, create another state variable `currentGuess` initialized as an empty string.\n2. Also, create a function called `handleInputChange` that takes an event as an argument and updates `currentGuess` using `setCurrentGuess` with the input value in uppercase: `event.target.value.toUpperCase()`.\n3. In the JSX that we return, below the `Row` components, add an `input` element with attributes:\n   - Add `onChange={handleInputChange}` to handle input changes using the newly created function.\n   - Add `maxLength={targetWord.length}` to restrict the input length.\n   - Add a placeholder like `\"Enter your guess\"`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Wordle</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n  const [currentGuess, setCurrentGuess] = useState(\"\");\n\n  const handleInputChange = (event) => {\n    setCurrentGuess(event.target.value.toUpperCase());\n  };\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n      <input\n        onChange={handleInputChange}\n        maxLength={targetWord.length}\n        placeholder=\"Enter your guess\"\n      />\n    </div>\n  );\n};\n\nexport default App;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Row.css\"\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": ".word-row {\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n}\n\n.letter {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 2px;\n  color: white;\n  font-weight: bold;\n  font-size: 1.2em;\n}\n\n.letter.correct {\n  background-color: green;\n}\n\n.letter.present {\n  background-color: gold;\n}\n\n.letter.absent {\n  background-color: lightgray;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 135285,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Time to integrate the functionality for submitting guesses and processing game logic.\n\n1. In the `App` component, create a function called `handleGuess`.\n   - Return immediately if `currentGuess.length` is not equal to `5` as every guess needs to have 5 letters.\n   - Create an array `updatedGuesses` with the existing guesses plus `currentGuess`. Use the spread operator to add `currentGuess` to the `guesses` array before updating the state variable with this new extended array.\n   - Set the state variable `guesses` to the value of the variable `updatedGuesses` using `setGuesses`.\n2. Below the `input` element, add a `button` element with `onClick={handleGuess}` and the text `Guess`. This should trigger the new function when clicked.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Wordle</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n  const [currentGuess, setCurrentGuess] = useState(\"\");\n\n  const handleInputChange = (event) => {\n    setCurrentGuess(event.target.value.toUpperCase());\n  };\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n      <input\n        onChange={handleInputChange}\n        maxLength={targetWord.length}\n        placeholder=\"Enter your guess\"\n      />\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n  const [currentGuess, setCurrentGuess] = useState(\"\");\n\n  const handleInputChange = (event) => {\n    setCurrentGuess(event.target.value.toUpperCase());\n  };\n\n  const handleGuess = () => {\n    if (currentGuess.length !== 5) {\n      return;\n    }\n\n    const updatedGuesses = [...guesses, currentGuess];\n    setGuesses(updatedGuesses);\n  };\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n      <input\n        onChange={handleInputChange}\n        maxLength={targetWord.length}\n        placeholder=\"Enter your guess\"\n      />\n      <button onClick={handleGuess}>Guess</button>\n    </div>\n  );\n};\n\nexport default App;"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Row.css\"\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": ".word-row {\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n}\n\n.letter {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 2px;\n  color: white;\n  font-weight: bold;\n  font-size: 1.2em;\n}\n\n.letter.correct {\n  background-color: green;\n}\n\n.letter.present {\n  background-color: gold;\n}\n\n.letter.absent {\n  background-color: lightgray;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 135290,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Of course, we need to tell the player if the game is over.\n\n1. Add a new constant, `maxAttempts`, and set its value to `6` to allow the player to guess six times.\n2. Create another state variable `isGameOver` with an initial `false` value.\n3. Initiate the state variable `guesses` with an empty array instead of the three words that we added before.\n4. At the end of `handleGuess`, determine if the game is over by checking if `currentGuess` matches the target word or if the maximum number of attempts is used.\n5. Use conditional rendering to hide the `input` and the `button` elements if the game is over.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Wordle</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n\n  const [guesses, setGuesses] = useState([\"PARTY\", \"DRAFT\", \"REACT\"]);\n  const [currentGuess, setCurrentGuess] = useState(\"\");\n\n  const handleInputChange = (event) => {\n    setCurrentGuess(event.target.value.toUpperCase());\n  };\n\n  const handleGuess = () => {\n    if (currentGuess.length !== 5) {\n      return;\n    }\n\n    const updatedGuesses = [...guesses, currentGuess];\n    setGuesses(updatedGuesses);\n  };\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n      <input\n        onChange={handleInputChange}\n        maxLength={targetWord.length}\n        placeholder=\"Enter your guess\"\n      />\n      <button onClick={handleGuess}>Guess</button>\n    </div>\n  );\n};\n\nexport default App;",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n  const maxAttempts = 6;\n\n  const [guesses, setGuesses] = useState([]);\n  const [currentGuess, setCurrentGuess] = useState(\"\");\n  const [isGameOver, setIsGameOver] = useState(false);\n\n  const handleInputChange = (event) => {\n    setCurrentGuess(event.target.value.toUpperCase());\n  };\n\n  const handleGuess = () => {\n    if (currentGuess.length !== 5) {\n      return;\n    }\n\n    const updatedGuesses = [...guesses, currentGuess];\n    setGuesses(updatedGuesses);\n\n    if (currentGuess === targetWord || updatedGuesses.length >= maxAttempts) {\n      setIsGameOver(true);\n    }\n  };\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n      {!isGameOver && (\n        <>\n          <input\n            onChange={handleInputChange}\n            maxLength={targetWord.length}\n            placeholder=\"Enter your guess\"\n          />\n          <button onClick={handleGuess}>Guess</button>\n        </>\n      )}\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Row.css\"\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": ".word-row {\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n}\n\n.letter {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 2px;\n  color: white;\n  font-weight: bold;\n  font-size: 1.2em;\n}\n\n.letter.correct {\n  background-color: green;\n}\n\n.letter.present {\n  background-color: gold;\n}\n\n.letter.absent {\n  background-color: lightgray;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 135286,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Now that guessing functionality is in place, let's manage the game over state by providing feedback when the game ends and the player didn't guess correctly.\n\n1. At the bottom of the component's return statement, after the button, include a condition that checks if `isGameOver` is true and `currentGuess` is not equal to `targetWord`. Then, render a `p` element displaying a message to tell the player what the word was.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\";\n\nconst container = document.getElementById(\"root\");\nconst root = createRoot(container);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n  <script type=\"module\" src=\"./index.js\"></script>\n  <link rel=\"stylesheet\" href=\"./index.css\" />\n  <title>Wordle</title>\n</head>\n<body>\n  <div id=\"root\">loading</div>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n  const maxAttempts = 6;\n\n  const [guesses, setGuesses] = useState([]);\n  const [currentGuess, setCurrentGuess] = useState(\"\");\n  const [isGameOver, setIsGameOver] = useState(false);\n\n  const handleInputChange = (event) => {\n    setCurrentGuess(event.target.value.toUpperCase());\n  };\n\n  const handleGuess = () => {\n    if (currentGuess.length !== 5) {\n      return;\n    }\n\n    const updatedGuesses = [...guesses, currentGuess];\n    setGuesses(updatedGuesses);\n\n    if (currentGuess === targetWord || updatedGuesses.length >= maxAttempts) {\n      setIsGameOver(true);\n    }\n  };\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n      {!isGameOver && (\n        <>\n          <input\n            onChange={handleInputChange}\n            maxLength={targetWord.length}\n            placeholder=\"Enter your guess\"\n          />\n          <button onClick={handleGuess}>Guess</button>\n        </>\n      )}\n    </div>\n  );\n};\n\nexport default App;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport \"./App.css\";\nimport Row from \"./Row\";\n\nconst App = () => {\n  const targetWord = \"REACT\";\n  const maxAttempts = 6;\n\n  const [guesses, setGuesses] = useState([]);\n  const [currentGuess, setCurrentGuess] = useState(\"\");\n  const [isGameOver, setIsGameOver] = useState(false);\n\n  const handleInputChange = (event) => {\n    setCurrentGuess(event.target.value.toUpperCase());\n  };\n\n  const handleGuess = () => {\n    if (currentGuess.length !== 5) {\n      return;\n    }\n\n    const updatedGuesses = [...guesses, currentGuess];\n    setGuesses(updatedGuesses);\n\n    if (currentGuess === targetWord || updatedGuesses.length >= maxAttempts) {\n      setIsGameOver(true);\n    }\n  };\n\n  return (\n    <div className=\"main-container\">\n      <h1>Wordle</h1>\n      {guesses.map((guess, index) => (\n        <Row key={index} guess={guess} targetWord={targetWord} />\n      ))}\n      {!isGameOver && (\n        <>\n          <input\n            onChange={handleInputChange}\n            maxLength={targetWord.length}\n            placeholder=\"Enter your guess\"\n          />\n          <button onClick={handleGuess}>Guess</button>\n        </>\n      )}\n      {isGameOver && currentGuess !== targetWord && (\n        <p>{`Game over! The word was: ${targetWord}`}</p>\n      )}\n    </div>\n  );\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  height: 100vh;\n  background: linear-gradient(135deg, #f3e7e9, #e3eeff);\n}\n\n.main-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport \"./Row.css\"\n\nconst Row = ({ guess, targetWord }) => {\n  const getLetterStatus = (letter, index) => {\n    if (letter === targetWord[index]) {\n      return \"correct\";\n    } else if (targetWord.includes(letter)) {\n      return \"present\";\n    } else {\n      return \"absent\";\n    }\n  };\n\n  return (\n    <div className=\"word-row\">\n      {guess.split(\"\").map((letter, index) => (\n        <span\n          key={index}\n          className={`letter ${getLetterStatus(letter, index)}`}\n        >\n          {letter}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default Row;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Row.css",
+                  "codeLanguage": "css",
+                  "content": ".word-row {\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n}\n\n.letter {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  margin: 2px;\n  color: white;\n  font-weight: bold;\n  font-size: 1.2em;\n}\n\n.letter.correct {\n  background-color: green;\n}\n\n.letter.present {\n  background-color: gold;\n}\n\n.letter.absent {\n  background-color: lightgray;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

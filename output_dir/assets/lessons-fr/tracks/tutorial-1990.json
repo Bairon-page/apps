@@ -1,0 +1,156 @@
+{
+  "tutorial": {
+    "id": 1990,
+    "version": 8,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Array.filter()",
+    "descriptionContent": "Apprends à filtrer les valeurs d'un tableau.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 12701,
+        "title": "Filtrer les valeurs",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 115173,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Disons que nous voulons trouver certains éléments qui répondent à une condition spécifiée et les extraire dans un nouveau tableau.</p><p>Une façon de le faire est d'utiliser une boucle.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = [];\" /><text type=\"break\" /><text value=\"for\" class=\"keyword\" /><text value=\" (\" /><text value=\"const\" class=\"keyword\" /><text value=\" element \" /><text value=\"of\" class=\"keyword\" /><text value=\" testScores) {\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (element &gt;= \" /><text value=\"90\" class=\"number\" /><text value=\") {\" /><text type=\"break\" /><text value=\"  arr.push(element);\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><output><content><text value=\"[ 95, 90 ]\" /></content></output></code></body></html>"
+          },
+          {
+            "title": "Calling .filter on an Array",
+            "id": 115174,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>À la place, nous pouvons utiliser la fonction <code>.filter()</code>. <code>.filter()</code> crée un nouveau tableau avec des valeurs qui satisfont une condition.</p><p><code>.filter()</code> utilise la syntaxe : <code>ArrayName.filter()</code>. Appelons-le sur le tableau <code>testScores</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"57\" endIndex=\"67\" /><option startIndex=\"67\" endIndex=\"68\" /><option startIndex=\"68\" endIndex=\"74\" /><option startIndex=\"74\" endIndex=\"75\" /><option startIndex=\"75\" endIndex=\"76\" /><option correct=\"false\"><content><text value=\".map()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>testScores</code> suivi de <code>.</code> puis <code>filter</code>, <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Passing Functions",
+            "id": 115175,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour indiquer à la fonction <code>.filter()</code> s'il faut inclure ou exclure une valeur dans le nouveau tableau, nous devons passer une fonction en tant que paramètre.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"83\" /><option startIndex=\"83\" endIndex=\"84\" /><option startIndex=\"84\" endIndex=\"85\" /><option startIndex=\"86\" endIndex=\"87\" /><option startIndex=\"87\" endIndex=\"88\" /><option correct=\"false\"><content><text value=\"[\" /></content></option><option correct=\"false\"><content><text value=\"]\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>function</code> suivi de <code>(</code> puis <code>)</code>, <code>{</code>, <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Parameters",
+            "id": 115177,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Nous devons donner à la fonction inline l'accès aux éléments du tableau.</p><p>Pour ce faire, il suffit d'ajouter un paramètre à la fonction. Dans ce cas, nous utiliserons <code>element</code>, mais n'importe quel nom fonctionne.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" participants = [\" /><text value=\"&quot;Ben&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sarah&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Eli&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Henry&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sean&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Annabel&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" sNames = participants.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"element\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" element[\" /><text value=\"0\" class=\"number\" /><text value=\"] === \" /><text value=\"&quot;S&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(sNames);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"118\" endIndex=\"125\" /></interactions><output><content><text value=\"[ 'Sarah', 'Sean' ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>element</code>.</p></body></html>"
+          },
+          {
+            "title": "Return",
+            "id": 115176,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour indiquer à la fonction <code>.filter()</code> quelles valeurs stocker dans le nouveau tableau, l'instruction <code>return</code> de la fonction doit retourner un booléen.</p><p>Nous écrivons généralement une condition impliquant l'élément du tableau ou l'index qui aboutit à une valeur booléenne.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"element\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" element &gt;= \" /><text value=\"90\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"103\" endIndex=\"116\" /><option startIndex=\"96\" endIndex=\"102\" /><option correct=\"false\"><content><text value=\"arr\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 95, 90 ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>return</code> suivi de <code>element &gt;= 90</code>.</p></body></html>"
+          },
+          {
+            "title": "Parameters II",
+            "id": 115178,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Si nous incluons un deuxième paramètre dans la fonction <code>filter()</code>, nous pouvons accéder à l'index de chaque itération en plus de la valeur du tableau.</p><p>Dans cet exemple, nous appellerons le paramètre <code>index</code>, mais n'importe quel nom peut être utilisé.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" week = [\" /><text value=\"&quot;Sunday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Monday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tuesday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Wednesday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Thursday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Friday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Saturday&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" workWeek = week.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"element, index\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" (index &gt; \" /><text value=\"0\" class=\"number\" /><text value=\" &amp;&amp; index &lt; \" /><text value=\"6\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(workWeek);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"140\" endIndex=\"145\" /></interactions><output><content><text value=\"[ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>index</code>.</p></body></html>"
+          },
+          {
+            "title": "Arrow functions",
+            "id": 115180,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pour simplifier notre syntaxe, nous pouvons incorporer une fonction fléchée JavaScript à la place de la fonction inline.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter(\" /><text value=\"element\" class=\"params\" /><text value=\" =&gt;\" /><text value=\" element &gt;= \" /><text value=\"90\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"82\" /><option startIndex=\"83\" endIndex=\"85\" /><option startIndex=\"86\" endIndex=\"99\" /><option correct=\"false\"><content><text value=\":\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 95, 90 ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>element</code> suivi de <code>=&gt;</code> et enfin <code>element &gt;= 90</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Intro",
+            "id": 115276,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quelle fonction JavaScript pouvons-nous utiliser pour créer un nouveau tableau d'éléments qui satisfont une condition ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>.filter()</code></item><item value=\"2\" correct=\"false\"><code>.map()</code></item></selection><p visible-if=\"wrong\">Assurez-vous de choisir <code>.filter()</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Passing Functions",
+            "id": 115278,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que devons-nous passer comme paramètre pour indiquer à la fonction <code>.filter()</code> quelles valeurs inclure dans le nouveau tableau ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Une fonction</item><item value=\"2\" correct=\"false\">Seulement une instruction conditionnelle</item></selection><p visible-if=\"wrong\">Une fonction.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters",
+            "id": 115279,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Comment pouvons-nous passer les valeurs du tableau à la fonction inline <code>.filter()</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">En ajoutant un paramètre à la fonction inline</item><item value=\"2\" correct=\"false\">En ajoutant le deuxième paramètre obligatoire à la fonction inline</item></selection><p visible-if=\"wrong\">En ajoutant un paramètre à la fonction inline.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters II",
+            "id": 115280,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Que peut-on accéder en incluant un deuxième paramètre dans la fonction inline de <code>.filter()</code> ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">L'index actuel dans l'itération</item><item value=\"2\" correct=\"false\">Le tableau appelant</item></selection><p visible-if=\"wrong\">L'index actuel dans l'itération.</p></body></html>"
+          },
+          {
+            "title": "Question: Return",
+            "id": 115281,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quel type de valeur la fonction inline de <code>.filter()</code> retourne-t-elle ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Un booléen</item><item value=\"2\" correct=\"false\">Une chaîne</item></selection><p visible-if=\"wrong\">Un booléen.</p></body></html>"
+          },
+          {
+            "title": "Question: Arrow functions",
+            "id": 115282,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Pourquoi pourrait-on utiliser une fonction fléchée à la place d'une fonction inline ?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Parce qu'une fonction fléchée simplifie la syntaxe</item><item value=\"2\" correct=\"false\">Parce qu'une fonction fléchée n'a pas besoin de paramètres</item></selection><p visible-if=\"wrong\">Parce qu'une fonction fléchée simplifie la syntaxe.</p></body></html>"
+          },
+          {
+            "title": "Example: Calling .filter on an Array",
+            "id": 115285,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Appelle la fonction <code>.filter()</code> sur le tableau <code>names</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" names = [\" /><text value=\"&quot;Tony&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tania&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Vince&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Terry&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = names.filter(\" /><text value=\"element\" class=\"params\" /><text value=\" =&gt;\" /><text value=\" (element[\" /><text value=\"0\" class=\"number\" /><text value=\"] === \" /><text value=\"&quot;T&quot;\" class=\"string\" /><text value=\"));\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"63\" endIndex=\"68\" /><option startIndex=\"68\" endIndex=\"69\" /><option startIndex=\"69\" endIndex=\"75\" /><option correct=\"false\"><content><text value=\"map\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'Tony', 'Tania', 'Terry' ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>names</code> suivi de <code>.</code> et enfin <code>filter</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Passing Functions",
+            "id": 115286,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ajoute une fonction inline dans la fonction <code>.filter()</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" customerTotals = [\" /><text value=\"99\" class=\"number\" /><text value=\", \" /><text value=\"56\" class=\"number\" /><text value=\", \" /><text value=\"78\" class=\"number\" /><text value=\", \" /><text value=\"110\" class=\"number\" /><text value=\", \" /><text value=\"29\" class=\"number\" /><text value=\", \" /><text value=\"58\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" largeOrder = customerTotals.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"91\" endIndex=\"99\" /><option startIndex=\"99\" endIndex=\"100\" /><option startIndex=\"100\" endIndex=\"101\" /><option startIndex=\"102\" endIndex=\"103\" /><option startIndex=\"103\" endIndex=\"104\" /><option correct=\"false\"><content><text value=\"[]\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>function</code> suivi de <code>(</code> puis <code>)</code>, <code>{</code>, <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Parameters",
+            "id": 115287,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ajoute le paramètre approprié pour donner à la fonction inline l'accès aux valeurs du tableau.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"19.99\" class=\"number\" /><text value=\", \" /><text value=\"20.99\" class=\"number\" /><text value=\", \" /><text value=\"18.99\" class=\"number\" /><text value=\", \" /><text value=\"17.99\" class=\"number\" /><text value=\", \" /><text value=\"21.99\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" inBudget = prices.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"price\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" price &lt; \" /><text value=\"20\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(inBudget);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"92\" endIndex=\"97\" /></interactions><output><content><text value=\"[ 19.99, 18.99, 17.99 ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>price</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Return",
+            "id": 115289,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code le mot-clé correct pour que la fonction <code>.filter()</code> remplisse le tableau <code>shortSleeveDay</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" weather = [\" /><text value=\"67\" class=\"number\" /><text value=\", \" /><text value=\"78\" class=\"number\" /><text value=\", \" /><text value=\"73\" class=\"number\" /><text value=\", \" /><text value=\"77\" class=\"number\" /><text value=\", \" /><text value=\"82\" class=\"number\" /><text value=\", \" /><text value=\"93\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" shortSleeveDay = weather.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"temp\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" temp &gt; \" /><text value=\"75\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(shortSleeveDay);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"98\" endIndex=\"104\" /></interactions><output><content><text value=\"[ 78, 77, 82, 93 ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de rentrer <code>return</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Parameters II",
+            "id": 115288,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code les paramètres dans le bon ordre afin que <code>top3</code> stocke les trois premiers <code>finishers</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" finishers = [\" /><text value=\"&quot;Sarah&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sally&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Jake&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Alex&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tori&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" top3 = finishers.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"finisher, place\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" place &lt; \" /><text value=\"3\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(top3);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"101\" endIndex=\"109\" /><option startIndex=\"109\" endIndex=\"110\" /><option startIndex=\"111\" endIndex=\"116\" /><option correct=\"false\"><content><text value=\":\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'Sarah', 'Sally', 'Jake' ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>finisher</code> suivi de <code>,</code> et enfin <code>place</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Arrow functions",
+            "id": 115290,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code une fonction fléchée qui retourne <code>true</code> si l'index de l'élément est inférieur à 3.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" finishers = [\" /><text value=\"&quot;Sarah&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sally&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Jake&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Alex&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tori&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" top3 = \" /><text type=\"break\" /><text value=\" finishers.filter(\" /><text value=\"(\" /><text value=\"finisher, place\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" place &lt; \" /><text value=\"3\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(top3);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"112\" endIndex=\"114\" /><option startIndex=\"115\" endIndex=\"120\" /><option startIndex=\"121\" endIndex=\"122\" /><option startIndex=\"123\" endIndex=\"124\" /><option correct=\"false\"><content><text value=\":\" /></content></option><option startIndex=\"94\" endIndex=\"111\" /></options></interaction></interactions><output><content><text value=\"[ 'Sarah', 'Sally', 'Jake' ]\" /></content></output></code><p visible-if=\"wrong\">Assurez-vous de choisir <code>(finisher, place)</code> suivi de <code>=&gt;</code> puis <code>place</code>, <code>&lt;</code>, <code>3</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

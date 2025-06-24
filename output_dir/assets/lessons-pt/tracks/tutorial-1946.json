@@ -1,0 +1,329 @@
+{
+  "tutorial": {
+    "id": 1946,
+    "version": 11,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "css",
+    "title": "Motos da Milla",
+    "descriptionContent": "Use CSS Flexbox para alinhar elementos em um site de motocicletas",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1946-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12565,
+        "title": "Motos da Milla",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Existing Code",
+            "id": 113658,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Você foi contratado para corrigir alguns problemas no site de um concessionário de motos local.\n\nDê uma olhada no código e na sua pré-visualização. À primeira vista, o site não parece ruim. Mas a navegação e os links dos parceiros estão todos alinhados no eixo vertical. Seu cliente quer que eles sejam alinhados horizontalmente.\n\nOs links dos parceiros e as imagens da promoção final estão em ordem inversa. A especificação pede que você corrija esses problemas com flexbox.\n\nNão há testes aqui. Passe para a próxima lição para começar depois de olhar o código existente.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <title>Milla's Motos</title>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n font-family: Arial, sans-serif;\n background-color: #FFF9F5;\n color: #36454F;\n text-align: center;\n}\n\nh1 {\n font-size: 50px;\n}\n\nh2 {\n font-size: 30px;\n}\n\na {\n margin: 15px;\n text-decoration: none;\n color: #36454F;\n}\n\nimg {\n width: 150px;\n border: solid 3px #36454F;\n border-radius: 5px;\n}\n\nimg:hover {\n cursor: pointer;\n}\n\n.item {\n margin: 10px;\n font-size: 15px;\n}\n\n.partners {\n text-decoration: underline;\n}\n\n.otherPromo {\n height: 600px;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Flex Container",
+            "id": 113677,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "O desenvolvedor original deixou algumas notas. Uma é sobre uma regra CSS que precisa ser adicionada, incluindo o código. Este CSS precisa ir em `style.css`, mas está faltando um seletor. Com flexbox, os itens devem estar envolvidos em um contêiner flex. Este contêiner tem um nome de classe no HTML que é usado para todos os quatro contêineres flex neste projeto.\n\n1. Olhe o arquivo HTML para encontrar o nome de classe correto.\n2. Codifique o seletor correto, seguido de copiar e colar o código CSS abaixo.\n\n```CSS\n    {\n    padding: 0px;\n    margin: 0px;\n   }\n```",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}",
+                  "solvedContent": "body {\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Look at line 7 in `index.html`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Display",
+            "id": 113688,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Uma propriedade ainda está faltando na classe `.container`. Esta propriedade é geralmente a primeira que adicionamos ao container flex quando estamos usando flexbox. Depois de adicioná-la, você verá uma mudança significativa na aparência da página.\n\n1. Codifique a propriedade CSS e o valor que são necessários no container pai dos itens flex.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n}",
+                  "solvedContent": "body {\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "You need to code the `display` property in the `.container` rule with the appropriate value for flexbox."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Margin",
+            "id": 113678,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ótimo, agora a página está se tornando mais organizada. Mas há um problema com a margem ao redor das bordas. Isso acontece porque os navegadores atribuem valores padrão a coisas como margem. Muitos desenvolvedores usam um **CSS Reset** para remover esses padrões.\n\nÉ uma boa ideia remover o padrão de margem na maioria dos casos. Você precisa fazer isso, neste caso, para limpar a aparência da página e evitar quaisquer problemas se precisarmos ajustar a margem para elementos específicos mais tarde.\n\n1. Redefina o valor da propriedade `margin` para `0` no conjunto de regras existente do `body`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Navigation",
+            "id": 113679,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "O HTML e o design desejado pelo cliente para o site mostram que a navegação é o primeiro container flexbox no site. No HTML, há duas classes associadas a esse container.\n\nA classe única encontrada ao lado da classe `container` precisa de um conjunto de regras no CSS que definirá o eixo principal e a direção dos itens de navegação no eixo transversal. Você não verá uma mudança no site porque o valor que vamos codificar é o padrão. Estamos apenas codificando para praticar.\n\n1. Codifique um conjunto de regras vazio com o seletor de classe único para a barra de navegação.\n2. Codifique a propriedade na regra que é usada para definir o eixo principal e a direção dos itens flex.\n3. Codifique o valor padrão dessa propriedade.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Code a `navigation` class inside `style.css` with the `flex-direction` property and its default value."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Flex Wrap",
+            "id": 113689,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Os links de navegação podem transbordar em telefones menores. Não cobrimos isso, mas uma solução rápida aqui seria permitir que o conteúdo que transbordaria se ajustasse para uma segunda linha. A propriedade `flex-wrap` faz isso. Por padrão, está configurada como `nowrap`.\n\n1. No código do conjunto de regras `.navigation`, adicione a propriedade `flex-wrap` e atribua a ela o valor `wrap`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Promotions",
+            "id": 113680,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Em seguida estão as fotos. As fotos são exibidas em uma coluna conforme desejado com o código inicial. Mas adicionar `display: flex` fez com que todos os contêineres flex arranjassem seus itens com o valor padrão de `row`. Esse padrão torna o eixo principal horizontal e fixou a barra de navegação. Mas agora precisamos organizar as fotos no eixo vertical, começando do topo.\n\n1. Codifique uma regra vazia com o seletor de classe único para as fotos encontradas na primeira seção de promoção.\n2. Codifique a propriedade que controla a direção do flex com o valor que definirá o eixo principal das fotos como vertical e o conteúdo ordenado no eixo cruzado começando do topo.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Code a `todayPromo` class and then add the `flex-direction` property and value."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Partner Site Links",
+            "id": 113682,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A seguir estão os links para os sites parceiros. A classe que precisamos já existe no CSS.\n\nO primeiro problema que precisaremos resolver é a ordenação dos itens. A ordem dos links está invertida em relação aos desejos do cliente por causa da ordem em que aparecem no HTML. De acordo com a especificação, podemos corrigir isso com o CSS. Felizmente, o flexbox nos dá uma solução para esse problema.\n\n1. Codifique a propriedade que controla a direção do flex. Dê a ela o valor que torna o eixo principal horizontal e com o conteúdo ordenado de forma inversa, em relação ao eixo transversal.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n  flex-direction: row-reverse;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Justify Content",
+            "id": 113683,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Os links estão na ordem desejada pelo cliente. Mas agora, como esperado, porque `row-reverse` começa do lado direito da página, os itens ainda não estão na posição desejada. Mais uma vez, somos afortunados que o flexbox tem uma solução para isso.\n\nPodemos justificar o conteúdo à direita, esquerda e centro com a propriedade `justify-content`. Você ainda não aprendeu essa propriedade, mas pode ver o quão útil ela é.\n\n1. Codifique o valor `center` para a propriedade `justify-content` dentro do conjunto de regras para a classe `.partners`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n  flex-direction: row-reverse;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n  flex-direction: row-reverse;\n  justify-content: center;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "More Promotions",
+            "id": 113684,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Agora você precisa corrigir as outras fotos promocionais. O problema, novamente, é que as fotos estão na ordem inversa do que o cliente deseja. Mais uma vez, o flexbox tem uma solução para isso.\n\n1. Codifique a propriedade de direção do flex na classe `otherPromo` com o valor que definirá o eixo principal das fotos como vertical e o conteúdo ordenado de forma inversa no eixo transversal, começando do final da página.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n  flex-direction: row-reverse;\n  justify-content: center;\n}\n\n.otherPromo {\n  height: 600px;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n  flex-direction: row-reverse;\n  justify-content: center;\n}\n\n.otherPromo {\n  height: 600px;\n  flex-direction: column-reverse;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Margin",
+            "id": 113685,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Há um último problema. Olhe para a página.\n\nComo `row reverse` começa na parte inferior do eixo cruzado, e a altura do último container flex é fixada em 600px, há um espaço extra acima das imagens. Você não precisa ajustar a propriedade `margin`. Mas você precisa ajustar a `height` para que tudo fique uniforme. Às vezes, você pode fazer suposições informadas para se aproximar do valor correto, ou fazer cálculos para encontrá-lo. Neste caso, vamos te dar o valor certo. Ótimo trabalho, você deve dar uma olhada em tudo que fez!\n\n1. Substitua o valor da propriedade `height` no conjunto de regras `otherPromo` por `540px`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<html>\n  <head>\n    <title>Milla's Motos</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"container navigation\">\n      <div class=\"item\"><a href=\"#\">Home</a></div>\n      <div class=\"item\"><a href=\"#\">New</a></div>\n      <div class=\"item\"><a href=\"#\">Used</a></div>\n      <div class=\"item\"><a href=\"#\">Clearance</a></div>\n    </div>\n    <h1>Milla's Motos</h1>\n    <h2>Click Today's Promotions!</h2>\n    <div class=\"container todayPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto1.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto6.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto2.png\"></div>\n    </div>\n    <h3>Check out our partner sites!</h3>\n    <div class=\"container partners\">\n      <div class=\"item\"><a href=\"#\">Bob's Boats</a></div>\n      <div class=\"item\"><a href=\"#\">Anne's Airplanes</a></div>\n      <div class=\"item\"><a href=\"#\">Charlie's Cars</a></div>\n    </div>\n    <h2>Other Promotions</h2>\n    <div class=\"container otherPromo\">\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto5.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto3.png\"></div>\n      <div class=\"item\"><img src=\"https://mimo.app/i/moto4.png\"></div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n  flex-direction: row-reverse;\n  justify-content: center;\n}\n\n.otherPromo {\n  height: 600px;\n  flex-direction: column-reverse;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}",
+                  "solvedContent": "body {\n  margin: 0;\n  font-family: Arial, sans-serif;\n  background-color: #FFF9F5;\n  color: #36454F;\n  text-align: center;\n}\n\nh1 {\n  margin-top: 10px;\n  font-size: 50px;\n}\n\nh2 {\n  font-size: 30px;\n}\n\na {\n  margin: 15px;\n  text-decoration: none;\n  color: #36454F;\n}\n\nimg {\n  width: 150px;\n  border: solid 3px #36454F;\n  border-radius: 5px;\n}\n\nimg:hover {\n  cursor: pointer;\n}\n\n.item {\n  margin: 10px;\n  font-size: 15px;\n}\n\n.partners {\n  text-decoration: underline;\n  flex-direction: row-reverse;\n  justify-content: center;\n}\n\n.otherPromo {\n  height: 540px;\n  flex-direction: column-reverse;\n}\n\n.container {\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n\n.navigation {\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.todayPromo {\n  flex-direction: column;\n}"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

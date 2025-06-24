@@ -1,0 +1,380 @@
+{
+  "tutorial": {
+    "id": 2612,
+    "version": 12,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "html",
+    "title": "Chiffrement de César",
+    "descriptionContent": "Plonge dans le monde de la cryptographie ! Dans ce projet, nous construisons un traducteur de chiffre de César en direct. Saisis ton message et regarde-le se coder sans effort sous tes yeux.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2612-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14463,
+        "title": "Chapitre #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 128935,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenue dans **Caesar Cipher**, où tu vas construire ton propre moteur de cryptage. Le chiffre de César consiste à décaler l'alphabet de quelques espaces ; si César voulait cacher le mot 'Hello', avec un décalage de 3, il deviendrait 'Khoor' !\n\n1. Pour commencer, définis une fonction nommée `caesarCipher` qui accepte deux paramètres : le premier doit être appelé `string` et le second `shift`.\n3. Pour l'instant, fais en sorte que cette fonction retourne la chaîne reçue sans aucune modification.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "function caesarCipher(string, shift) {\n return string;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 128936,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "En ce moment, notre fonction renvoie exactement la même chaîne de caractères. C'est comme crier dans un canyon d'écho et obtenir les mêmes mots en retour ! Nous allons utiliser la méthode .replace() sur notre chaîne. Cette méthode peut rechercher des motifs et les remplacer. Pour l'instant, nous voulons trouver chaque lettre (en majuscule et en minuscule) dans notre chaîne.\n\n1. Au lieu de `return string` code `return string.replace(/[a-zA-Z]/g, function(c) { })`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(string, shift) {\n return string;\n}",
+                  "solvedContent": "function caesarCipher(string, shift) {\n return string.replace(/[a-zA-Z]/g, function(c) {\n });\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 128944,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite, nous voulons implémenter le changement de lettres. Le code est un peu compliqué, mais ce qu'il fait, c'est décaler la lettre en fonction de l'entrée. Si le texte est `\"ABC\"` et que `shift` est réglé sur `1`, nous recevrons `\"BCD\"`.\n\n1. Ajoute la ligne `const base = c < 'a' ? 65 : 97;` à l'intérieur de la fonction replace.\n2. Ensuite, insère `return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);`\n\nVoici à quoi le code devrait ressembler :\n\n```JavaScript\nfunction caesarCipher(string, shift) {\n  return string.replace(/[a-zA-Z]/g, function(c) {\n    const base = c < 'a' ? 65 : 97;\n    return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n  });\n}\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(string, shift) {\n return string.replace(/[a-zA-Z]/g, function(c) {\n });\n}",
+                  "solvedContent": "function caesarCipher(string, shift) {\n return string.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "How does this work?",
+                  "content": "If it's uppercase, we'll work with `A` (which has an ASCII code of `65`). If it's lowercase, we'll work with `a` (ASCII `97`).  We then convert our letter to its ASCII code using `charCodeAt(0)`. Then, subtract the base (to get a number between `0` and `25`), add our shift, use `% 26` to ensure it's still a letter in the alphabet, and then add back our base."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 128939,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Pour le voir en action, nous avons besoin de HTML.\n\n1. Ajoute la structure de base pour un document HTML.\n2. À l'intérieur de l'élément `head`, inclue une balise `title` et un élément `link` pour lier la feuille de style CSS.\n3. Dans le `body` du HTML, inclue un élément `script` pour lier le fichier JavaScript.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 128940,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous avons besoin d'un endroit pour saisir le texte.\n\n1. À l'intérieur du `body`, ajoute un en-tête (`h2`) et donne-lui un titre.\n2. En dessous, ajoute un élément `label` avec un texte comme `Shift (1-25):` pour expliquer l'élément `input` suivant.\n3. Ajoute l'élément `input` mentionné, définis son `type` à `\"number\"`, son `id` à `\"shift\"`, sa `value` à `1`, `min` à `1` et `max` à `25`.\n4. Ajoute un autre élément `label` avec un texte comme `Enter your text:`.\n5. Ajoute un élément `textarea` et définis son `id` à `\"plaintext\"` et son `placeholder` à quelque chose comme `\"Enter your text here...\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h2>Caesar Cipher Translator</h2>\n    <label>Shift (1-25):</label>\n    <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n    <label>Enter your text:</label>\n    <textarea id=\"plaintext\" rows=\"4\" cols=\"50\"\n      placeholder=\"Enter your text here...\"></textarea>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 128945,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous avons également besoin d'un endroit pour afficher le résultat.\n\n1. À la fin du `body`, ajoute un en-tête (`h3`), et donne-lui un contenu comme `Translated text:`.\n2. En dessous, ajoute un élément `p` et définis son `id` à `\"output\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h2>Caesar Cipher Translator</h2>\n    <label>Shift (1-25):</label>\n    <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n    <label>Enter your text:</label>\n    <textarea id=\"plaintext\" rows=\"4\" cols=\"50\"\n      placeholder=\"Enter your text here...\"></textarea>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h2>Caesar Cipher Translator</h2>\n    <label>Shift (1-25):</label>\n    <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n    <label>Enter your text:</label>\n    <textarea id=\"plaintext\" rows=\"4\" cols=\"50\"\n      placeholder=\"Enter your text here...\"></textarea>\n    <h3>Translated Text:</h3>\n    <p id=\"output\"></p>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 128937,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Prenons les éléments HTML dans notre fichier JavaScript pour travailler avec eux.\n\n1. Crée une fonction nommée `translate`. Cette fonction ne prendra aucun paramètre.\n2. À l'intérieur de cette fonction, utilise `document.getElementById` deux fois pour obtenir une référence à l'élément HTML avec les ids `\"plaintext\"` et `\"shift\"`.\n3. Utilise `.value` pour accéder aux valeurs des éléments.\n4. Enregistre les valeurs dans deux variables que tu appelles `plaintextValue` et `shiftValue`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h2>Caesar Cipher Translator</h2>\n    <label>Shift (1-25):</label>\n    <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n    <label>Enter your text:</label>\n    <textarea id=\"plaintext\" rows=\"4\" cols=\"50\"\n      placeholder=\"Enter your text here...\"></textarea>\n    <h3>Translated Text:</h3>\n    <p id=\"output\"></p>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}",
+                  "solvedContent": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintextValue = document.getElementById('plaintext').value;\n const shiftValue = document.getElementById('shift').value;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8",
+            "id": 129023,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite : traduction.\n\n1. Assure-toi que `shiftValue` est un nombre. Tu peux le faire en utilisant `parseInt`.\n2. Appelle la fonction `caesarCipher` avec les deux valeurs que nous avons enregistrées dans `plaintextValue` et `shiftValue`.\n3. Enregistre la valeur retournée dans une variable appelée `outputValue`.\n\nLe code suivant est un exemple de comment tu peux t'assurer de récupérer le texte en clair et le décalage tout en garantissant que shiftValue est un nombre.\n\n```JavaScript\nconst plaintextValue = document.getElementById('plaintext').value;\nconst shiftValue = parseInt(document.getElementById('shift').value);\nconst outputValue = caesarCipher(plaintextValue, shiftValue);\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h2>Caesar Cipher Translator</h2>\n    <label>Shift (1-25):</label>\n    <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n    <label>Enter your text:</label>\n    <textarea id=\"plaintext\" rows=\"4\" cols=\"50\"\n      placeholder=\"Enter your text here...\"></textarea>\n    <h3>Translated Text:</h3>\n    <p id=\"output\"></p>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintextValue = document.getElementById('plaintext').value;\n const shiftValue = document.getElementById('shift').value;\n}",
+                  "solvedContent": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintextValue = document.getElementById('plaintext').value;\n const shiftValue = parseInt(document.getElementById('shift').value);\n const outputValue = caesarCipher(plaintextValue, shiftValue);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #9",
+            "id": 128946,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Il est temps d'afficher le message chiffré.\n\n1. Utilise `document.getElementById` à nouveau pour récupérer l'élément HTML avec l'id `\"output\"`.\n2. Affiche la valeur de retour de cette fonction comme `innerHTML` de cet élément en définissant la valeur de la variable `outputValue` à l'élément avec l'id `\"output\"`.\n\nVoici à quoi pourrait ressembler ton code :\n```JavaScript\ndocument.getElementById('output').innerHTML = outputValue;\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h2>Caesar Cipher Translator</h2>\n    <label>Shift (1-25):</label>\n    <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n    <label>Enter your text:</label>\n    <textarea id=\"plaintext\" rows=\"4\" cols=\"50\"\n      placeholder=\"Enter your text here...\"></textarea>\n    <h3>Translated Text:</h3>\n    <p id=\"output\"></p>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintextValue = document.getElementById('plaintext').value;\n const shiftValue = parseInt(document.getElementById('shift').value);\n const outputValue = caesarCipher(plaintextValue, shiftValue);\n}",
+                  "solvedContent": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintextValue = document.getElementById('plaintext').value;\n const shiftValue = parseInt(document.getElementById('shift').value);\n const outputValue = caesarCipher(plaintextValue, shiftValue);\n document.getElementById('output').innerHTML = outputValue;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #10",
+            "id": 128938,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous voulons déclencher l'événement chaque fois que l'entrée change.\n\n1. En bas du fichier JavaScript, en dehors des fonctions, utilise `document.getElementById` pour récupérer les entrées `plaintext` et `shift` depuis le HTML.\n2. Ajoute un écouteur d'événement `\"input\"` à chacune de ces entrées, en utilisant `addEventListener`.\n3. À l'intérieur de chaque gestionnaire d'événements, appelle la fonction `translate`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Caesar Cipher Translator</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h2>Caesar Cipher Translator</h2>\n    <label>Shift (1-25):</label>\n    <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n    <label>Enter your text:</label>\n    <textarea id=\"plaintext\" rows=\"4\" cols=\"50\"\n      placeholder=\"Enter your text here...\"></textarea>\n    <h3>Translated Text:</h3>\n    <p id=\"output\"></p>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintext = document.getElementById('plaintext').value;\n const shift = parseInt(document.getElementById('shift').value);\n const output = caesarCipher(plaintext, shift);\n document.getElementById('output').innerText = output;\n}",
+                  "solvedContent": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintext = document.getElementById('plaintext').value;\n const shift = parseInt(document.getElementById('shift').value);\n const output = caesarCipher(plaintext, shift);\n document.getElementById('output').innerText = output;\n}\n\ndocument.getElementById('plaintext').addEventListener('input', translate);\ndocument.getElementById('shift').addEventListener('input', translate);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #11",
+            "id": 128941,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ajoute du style à ton goût.\n\n1. Style la page comme tu le souhaites. Si tu as besoin d'inspiration, n'hésite pas à utiliser le style suggéré :\n\n```CSS\nbody {\n  font-family: 'Arial', sans-serif;\n  background-color: #1A2835;\n  color: #AAB8C2;\n}\n\nh2 {\n  color: #EFF2F7;\n  border-bottom: 2px solid #2C3E50;\n}\n\nh3 {\n  border-bottom: 2px solid #2C3E50;\n  color: #EFF2F7;\n}\n\nlabel {\n  display: block;\n  margin: 20px 0 0 20px;\n  font-weight: bold;\n}\n\n#output {\n  margin: 20px;\n}\n\ninput, textarea {\n  box-sizing: border-box;\n  width: 85%;\n  margin: 0 20px;\n  padding: 10px;\n  font-size: 18px;\n  border: 1px solid #2C3E50;\n  border-radius: 5px;\n  background-color: #2C3E50;\n  color: #EFF2F7;\n}\n\ninput:focus, textarea:focus {\n  border: 1px solid #3498DB;\n  outline: none;\n}\n```",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n<head>\n <title>Caesar Cipher Translator</title>\n <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n <h2>Caesar Cipher Translator</h2>\n <label for=\"shift\">Shift (1-25):</label>\n <input type=\"number\" id=\"shift\" value=\"1\" min=\"1\" max=\"25\">\n <label for=\"plaintext\">Enter your text:</label>\n <textarea id=\"plaintext\" rows=\"4\" cols=\"50\" placeholder=\"Enter your text here...\"></textarea>\n <h3>Translated Text:</h3>\n <p id=\"output\"></p>\n <script src=\"script.js\"></script>\n</body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": "body {\n font-family: 'Arial', sans-serif;\n background-color: #1A2835;\n color: #AAB8C2;\n}\n\nh2 {\n color: #EFF2F7;\n border-bottom: 2px solid #2C3E50;\n}\n\nh3 {\n border-bottom: 2px solid #2C3E50;\n color: #EFF2F7;\n}\n\nlabel {\n display: block;\n margin: 20px 0 0 20px;\n font-weight: bold;\n}\n\n#output {\n margin: 20px;\n}\n\ninput, textarea {\n box-sizing: border-box;\n width: 85%;\n margin: 0 20px;\n padding: 10px;\n font-size: 18px;\n border: 1px solid #2C3E50;\n border-radius: 5px;\n background-color: #2C3E50;\n color: #EFF2F7;\n}\n\ninput:focus, textarea:focus {\n border: 1px solid #3498DB;\n outline: none;\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function caesarCipher(str, shift) {\n return str.replace(/[a-zA-Z]/g, function(c) {\n const base = c < 'a' ? 65 : 97;\n return String.fromCharCode((c.charCodeAt(0) - base + shift) % 26 + base);\n });\n}\n\nfunction translate() {\n const plaintext = document.getElementById('plaintext').value;\n const shift = parseInt(document.getElementById('shift').value);\n const output = caesarCipher(plaintext, shift);\n document.getElementById('output').innerText = output;\n}\n\ndocument.getElementById('plaintext').addEventListener('input', translate);\ndocument.getElementById('shift').addEventListener('input', translate);",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "tutorial": {
+    "id": 2919,
+    "version": 1,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Introdução ao SQLite",
+    "descriptionContent": "Aprenda a configurar um banco de dados SQLite e consultá-lo",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 15023,
+        "title": "Conectando a um banco de dados",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132483,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Vamos conectar o que aprendemos sobre bancos de dados e backends até agora. Agora, vamos começar a trabalhar com um banco de dados SQLite dentro do Node.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132484,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Usamos um pacote NPM chamado <code>better-sqlite3</code> para nos ajudar a interagir com nosso banco de dados.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 132490,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Primeiro, precisamos importá-lo em nossa aplicação usando a função <code>require</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"7\" /><option startIndex=\"8\" endIndex=\"24\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>require</code> seguido de <code>\"better-sqlite3\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132485,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Em seguida, vamos armazenar o módulo importado em uma variável <code>Database</code>, permitindo que interajamos com o banco de dados SQLite em toda a nossa aplicação.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"6\" endIndex=\"14\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>Database</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132491,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O próximo passo é iniciar o banco de dados criando uma nova instância de um banco de dados SQLite.</p><p>Criamos uma nova instância com a palavra-chave <code>new</code> seguida pelo nome da nossa variável. Também especificamos o nome do arquivo do banco de dados.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"44\" endIndex=\"47\" /><option startIndex=\"48\" endIndex=\"56\" /><option startIndex=\"57\" endIndex=\"72\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>new</code> seguido de <code>Database</code> e finalmente <code>\"./database.db\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132486,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Definimos a localização do arquivo do banco de dados ao criar um novo. <code>./</code> refere-se ao diretório atual.</p><p>Este código irá carregar um banco de dados existente do local especificado ou criar um novo se ele ainda não existir.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"58\" endIndex=\"60\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>./</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132512,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Também armazenamos a nova instância do banco de dados SQLite em uma nova variável para fácil acesso posteriormente.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" db = \" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"44\" endIndex=\"49\" /><option startIndex=\"50\" endIndex=\"52\" /><option startIndex=\"53\" endIndex=\"54\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>const</code> seguido de <code>db</code> e finalmente <code>=</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132487,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Agora é hora de colocar tudo para funcionar! Com <code>db.exec</code> podemos executar instruções SQL, como criar tabelas ou inserir dados.</p><p>Ele não retorna nada, no entanto. Mas não precisamos disso quando queremos criar uma nova tabela.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" db = \" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text type=\"break\" /><text value=\"db.exec(\" /><text value=\"`\" /><text type=\"break\" /><text value=\" CREATE TABLE pets (name TEXT, species TEXT)\" /><text type=\"break\" /><text value=\"`\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"87\" endIndex=\"89\" /><option startIndex=\"89\" endIndex=\"94\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>db</code> seguido de <code>.exec</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6",
+            "id": 132488,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Use o método <code>exec</code> novamente para recriar o banco de dados que você vê aqui.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE Pets (&#xA;    name TEXT,&#xA;    species TEXT&#xA;);&#xA;&#xA;INSERT INTO Pets (name, species)&#xA;VALUES ('Tom', 'Cat');&#xA;\"><tables><table name=\"Pets\"><row><header content=\"name\" /><header content=\"species\" /></row><row><data content=\"Tom\" /><data content=\"Cat\" /></row></table></tables></database><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" db = \" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text type=\"break\" /><text value=\"db.exec(\" /><text value=\"`\" /><text type=\"break\" /><text value=\" CREATE TABLE pets (name TEXT, species TEXT)\" /><text type=\"break\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text type=\"break\" /><text value=\"db.exec(\" /><text value=\"`\" /><text type=\"break\" /><text value=\" INSERT INTO pets (name, species)\" /><text type=\"break\" /><text value=\" VALUES (&quot;Tom&quot;, &quot;Cat&quot;)\" /><text type=\"break\" /><text value=\"`\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"147\" endIndex=\"149\" /><option startIndex=\"149\" endIndex=\"154\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>db</code> seguido de <code>.exec</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132493,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Usando <code>db.exec</code>, você também pode adicionar múltiplos valores.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE Pets (&#xA;    name TEXT,&#xA;    species TEXT&#xA;);&#xA;&#xA;INSERT INTO Pets (name, species)&#xA;VALUES &#xA;    ('Tom', 'Cat'),&#xA;    ('Jerry', 'Mouse'),&#xA;    ('Spike', 'Dog'),&#xA;    ('Tweety', 'Bird');\"><tables><table name=\"Pets\"><row><header content=\"name\" /><header content=\"species\" /></row><row><data content=\"Tom\" /><data content=\"Cat\" /></row><row><data content=\"Jerry\" /><data content=\"Mouse\" /></row><row><data content=\"Spike\" /><data content=\"Dog\" /></row><row><data content=\"Tweety\" /><data content=\"Bird\" /></row></table></tables></database><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" db = \" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text type=\"break\" /><text value=\"db.exec(\" /><text value=\"`\" /><text type=\"break\" /><text value=\" CREATE TABLE pets (name TEXT, species TEXT)\" /><text type=\"break\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text type=\"break\" /><text value=\"db.exec(\" /><text value=\"`\" /><text type=\"break\" /><text value=\" INSERT INTO pets (name, species)\" /><text type=\"break\" /><text value=\" VALUES\" /><text type=\"break\" /><text value=\"  (&quot;Tom&quot;, &quot;Cat&quot;),\" /><text type=\"break\" /><text value=\"  (&quot;Jerry&quot;, &quot;Mouse&quot;),\" /><text type=\"break\" /><text value=\"  (&quot;Spike&quot;, &quot;Dog&quot;),\" /><text type=\"break\" /><text value=\"  (&quot;Tweety&quot;, &quot;Bird&quot;)\" /><text type=\"break\" /><text value=\"`\" /><text value=\");\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"147\" endIndex=\"154\" /></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>db.exec</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132494,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Requerer <code>better-sqlite3</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" db = \" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"17\" endIndex=\"24\" /><option startIndex=\"24\" endIndex=\"25\" /><option startIndex=\"25\" endIndex=\"41\" /><option startIndex=\"41\" endIndex=\"42\" /><option correct=\"false\"><content><text value=\"use\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>require</code> seguido de <code>(</code> e depois <code>\"better-sqlite3\"</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #14",
+            "id": 132498,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual é o propósito de <code>db.exec</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"> Executa um comando SQL, como criar tabelas ou inserir dados, sem retornar nenhum resultado</item><item value=\"2\" correct=\"false\">Ele recupera dados do banco de dados e retorna o resultado</item></selection><p visible-if=\"wrong\"> Executa um comando SQL, como criar tabelas ou inserir dados, sem retornar nenhum resultado.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132495,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Crie um novo banco de dados chamado database.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" db = \" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"68\" endIndex=\"83\" /><option correct=\"false\"><content><text value=\"&quot;database&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"./database.db\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #15",
+            "id": 132499,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que <code>require(\"better-sqlite3\")</code> faz?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Importa o módulo <code>better-sqlite3</code> para operações de banco de dados SQLite</item><item value=\"2\" correct=\"false\">Ele abre um arquivo de banco de dados SQLite existente</item></selection><p visible-if=\"wrong\">Importa o módulo <code>better-sqlite3</code> para operações de banco de dados SQLite.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132496,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Complete o código para que possamos criar um novo banco de dados e adicionar um primeiro valor.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" Database = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;better-sqlite3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" db = \" /><text value=\"new\" class=\"keyword\" /><text value=\" Database(\" /><text value=\"&quot;./database.db&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text type=\"break\" /><text value=\"db.exec(\" /><text value=\"`\" /><text type=\"break\" /><text value=\" CREATE TABLE pets (name TEXT, species TEXT)\" /><text type=\"break\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text type=\"break\" /><text value=\"db.exec(\" /><text value=\"`\" /><text type=\"break\" /><text value=\" INSERT INTO pets (name, species)\" /><text type=\"break\" /><text value=\" VALUES (&quot;Tom&quot;, &quot;Cat&quot;)\" /><text type=\"break\" /><text value=\"`\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"87\" endIndex=\"89\" /><option startIndex=\"89\" endIndex=\"90\" /><option startIndex=\"90\" endIndex=\"94\" /><option startIndex=\"147\" endIndex=\"149\" /><option startIndex=\"149\" endIndex=\"150\" /><option startIndex=\"150\" endIndex=\"154\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>db</code> seguido de <code>.</code> e depois <code>exec</code>, <code>db</code>, <code>.</code>, <code>exec</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 15024,
+        "title": "Consultando um banco de dados",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132510,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Agora vamos ver consultas que retornam dados, como selecionar dados de uma tabela.</p><p>Ao consultar um banco de dados, usamos o método <code>prepare</code>. Isso configura a instrução SQL para que ela possa ser executada posteriormente.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"db\" class=\"selector-tag\" /><text value=\".prepare\" class=\"selector-class\" /><text value=\"();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"2\" /><option startIndex=\"2\" endIndex=\"10\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>db</code> seguido de <code>.prepare</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy - Copy",
+            "id": 132513,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Passamos a consulta SQL como uma string como um argumento para o método <code>prepare</code>.</p><p>Crie uma consulta <code>SELECT</code> e forneça-a como argumento.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"db.prepare(\" /><text value=\"&quot;SELECT * FROM users&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"12\" endIndex=\"18\" /><option startIndex=\"19\" endIndex=\"20\" /><option startIndex=\"21\" endIndex=\"25\" /><option startIndex=\"26\" endIndex=\"31\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>SELECT</code> seguido de <code>*</code> e depois <code>FROM</code>, <code>users</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132503,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos salvar a consulta preparada em uma variável.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" getUsersQuery = db.prepare(\" /><text value=\"&quot;SELECT * FROM users&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"5\" /><option startIndex=\"6\" endIndex=\"19\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>const</code> seguido de <code>getUsersQuery</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132504,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para executar a consulta, chame o método <code>all</code> na declaração preparada.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" getUsersQuery = db.prepare(\" /><text value=\"&quot;SELECT * FROM users&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" users = getUsersQuery.all();\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(users);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"71\" endIndex=\"84\" /><option startIndex=\"84\" endIndex=\"90\" /></options></interaction></interactions><output><content><text value=\"[\" /><text type=\"break\" /><text value=\"  { id: 1, name: &quot;John Smith&quot; },\" /><text type=\"break\" /><text value=\"  { id: 2, name: &quot;Jane Smith&quot; },\" /><text type=\"break\" /><text value=\"  ...\" /><text type=\"break\" /><text value=\"]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>getUsersQuery</code> seguido de <code>.all()</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6",
+            "id": 132505,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O método <code>get</code> é usado para recuperar uma única linha do conjunto de resultados.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" getUserByIdQuery = db.prepare(\" /><text value=\"&quot;SELECT * FROM users WHERE id = 1&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" user = getUserByIdQuery.get();\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(user);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"103\" endIndex=\"106\" /></options></interaction></interactions><output><content><text value=\"{ id: 1, name: &quot;John Smith&quot; }\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>get</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132515,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Também podemos preparar uma instrução <code>SELECT</code> com parâmetros usando pontos de interrogação <code>?</code>. Por exemplo, para selecionar um usuário pelo seu <code>id</code>.</p><p>Se passarmos um valor ao executar a query, ele substituirá o ponto de interrogação, permitindo que filtremos os resultados dinamicamente.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" getUserByIdQuery = db.prepare(\" /><text value=\"&quot;SELECT * FROM users WHERE id = ?&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" user = getUserByIdQuery.get(\" /><text value=\"50\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(user);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"107\" endIndex=\"109\" /><option startIndex=\"68\" endIndex=\"69\" /></options></interaction></interactions><output><content><text value=\"{ id: 50, name: &quot;Pope Benedict XVI&quot; }\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>?</code> seguido de <code>50</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132519,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Se tentarmos obter uma entrada que não existe, recebemos <code>undefined</code>.</p><p>Tente consultar um usuário com o id <code>500</code> que não retornará um valor.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" getUserByIdQuery = db.prepare(\" /><text value=\"&quot;SELECT * FROM users WHERE id = ?&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" user = getUserByIdQuery.get(\" /><text value=\"500\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(user);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"68\" endIndex=\"69\" /><option startIndex=\"107\" endIndex=\"110\" /></options></interaction></interactions><output><content><text value=\"undefined\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>?</code> seguido de <code>500</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132520,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que o método <code>get</code> faz?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"> Ele recupera uma única linha do conjunto de resultados</item><item value=\"2\" correct=\"false\">Ele recupera todas as linhas do conjunto de resultados</item></selection><p visible-if=\"wrong\"> Ele recupera uma única linha do conjunto de resultados.</p></body></html>"
+          },
+          {
+            "title": "Lesson #12",
+            "id": 132521,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual é o propósito do ponto de interrogação <code>?</code> em uma consulta SQL preparada?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"> Ele atua como um espaço reservado para valores que são passados quando a consulta é executada</item><item value=\"2\" correct=\"false\">Indica que a consulta é opcional</item></selection><p visible-if=\"wrong\"> Ele atua como um espaço reservado para valores que são passados quando a consulta é executada.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5 - Copy",
+            "id": 132517,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Prepare uma consulta e execute-a para obter todas as entradas da tabela pets.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" getPetsQuery = db.prepare(\" /><text value=\"&quot;SELECT * FROM pets&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" users = getPetsQuery.all();\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(users);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"69\" endIndex=\"81\" /><option startIndex=\"81\" endIndex=\"87\" /><option startIndex=\"6\" endIndex=\"18\" /><option startIndex=\"21\" endIndex=\"23\" /><option startIndex=\"23\" endIndex=\"24\" /><option startIndex=\"24\" endIndex=\"31\" /></options></interaction></interactions><output><content><text value=\"[\" /><text type=\"break\" /><text value=\"  { id: 1, name: &quot;Simba&quot;, species: &quot;Lion&quot; },\" /><text type=\"break\" /><text value=\"  { id: 2, name: &quot;Dory&quot;, species: &quot;Fish&quot; },\" /><text type=\"break\" /><text value=\"  { id: 3, name: &quot;Hedwig&quot;, species: &quot;Owl&quot; }\" /><text type=\"break\" /><text value=\"]\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>getPetsQuery</code> seguido de <code>db</code> e depois <code>.</code>, <code>prepare</code>, <code>getPetsQuery</code>, <code>.all()</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #13",
+            "id": 132522,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que o método <code>all</code> retorna?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Ele retorna um array de todas as linhas do conjunto de resultados</item><item value=\"2\" correct=\"false\">Ele retorna apenas a primeira linha do conjunto de resultados</item></selection><p visible-if=\"wrong\">Ele retorna um array de todas as linhas do conjunto de resultados.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132518,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Prepare uma instrução <code>SELECT</code> dinâmica.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" getUserByIdQuery = db.prepare(\" /><text value=\"&quot;SELECT * FROM pets WHERE id = ?&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" user = getUserByIdQuery.get(\" /><text value=\"50\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(user);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"56\" endIndex=\"61\" /><option startIndex=\"62\" endIndex=\"64\" /><option startIndex=\"65\" endIndex=\"66\" /><option startIndex=\"67\" endIndex=\"68\" /><option correct=\"false\"><content><text value=\"50\" /></content></option></options></interaction></interactions><output><content><text value=\"{ id: 50, name: &quot;Bugs&quot;, species: &quot;Bunny&quot; }\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>WHERE</code> seguido de <code>id</code> e depois <code>=</code>, <code>?</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #14",
+            "id": 132523,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que <code>db.prepare</code> faz aqui?</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"db.prepare(\" /><text value=\"&quot;SELECT * FROM things WHERE id = ?&quot;\" class=\"string\" /><text value=\");\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Prepara uma consulta SQL para execução</item><item value=\"2\" correct=\"false\"> Ele executa uma consulta SQL preparada</item></selection><p visible-if=\"wrong\">Prepara uma consulta SQL para execução.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

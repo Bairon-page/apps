@@ -1,0 +1,405 @@
+{
+  "tutorial": {
+    "id": 1945,
+    "version": 10,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "css",
+    "title": "Вариации навигационной панели",
+    "descriptionContent": "Используй CSS Flexbox Grow, Shrink, Basis и сокращённую нотацию, чтобы создать несколько вариантов навигационной панели для клиента",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1945-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12564,
+        "title": "Вариации навигационной панели",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Step 1",
+            "id": 113664,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Владелец малого бизнеса попросил твоей помощи в создании веб-сайта. Они хотят две версии для навигационной панели, поэтому ты создашь два варианта.\n\nСначала давай изучим HTML-документ и таблицу стилей. Мы также включили пустую таблицу стилей для выполнения этого упражнения, `index.css`. Здесь ты будешь писать весь свой CSS-код. **Не** изменяй никакие другие файлы.\n\nМы добавили некоторую функциональность в файл JavaScript `index.js` для изменения варианта навигационной панели, но сейчас ты можешь его игнорировать. JavaScript ты изучишь в будущем!\n\nКак мы уже упоминали, в этом проекте ты создашь веб-сайт для владельца пекарни. Ты создашь два варианта навигационной панели (с CSS-классами `.one` и `.two`) и организуешь тело с помощью Flexbox.\n\nСначала добавь CSS-класс `.navbar` в свою таблицу стилей и сделай его контейнером Flexbox.\n\n1. Примените соответствующее свойство `display`, чтобы превратить элемент `.navbar` в контейнер Flexbox.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\">Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\">\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\" Search \">\n      </div>\n    </div>\n    <div id=\"option2\" class=\"hidden\">\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": ".navbar {\n display: flex;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n font-family: sans-serif;\n background-color: #84adad;\n color: white;\n}\n\nh6 {\n margin-top: 10px;\n margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n text-align: center;\n}\n\np,\nul {\n margin-left: auto;\n margin-right: auto;\n max-width: 500px;\n font-size: 20px;\n font-style: italic;\n text-align: center;\n}\n\n.one *,\n.two * {\n border-radius: 8px;\n height: 30px;\n display: table-cell;\n justify-content: center;\n vertical-align: middle;\n line-height: 30px;\n}\n\ninput {\n min-width: 0;\n border-radius: 8px;\n padding: 0 5px;\n}\n\n.navbar {\n width: auto;\n height: 40px;\n padding: 2px;\n align-items: center;\n border: 2px solid white;\n text-align: center;\n border-radius: 8px;\n padding-left: 5px;\n padding-right: 5px;\n}\n\n.content {\n height: 500px;\n flex-direction: column;\n justify-content: center;\n align-items: center;\n}\n\n.content * {\n margin: 0;\n}\n\n.list-header,\n.tagline {\n border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n width: 100%;\n}\n\n.tagline {\n margin-top: 20px;\n}\n\n.hidden {\n display: none;\n}\n\nimg {\n display: block;\n margin-left: auto;\n margin-right: auto;\n height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 2",
+            "id": 113666,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Панель навигации содержит иконки электронной почты и телефона, ссылку на главную страницу и строку поиска.\n\nДля первого варианта:\n - иконки электронной почты и телефона будут одного размера,\n - ссылка `Home` будет в два раза больше иконок,\n - строка поиска будет в три раза больше иконок.\n\nСначала давайте займемся элементами `.mail` и `.phone`. Вы можете найти их внутри класса `.one` в HTML файле.\n\nПоскольку мы хотим установить размер иконок электронной почты и телефона для каждого варианта отдельно, давайте создадим специфические селекторы для иконок в варианте 1, добавив их классы рядом с селектором `.one`:\n```\n.one .mail {\n\n}\n```\n1. Создайте первое правило css для выбора элемента `.mail` внутри элемента div с классом `.one`. Точно так же, как в приведенном примере.\n\n2. Создайте второе правило css для выбора элемента `.phone` внутри элемента div с классом `.one`. Так же, как вы создали `.one .mail`.\n\n3. Примените соответствующее свойство flex к элементам div `.mail` и `.phone` первого варианта, чтобы они могли увеличиваться на `1`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\">Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\" class=\"hidden\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .phone {\n  flex-grow: 1;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Note that adding two classes separated by a space in a css rule will select the element with the second class that is a child from the element with the first class. "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 3",
+            "id": 113667,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Теперь давай разберемся с `Home` ссылкой и строкой поиска в первом варианте. Ссылка `Home` должна иметь возможность расширяться, занимая до двух раз больше места, чем контейнеры `.phone` и `.icon`.\n\n1. Добавь соответствующее свойство `flex` в CSS-класс `.one .home`, чтобы он мог занимать до двух раз больше места, чем элементы иконок.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\">Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\" class=\"hidden\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember to use the flex-grow property with a value of `2 ` to make one element take up twice as much space as another element."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 4",
+            "id": 116153,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Панель поиска должна иметь возможность расширяться до трех раз больше, чем элементы иконок.\n\nДавай сделаем это. Когда закончишь, поиграй с размером окна, чтобы увидеть, как размер панели навигации изменяется динамически!\n\n1. Добавь соответствующее свойство `flex` в CSS-класс `.one .search`, чтобы он мог расширяться до трех раз больше, чем элементы иконок.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\">Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\" class=\"hidden\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember to use a flex-grow value of  3 to expand an element up to three times bigger than another element."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 5",
+            "id": 113668,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Отличная работа над первым вариантом навигационной панели! Давай перейдем ко второму варианту навигационной панели.\n\nДля этого дизайна строка поиска всегда должна быть шириной `100px`, а ссылка `Home` должна расширяться до четырех раз больше, чем строка поиска, потому что она более важна.\n\n1. Добавь соответствующее свойство `flex` к CSS-элементу `.two .home`, чтобы он мог увеличиваться до четырех раз по сравнению с элементом `.search` (над которым мы будем работать дальше).\n2. Затем запусти свой код и используй выпадающее меню, чтобы выбрать второй вариант навигационной панели и увидеть свои изменения.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\" selected>Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\" class=\"hidden\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember to make an element grow with the `flex-grow` property."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 6",
+            "id": 113670,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Нам нужно, чтобы строка поиска всегда была шириной `100px` и не увеличивалась или уменьшалась.\n\n1. Установи свойства `flex-grow` и `flex-shrink` так, чтобы элемент `.two .search` в `CSS` не увеличивался и не уменьшался.\n2. Затем установи соответствующее свойство `flex`, чтобы строка поиска по умолчанию была шириной `100px`.\n3. Наконец, запусти свой код и используй выпадающее меню, чтобы выбрать второй вариант навигационной панели и увидеть свои изменения.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\" selected>Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\" class=\"hidden\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n.two .search {\n  flex-grow: 0;\n  flex-shrink: 0;\n  flex-basis: 100px;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember the value of `0` will make the flex elements not grow or shrink."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 7",
+            "id": 113671,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Давайте упорядочим наш синтаксис с помощью сокращенной записи `flex`.\n\n1. Преобразуй свои CSS правила для CSS класса `.search` в сокращенный синтаксис `flex`.\n2. Затем запусти свой код и используй выпадающее меню, чтобы выбрать второй вариант навигационной панели и увидеть свои изменения.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\" selected>Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\" class=\"hidden\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n.two .search {\n  flex-grow: 0;\n  flex-shrink: 0;\n  flex-basis: 100px;\n}",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n.two .search {\n  flex: 0 0 100px;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember the shorthand flex contains values for `flex-grow`, `flex-shrink`, and `flex-basis`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 8",
+            "id": 113672,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Иконки телефона и почты расположены слишком близко друг к другу во втором варианте, поэтому давай укажем Flexbox, какую ширину по умолчанию назначить. Начнем с иконки телефона.\n\n1. Добавь соответствующее свойство `flex` к иконке телефона во втором варианте навигационной панели, чтобы ее ширина по умолчанию была `50px`.\n2. Не забудь запустить свой код и нажать \"option 2\" в выпадающем списке, чтобы увидеть изменения.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\" selected>Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\" class=\"hidden\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n.two .search {\n  flex: 0 0 100px;\n}\n\n",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n.two .search {\n  flex: 0 0 100px;\n}\n\n.two .phone {\n  flex-basis: 50px;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  var input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember to use `.two .phone` as the selector. "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Step 9",
+            "id": 113673,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Наконец, давай зададим ширину по умолчанию для иконки почты. Когда закончишь, изменяй ширину окна, чтобы увидеть, как твои панели навигации динамически масштабируются.\n\n1. Добавь соответствующее свойство `flex` к иконке почты во втором варианте панели навигации, чтобы её ширина по умолчанию была `50px`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script src=\"index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <link rel=\"stylesheet\" href=\"./index.css\" />\n  </head>\n  <body>\n    <select id=\"selection\" onchange=\"switchNavbar()\">\n      <option value=\"option1\">Option 1</option>\n      <option value=\"option2\" selected>Option 2</option>\n    </select>\n    <h1>Kyle's Bakery</h1>\n    <div id=\"option1\" class=\"hidden\">\n      <h6>Navbar Option 1</h6>\n      <div class=\"navbar one\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n    <div id=\"option2\">\n      <h6>Navbar Option 2</h6>\n      <div class=\"navbar two\">\n        <span class=\"mail\">\n          <img src=\"https://mimo.app/i/mail-large.png\" height=\"10\" />\n        </span>\n        <span class=\"phone\">\n          <img src=\"https://mimo.app/i/phone-large.png\" height=\"10\" />\n        </span>\n        <span class=\"home\">Home</span>\n        <input class=\"search\" type=\"text\" placeholder=\"search\">\n      </div>\n    </div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.css",
+                  "codeLanguage": "css",
+                  "content": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n.two .search {\n  flex: 0 0 100px;\n}\n\n.two .phone {\n  flex-basis: 50px;\n}\n\n",
+                  "solvedContent": ".navbar {\n  display: flex;\n}\n\n.content {\n  display: flex;\n}\n\n.one .phone {\n  flex-grow: 1;\n}\n\n.one .mail {\n  flex-grow: 1;\n}\n\n.one .home {\n  flex-grow: 2;\n}\n\n.one .search {\n  flex-grow: 3;\n}\n\n.two .home {\n  flex-grow: 4;\n}\n\n.two .search {\n  flex: 0 0 100px;\n}\n\n.two .phone {\n  flex-basis: 50px;\n}\n\n.two .mail {\n  flex-basis: 50px;\n}"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: sans-serif;\n  background-color: #84ADAD;\n  color: white;\n}\n\nh6 {\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n  text-align: center;\n}\n\np,\nul {\n  margin-left: auto;\n  margin-right: auto;\n  max-width: 500px;\n  font-size: 20px;\n  font-style: italic;\n  text-align: center;\n}\n\n.one *,\n.two * {\n  border-radius: 8px;\n  height: 30px;\n  display: table-cell;\n  justify-content: center;\n  vertical-align: middle;\n  line-height: 30px;\n}\n\ninput {\n  min-width: 0;\n  border-radius: 8px;\n}\n\n.navbar {\n  width: auto;\n  height: 40px;\n  padding: 2px;\n  align-items: center;\n  border: 2px solid white;\n  text-align: center;\n  border-radius: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.content {\n  height: 500px;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n}\n\n.content * {\n  margin: 0;\n}\n\n.list-header,\n.tagline {\n  border: 1px solid white;\n}\n\n.list-header,\n.tagline,\n.list {\n  width: 100%;\n}\n\n.tagline {\n  margin-top: 20px;\n}\n\n.hidden {\n  display: none;\n}\n\nimg {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  height: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "function switchNavbar() {\n  const input = document.getElementById(\"selection\").value;\n  if (input == \"option1\") {\n    document.getElementById(\"option1\").classList.remove(\"hidden\");\n    document.getElementById(\"option2\").classList.add(\"hidden\");\n  } else {\n    document.getElementById(\"option2\").classList.remove(\"hidden\");\n    document.getElementById(\"option1\").classList.add(\"hidden\");\n  }\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember to use `.two .mail` as the selector. "
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

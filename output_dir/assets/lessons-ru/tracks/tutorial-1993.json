@@ -1,0 +1,142 @@
+{
+  "tutorial": {
+    "id": 1993,
+    "version": 4,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Array.reduce()",
+    "descriptionContent": "Узнай, как свести значения массива к одному значению",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 12711,
+        "title": "Сокращение",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 115251,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Иногда нам нужно преобразовать серию значений массива в одно значение. Например, когда мы хотим вычислить сумму.</p><p>Классический способ сделать это - через цикл.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"let\" class=\"keyword\" /><text value=\" total = \" /><text value=\"0\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"for\" class=\"keyword\" /><text value=\" (\" /><text value=\"const\" class=\"keyword\" /><text value=\" element \" /><text value=\"of\" class=\"keyword\" /><text value=\" miles) {\" /><text type=\"break\" /><text value=\" total += element;\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"80\" /></options></interaction></interactions><output><content><text value=\"207\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>total</code>.</p></body></html>"
+          },
+          {
+            "title": "Calling .reduce on an Array",
+            "id": 115252,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Однако JavaScript предлагает более простой, уже существующий метод. <code>.reduce()</code> может объединять значения массива в одно значение, используя встроенную функцию.</p><p><code>.reduce()</code> использует синтаксис: <code>ArrayName.reduce()</code>. Давайте посмотрим, как мы можем вызвать его на массиве <code>miles</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"42\" endIndex=\"47\" /><option startIndex=\"47\" endIndex=\"48\" /><option startIndex=\"48\" endIndex=\"54\" /><option startIndex=\"54\" endIndex=\"55\" /><option startIndex=\"55\" endIndex=\"56\" /><option correct=\"false\"><content><text value=\"list\" /></content></option></options></interaction></interactions><output><content><text value=\"        \" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /><text type=\"break\" /><text value=\"\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>miles</code>, затем <code>.</code>, а затем <code>reduce</code>, <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Passing Functions",
+            "id": 115253,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Чтобы указать функции <code>.reduce()</code>, как объединять значения, сначала нужно передать функцию в качестве параметра.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"63\" /><option startIndex=\"63\" endIndex=\"64\" /><option startIndex=\"64\" endIndex=\"65\" /><option startIndex=\"66\" endIndex=\"67\" /><option startIndex=\"67\" endIndex=\"68\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>function</code>, затем <code>(</code>, а затем <code>)</code>, <code>{</code>, <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Parameters",
+            "id": 115255,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Нашей функции нужны два параметра: первый для доступа к результату предыдущего <strong>reduction</strong>, и второй для доступа к текущему значению.</p><p>Добавь два параметра: <code>prev</code> и <code>curr</code>, в этом порядке.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"64\" endIndex=\"69\" /><option startIndex=\"70\" endIndex=\"74\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>prev,</code>, а затем <code>curr</code>.</p></body></html>"
+          },
+          {
+            "title": "Return",
+            "id": 115254,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>reduce()</code> проходит по массиву и на каждом значении выполняет операцию с двумя параметрами, пока не придет к единственному значению.</p><p>Например, чтобы сложить значения, встроенная функция возвращает сумму <code>prev</code> редукции и значения <code>curr</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prev + curr;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"79\" endIndex=\"85\" /><option startIndex=\"86\" endIndex=\"97\" /></options></interaction></interactions><output><content><text value=\"207\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>return</code>, а затем <code>prev + curr</code>.</p></body></html>"
+          },
+          {
+            "title": "Arrow functions",
+            "id": 115258,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Чтобы упростить наш синтаксис, мы можем использовать стрелочную функцию JavaScript вместо встроенной функции.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" miles = [\" /><text value=\"33\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = miles.reduce(\" /><text value=\"(\" /><text value=\"prevVal, currVal\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" prevVal + currVal);\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"73\" /><option startIndex=\"74\" endIndex=\"76\" /><option startIndex=\"77\" endIndex=\"94\" /><option correct=\"false\"><content><text value=\"&lt;=\" /></content></option><option correct=\"false\"><content><text value=\"-\" /></content></option></options></interaction></interactions><output><content><text value=\"207\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>(prevVal, currVal)</code>, затем <code>=&gt;</code>, и наконец <code>prevVal + currVal</code>.</p></body></html>"
+          },
+          {
+            "title": "Parameters II",
+            "id": 115256,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Если мы добавим третий параметр в функцию, мы также сможем получить доступ к индексу каждой итерации.</p><p>В этом примере мы используем <code>.reduce()</code> для суммирования <code>prices</code>, но также включаем <code>index</code> для применения коэффициента скидки из второго массива.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"17.50\" class=\"number\" /><text value=\", \" /><text value=\"20.25\" class=\"number\" /><text value=\", \" /><text value=\"24.75\" class=\"number\" /><text value=\", \" /><text value=\"13.50\" class=\"number\" /><text value=\", \" /><text value=\"8.50\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" discountFactor = [\" /><text value=\"0.9\" class=\"number\" /><text value=\", \" /><text value=\"0.9\" class=\"number\" /><text value=\", \" /><text value=\"1.0\" class=\"number\" /><text value=\", \" /><text value=\"1.0\" class=\"number\" /><text value=\", \" /><text value=\"0.9\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = prices.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prevVal, currVal, index\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prevVal + (currVal * discountFactor[index]);\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"156\" endIndex=\"161\" /><option startIndex=\"209\" endIndex=\"214\" /></options></interaction></interactions><output><content><text value=\"81.625\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>index</code>, а затем <code>index</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Intro",
+            "id": 115259,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какую функцию JavaScript мы можем использовать для преобразования серии значений массива в одно значение?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>.reduce()</code></item><item value=\"2\" correct=\"false\"><code>.filter()</code></item></selection><p visible-if=\"wrong\">Обязательно выбери <code>.reduce()</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Passing Functions",
+            "id": 115261,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Что мы должны передать в качестве параметра, чтобы указать функции <code>.reduce()</code>, как объединять значения?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Функция</item><item value=\"2\" correct=\"false\">Переменная</item></selection><p visible-if=\"wrong\">Обязательно выбери Функция.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters",
+            "id": 115262,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Что дает доступ к первому параметру встроенной функции <code>reduce()</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Результат предыдущего сокращения</item><item value=\"2\" correct=\"false\">Значение массива текущей итерации</item></selection><p visible-if=\"wrong\">Результат предыдущего сокращения.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters",
+            "id": 115275,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Что дает доступ ко второму параметру функции <code>reduce()</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Значение массива текущей итерации</item><item value=\"2\" correct=\"false\">Результат предыдущего сокращения</item></selection><p visible-if=\"wrong\">Значение массива текущей итерации.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters II",
+            "id": 115263,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Что мы можем получить, добавив третий, необязательный параметр в функцию?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Индекс</item><item value=\"2\" correct=\"false\">Вызывающий массив</item></selection><p visible-if=\"wrong\">Обязательно выбери Индекс.</p></body></html>"
+          },
+          {
+            "title": "Example: Calling .reduce on an Array",
+            "id": 115268,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Вызови функцию <code>.reduce()</code> на массиве <code>prices</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"17.50\" class=\"number\" /><text value=\", \" /><text value=\"20.25\" class=\"number\" /><text value=\", \" /><text value=\"24.75\" class=\"number\" /><text value=\", \" /><text value=\"13.50\" class=\"number\" /><text value=\", \" /><text value=\"8.50\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = prices.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prevVal, currVal\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prevVal + currVal;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"65\" endIndex=\"71\" /><option startIndex=\"71\" endIndex=\"72\" /><option startIndex=\"72\" endIndex=\"78\" /></options></interaction></interactions><output><content><text value=\"84.5\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>prices</code>, затем <code>.</code>, и наконец <code>reduce</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Passing Functions",
+            "id": 115269,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Добавь встроенную функцию внутри функции <code>.reduce()</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" values = [\" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"3\" class=\"number\" /><text value=\", \" /><text value=\"2\" class=\"number\" /><text value=\", \" /><text value=\"1\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" factorial = values.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"61\" endIndex=\"69\" /><option startIndex=\"69\" endIndex=\"70\" /><option startIndex=\"70\" endIndex=\"71\" /><option startIndex=\"72\" endIndex=\"73\" /><option startIndex=\"73\" endIndex=\"74\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>function</code>, затем <code>(</code>, а затем <code>)</code>, <code>{</code>, <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Parameters",
+            "id": 115270,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Добавь соответствующие параметры, чтобы дать встроенной функции доступ к предыдущему значению редукции и текущему значению массива.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" values = [\" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"3\" class=\"number\" /><text value=\", \" /><text value=\"2\" class=\"number\" /><text value=\", \" /><text value=\"1\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" factorial = values.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prev * curr;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(factorial);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"70\" endIndex=\"74\" /></interactions><output><content><text value=\"24\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>prev</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Return",
+            "id": 115272,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы хотим, чтобы функция <code>.reduce()</code> объединила все <code>words</code> в предложение.</p><p>Напиши правильное ключевое слово в <em>inline</em> функции, чтобы она возвращала предыдущее значение редукции, объединенное с текущим словом.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" words = [\" /><text value=\"&quot;The&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;house&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;is&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;red&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" sentence = words.reduce(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"prev, curr\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" prev + \" /><text value=\"&quot; &quot;\" class=\"string\" /><text value=\" + curr;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(sentence);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"99\" endIndex=\"105\" /></interactions><output><content><text value=\"The house is red\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>return</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Arrow functions",
+            "id": 115273,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Заверши стрелочную функцию так, чтобы <code>total</code> хранил сумму значений массива <code>prices</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"17.50\" class=\"number\" /><text value=\", \" /><text value=\"20.25\" class=\"number\" /><text value=\", \" /><text value=\"24.75\" class=\"number\" /><text value=\", \" /><text value=\"13.50\" class=\"number\" /><text value=\", \" /><text value=\"8.50\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" total = prices.reduce(\" /><text value=\"(\" /><text value=\"prevVal, currVal\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" prevVal + currVal);\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(total);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"109\" endIndex=\"118\" /></interactions><output><content><text value=\"84.5\" /></content></output></code><p visible-if=\"wrong\">Обязательно выбери <code>+ currVal</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

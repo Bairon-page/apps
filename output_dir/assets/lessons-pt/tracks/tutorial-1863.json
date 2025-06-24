@@ -1,0 +1,279 @@
+{
+  "tutorial": {
+    "id": 1863,
+    "version": 10,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Revisões Dinâmicas",
+    "descriptionContent": "Aprenda a usar React para criar uma página de depoimentos que gera conteúdo dinamicamente",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1863-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12305,
+        "title": "Revisões Dinâmicas",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Step 1",
+            "id": 111594,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos explorar componentes reutilizáveis do React! Neste projeto, você criará um componente React para exibir depoimentos de clientes para um restaurante local. Ao alimentar e exibir dados dinamicamente via `props`, poderemos reutilizar o componente para exibir quantos depoimentos quisermos.\n\nPrimeiro, vamos explorar o código fornecido: a estrutura típica do React, uma definição de componente funcional `Testimonial` e uma chamada para a função `render()` do React. Como queremos exibir múltiplos componentes, já reunimos alguns dentro de um componente `App`.\n\nVamos começar adicionando um elemento `<div>` ao componente Testimonial. Quando terminar, você deverá ver dois cartões `Testimonial` aparecerem.\n\n1. Adicione um elemento `<div>` com a classe CSS `card` à declaração de `return` do componente funcional `Testimonial`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n\treturn (\n\t\t\n\t);\n}\n\nexport const App=()=> {\n return (<div>\n    <Testimonial title=\"Great atmosphere!\" author=\"Sheila S.\" date=\"11/10/20\" stars={4} content=\"Great food, wait staff, and ambience. We'll be returning!\" />\n    <Testimonial title=\"Loved the Apps!\" author=\"Kim Z.\" date=\"10/15/20\" stars={3} content=\"The appetizers were fantastic, but the overall menu could be expanded.\" />\n</div>)\n}\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n\treturn (\n\t\t<div className=\"card\"></div>\n\t);\n}\n\nexport const App=()=> {\n return (<div>\n    <Testimonial title=\"Great atmosphere!\" author=\"Sheila S.\" date=\"11/10/20\" stars={4} content=\"Great food, wait staff, and ambience. We'll be returning!\" />\n    <Testimonial title=\"Loved the Apps!\" author=\"Kim Z.\" date=\"10/15/20\" stars={3} content=\"The appetizers were fantastic, but the overall menu could be expanded.\" />\n</div>)\n}\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 2",
+            "id": 111596,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Em seguida, vamos adicionar alguns elementos ao componente `Testimonial`. Vamos começar com o título. Quando terminar, você deverá ver os títulos aparecerem em ambos os cartões `Testimonial`.\n\n1. Primeiro, armazene a prop `title` em uma `const` chamada `title`.\n2. Em seguida, dentro do elemento `<div>` dentro de `return()`, adicione um elemento `<h2>` contendo a constante `title`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n\n\treturn (\n\t\t<div className=\"card\">\n\t\t\t\n\t\t</div>\n\t);\n}\n\nexport const App=()=> {\n return (<div>\n    <Testimonial title=\"Great atmosphere!\" author=\"Sheila S.\" date=\"11/10/20\" stars={4} content=\"Great food, wait staff, and ambience. We'll be returning!\" />\n    <Testimonial title=\"Loved the Apps!\" author=\"Kim Z.\" date=\"10/15/20\" stars={3} content=\"The appetizers were fantastic, but the overall menu could be expanded.\" />\n</div>)\n}\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n\tconst title = props.title;\n\n\treturn (\n\t\t<div className=\"card\">\n\t\t\t<h2>{title}</h2>\n\t\t</div>\n\t);\n}\n\nexport const App=()=> {\n return (<div>\n    <Testimonial title=\"Great atmosphere!\" author=\"Sheila S.\" date=\"11/10/20\" stars={4} content=\"Great food, wait staff, and ambience. We'll be returning!\" />\n    <Testimonial title=\"Loved the Apps!\" author=\"Kim Z.\" date=\"10/15/20\" stars={3} content=\"The appetizers were fantastic, but the overall menu could be expanded.\" />\n</div>)\n}\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 3",
+            "id": 111597,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos agora incorporar o autor do componente `Testimonial`, seguindo um processo semelhante ao do título do cartão.\n\n1. Armazene a prop `author` em uma constante chamada `author`.\n2. Em seguida, adicione um elemento `<h5>` contendo o `author` logo após o título. O formato do texto deve ser semelhante a:\n```javascript\nSubmitted by Tom J.\n```",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>Submitted by {author}</h5>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 4",
+            "id": 111841,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Devemos também exibir a data da avaliação. Vamos incluí-la no mesmo elemento `<h5>` que o autor.\n\n1. Armazene as props `date` em uma constante chamada `date`.\n2. Em seguida, adicione a `date` imediatamente após o autor. O formato do texto deve ser semelhante a:\n```javascript\nSubmitted by Tom J. on 10/20/2020\n```",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>Submitted by {author}</h5>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 5",
+            "id": 111598,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Um `Testimonial` também deve exibir a classificação de 5 estrelas do autor, que, se você examinar o código fornecido, é passada como um inteiro.\n\n1. Armazene a prop `stars` em uma `const` e integre-a na estrutura HTML em uma tag `<h5>`. O formato do texto deve ser semelhante a:\n```javascript\n5 / 5 Stars\n```",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n  const stars = props.stars;\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n      <h5>{stars} / 5 Stars</h5>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 6",
+            "id": 111599,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Finalmente, o `Testimonial` deve exibir o conteúdo real da avaliação do depoimento em uma tag `<p>`.\n\n1. Armazene a prop `content` em uma `const`. Em seguida, integre a prop `content` como um elemento `<p>`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n  const stars = props.stars;\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n      <h5>{stars} / 5 Stars</h5>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n  const stars = props.stars;\n  const content = props.content;\n\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n      <h5>{stars} / 5 Stars</h5>\n      <p>{content}</p>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 7",
+            "id": 111601,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos adicionar outro cartão ao nosso site.\n\n1. Adicione outro elemento `Testimonial` abaixo do segundo `Testimonial` no componente `App`.\n2. Em seguida, passe as props `author` e `date` no elemento `Testimonial`. Você pode escolher quaisquer valores que quiser -- faça deste o seu próprio Testimonial!\n3. Por fim, passe as props 'stars' e 'content' no elemento `Testimonial`. Você pode escolher quaisquer valores que quiser.\n4. Você deve ver um terceiro `Testimonial` com os dados que você adicionou!",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n  const stars = props.stars;\n  const content = props.content;\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n      <h5>{stars} / 5 Stars</h5>\n      <p>{content}</p>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n",
+                  "solvedContent": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n  const stars = props.stars;\n  const content = props.content;\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n      <h5>{stars} / 5 Stars</h5>\n      <p>{content}</p>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n      <Testimonial\n        title=\"Wow!\"\n        author=\"Sally T.\"\n        date=\"12/30/21\"\n        stars={5}\n        content=\"The ambiance was luxurious and the food was high scale.\"\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Result",
+            "id": 122313,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bom trabalho! Neste projeto, você construiu um componente Funcional reutilizável. Você então os reutilizou e adicionou as props necessárias para criar uma página de Depoimentos para um restaurante local! Esta é a sua oportunidade de mexer no código -- você pode adicionar campos adicionais aos cartões de Depoimento ou criar cartões de Depoimento totalmente novos. Experimente e veja o que você pode criar!",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./App.css\";\n\nexport const Testimonial = (props) => {\n  const title = props.title;\n  const author = props.author;\n  const date = props.date;\n  const stars = props.stars;\n  const content = props.content;\n  return (\n    <div className=\"card\">\n      <h2>{title}</h2>\n      <h5>\n        Submitted by {author} on {date}\n      </h5>\n      <h5>{stars} / 5 Stars</h5>\n      <p>{content}</p>\n    </div>\n  );\n};\n\nexport const App = () => {\n  return (\n    <div>\n      <Testimonial\n        title=\"Great atmosphere!\"\n        author=\"Sheila S.\"\n        date=\"11/10/20\"\n        stars={4}\n        content=\"Great food, wait staff, and ambience. We'll be returning!\"\n      />\n      <Testimonial\n        title=\"Loved the Apps!\"\n        author=\"Kim Z.\"\n        date=\"10/15/20\"\n        stars={3}\n        content=\"The appetizers were fantastic, but the overall menu could be expanded.\"\n      />\n      <Testimonial\n        title=\"WOW!\"\n        author=\"Sally T.\"\n        date=\"12/30/21\"\n        stars={5}\n        content={\"The ambiance was luxurious and the food was high scale.\"}\n      />\n    </div>\n  );\n};\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n <head>\n  <script type=\"module\" src=\"./index.js\"></script> \n  <link rel=\"stylesheet\" href=\"./index.css\" />\n </head>\n <body>\n  <h2>Testimonials</h2>\n  <div id=\"root\">loading...</div>\n </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    padding: 8%;\n    font-family: sans-serif;\n    background-color: darkgray;\n    color: black;\n    text-align: center;\n}\n\n.card {\n    padding: 8%;\n    padding-left: 5%;\n    margin-top: 5%;\n    background-color: white;\n    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}\n\nh2, h3, h4, h5 {\n    margin: 0;\n}\n\np {\n    font-style: italic;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

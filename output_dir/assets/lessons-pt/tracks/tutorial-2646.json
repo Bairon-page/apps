@@ -1,0 +1,128 @@
+{
+  "tutorial": {
+    "id": 2646,
+    "version": 6,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Números Aleatórios - Parte 1",
+    "descriptionContent": "Crie um backend que possa ajudar se você não tiver uma moeda ou dado à mão",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2646-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14609,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 129321,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bem-vindo ao projeto **Números Aleatórios**. Vamos construir uma aplicação de servidor simples que gera números aleatórios.\n\nVamos começar configurando o servidor Express.\n\n1. Declare uma variável `express` e requisite o módulo `express`.\n2. Declare uma variável `app` e inicialize-a chamando a função `express`.\n3. Declare uma variável `port` e atribua a ela o valor `3000`.\n4. Use a função `listen` em `app` para fazer o app escutar na porta especificada pela variável `port`.\n5. Registre uma mensagem no console dentro do callback da função `listen` para que saibamos que nosso servidor está funcionando corretamente.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Give your hint a title",
+                  "content": "Give your hint some content"
+                }
+              ],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129323,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Começamos criando uma rota que vai simular um lançamento de moeda. Vamos usar o método `get` do `app` para lidar com a requisição GET no caminho `/coinFlip`.\n\n1. Use a função `app.get` para criar um novo endpoint em `/coinFlip`.\n2. Dentro da função de callback (que recebe os parâmetros `req` e `res`), calcule um número aleatório de 0 ou 1 (cara ou coroa).\n3. Responda com um objeto JSON, usando o método `json` de `res`, onde `result` é `\"Heads\"` se o lançamento da moeda for 0 e `\"Tails\"` caso contrário.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/coinFlip",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 129324,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Agora, vamos adicionar outra rota para rolar um dado de seis lados.\n\n1. Similar ao lançamento de moeda, crie uma rota `GET` no caminho `/diceRoll`.\n2. Atualize o cálculo do número aleatório para dar um resultado entre 1 e 6 (inclusive).\n3. Responda com JSON onde `result` é o número sorteado aleatoriamente.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});\n\napp.get('/diceRoll', function(req, res) {\n  const result = Math.floor(Math.random() * 6) + 1;\n  res.status(200).json({ result: result });\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/diceRoll",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 129325,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Por último, vamos criar uma rota que gerará um número aleatório entre 1 e 100.\n\n1. Crie outra rota `GET` no caminho '/randomNumber'.\n2. Modifique o cálculo do número aleatório para dar um resultado entre 1 e 100 (inclusive).\n3. Responda com JSON onde `result` é o número gerado aleatoriamente.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});\n\napp.get('/diceRoll', function(req, res) {\n  const result = Math.floor(Math.random() * 6) + 1;\n  res.status(200).json({ result: result });\n});",
+                  "solvedContent": "const express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/coinFlip', function(req, res) {\n  const result = Math.floor(Math.random() * 2);\n  res.status(200).json({ result: result === 0 ? 'Heads' : 'Tails' });\n});\n\napp.get('/diceRoll', function(req, res) {\n  const result = Math.floor(Math.random() * 6) + 1;\n  res.status(200).json({ result: result });\n});\n\napp.get('/randomNumber', function(req, res) {\n  const result = Math.floor(Math.random() * 100) + 1;\n  res.status(200).json({ result: result });\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/randomNumber",
+                "body": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "tutorial": {
+    "id": 1109,
+    "version": 21,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Usando Condições",
+    "descriptionContent": "Aprenda como usar comparações em condições.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 13934,
+        "title": "Usando Condições",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 123835,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Este aplicativo de Trivia exibe <code>Correct!</code> se enviarmos a resposta correta e <code>Not quite!</code> se escolhermos a resposta errada.</p><p>Para tomar decisões como essas em nossos programas, precisamos de declarações <code>if</code> que dependem de condições.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html&gt;&#xA; &lt;head&gt;&#xA;  &lt;style&gt;&#xA;   body {&#xA;    text-align: center;&#xA;    font-size: 20px;&#xA;    margin: 0 auto;&#xA;    height: 400px;&#xA;   }&#xA;   &#xA;   button {&#xA;    width: 200px;&#xA;    height: 30px;&#xA;    font-size: 20px;&#xA;    border-radius: 5px;&#xA;    margin: 0 auto;&#xA;    display: block;&#xA;    background-color: black;&#xA;    color: white;&#xA;    outline: none;&#xA;   }&#xA;   &#xA;   .radioDiv {&#xA;    margin: 0 auto;&#xA;    width: auto;&#xA;    text-align: left;&#xA;    display: table;&#xA;   }&#xA;   &#xA;   .questionDiv {&#xA;    border: 1px solid #f0f5fd;&#xA;    border-radius: 20px;&#xA;    padding-top: 10px;&#xA;    padding-bottom: 20px;&#xA;    padding-left: 10px;&#xA;    padding-right: 10px;&#xA;    width: 300px;&#xA;    height: 200px;&#xA;    background-color: #d9e8fb;&#xA;    margin: 0 auto;&#xA;   }&#xA;  &lt;/style&gt;&#xA; &lt;/head&gt;&#xA; &lt;body id=&quot;main&quot;&gt;&#xA;  &lt;h1&gt;Trivia Time&lt;/h1&gt;&#xA;  &lt;div class=&quot;questionDiv&quot;&gt;&#xA;   &lt;h3&gt;Which painter was born in Spain?&lt;/h3&gt;&#xA;   &lt;div class=&quot;radioDiv&quot;&gt;&#xA;    &lt;input type=&quot;radio&quot; name=&quot;painter&quot; value=&quot;picasso&quot;&gt; Picasso&lt;br&gt;&#xA;    &lt;input type=&quot;radio&quot; name=&quot;painter&quot; value=&quot;matisse&quot;&gt;&#xA;    Matisse&lt;br&gt;&lt;br&gt;&#xA;   &lt;/div&gt;&#xA;   &lt;button onClick=&quot;check()&quot;&gt;Submit&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;script&gt;&#xA;   function check() {&#xA;    let feedback = document.getElementById(&quot;feedback&quot;);&#xA;    let radios = document.getElementsByName('painter');&#xA;    let body = document.getElementById(&quot;main&quot;);&#xA;    if (feedback !== null) {&#xA;     body.removeChild(feedback);&#xA;    }&#xA;    for (let i = 0, length = radios.length; i &lt; length; i++) {&#xA;     let paragraph = document.createElement(&quot;p&quot;);&#xA;     paragraph.id = &quot;feedback&quot;;&#xA;     console.log(&quot;checking&quot;);&#xA;     if (radios[i].checked) {&#xA;      console.log(&quot;found&quot;);&#xA;      if (radios[i].value === &quot;picasso&quot;) {&#xA;       paragraph.innerHTML = &quot;Correct!&quot;;&#xA;       paragraph.style.color = &quot;#62d76b&quot;;&#xA;      } else {&#xA;       paragraph.innerHTML = &quot;Not quite!&quot;;&#xA;       paragraph.style.color = &quot;#d7465f&quot;;&#xA;      }&#xA;      body.appendChild(paragraph);&#xA;      break;&#xA;     }&#xA;    }&#xA;   }&#xA;  &lt;/script&gt;&#xA; &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Correct answers",
+            "id": 123836,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos usar <em>operadores</em> de comparação em programas como o Trivia App para verificar se a <code>answer</code> de uma pergunta está correta.</p><p>Digite <code>==</code> neste programa para comparar a solução esperada com a resposta dada.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"answer = \" /><text value=\"&quot;Picasso&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" answer == \" /><text value=\"&quot;Picasso&quot;\" class=\"string\" /><text value=\": \" /><text type=\"break\" /><text value=\" print(answer + \" /><text value=\"&quot; is correct!&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"29\" endIndex=\"31\" /></interactions><output><content><text value=\"Picasso is correct!\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>==</code>.</p></body></html>"
+          },
+          {
+            "title": "Wrong answers",
+            "id": 123832,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>E se a resposta do quiz de curiosidades não estiver correta? Podemos usar o operador de desigualdade <code>!=</code> para verificar se <code>answer</code> não é igual a <code>\"Picasso\"</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"answer = \" /><text value=\"&quot;Matisse&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" answer != \" /><text value=\"&quot;Picasso&quot;\" class=\"string\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(answer + \" /><text value=\"&quot; is wrong!&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"29\" endIndex=\"31\" /><option correct=\"false\"><content><text value=\"==\" /></content></option></options></interaction></interactions><output><content><text value=\"Matisse is wrong!\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>!=</code>.</p></body></html>"
+          },
+          {
+            "title": "Different comparisons",
+            "id": 123833,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>  As declarações <code>if</code> funcionam com todos os operadores de comparação que exploramos até agora. Como verificar se <code>age</code> é maior ou igual a <code>55</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"age = \" /><text value=\"75\" class=\"number\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" age &gt;= \" /><text value=\"55\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Discount applied&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"12\" endIndex=\"15\" /><option startIndex=\"16\" endIndex=\"18\" /><option startIndex=\"19\" endIndex=\"21\" /></options></interaction></interactions><output><content><text value=\"Discount applied\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>age</code> seguido de <code>&gt;=</code> e finalmente <code>55</code>.</p></body></html>"
+          },
+          {
+            "title": "Condition",
+            "id": 123834,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ou usando <code>==</code> para comparar variáveis como <code>is_day</code> a valores booleanos.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"is_day = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" is_day == \" /><text value=\"True\" class=\"literal\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Lights off!&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"17\" endIndex=\"23\" /><option startIndex=\"24\" endIndex=\"26\" /><option correct=\"false\"><content><text value=\"!=\" /></content></option></options></interaction></interactions><output><content><text value=\"Lights off!\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>is_day</code> seguido de <code>==</code>.</p></body></html>"
+          },
+          {
+            "title": "Variables",
+            "id": 123831,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos armazenar o resultado de uma comparação em uma variável. Aqui, armazenamos a comparação <code>score &gt; 50</code> na variável <code>pass_grade</code>.</p><p>Use a variável <code>pass_grade</code> na condicional para exibir <code>Passed!</code> no console.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"score = \" /><text value=\"51\" class=\"number\" /><text type=\"break\" /><text value=\"pass_grade = score &gt; \" /><text value=\"50\" class=\"number\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" pass_grade: \" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Passed!&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"38\" endIndex=\"48\" /></options></interaction></interactions><output><content><text value=\"Passed!\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>pass_grade</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Good decisions",
+            "id": 123830,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Por que usamos comparações com declarações <code>if</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Para tomar decisões mais inteligentes sobre executar ou pular código</item><item value=\"2\" correct=\"false\">Para sempre executar o bloco de instrução <code>if</code></item></selection><p visible-if=\"wrong\">Para tomar decisões mais inteligentes sobre executar ou pular código.</p></body></html>"
+          },
+          {
+            "title": "Question: Correct answers",
+            "id": 123829,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para que usamos comparações com <code>==</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Para executar ou pular o código dependendo se dois valores são iguais</item><item value=\"2\" correct=\"false\">Para executar o código, já que uma comparação com <code>==</code> sempre retorna <code>True</code></item></selection><p visible-if=\"wrong\">Para executar ou pular o código dependendo se dois valores são iguais.</p></body></html>"
+          },
+          {
+            "title": "Question: Wrong answers",
+            "id": 123828,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual operador executa o bloco de código de uma instrução if quando dois valores são diferentes?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>!=</code></item><item value=\"2\" correct=\"false\"><code>==</code></item></selection><p visible-if=\"wrong\">Certifique-se de escolher <code>!=</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Different comparisons",
+            "id": 123827,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quais operadores podemos usar para fazer comparações em condições de instruções if?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>&gt;=</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>==</code>, e <code>!=</code></item><item value=\"2\" correct=\"false\">Apenas <code>==</code> e <code>!=</code></item></selection><p visible-if=\"wrong\"><code>&gt;=</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>==</code>, e <code>!=</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Condition",
+            "id": 123826,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Quais desses tipos de dados podemos comparar usando <code>==</code> em condições?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Inteiros, floats, strings e booleanos</item><item value=\"2\" correct=\"false\">Apenas inteiros e strings</item></selection><p visible-if=\"wrong\">Inteiros, floats, strings e booleanos.</p></body></html>"
+          },
+          {
+            "title": "Question: Variables",
+            "id": 123825,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como podemos evitar reescrever a mesma comparação várias vezes?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Podemos salvar seu resultado em uma variável e reutilizar a variável</item><item value=\"2\" correct=\"false\">Não podemos evitar isso, já que comparações não podem ser salvas para depois</item></selection><p visible-if=\"wrong\">Podemos salvar seu resultado em uma variável e reutilizar a variável.</p></body></html>"
+          },
+          {
+            "title": "Example: Good decisions",
+            "id": 123824,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Codifique uma condição que execute o código se <code>replay_times</code> for maior ou igual a <code>300</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"song = \" /><text value=\"&quot;Don't stop me now&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"replay_times = \" /><text value=\"345\" class=\"number\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" replay_times &gt;= \" /><text value=\"300\" class=\"number\" /><text value=\":\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Your top song this week: &quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"  print(song)\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"50\" endIndex=\"62\" /><option startIndex=\"63\" endIndex=\"65\" /><option startIndex=\"66\" endIndex=\"69\" /></options></interaction></interactions><output><content><text value=\"Your top song this week: \" /><text type=\"break\" /><text value=\"Don't stop me now\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>replay_times</code> seguido de <code>&gt;=</code> e finalmente <code>300</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Correct answers",
+            "id": 123823,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Codifique uma condição para sugerir um restaurante se a <code>diet</code> do usuário for igual a <code>vegetarian</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"diet = \" /><text value=\"&quot;vegetarian&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"veggie_restaurant = \" /><text value=\"&quot;Root&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"restaurant = \" /><text value=\"&quot;DelPosto&quot;\" class=\"string\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" diet == \" /><text value=\"&quot;vegetarian&quot;\" class=\"string\" /><text value=\": \" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Try out: &quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"  print(veggie_restaurant)\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"80\" endIndex=\"82\" /><option startIndex=\"83\" endIndex=\"95\" /></options></interaction></interactions><output><content><text value=\"Try out: \" /><text type=\"break\" /><text value=\"Root\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>==</code> seguido de <code>\"vegetarian\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Wrong answers",
+            "id": 123822,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Use <code>!=</code> como uma condição para executar o bloco de código se <code>today</code> não for <code>\"Saturday\"</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"today = \" /><text value=\"&quot;Sunday&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" today != \" /><text value=\"&quot;Saturday&quot;\" class=\"string\" /><text value=\": \" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Set alarm at 8:00&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"25\" /><option startIndex=\"26\" endIndex=\"28\" /></options></interaction></interactions><output><content><text value=\"Set alarm at 8:00\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>today</code> seguido de <code>!=</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Different comparisons",
+            "id": 123821,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Use <code>&gt;=</code> para escrever uma condição que verifica se a <code>age</code> do usuário é maior ou igual a <code>18</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"age = \" /><text value=\"20\" class=\"number\" /><text type=\"break\" /><text value=\"can_drive = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" age &gt;= \" /><text value=\"18\" class=\"number\" /><text value=\": \" /><text type=\"break\" /><text value=\"  can_drive = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"print(can_drive)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"31\" endIndex=\"34\" /><option startIndex=\"35\" endIndex=\"37\" /><option startIndex=\"38\" endIndex=\"40\" /></options></interaction></interactions><output><content><text value=\"True\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>age</code> seguido de <code>&gt;=</code> e finalmente <code>18</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Variables",
+            "id": 123819,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Armazene a comparação de igualdade entre <code>inbox_full</code> e <code>True</code> dentro de <code>show_alert</code>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"inbox_full = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"show_alert = inbox_full == \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"if\" class=\"keyword\" /><text value=\" show_alert: \" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Inbox full&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\"  print(\" /><text value=\"&quot;Archive some to continue&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"31\" endIndex=\"49\" /><option correct=\"false\"><content><text value=\"inboxFull != True\" /></content></option></options></interaction></interactions><output><content><text value=\"Inbox full\" /><text type=\"break\" /><text value=\"Archive some to continue\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>inbox_full == True</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

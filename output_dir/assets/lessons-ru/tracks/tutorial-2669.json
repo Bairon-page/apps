@@ -1,0 +1,123 @@
+{
+  "tutorial": {
+    "id": 2669,
+    "version": 4,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Анализатор транзакций - Часть 1",
+    "descriptionContent": "Создай основу для финансового анализа, настроив систему для анализа банковских транзакций",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2669-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14644,
+        "title": "Глава №1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 129946,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Добро пожаловать в проект **Transaction Analyzer**! Мы создадим Python-скрипт для анализа банковских транзакций.\n\nДавайте начнем с создания переменной, которая будет содержать данные для работы.\n\n1. Создайте новую переменную под названием `data`. Присвойте переменной некоторые демонстрационные данные. Структура должна выглядеть следующим образом:\n   ```\n   data = [\n     (749.17, \"Investment Return\"),\n     (-11.54, \"Utilities\"),\n     (-247.58, \"Online Shopping\"),\n     (981.17, \"Investment Return\"),\n     (-410.65, \"Rent\"),\n     (310.60, \"Rent\"),\n     (563.70, \"Gift\"),\n     (220.79, \"Salary\"),\n     (-49.85, \"Car Maintenance\"),\n     (308.49, \"Salary\"),\n     (-205.55, \"Car Maintenance\"),\n     (870.64, \"Salary\"),\n     (-881.51, \"Utilities\"),\n     (518.14, \"Salary\"),\n     (-264.66, \"Groceries\")\n   ]\n   ```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "",
+                  "solvedContent": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129523,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Теперь давай напишем функцию, которая будет выводить все банковские транзакции в определенном формате.\n\n1. Определи новую функцию с именем `print_transactions`.\n   - Функция должна принимать один параметр: `transactions`, который будет списком, который мы только что определили.\n   - Внутри функции используй цикл `for` для перебора переданного списка `transactions`.\n   - Для каждой транзакции в `transactions` получи два значения: сумму и описание.\n   - Внутри цикла выведи `amount` и `statement` как `print(f\"${amount} - {statement}\")`.\n2. Вызови вновь определенную функцию и передай `data` в качестве аргумента.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]",
+                  "solvedContent": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]\n\ndef print_transactions(transactions):\n  for transaction in transactions:\n    amount, statement = transaction\n    print(f\"${amount} - {statement}\")\n\nprint_transactions(data)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 129524,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Далее давай определим функцию, которая будет выводить сводку всех банковских транзакций.\n\n1. Определи новую функцию с именем `print_summary`.\n   - Функция должна принимать один параметр: `transactions`.\n   - Внутри функции используй генератор списка, чтобы создать список всех сумм депозитов, которые являются транзакциями с суммой больше или равной нулю. Присвой этот список переменной с именем `deposits`:\n   ``` \n   deposits = [transaction[0] for transaction in transactions if transaction[0] >= 0]\n   ```\n   - Используй функцию `sum` для списка депозитов и сохрани результат в переменной с именем `total_deposited`.\n   - Выведи значение `total_deposited`.\n2. Вызови `print_summary` с `data` в качестве аргумента.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]\n\ndef print_transactions(transactions):\n  for transaction in transactions:\n    amount, statement = transaction\n    print(f\"${amount} - {statement}\")\n\nprint_transactions(data)",
+                  "solvedContent": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]\n\ndef print_transactions(transactions):\n  for transaction in transactions:\n    amount, statement = transaction\n    print(f\"${amount} - {statement}\")\n\nprint_transactions(data)\n\ndef print_summary(transactions):\n  deposits = [transaction[0] for transaction in transactions if transaction[0] >= 0]\n  total_deposited = sum(deposits)\n  print(total_deposited)\n\nprint_summary(data)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3 - Copy",
+            "id": 129948,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Мы также хотим рассмотреть снятия средств.\n\n1. Внутри функции `print_summary` используйте списковое включение, чтобы создать список всех сумм снятий, которые являются транзакциями с суммой меньше нуля. Присвойте этот список переменной с именем `withdrawals`.\n2. Используйте функцию `sum` для списка снятий и сохраните результат в переменной с именем `total_withdrawn`.\n3. Выведите значение `total_withdrawn`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]\n\ndef print_transactions(transactions):\n  for transaction in transactions:\n    amount, statement = transaction\n    print(f\"${amount} - {statement}\")\n\nprint_transactions(data)\n\ndef print_summary(transactions):\n  deposits = [transaction[0] for transaction in transactions if transaction[0] >= 0]\n  total_deposited = sum(deposits)\n  print(total_deposited)\n\nprint_summary(data)",
+                  "solvedContent": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]\n\ndef print_transactions(transactions):\n  for transaction in transactions:\n    amount, statement = transaction\n    print(f\"${amount} - {statement}\")\n\nprint_transactions(data)\n\ndef print_summary(transactions):\n  deposits = [transaction[0] for transaction in transactions if transaction[0] >= 0]\n  total_deposited = sum(deposits)\n  print(total_deposited)\n  withdrawals = [transaction[0] for transaction in transactions if transaction[0] < 0]\n  total_withdrawn = sum(withdrawals)\n  print(total_withdrawn)\n\nprint_summary(data)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3 - Copy - Copy",
+            "id": 129949,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Наконец, мы хотим вычислить баланс.\n\n1. Внутри функции `print_summary` создайте новую переменную под названием `balance`. Сложите `total_deposited` и `total_withdrawn`, чтобы вычислить баланс. Присвойте значение вновь созданной переменной `balance`.\n3. Выведите баланс.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]\n\ndef print_transactions(transactions):\n  for transaction in transactions:\n    amount, statement = transaction\n    print(f\"${amount} - {statement}\")\n\nprint_transactions(data)\n\ndef print_summary(transactions):\n  deposits = [transaction[0] for transaction in transactions if transaction[0] >= 0]\n  total_deposited = sum(deposits)\n  print(total_deposited)\n  withdrawals = [transaction[0] for transaction in transactions if transaction[0] < 0]\n  total_withdrawn = sum(withdrawals)\n  print(total_withdrawn)\n\nprint_summary(data)",
+                  "solvedContent": "data = [\n  (749.17, \"Investment Return\"),\n  (-11.54, \"Utilities\"),\n  (-247.58, \"Online Shopping\"),\n  (981.17, \"Investment Return\"),\n  (-410.65, \"Rent\"),\n  (310.60, \"Rent\"),\n  (563.70, \"Gift\"),\n  (220.79, \"Salary\"),\n  (-49.85, \"Car Maintenance\"),\n  (308.49, \"Salary\"),\n  (-205.55, \"Car Maintenance\"),\n  (870.64, \"Salary\"),\n  (-881.51, \"Utilities\"),\n  (518.14, \"Salary\"),\n  (-264.66, \"Groceries\")\n]\n\ndef print_transactions(transactions):\n  for transaction in transactions:\n    amount, statement = transaction\n    print(f\"${amount} - {statement}\")\n\nprint_transactions(data)\n\ndef print_summary(transactions):\n  deposits = [transaction[0] for transaction in transactions if transaction[0] >= 0]\n  total_deposited = sum(deposits)\n  print(total_deposited)\n  withdrawals = [transaction[0] for transaction in transactions if transaction[0] < 0]\n  total_withdrawn = sum(withdrawals)\n  print(total_withdrawn)\n  balance = total_deposited + total_withdrawn\n  print(f\"Balance: {balance}\")\n\nprint_summary(data)"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

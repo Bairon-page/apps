@@ -1,0 +1,314 @@
+{
+  "tutorial": {
+    "id": 1973,
+    "version": 10,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Application Todo",
+    "descriptionContent": "Utilise tes connaissances jusqu'à présent pour créer une application Todo",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1973-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12643,
+        "title": "Application Todo",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Starter Code",
+            "id": 114691,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Utilisons nos connaissances sur les pages web dynamiques pour créer une application Todo.\n\nNous commençons par nous familiariser avec le code de départ.\n\nNous avons déjà ajouté le code HTML et CSS pour le site web.\n\nTon travail consiste à utiliser tes connaissances en Javascript pour rendre les fonctions `createTodo`, `deleteTodos` et `todoCheck` opérationnelles.\n\nPrends un moment pour regarder le code initial, puis passe au début de l'exercice.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n  text-align: center;\n}\n\nli {\n  list-style: none;\n  border-bottom: 1px dotted #CCC;\n  height: auto;\n  background-color: #F0F0F0;\n}\n\nli:hover {\n  background-color: #FFFFFF;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  -ms-transition: all 0.2s;\n  -o-transition: all 0.2s;\n}\n\n.notes {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  background-color: #F5F5F5;\n}\n\n.lines {\n  line-height: 20px;\n  margin: 0 auto;\n  width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "CreateTodo - Step 1",
+            "id": 114693,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Commençons par construire la fonction `createTodo`.\n\nCette fonction crée un élément `li`, ajoute l'élément à l'intérieur de l'élément `ul`, et capture l'entrée de l'utilisateur pour l'ajouter au `li`.\n\nTout d'abord, créons l'élément `li`.\n\nNous allons également ajouter l'élément `li` au conteneur `ul` des todos afin qu'il puisse être utilisé plus tard pour afficher l'entrée de l'utilisateur.\n\n1. Crée une constante `listItem` à l'intérieur de la fonction `createTodo`.\n2. Génère un élément `li` et enregistre-le dans la constante `listItem`.\n3. Crée une constante `todosContainerElement` à l'intérieur de la fonction `createTodo`.\n4. Accède à l'élément `ul` en utilisant son id et enregistre-le dans la constante `todosContainerElement`.\n5. À la ligne suivante, ajoute `listItem` à `todosContainerElement`.\n6. (Optionnel) Remplace la valeur de `background-color` de l'élément `li` (par exemple : utilise `\"red\"`) pour pouvoir tester et voir le Todo apparaître sur la page. Remets-le à sa valeur initiale avant de passer à l'exercice suivant.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n text-align: center;\n}\n\nli {\n list-style: none;\n border-bottom: 1px dotted #CCC;\n height: auto;\n background-color: #F0F0F0;\n}\n\nli:hover {\n background-color: #FFFFFF;\n -webkit-transition: all 0.2s;\n -moz-transition: all 0.2s;\n -ms-transition: all 0.2s;\n -o-transition: all 0.2s;\n}\n\n.notes {\n display: flex;\n justify-content: center;\n flex-direction: column;\n background-color: #F5F5F5;\n}\n\n.lines {\n line-height: 20px;\n margin: 0 auto;\n width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}",
+                  "solvedContent": "function createTodo() {\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  todosContainerElement.appendChild(listItem);\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "To create elements, use `document.createElement()`.\n\nTo access elements by id, use `document.getElementById()`.\n\nTo append an element, use `appendChild()`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "CreateTodo - Step 2",
+            "id": 114695,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Maintenant, capturons ce que l'utilisateur tape dans l'input à l'intérieur d'une variable afin de pouvoir l'ajouter dynamiquement à la page.\n\nEnsuite, assignons la valeur de notre input à `listItem` pour qu'il contienne la valeur de notre Todo.\n\n1. Crée une constante `userInput` à l'intérieur de la fonction `createTodo`.\n2. Trouve l'élément input en utilisant son id et enregistre-le dans la constante `userInput`.\n3. Ajoute `.value` à la même ligne afin d'accéder et de stocker le contenu de l'élément `input`.\n4. À la ligne suivante, ajoute du code pour accéder au contenu HTML de `listItem`.\n5. Assigne le contenu HTML `userInput` comme sa valeur.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n  text-align: center;\n}\n\nli {\n  list-style: none;\n  border-bottom: 1px dotted #CCC;\n  height: auto;\n  background-color: #F0F0F0;\n}\n\nli:hover {\n  background-color: #FFFFFF;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  -ms-transition: all 0.2s;\n  -o-transition: all 0.2s;\n}\n\n.notes {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  background-color: #F5F5F5;\n}\n\n.lines {\n  line-height: 20px;\n  margin: 0 auto;\n  width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  todosContainerElement.appendChild(listItem);\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}",
+                  "solvedContent": "function createTodo() {\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  todosContainerElement.appendChild(listItem);\n  const userInput = document.getElementById('note').value;\n  listItem.innerHTML = userInput;\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "You can access the content of an element by using `.innerHTML`.\n\nYou can add `console.log(userInput)` temporarily in order to check that the input value gets captured. Make sure to remove it before moving to the next step.\n"
+                }
+              ]
+            }
+          },
+          {
+            "title": "CreateTodo - Step 3",
+            "id": 114694,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Enfin, nous devons ajouter du code pour que nos Todos exécutent la fonction `todoCheck` lorsqu'ils sont cliqués. Cette fonction doit barrer cet élément de la liste.\n\nNous utiliserons la fonction `setAttribute()` pour ajouter un attribut `onclick` à nos Todos et définir la fonction `todoCheck` comme sa valeur.\n\nDe plus, nous améliorerons l'expérience utilisateur en supprimant ce qui a été tapé dans l'élément `input` après la création de notre Todo.\n\n1. Utilise `setAttribute()` pour définir l'attribut `onclick` de `listItem` à la fonction `todoCheck(e, todo)`. De cette façon, la fonction s'exécutera lorsque les utilisateurs cliqueront sur le Todo. Consulte les indices si tu n'es pas familier avec cela.\n2. Vide la valeur de l'`input` en accédant à l'élément avec l'id `note`. Ensuite, définis sa propriété `.value` à une chaîne vide.\n3. Confirme que ton entrée devient vide après avoir entré un Todo.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n  text-align: center;\n}\n\nli {\n  list-style: none;\n  border-bottom: 1px dotted #CCC;\n  height: auto;\n  background-color: #F0F0F0;\n}\n\nli:hover {\n  background-color: #FFFFFF;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  -ms-transition: all 0.2s;\n  -o-transition: all 0.2s;\n}\n\n.notes {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  background-color: #F5F5F5;\n}\n\n.lines {\n  line-height: 20px;\n  margin: 0 auto;\n  width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  todosContainerElement.appendChild(listItem);\n  const userInput = document.getElementById('note').value;\n  listItem.innerHTML = userInput;\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}",
+                  "solvedContent": "function createTodo() {\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  todosContainerElement.appendChild(listItem);\n  const userInput = document.getElementById('note').value;\n  listItem.innerHTML = userInput;\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Set the `onclick` attribute on the list item like this: `.setAttribute(\"onclick\", \"todoCheck(event, this)\")`.\n\nEmpty the input with `document.getElementById('note').value = ''`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "TodoCheck - Step 1",
+            "id": 114698,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Traduisons maintenant `todoCheck` qui s'occupera de cocher et décocher les Todos sur la page.\n\nNous allons faire cela en utilisant une propriété CSS `text-decoration` que nous mettrons à jour dynamiquement via la propriété `style` de l'élément Todo.\n\nNous avons défini la fonction de manière à ce que son deuxième argument `todo` contienne le Todo cliqué.\n\nNous utiliserons cet argument et la propriété `style` pour changer l'apparence de notre Todo après qu'il ait été cliqué.\n\n1. Ajoute `todo.style.textDecoration` dans `todoCheck()` qui passe une ligne à travers un todo lorsque tu cliques dessus.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n  text-align: center;\n}\n\nli {\n  list-style: none;\n  border-bottom: 1px dotted #CCC;\n  height: auto;\n  background-color: #F0F0F0;\n}\n\nli:hover {\n  background-color: #FFFFFF;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  -ms-transition: all 0.2s;\n  -o-transition: all 0.2s;\n}\n\n.notes {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  background-color: #F5F5F5;\n}\n\n.lines {\n  line-height: 20px;\n  margin: 0 auto;\n  width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {}",
+                  "solvedContent": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {\n  todo.style.textDecoration = 'line-through';\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "You should have something like this\n```JS\ntodo.style.textDecoration = <assignedValue>\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "TodoCheck - Step 2",
+            "id": 114699,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite, nous voulons pouvoir basculer le barré d'un élément Todo. Affinons `todoCheck` afin qu'il puisse cocher et décocher nos Todos en fonction de leur état.\n\nNous allons utiliser une condition `if` pour cela.\n\n1. Ajoute une instruction conditionnelle pour vérifier que la propriété `textDecoration` de notre Todo est vide (tu peux dire qu'une propriété est vide en vérifiant si elle est égale à une chaîne vide).\n2. Si la condition est vraie, assigne `line-through` comme valeur de la propriété `textDecoration` de notre Todo.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n  text-align: center;\n}\n\nli {\n  list-style: none;\n  border-bottom: 1px dotted #CCC;\n  height: auto;\n  background-color: #F0F0F0;\n}\n\nli:hover {\n  background-color: #FFFFFF;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  -ms-transition: all 0.2s;\n  -o-transition: all 0.2s;\n}\n\n.notes {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  background-color: #F5F5F5;\n}\n\n.lines {\n  line-height: 20px;\n  margin: 0 auto;\n  width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {\n  todo.style.textDecoration = 'line-through';\n}",
+                  "solvedContent": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {\n  if (todo.style.textDecoration === '') {\n    todo.style.textDecoration = 'line-through';\n  }\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "You should have something like this:\n\n```JS\nfunction todoCheck(e, todo) {\n  if (property === ' ') {\n    // code to assign 'line-through' to `textDecoration`\n  }\n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "TodosCheck - Step 3",
+            "id": 114700,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Enfin, nous devons ajouter du code pour décocher notre Todo.\n\nNous allons utiliser une instruction `else` pour cette partie.\n\n1. Ajoute une instruction `else` après la condition `if`.\n2. Assigne la valeur de `textDecoration` pour qu'elle devienne une chaîne vide à l'intérieur de l'instruction.\n3. Crée un Todo pour tester que la fonctionnalité de décochage fonctionne.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n  text-align: center;\n}\n\nli {\n  list-style: none;\n  border-bottom: 1px dotted #CCC;\n  height: auto;\n  background-color: #F0F0F0;\n}\n\nli:hover {\n  background-color: #FFFFFF;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  -ms-transition: all 0.2s;\n  -o-transition: all 0.2s;\n}\n\n.notes {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  background-color: #F5F5F5;\n}\n\n.lines {\n  line-height: 20px;\n  margin: 0 auto;\n  width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {\n  if (todo.style.textDecoration === '') {\n    todo.style.textDecoration = 'line-through';\n  }\n}",
+                  "solvedContent": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {\n  if (todo.style.textDecoration === '') {\n    todo.style.textDecoration = 'line-through';\n  } else {\n    todo.style.textDecoration = '';\n  }\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "You should have something like this:\n\n```JS\nfunction todoCheck(e, todo) {\n  if (condition) {\n    // code to assign 'line-through' to `textDecoration`\n  }\n else{\n// code to assign empty string '' to `textDecoration`\n  }\n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "DeleteTodos",
+            "id": 114697,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Définissons maintenant `deleteTodos` qui supprimera tous les Todos existants de la page.\n\nLe conteneur de nos Todos est un élément `ul`. Pour supprimer tous ses enfants Todo, nous allons vider sa propriété `innerHTML`.\n\n1. Accède à l'élément `ul` en utilisant son id. Jette un œil au fichier `index.html` pour l'id.\n2. Accède à son contenu et assigne-lui une chaîne vide afin de supprimer tous les éléments.\n3. Crée un Todo et teste que la fonctionnalité fonctionne après avoir cliqué sur le bouton `Delete all`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To do list application</title>\n    <link rel=\"stylesheet\" href=\"./style.css\">\n  </head>\n  <body>\n    <h1> Todo List</h1>\n    <div class=\"lines\">\n      <ul id=\"todos-container\">\n      </ul>\n    </div>\n    <p>Add items on the list, you can click on an item to check it off</p>\n    <div id=\"container\">\n      <input id=\"note\" type=\"text\" placeholder=\"Add something\" />\n      <button type=\"button\" onclick=\"createTodo()\">Add</button>\n      <button type=\"button\" onclick=\"deleteTodos()\">Delete all</button>\n    </div>\n    <script src=\"./script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "h1,\np,\n#container {\n  text-align: center;\n}\n\nli {\n  list-style: none;\n  border-bottom: 1px dotted #CCC;\n  height: auto;\n  background-color: #F0F0F0;\n}\n\nli:hover {\n  background-color: #FFFFFF;\n  -webkit-transition: all 0.2s;\n  -moz-transition: all 0.2s;\n  -ms-transition: all 0.2s;\n  -o-transition: all 0.2s;\n}\n\n.notes {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n  background-color: #F5F5F5;\n}\n\n.lines {\n  line-height: 20px;\n  margin: 0 auto;\n  width: auto;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {}\n\nfunction todoCheck(e, todo) {\n  if (todo.style.textDecoration === '') {\n    todo.style.textDecoration = 'line-through';\n  } else {\n    todo.style.textDecoration = '';\n  }\n}",
+                  "solvedContent": "function createTodo() {\n  const userInput = document.getElementById('note').value;\n  const listItem = document.createElement(\"li\");\n  const todosContainerElement = document.getElementById('todos-container');\n  listItem.innerHTML = userInput;\n  todosContainerElement.appendChild(listItem);\n  listItem.setAttribute(\"onclick\", \"todoCheck(event, this)\");\n  document.getElementById('note').value = '';\n}\n\nfunction deleteTodos() {\n  document.getElementById('todos-container').innerHTML = '';\n}\n\nfunction todoCheck(e, todo) {\n  if (todo.style.textDecoration === '') {\n    todo.style.textDecoration = 'line-through';\n  } else {\n    todo.style.textDecoration = '';\n  }\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "To track elements, use `document.getElementById()`.\n\nYou can access the content of an element by using `.innerHTML`.\n\nAn empty string syntax is `\"\"`."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

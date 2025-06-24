@@ -1,0 +1,268 @@
+{
+  "tutorial": {
+    "id": 2944,
+    "version": 2,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Использование Express Router",
+    "descriptionContent": "Углубись в Express router, чтобы понять, как использовать его для захвата параметров и маршрутов, а также как использовать его для цепочки маршрутов.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 15066,
+        "title": "Захват параметров",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #6",
+            "id": 132802,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>У маршрутизатора есть еще несколько трюков в запасе. Давайте посмотрим, как он обрабатывает параметры маршрута.</p><p><code>router.param</code> используется для захвата именованных параметров из URL, их разбора и прикрепления полученного значения к объекту req.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router\" class=\"selector-tag\" /><text value=\".param\" class=\"selector-class\" /><text value=\"();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"12\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router</code>, затем <code>.</code>, и наконец <code>param</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132812,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>В качестве первого аргумента мы указываем имя параметра маршрута для захвата. Например, параметр маршрута с именем <code>\"id\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"13\" endIndex=\"17\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"id\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132813,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Второй аргумент в методе <code>router.param</code> — это функция middleware.</p><p>Функция middleware принимает четыре параметра: <code>req</code>, <code>res</code>, <code>next</code> и захваченное значение - в данном случае, <code>id</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"13\" endIndex=\"17\" /><option startIndex=\"36\" endIndex=\"38\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"id\"</code>, а затем <code>id</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132814,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы можем использовать захваченный параметр в middleware для получения данных, проверки ввода или прикрепления данных к объекту запроса для последующего использования.</p><p>Здесь мы просто выведем в лог захваченный параметр.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing ID: \" /><text value=\"${id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"77\" /><option startIndex=\"36\" endIndex=\"38\" /><option startIndex=\"13\" endIndex=\"17\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"id\"</code>, затем <code>id</code>, и наконец <code>id</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132811,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Конечно, мы не должны забывать вызвать <code>next</code>, чтобы передать управление следующему middleware или обработчику маршрута; в противном случае запрос зависнет.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing ID: \" /><text value=\"${id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"83\" endIndex=\"87\" /><option startIndex=\"87\" endIndex=\"88\" /><option startIndex=\"88\" endIndex=\"89\" /><option startIndex=\"89\" endIndex=\"90\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>next</code>, затем <code>(</code>, а затем <code>)</code>, <code>;</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132805,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Заверши код, чтобы роутер захватывал параметр маршрута <code>name</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"var\" class=\"keyword\" /><text value=\" express = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;express&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"var\" class=\"keyword\" /><text value=\" router = express.Router();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.param(\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\", \" /><text value=\"function\" class=\"keyword\" /><text value=\" (\" /><text value=\"req, res, next, name\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\"  req.item = {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"name\" class=\"attr\" /><text value=\": name,\" /><text type=\"break\" /><text value=\"   \" /><text value=\"description\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;This is a description of &quot;\" class=\"string\" /><text value=\" + name\" /><text type=\"break\" /><text value=\"  };\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.get(\" /><text value=\"&quot;/item/:name&quot;\" class=\"string\" /><text value=\", \" /><text value=\"function\" class=\"keyword\" /><text value=\" (\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\"  res.json(req.item);\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"module\" class=\"built_in\" /><text value=\".exports = router;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"73\" endIndex=\"78\" /><option startIndex=\"66\" endIndex=\"72\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router</code>, а затем <code>param</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132842,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Позволь роутеру захватывать параметр маршрута <code>name</code>, чтобы вызовы к конечным точкам, таким как <code>\"/greet/:name\"</code>, активировали middleware.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\", (req, res, next, name) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing name: \" /><text value=\"${name}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"13\" endIndex=\"19\" /><option startIndex=\"38\" endIndex=\"42\" /><option startIndex=\"81\" endIndex=\"85\" /><option correct=\"false\"><content><text value=\"/:name\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"name\"</code>, затем <code>name</code>, и наконец <code>name</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #12",
+            "id": 132847,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какой метод позволяет выполнять middleware, когда совпадает определенный параметр маршрута?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Использование router.param(\"parameterName\", middlewareFunction)`</item><item value=\"2\" correct=\"false\">Использование router.use(\"parameterName\", middlewareFunction)`</item></selection><p visible-if=\"wrong\">Использование router.param(\"parameterName\", middlewareFunction)`.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy - Copy",
+            "id": 132843,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Чего здесь не хватает?</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\", (req, res, next, name) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing name: \" /><text value=\"${name}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>next</code> нужно вызвать, чтобы продолжить выполнение запроса после того, как middleware выполнит свой код</item><item value=\"2\" correct=\"false\">Маршрутизатор должен захватывать параметры запроса вместо параметров маршрута здесь</item></selection><p visible-if=\"wrong\"><code>next</code> нужно вызвать, чтобы продолжить выполнение запроса после того, как middleware выполнит свой код.</p></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132846,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Что делает <code>router.param(\"type\")</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Он определяет middleware, который запускается, когда совпадает маршрут с указанным параметром</item><item value=\"2\" correct=\"false\">Он устанавливает статический маршрут для параметра <code>id</code></item></selection><p visible-if=\"wrong\">Он определяет middleware, который запускается, когда совпадает маршрут с указанным параметром.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy - Copy",
+            "id": 132844,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Захвати параметр <code>id</code> с помощью роутера.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing ID: \" /><text value=\"${id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"12\" /><option correct=\"false\"><content><text value=\"app\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router</code>, затем <code>.</code>, и наконец <code>param</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 15067,
+        "title": "Цепочка маршрутов",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #7",
+            "id": 132804,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Маршрутизаторы также могут помочь уменьшить избыточность, позволяя нам объявлять конечные точки для нескольких HTTP методов на маршруте цепным образом.</p><p>Мы делаем это, сначала определяя маршрут через <code>router.route</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"12\" /><option startIndex=\"13\" endIndex=\"20\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router</code>, затем <code>.route</code>, и наконец <code>\"/book\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy",
+            "id": 132817,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Затем мы можем связать <code>GET</code> endpoint с маршрутом.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\").get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a random book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"22\" endIndex=\"25\" /><option startIndex=\"26\" endIndex=\"36\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>get</code>, а затем <code>(req, res)</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy",
+            "id": 132816,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы можем добавить больше конечных точек, если захотим. Давайте добавим одну для <code>POST</code> и одну для <code>PUT</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\").get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a random book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).post(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Add a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).put(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Update the book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"77\" endIndex=\"81\" /><option startIndex=\"126\" endIndex=\"129\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>post</code>, а затем <code>put</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132806,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Конечно, мы можем использовать и более сложные маршруты. Создай маршрут, который использует параметр маршрута.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).put(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Update a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).delete(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Delete a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"14\" endIndex=\"15\" /><option startIndex=\"15\" endIndex=\"19\" /><option startIndex=\"19\" endIndex=\"20\" /><option startIndex=\"20\" endIndex=\"23\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>/</code>, затем <code>item</code>, а затем <code>/</code>, <code>:id</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy",
+            "id": 132825,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы можем интегрировать функции middleware в рамках одного определения маршрута, что позволяет выполнять предварительную обработку или валидацию.</p><p>Мы используем <code>all</code>, чтобы запускать middleware для всех подходящих маршрутов.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;I'm always executed!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"}).get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"27\" endIndex=\"30\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>all</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy - Copy",
+            "id": 132849,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы также можем определить middleware заранее и передать ссылку на функцию в качестве аргумента вместо непосредственной передачи callback функции.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all(logging)\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"115\" endIndex=\"118\" /><option startIndex=\"119\" endIndex=\"126\" /><option startIndex=\"6\" endIndex=\"13\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>logging</code>, затем <code>all</code>, и наконец <code>logging</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy ",
+            "id": 132850,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>И, конечно, мы можем передавать несколько функций middleware. Мы можем использовать несколько параметров или массив.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" validateId = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" { id } = req.params;\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!id) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\" res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;ID is required&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all([logging, validateId])\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"6\" endIndex=\"13\" /><option startIndex=\"261\" endIndex=\"264\" /><option startIndex=\"265\" endIndex=\"286\" /><option startIndex=\"94\" endIndex=\"104\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>logging</code>, затем <code>validateId</code>, а затем <code>all</code>, <code>[logging, validateId]</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy - Copy - Copy",
+            "id": 132855,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Наконец, мы можем применить middleware непосредственно в цепочке, если хотим, чтобы оно срабатывало только для определенных маршрутов.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".get(logging, (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"6\" endIndex=\"13\" /><option startIndex=\"119\" endIndex=\"126\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>logging</code>, а затем <code>logging</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #10",
+            "id": 132853,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Какое преимущество дает объединение методов с помощью <code>router.route</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Это позволяет определить несколько HTTP методов для одного и того же маршрута в чистом и организованном виде</item><item value=\"2\" correct=\"false\">Это уменьшает необходимость в middleware в приложении</item></selection><p visible-if=\"wrong\">Это позволяет определить несколько HTTP методов для одного и того же маршрута в чистом и организованном виде.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy",
+            "id": 132818,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Добавь подходящие endpoints.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\").get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a random book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).post(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Add a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).put(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Update the book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"22\" endIndex=\"25\" /><option startIndex=\"77\" endIndex=\"81\" /><option startIndex=\"126\" endIndex=\"129\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>get</code>, затем <code>post</code>, и наконец <code>put</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132854,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Можно ли использовать middleware вместе с цепочечными маршрутами, определенными с помощью <code>router.route</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Да, ты можешь применить middleware, используя <code>all</code> или напрямую в цепочке</item><item value=\"2\" correct=\"false\">Нет, middleware нельзя использовать с цепочечными маршрутами</item></selection><p visible-if=\"wrong\">Да, ты можешь применить middleware, используя <code>all</code> или напрямую в цепочке.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy  - Copy",
+            "id": 132852,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Передайте массив функций middleware, которые роутер может выполнять каждый раз, когда маршрут <code>\"/item/:id\"</code> совпадает.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" validateId = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" { id } = req.params;\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!id) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\" res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;ID is required&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all([logging, validateId])\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"265\" endIndex=\"266\" /><option startIndex=\"273\" endIndex=\"274\" /><option startIndex=\"285\" endIndex=\"286\" /><option startIndex=\"261\" endIndex=\"264\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>all</code>, затем <code>[</code>, а затем <code>,</code>, <code>]</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 15068,
+        "title": "Перехват маршрутов",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "router.use() - Copy",
+            "id": 132820,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Маршруты могут не только захватывать параметры, но и маршрутизировать для выполнения пользовательского middleware.</p><p>Чтобы выполнить определенное middleware при доступе к заданному маршруту, нам нужно указать роутеру использовать его.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router\" class=\"selector-tag\" /><text value=\".use\" class=\"selector-class\" /><text value=\"();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"10\" /><option correct=\"false\"><content><text value=\"express\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router</code>, затем <code>.</code>, и наконец <code>use</code>.</p></body></html>"
+          },
+          {
+            "title": "router.use() - Copy - Copy",
+            "id": 132822,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Первый аргумент метода указывает путь, который должен соответствовать middleware или обработчик маршрута.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"11\" endIndex=\"22\" /><option startIndex=\"0\" endIndex=\"10\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router.use</code>, а затем <code>\"/clothing\"</code>.</p></body></html>"
+          },
+          {
+            "title": "router.use() - Copy - Copy - Copy",
+            "id": 132823,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Затем мы передаем функцию обратного вызова, которая выполняет middleware. Здесь мы записываем в журнал, когда осуществляется доступ к маршруту, начинающемуся с <code>\"/clothing\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /clothing&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"24\" endIndex=\"40\" /><option startIndex=\"41\" endIndex=\"43\" /><option startIndex=\"47\" endIndex=\"87\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>(req, res, next)</code>, затем <code>=&gt;</code>, и наконец <code>console.log(\"Router use for /clothing\");</code>.</p></body></html>"
+          },
+          {
+            "title": "daf",
+            "id": 132824,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Конечно, мы не должны забывать <code>next</code>, если хотим запросить дальнейшее распространение.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /clothing&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"89\" endIndex=\"93\" /><option startIndex=\"93\" endIndex=\"94\" /><option startIndex=\"94\" endIndex=\"95\" /><option startIndex=\"95\" endIndex=\"96\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>next</code>, затем <code>(</code>, а затем <code>)</code>, <code>;</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy",
+            "id": 132827,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Путь маршрута должен начинаться с определенного маршрута, чтобы его поймать. <code>http://localhost:3000/clothing/info</code> будет пойман нашим маршрутизатором.</p><p><code>http://localhost:3000/info/clothing</code> не будет обработан обработчиком <code>\"/clothing\"</code>, так как он не начинается с <code>\"/clothing\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /clothing&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"11\" endIndex=\"22\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"/clothing\"</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy - Copy",
+            "id": 132862,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Мы также можем использовать несколько функций middleware при захвате определенного маршрута.</p><p>Мы можем передать их либо как отдельные значения, либо как массив.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" loggingMiddleware = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Incoming request to \" /><text value=\"${req.url}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" authMiddleware = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" token = req.headers[\" /><text value=\"&quot;authorization&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (token) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Authorized&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\" } \" /><text value=\"else\" class=\"keyword\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"403\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Forbidden&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.use(\" /><text value=\"&quot;/game&quot;\" class=\"string\" /><text value=\", loggingMiddleware, authMiddleware);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"326\" endIndex=\"343\" /><option startIndex=\"345\" endIndex=\"359\" /><option startIndex=\"115\" endIndex=\"129\" /><option startIndex=\"6\" endIndex=\"23\" /><option startIndex=\"306\" endIndex=\"316\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>loggingMiddleware</code>, затем <code>authMiddleware</code>, а затем <code>router.use</code>, <code>loggingMiddleware</code>, <code>authMiddleware</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy - Copy",
+            "id": 132857,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Убедись, что роутер захватывает следующий маршрут <code>http://localhost:3000/movie/12</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/movie/:id&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /movie&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"11\" endIndex=\"23\" /><option correct=\"false\"><content><text value=\"&quot;/movies&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>\"/movie/:id\"</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy",
+            "id": 132858,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Сделай так, чтобы роутер захватывал все маршруты, которые начинаются с <code>\"/book\"</code>, и выполнял пользовательское middleware в этом случае.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"11\" endIndex=\"18\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router</code>, затем <code>.</code>, а затем <code>use</code>, <code>\"/book\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #9",
+            "id": 132860,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Как можно записывать все входящие запросы к маршрутам, которые начинаются с <code>/song</code>, используя роутер?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Используя <code>router.use(\"/song\", middlewareFunction)</code></item><item value=\"2\" correct=\"false\">Используя <code>app.use(\"/song\", middlewareFunction)</code></item></selection><p visible-if=\"wrong\">Используя <code>router.use(\"/song\", middlewareFunction)</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy - Copy",
+            "id": 132859,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Заверши код, чтобы маршрутизатор захватывал все маршруты, которые начинаются с <code>\"/book\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"11\" endIndex=\"18\" /><option correct=\"false\"><content><text value=\"app\" /></content></option><option correct=\"false\"><content><text value=\"route\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Обязательно выбери <code>router</code>, затем <code>.</code>, а затем <code>use</code>, <code>\"/book\"</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

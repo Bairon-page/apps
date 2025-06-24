@@ -1,0 +1,203 @@
+{
+  "tutorial": {
+    "id": 2665,
+    "version": 6,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Ziehe eine Karte - Teil 1",
+    "descriptionContent": "Im Projekt \"Draw a Card\" erstellst du ein virtuelles Kartendeck. Mische sie und zeige sie dann nacheinander mit ASCII-Art an.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2665-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14640,
+        "title": "Kapitel #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 129484,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Willkommen zum **Draw a Card**-Projekt, bei dem wir mit digitalen Karten arbeiten werden.\n\nLass uns mit dem ersten Schritt beginnen, ein Kartendeck zu erstellen. In einem Standarddeck gibt es 4 Farben und 13 Werte. Lass uns diese Listen erstellen.\n\n1. Erstelle eine `suits`-Liste und füge die 4 verschiedenen Farben als Strings hinzu: `[\"♥\", \"♦\", \"♣\", \"♠\"]`.\n2. Erstelle eine `ranks`-Liste und füge die 13 verschiedenen Werte als Strings hinzu: `[\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "",
+                  "solvedContent": "suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\nranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129485,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Als nächstes kombinieren wir die Farben und Werte, um ein Deck mit 52 einzigartigen Karten zu erstellen. Wir verwenden Tupel, um jede Karte darzustellen.\n\n1. Erstelle eine leere Liste namens `deck`, die alle Karten enthalten wird.\n2. Verwende eine for-Schleife, um über jede Farbe zu iterieren, und innerhalb dieser eine weitere for-Schleife, um über jeden Wert zu iterieren.\n3. Füge jede Kombination aus Farbe und Wert als Tupel der Deck-Liste hinzu.\n4. Gib das Deck aus, um alle Kartenkombinationen anzuzeigen.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\nranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]",
+                  "solvedContent": "suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\nranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\ndeck = []\n\nfor suit in suits:\n  for rank in ranks:\n    deck.append((suit, rank))\n\nprint(deck)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 129486,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Karten sollten zufällig gezogen werden. Dafür müssen wir das Deck mischen.\n\n1. Importiere das `random` Modul am Anfang deines Python-Skripts.\n2. Verwende `random.shuffle(deck)`, um das Deck zu mischen.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\nranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\ndeck = []\n\nfor suit in suits:\n  for rank in ranks:\n    deck.append((suit, rank))\n\nprint(deck)",
+                  "solvedContent": "import random\n\nsuits = [\"♥\", \"♦\", \"♣\", \"♠\"]\nranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\ndeck = []\n\nfor suit in suits:\n  for rank in ranks:\n    deck.append((suit, rank))\n\nprint(deck)\nrandom.shuffle(deck)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 129487,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir haben jetzt einen Code, der ein Kartendeck erstellt und mischt. Lass uns den Code zur Deck-Erstellung in eine Funktion packen, um ihn wiederverwendbar zu machen.\n\n1. Erstelle eine Funktion namens `create_deck`, die keine Parameter annimmt.\n   - Verschiebe deinen gesamten Code, außer der Import-Anweisung, in die neu erstellte Funktion.\n   - Lass die Funktion das `deck` zurückgeben.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\nsuits = [\"♥\", \"♦\", \"♣\", \"♠\"]\nranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\ndeck = []\n\nfor suit in suits:\n  for rank in ranks:\n    deck.append((suit, rank))\n\nprint(deck)\nrandom.shuffle(deck)",
+                  "solvedContent": "import random\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 129488,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns eine Funktion erstellen, um eine Karte vom Deck zu ziehen.\n\n1. Definiere eine neue Funktion namens `draw_card`, die `deck` als Parameter nimmt.\n2. Erstelle innerhalb von `draw_card` eine Variable `hand` und setze sie gleich dem letzten Element in der `deck`-Liste.\n3. Entferne dann das letzte Element aus `deck`. Da wir es gerade gezogen haben, sollten wir es aus dem Deck entfernen.\n4. Gib ein Tupel zurück, bei dem der erste Wert `hand` und der zweite das aktualisierte `deck` sein sollte.\n5. Beide Variablen, die du als Teil des Tupels zurückgibst, sollten Listen sein. Eine sollte ein Element enthalten, die andere 51.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck",
+                  "solvedContent": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 129489,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Es ist an der Zeit, diese Funktionen zu nutzen.\n\n1. Erstelle außerhalb deiner Funktionsdefinitionen eine Variable `deck` und setze sie gleich dem Rückgabewert der Funktion `create_deck`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck",
+                  "solvedContent": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 129491,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ziehe Karten, bis das Deck leer ist.\n\n1. Erstelle eine `while` Schleife, die so lange läuft, wie noch Karten im Deck sind.\n2. Rufe innerhalb der Schleife `draw_card(deck)` auf, um eine Karte zu ziehen und das Deck zu aktualisieren.\n3. Erstelle zwei Variablen, `hand` und `deck`, denen du den Rückgabewert von `draw_card` zuweist.\n4. Gib in jeder Schleifeniteration die gezogene Karte aus.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()",
+                  "solvedContent": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  hand, deck = draw_card(deck)\n  print(hand[0])"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 129493,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns unser Skript interaktiver gestalten und dem Benutzer die Entscheidung überlassen, wann die nächste Karte gezogen wird.\n\n1. Füge am Anfang des Blocks deiner `while` Schleife eine `input` Funktion hinzu, um darauf zu warten, dass der Benutzer die Eingabetaste drückt, bevor eine Karte gezogen wird.\n   - Füge etwas wie `\"Drücke Enter, um die nächste Karte zu ziehen\"` als Eingabeaufforderung hinzu.\n   - Du musst die Eingabe nicht irgendwo speichern, da wir sie nicht benötigen. Die `input` Funktion wartet, bis die Eingabetaste gedrückt wird, und dann wird die `while` Schleife fortgesetzt und die nächste Karte gezogen.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  hand, deck = draw_card(deck)\n  print(hand[0])",
+                  "solvedContent": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  input(\"Press Enter to draw the next card\")\n  hand, deck = draw_card(deck)\n  print(hand[0])"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 129492,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nachdem wir keine Karten mehr haben, möchten wir kommunizieren, dass es keine Karten mehr gibt.\n\n1. Gib eine Nachricht aus, nachdem die Schleife abgeschlossen ist, die sagt: 'Wir sind out of cards'.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  input(\"Press Enter to draw the next card\")\n  hand, deck = draw_card(deck)\n  print(hand[0])",
+                  "solvedContent": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  input(\"Press Enter to draw the next card\")\n  hand, deck = draw_card(deck)\n  print(hand[0])\n\nprint(\"We are out of cards\")"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

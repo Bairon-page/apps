@@ -1,0 +1,321 @@
+{
+  "tutorial": {
+    "id": 2597,
+    "version": 10,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "css",
+    "title": "Gallery - Part 2",
+    "descriptionContent": "Now, let's take things up a notch! We'll introduce a sleek modal feature, ensuring that every image can be admired up close and in all its glory.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2597-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14382,
+        "title": "Gallery",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Modal #1",
+            "id": 128026,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "In the second part of the **Gallery** project, we'll allow our users to open an image and look at it in full-screen. To do this, we use `onclick` on the image elements. Whenever someone clicks on an image, this will trigger a function.\n\n1. Add ` onclick=\"showModal(this)\"` to every image element in the HTML code.\n2. In the JS file, add a function called `showModal(thumbnail)`.\n3. Display `\"Clicked\"` in the console once the function is called.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "function showModal(thumbnail) {\n  console.log(\"Clicked\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Modal #2",
+            "id": 128028,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's create the modal we'll display once a user wants to inspect a specific image. This will look a bit odd before we add the CSS, don't despair!\n\n1. Add a new `div` with the id `\"modal\"` after the gallery `div`.\n2. Inside this `div`, create a `span` with the id `modal-close-button` and a character `×`.\n3. Below the span, add an `img` tag with the id `modal-content`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function showModal(thumbnail) {\n  console.log(\"Clicked\");\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Modal #3",
+            "id": 128029,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "To display the modal, we need to grab a reference of it. As we'll always use the same element and only switch out the image, we can do this on top of our JS file, above the `showModal` function.\n\n1. Outside the function, at the top of the JavaScript file, create two constants, `modal` and `modalContent,`.\n2. Use `document.getElementById()` to grab the element with the id `\"modal\"` and the element with the id `\"modal-content\"` and assign the value to the newly created variables.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function showModal(thumbnail) {\n  console.log(\"Clicked\");\n}",
+                  "solvedContent": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  console.log(\"Clicked\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Modal #4",
+            "id": 128030,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We have the references to the modal `div` and to the modalContent `img` tags. However, don't be surprised, as nothing will happen at this point if you click an image.\n\n1. Inside the `showModal` function, set the `display` value of the modal by coding `modal.style.display = \"block\";`.\n2. To display the content of the modal, set its source to the passed argument by writing `modalContent.src = thumbnail.src;`.\n3. You can delete the `console.log` statement.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  console.log(\"Clicked\");\n}",
+                  "solvedContent": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  modal.style.display = \"block\";\n  modalContent.src = thumbnail.src;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Modal #5",
+            "id": 128031,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Last but not least, we want our users to be able to close the modal again. Let's create a function for it.\n\n1. Define the `hideModal()` function to hide the modal.\n2. Set the `display` of the `modal` to `\"none\"` inside the function.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  modal.style.display = \"block\";\n  modalContent.src = thumbnail.src;\n}",
+                  "solvedContent": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  modal.style.display = \"block\";\n  modalContent.src = thumbnail.src;\n}\n\nfunction hideModal() {\n  modal.style.display = \"none\";\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Modal #6",
+            "id": 128032,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We have the logic implemented, but we still don't see it in action. We can change that by adding some CSS.\n\n1. Add a CSS rule for `#modal`.\n2. Set the `display` to `none` to hide the modal by default.\n3. Set the `position` to `absolute` and set its `top` and `left` values to `0`.\n4. Set its `width` and `height` to `100%`.\n5. Set its `background-color` to ` rgba(0, 0, 0, 0.9)`.\n6. Finally, set the `z-index` value to `10` to be on top of all other content the page displays.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}",
+                  "solvedContent": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}\n\n#modal {\n    display: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.9);\n    z-index: 10;\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  modal.style.display = \"block\";\n  modalContent.src = thumbnail.src;\n}\n\nfunction hideModal() {\n  modal.style.display = \"none\";\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "What is rgba(0, 0, 0, 0.9)?",
+                  "content": "The rgba() function in CSS defines colors using the Red, Green, Blue, and Alpha channels. In rgba(0, 0, 0, 0.9), the first three values represent the color black (0, 0, 0). The fourth value, 0.9, indicates slight transparency, making the black color mostly opaque but not fully."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Modal #7",
+            "id": 128033,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We can now click on an image and the modal is shown, but we can't close it anymore. Let's change that!\n\n1. Add a CSS rule for `#modal-close-button`.\n3. Set the `position` to `absolute` and set its `top` and `right` values to `5px` and `15px`, respectively.\n4. Set its `color` to `white`.\n5. Set its `font-size` to ` 30px`.\n6. Finally, set the `cursor` to `pointer`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}\n\n#modal {\n    display: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.9);\n    z-index: 10;\n}",
+                  "solvedContent": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.gallery {\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.thumbnail {\n    transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n    transform: scale(1.1);\n}\n\n#modal {\n    display: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, 0.9);\n    z-index: 10;\n}\n\n#modal-close-button {\n    position: absolute;\n    top: 5px;\n    right: 15px;\n    color: white;\n    font-size: 30px;\n    cursor: pointer;\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  modal.style.display = \"block\";\n  modalContent.src = thumbnail.src;\n}\n\nfunction hideModal() {\n  modal.style.display = \"none\";\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Modal #8",
+            "id": 128034,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Finally, we need to properly display the image the user selected.\n\n1. Add a CSS rule for `#modal-content`.\n3. Set the `position` to `absolute` and set its `top` and `left` values to `50%`.\n4. Set its `max-width` and `max-height` to `90%`.\n5. Make the image centered by adding `transform: translate(-50%, -50%);`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 0;\n}\n\nh1 {\n  text-align: center;\n  margin-bottom: 30px;\n}\n\n.gallery {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 20px;\n}\n\n.thumbnail {\n  transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n  transform: scale(1.1);\n}\n\n#modal {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.9);\n  z-index: 10;\n}\n\n#modal-close-button {\n  position: absolute;\n  top: 5px;\n  right: 15px;\n  color: white;\n  font-size: 30px;\n  cursor: pointer;\n}",
+                  "solvedContent": "body {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 0;\n}\n\nh1 {\n  text-align: center;\n  margin-bottom: 30px;\n}\n\n.gallery {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 20px;\n}\n\n.thumbnail {\n  transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n  transform: scale(1.1);\n}\n\n#modal {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.9);\n  z-index: 10;\n}\n\n#modal-close-button {\n  position: absolute;\n  top: 5px;\n  right: 15px;\n  color: white;\n  font-size: 30px;\n  cursor: pointer;\n}\n\n#modal-content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  max-width: 90%;\n  max-height: 90%;\n  transform: translate(-50%, -50%);\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  modal.style.display = \"block\";\n  modalContent.src = thumbnail.src;\n}\n\nfunction hideModal() {\n  modal.style.display = \"none\";\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "What does transform: translate(-50%, -50%) do?",
+                  "content": "We use `transform: translate(-50%, -50%)` to perfectly center the modal's content within the viewport. When combined with top: 50%; and left: 50%;, the modal's top-left corner is positioned at the center of its container. The translate adjustment then shifts the modal back by half of its own width and height, ensuring that its center aligns with the container's center, achieving a true central placement."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Modal #9",
+            "id": 128819,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Last but not least, let's set the size of our images and change the cursor to indicate one can click on the image.\n\n1. Set `width` and `height` of the `thumbnail` class to `150px`. \n2. Set the `cursor` to `pointer` for the `thumbnail` class.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>Modal Gallery</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>Welcome to my gallery!</h1>\n    <div class=\"gallery\">\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/whispurr.png\" alt=\"Whispurr\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Whispurr</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/babaganoosh.png\" alt=\"Babaganoosh\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Babaganoosh</h2>\n      </div>\n      <div class=\"item\">\n        <img src=\"https://mimo.app/i/nacho.png\" alt=\"Nacho\" class=\"thumbnail\" onclick=\"showModal(this)\">\n        <h2>Nacho</h2>\n      </div>\n    </div>\n    <div id=\"modal\">\n      <span id=\"modal-close-button\" onclick=\"hideModal()\">x</span>\n      <img id=\"modal-content\">\n    </div>\n  </body>\n  <script src=\"script.js\"></script>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 0;\n}\n\nh1 {\n  text-align: center;\n  margin-bottom: 30px;\n}\n\n.gallery {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 20px;\n}\n\n.thumbnail {\n  transition: transform 0.3s;\n}\n\n.thumbnail:hover {\n  transform: scale(1.1);\n}\n\n#modal {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.9);\n  z-index: 10;\n}\n\n#modal-close-button {\n  position: absolute;\n  top: 5px;\n  right: 15px;\n  color: white;\n  font-size: 30px;\n  cursor: pointer;\n}\n\n#modal-content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  max-width: 90%;\n  max-height: 90%;\n  transform: translate(-50%, -50%);\n}",
+                  "solvedContent": "body {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 0;\n}\n\nh1 {\n  text-align: center;\n  margin-bottom: 30px;\n}\n\n.gallery {\n  display: flex;\n  justify-content: center;\n  flex-wrap: wrap;\n  gap: 20px;\n}\n\n.thumbnail {\n  transition: transform 0.3s;\n  width: 150px;\n  height: 150px;\n  cursor: pointer;\n}\n\n.thumbnail:hover {\n  transform: scale(1.1);\n}\n\n#modal {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.9);\n  z-index: 10;\n}\n\n#modal-close-button {\n  position: absolute;\n  top: 5px;\n  right: 15px;\n  color: white;\n  font-size: 30px;\n  cursor: pointer;\n}\n\n#modal-content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  max-width: 90%;\n  max-height: 90%;\n  transform: translate(-50%, -50%);\n}"
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const modal = document.getElementById(\"modal\");\nconst modalContent = document.getElementById(\"modal-content\");\n\nfunction showModal(thumbnail) {\n  modal.style.display = \"block\";\n  modalContent.src = thumbnail.src;\n}\n\nfunction hideModal() {\n  modal.style.display = \"none\";\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

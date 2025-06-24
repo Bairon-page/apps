@@ -1,0 +1,103 @@
+{
+  "tutorial": {
+    "id": 2666,
+    "version": 5,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Robar una carta - Parte 2",
+    "descriptionContent": "Toma el control en la segunda parte eligiendo cuántas cartas robar, haciendo el juego de cartas aún más atractivo.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2666-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14641,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 129494,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenido de nuevo a la segunda parte del proyecto **Draw a Card**. Permitiremos al usuario elegir cuántas cartas quieren robar y literalmente dibujarlas en la consola.\n\n1. Actualiza la función `draw_card`\n   - Añade un segundo parámetro a la función `draw_card`, que especifique el número de cartas que queremos robar del mazo.\n   - Usa esta información para guardar esa cantidad de cartas en la variable `hand` y eliminar esa cantidad de cartas del mazo.\n   - Mantén la declaración `return` tal como está.\n2. Al llamar a la función `draw_card` dentro del bucle `while`, pasa `1` como segundo argumento para mantener la funcionalidad igual por ahora.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck):\n  hand = deck.pop()\n  return [hand], deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  input(\"Press Enter to draw the next card\")\n  hand, deck = draw_card(deck)\n  print(hand[0])\n\nprint(\"We are out of cards\")",
+                  "solvedContent": "import random\n\ndef draw_card(deck, num_cards):\n  hand = []\n  for _ in range(num_cards):\n    if deck:\n      hand.append(deck.pop())\n    else:\n      break\n  return hand, deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  input(\"Press Enter to draw the next card\")\n  hand, deck = draw_card(deck, 1)\n  print(hand[0])\n\nprint(\"We are out of cards\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129495,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a modificar el bucle principal del programa para que el usuario pueda especificar cuántas cartas quiere sacar a la vez.\n\n1. Cambia la llamada a `input` para preguntar al usuario cuántas cartas quiere sacar. Convierte la entrada del usuario a un entero y asígnalo a una variable llamada `num_cards`.\n2. Después de esto, cambia la llamada a la función `draw_card` para que tome `num_cards` como argumento en lugar de `1`, reflejando el número de cartas a sacar.\n3. Añade una comprobación para nunca sacar más cartas de las que aún están disponibles en el mazo.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck, num_cards):\n  hand = []\n  for _ in range(num_cards):\n    if deck:\n      hand.append(deck.pop())\n    else:\n      break\n  return hand, deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  input(\"Press Enter to draw the next card\")\n  hand, deck = draw_card(deck, 1)\n  print(hand[0])\n\nprint(\"We are out of cards\")",
+                  "solvedContent": "import random\n\ndef draw_card(deck, num_cards):\n  hand = []\n  for _ in range(num_cards):\n    if deck:\n      hand.append(deck.pop())\n    else:\n      break\n  return hand, deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  num_cards = int(input(\"How many cards do you want to draw? \"))\n  hand, deck = draw_card(deck, num_cards)\n  print(hand[0])\n\nprint(\"We are out of cards\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 129497,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a imprimir cada carta una por una.\n\n1. Encima del bucle `while`, crea una nueva función `show_card` que acepte un parámetro llamado `card`. Todo lo que debe hacer la función es imprimir el argumento que se le pasó.\n2. Dentro del bucle `while`, elimina la declaración `print` utilizada para imprimir la carta antes.\n3. En su lugar, llama a `show_card` para cada elemento en `hand`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck, num_cards):\n  hand = []\n  for _ in range(num_cards):\n    if deck:\n      hand.append(deck.pop())\n    else:\n      break\n  return hand, deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  num_cards = int(input(\"How many cards do you want to draw? \"))\n  hand, deck = draw_card(deck, num_cards)\n  print(hand[0])\n\nprint(\"We are out of cards\")",
+                  "solvedContent": "import random\n\ndef draw_card(deck, num_cards):\n  hand = []\n  for _ in range(num_cards):\n    if deck:\n      hand.append(deck.pop())\n    else:\n      break\n  return hand, deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndef show_card(card):\n  print(card)\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  num_cards = int(input(\"How many cards do you want to draw? \"))\n  hand, deck = draw_card(deck, num_cards)\n  for card in hand:\n    show_card(card)\n\nprint(\"We are out of cards\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 129496,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Como paso final en el proyecto, actualizamos la función recién creada `show_card` para mostrar las cartas de manera hermosa. Queremos que imprima una representación ASCII de una carta.\n\n1. Actualiza la función `show_card`:\n   - Elimina la función `print` que imprime el argumento `card` pasado.\n   - En su lugar, copia el siguiente código o altéralo a tu gusto:\n   ```Python\n   space = \" \"\n   if len(card[1]) == 2:\n     space = \"\"\n   print (f\"\"\"\n   +-------+\n   |{card[1]}     {space}|\n   |       |\n   |   {card[0]}   |\n   |       |\n   |{space}     {card[1]}|\n   +-------+\n   \"\"\")\n   ```\n\nEste código imprime el palo de la carta en el centro, y el rango en la parte superior izquierda y en la parte inferior derecha. También añade un espacio adicional para todos los rangos excepto `10` para que la carta se vea bien en todas las variaciones.\nSiéntete libre de jugar con el código y adaptarlo como desees.\n\nNo hay una prueba para la salida concreta de la carta. Siéntete libre de completar el proyecto cuando estés listo.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import random\n\ndef draw_card(deck, num_cards):\n  hand = []\n  for _ in range(num_cards):\n    if deck:\n      hand.append(deck.pop())\n    else:\n      break\n  return hand, deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndef show_card(card):\n  print(card)\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  num_cards = int(input(\"How many cards do you want to draw? \"))\n  hand, deck = draw_card(deck, num_cards)\n  for card in hand:\n    show_card(card)\n\nprint(\"We are out of cards\")",
+                  "solvedContent": "import random\n\ndef draw_card(deck, num_cards):\n  hand = []\n  for _ in range(num_cards):\n    if deck:\n      hand.append(deck.pop())\n    else:\n      break\n  return hand, deck\n\ndef create_deck():\n  suits = [\"♥\", \"♦\", \"♣\", \"♠\"]\n  ranks = [\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"J\", \"Q\", \"K\", \"A\"]\n  deck = []\n\n  for suit in suits:\n    for rank in ranks:\n      deck.append((suit, rank))\n\n  return deck\n\ndef show_card(card):\n  space = \" \"\n  if len(card[1]) == 2:\n    space = \"\"\n  print (f\"\"\"\n      +-------+\n      |{card[1]}     {space}|\n      |       |\n      |   {card[0]}   |\n      |       |\n      |{space}     {card[1]}|\n      +-------+\n      \"\"\")\n\ndeck = create_deck()\nwhile len(deck) > 0:\n  num_cards = int(input(\"How many cards do you want to draw? \"))\n  hand, deck = draw_card(deck, num_cards)\n  for card in hand:\n    show_card(card)\n\nprint(\"We are out of cards\")"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

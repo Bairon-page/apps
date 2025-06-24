@@ -1,0 +1,462 @@
+{
+  "tutorial": {
+    "id": 1929,
+    "version": 11,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Social-Media-Beiträge",
+    "descriptionContent": "Verwende deine HTML-, CSS- und JS-Kenntnisse, um Beiträge zu einer Social-Media-Seite hinzuzufügen.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1929-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12524,
+        "title": "Social-Media-Beiträge",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Starter Code",
+            "id": 113196,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns unser Wissen über dynamische Webseiten nutzen, um eine Social-Media-Website zu erstellen.\n\nWir haben bereits den HTML- und CSS-Code hinzugefügt, aber die Seite ist noch nicht funktionsfähig.\n\nEs gibt ein Logo, ein Eingabefeld, Benachrichtigungen und einen Beitrag.\n\nSchau dir den Code an und führe ihn aus, bevor du zur nächsten Lektion weitergehst.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n text-align: center;\r\n}\r\n\r\nh1 {\r\n font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n width: 100%;\r\n height: 150px;\r\n padding: 12px;\r\n box-sizing: border-box;\r\n border: none;\r\n border-radius: 4px;\r\n background-color: seashell;\r\n resize: none;\r\n}\r\n\r\n#addBtn {\r\n padding: 10px;\r\n margin: 10px;\r\n font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n padding: 12px;\r\n margin: 12px;\r\n text-align: justify;\r\n background-color: lavenderblush;\r\n font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n padding: 12px;\r\n margin: 12px;\r\n background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n padding: 12px;\r\n margin: 12px;\r\n background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Adding Post 1 - Define function",
+            "id": 113197,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "In sozialen Medien können wir mit einem Klick auf eine Schaltfläche posten, was immer wir wollen.\n\nDas werden wir in unserem Projekt umsetzen!\n\nLass uns einfach damit beginnen, eine neue Funktion zu erstellen. Diese Funktion wird jedes Mal einen neuen Beitrag hinzufügen, wenn der Benutzer auf die Schaltfläche `Add` klickt.\n\n1. Gehe zu `script.js`.\n2. Erstelle eine neue Funktion mit dem Namen `addPost`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "function addPost(){\r\n\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The syntax to create a function is :\n```javascript\nfunction functionName() {\n\n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Adding Post 2 - Calling function",
+            "id": 113218,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Um eine Funktion zu verwenden, müssen wir die Funktion immer aufrufen.\n\nBevor wir Code zur Funktion `addPost` hinzufügen, werden wir sie in unserer HTML-Datei aufrufen, um Änderungen in unserem DOM zu sehen, während wir den Code hinzufügen.\n\n1. Gehe zu `index.html` und finde den `Add`-Button.\n2. Füge diesem Button ein `onclick`-Attribut hinzu und setze es auf `addPost()`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function addPost() {}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The `Add` button is below the `textarea` element in `index.html`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Adding Post 3 - Creating New Div",
+            "id": 113225,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wenn du dir den Code für den ersten Beitrag ansiehst, wirst du feststellen, dass der Beitrag in einem `div`-Element ist.\n\nDaher müssen wir jedes Mal, wenn der Benutzer einen Beitrag hinzufügt, ein neues `div`-Element erstellen.\n\nEs kann auch vorkommen, dass der Benutzer keine Eingabe macht! In diesem Fall möchten wir, dass nichts gepostet wird.\n\nDaher können wir unseren Code so gestalten, dass, wenn die Eingabe nicht `\"\"` ist, ein Beitrag erfolgt.\n\nUnd der beste Weg, dies zu tun, ist die Verwendung von Bedingungsanweisungen!\n\n1. Gehe zur Datei `script.js` und greife auf das `textarea`-Element über die ID zu. Du kannst die ID aus dem HTML-Code erhalten.\n2. Hole den Wert des `textarea`-Elements.\n3. Speichere diesen Wert in einer Variablen namens `input`.\n4. Formuliere eine `if`-Anweisung, die überprüft, ob `input` nicht `\"\"` ist.\n5. Erstelle innerhalb der `if`-Anweisung ein neues `div`-Element und speichere es in einer Variablen namens `postDiv`.\n6. Verwende `.className`, um der neuen `div` die Klasse `post` zuzuweisen. Um Attributwerte in JavaScript zu ändern, kannst du immer den Punktoperator verwenden. Zum Beispiel wird `element.className = \"new\"` eine Klasse namens `new` dem Element zuweisen.\n7. Verwende `getElementById` oder `querySelector`, um auf das HTML-`body` über seine ID zuzugreifen und füge das `postDiv` dem `body` hinzu.\n8. Führe den Code aus, tippe etwas ein und klicke auf die Schaltfläche `Add`. Du solltest ein neues leeres `div` am unteren Rand sehen.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function addPost() {}",
+                  "solvedContent": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n  }\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Use `.value` to get the value of the element.\n2. Use `!=` operator to check if `input` is not equal to `\"\"`.\n3. Use `createElement` to create a new element in JavaScript.\n4. The structure of `if` looks like this:\n```javascript\nif(condition) {\n \n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Adding Post 4 - Adding paragraph to div",
+            "id": 113250,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Der `div`-Teil ist erledigt.\n\nAber jetzt müssen wir auch die Benutzereingabe anzeigen. Dafür erstellen wir jedes Mal neue Absätze, wenn der Benutzer auf die Schaltfläche `Add` klickt.\n\n1. Erstelle innerhalb der `if`-Anweisung ein Absatz-Element und speichere es in einer Variablen namens `p`.\n2. Ändere das `innerHTML` des Absatzes auf den Wert, der in `input` gespeichert ist.\n3. Füge den Absatz dem `postDiv` hinzu.\n4. Führe den Code aus, tippe etwas ein und drücke `Add`. Du solltest ein neues `div` mit etwas Text am unteren Rand sehen.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    \r\n  }\r\n}",
+                  "solvedContent": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n  }\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Use `createElement` to create a new element in JavaScript.\n2. Use `appendChild` to append one element to other in JavaScript.\n3. Remember that the `input` variable already stores the value of the input `textarea` element."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Adding Post 5 - Like Button",
+            "id": 113228,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gute Arbeit! Aber was ist ein Social-Media-Post ohne einen Like- oder Kommentar-Button?\n\nAls nächstes kommen also die beiden Buttons - `Like` und `Comment`.\n\nZuerst erstellen wir den `Like`-Button.\n\n1. Erstelle ein neues `button`-Element unterhalb des Absatzes innerhalb der `if`-Anweisung und speichere es in einer Variablen namens `likeButton`.\n2. Ändere das `innerHTML` des Buttons zu `Like`.\n3. Füge den Button dem `postDiv` hinzu.\n4. Führe den Code aus, poste etwas Text und sieh, wie der `Like`-Button am unteren Rand deines Posts erscheint.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    \r\n  }\r\n}",
+                  "solvedContent": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n  }\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Use `createElement` to create a new element in JavaScript.\n2. Use `appendChild` to append one element to other in JavaScript."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Adding Post 6 - Comment Button",
+            "id": 113233,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Zeit für den `Comment`-Button.\n\nEs ist dasselbe wie der `Like`-Button!\n\n1. Erstelle ein neues `button`-Element unterhalb des `Like`-Buttons und speichere es in einer Variable namens `commentButton`.\n2. Ändere das `innerHTML` des Buttons zu `Comment`.\n3. Füge den Button dem `postDiv` hinzu.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    \r\n  }\r\n}",
+                  "solvedContent": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n  }\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Refer to the previous code.\n "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Adding Post 7 - Final touches",
+            "id": 113244,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Die Elemente, die wir erstellt haben, sehen bisher gut aus.\n\nAllerdings gibt es eine Kleinigkeit. Jedes Mal, wenn der Beitrag hinzugefügt wird, sollte auch das Eingabefeld geleert werden.\n\n1. Setze den Wert des `input`-Feldes auf `\"\"` mithilfe der ID.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    \r\n  }\r\n}",
+                  "solvedContent": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Check the ID of elements from the HTML code and use `document.getElementById` or `querySelector` to access it."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Coding counter",
+            "id": 113245,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wow! Unsere Social-Media-Seite fügt jetzt Beiträge hinzu!\n\nAußerdem gibt es ein kleines grünes Kästchen, das die Anzahl der Beiträge anzeigt.\n\nIm Moment ändert es sich nicht, wenn wir einen neuen Beitrag hinzufügen. Also lass uns daran arbeiten!\n\n1. Erstelle eine neue Variable namens `counter` oberhalb der Funktion `addPost()` und setze sie auf `1`. Wir setzen sie zunächst auf `1`, weil wir bereits einen Beitrag haben, aber wir werden sie später aktualisieren. Stelle also sicher, dass es keine Konstante ist.\n2. Wir wollen den Zähler nur erhöhen, wenn Benutzer einen Text eingeben und posten, also gehen wir zum `if`-Block innerhalb der Funktion `addPost`. Erhöhe den Wert des Zählers um `1`.\n3. Greife auf das `span`-Element zu, das die Anzahl der Beiträge enthält. Überprüfe den HTML-Code auf die ID.\n4. Ändere das `innerHTML` des `span` auf `counter`.\n5. Führe den Code aus und überprüfe die Ausgabe.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable =\n          'true';</b>\". Voila! You can now edit the webpage text that you are\n        in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\nbody{\r\n  text-align: center;\r\n}\r\n\r\nh1{\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn{\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post{\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new{\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification{\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "function addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}",
+                  "solvedContent": "let counter = 1;\r\n\r\nfunction addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    counter++;\r\n    document.getElementById(\"count\").innerHTML = counter;\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. You can increment a variable's value by 1 either directly like `varName = varName + 1` or by using shorthand operators like `varName += 1` or by using increment operator like `varName++`.\n2. Be careful in using `let` instead of `const` for the counter variable. This is because the counter variable will change whenever the user adds a new post."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Remove 1 - Defining function",
+            "id": 113246,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "So weit, so gut! Wir sind fast fertig.\n\nEs gibt nur noch eine letzte Sache, die wir angehen müssen - den `Remove alert`-Button.\n\nWenn der Benutzer auf diesen Button klickt, sollte die gesamte Warnung verschwinden.\n\nLass uns mit einer neuen leeren Funktion beginnen.\n\n1. Erstelle eine neue Funktion namens `remove` außerhalb der `addPost()`-Funktion.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let counter = 1;\r\n\r\nfunction addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    counter++;\r\n    document.getElementById(\"count\").innerHTML = counter;\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}\r\n\r\n",
+                  "solvedContent": "let counter = 1;\r\n\r\nfunction addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    counter++;\r\n    document.getElementById(\"count\").innerHTML = counter;\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}\r\n\r\nfunction remove() {}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The syntax to create a function is :\n```javascript\nfunction functionName() {\n\n}\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Remove 2 - Calling function",
+            "id": 113248,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bevor wir die Funktionalität für unsere neue Funktion programmieren, lass sie uns aufrufen, wenn der Button geklickt wird!\n\n1. Finde den `Remove alert` Button.\n2. Füge diesem Button ein `onclick` Attribut hinzu und setze es auf `remove()`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button>Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button onclick=\"remove()\">Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let counter = 1;\r\n\r\nfunction addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    counter++;\r\n    document.getElementById(\"count\").innerHTML = counter;\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}\r\n\r\nfunction remove() {}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The `Remove alert` button is below the paragraph element inside the `notification` `div`.  "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Remove 3 - Removing element",
+            "id": 113249,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Das Entfernen eines Elements ist ziemlich einfach.\n\nAlles, was wir tun müssen, ist, auf das Element zuzugreifen, das wir entfernen möchten, und es dann mit `removeChild` zu entfernen.\n\n1. Hole das `div` der Benachrichtigungen mit seiner ID und speichere es in einer Variablen namens `notificationDiv`.\n2. Entferne dieses `div` aus dem `body`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body id=\"body\">\n    <h1>friendsbook.</h1>\n    <div id=\"input\">\n      <textarea type=\"text\" placeholder=\"What's on your mind today?\"\n        id=\"inputPost\"></textarea>\n      <button id=\"addBtn\" onclick=\"addPost()\">Add</button>\n    </div>\n    <div id=\"notification\">\n      <p>Your friend, Harry, just shared a post!</p>\n      <button onclick=\"remove()\">Remove alert</button>\n    </div>\n    <div id=\"new\">\n      <b><span id=\"count\">1</span></b> post(s)!\n    </div>\n    <div class=\"post\">\n      <p>You wanna see why DOM manipulation and Dynamic webpages is interesting?\n        Let me tell you a trick. This trick will work on any website. Open the\n        console tab. Type \"<b>document.body.contentEditable = 'true';</b>\".\n        Voila! You can now edit the webpage text that you are in! </p>\n      <button>Like</button>\n      <button>Comment</button>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@300&display=swap');\r\n\r\nbody {\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  font-family: 'Fredoka One', cursive;\r\n}\r\n\r\ntextarea {\r\n  width: 100%;\r\n  height: 150px;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n  border: none;\r\n  border-radius: 4px;\r\n  background-color: seashell;\r\n  resize: none;\r\n}\r\n\r\n#addBtn {\r\n  padding: 10px;\r\n  margin: 10px;\r\n  font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n.post {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  text-align: justify;\r\n  background-color: lavenderblush;\r\n  font-family: 'Lato', sans-serif;\r\n}\r\n\r\n#new {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: mediumaquamarine;\r\n}\r\n\r\n#notification {\r\n  padding: 12px;\r\n  margin: 12px;\r\n  background-color: coral;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "let counter = 1;\r\n\r\nfunction addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    counter++;\r\n    document.getElementById(\"count\").innerHTML = counter;\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}\r\n\r\nfunction remove() {\r\n \r\n}",
+                  "solvedContent": "let counter = 1;\r\n\r\nfunction addPost() {\r\n  const input = document.getElementById(\"inputPost\").value;\r\n  if (input != \"\") {\r\n    counter++;\r\n    document.getElementById(\"count\").innerHTML = counter;\r\n    const postDiv = document.createElement('div');\r\n    postDiv.className = \"post\";\r\n    document.getElementById(\"body\").appendChild(postDiv);\r\n    const p = document.createElement('p');\r\n    p.innerHTML = input;\r\n    postDiv.appendChild(p);\r\n    const likeButton = document.createElement(\"button\");\r\n    likeButton.innerHTML = \"Like\";\r\n    postDiv.appendChild(likeButton);\r\n    const commentButton = document.createElement(\"button\");\r\n    commentButton.innerHTML = \"Comment\";\r\n    postDiv.appendChild(commentButton);\r\n    document.getElementById(\"inputPost\").value = \"\";\r\n  }\r\n}\r\n\r\nfunction remove() {\r\n  const notificationDiv = document.getElementById(\"notification\");\r\n  document.getElementById(\"body\").removeChild(notificationDiv);\r\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `removeChild` to remove an element from another. "
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "tutorial": {
+    "id": 2305,
+    "version": 1,
+    "type": "practiceOptional",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "Sous-requêtes SQL",
+    "descriptionContent": "Sous-requêtes SQL",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 12517,
+        "title": "Sous-requêtes avec agrégats",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Exercise: AVG",
+            "id": 113144,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sélectionne les noms des patients dont l'âge est supérieur à la moyenne en utilisant une sous-requête qui sélectionne `AVG(age)` à partir des rendez-vous. Ensuite, dans la requête principale, sélectionne uniquement les entrées avec un âge supérieur à cette moyenne.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT patient_name\nFROM appointments\n",
+                  "solvedContent": "SELECT patient_name\nFROM appointments\nWHERE age > (SELECT AVG(age) FROM appointments);"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"appointments\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"patient_name\"},{\"CellType\":\"Header\",\"Content\":\"age\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jane\"},{\"CellType\":\"Data\",\"Content\":\"32\"},{\"CellType\":\"Data\",\"Content\":\"general\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"John\"},{\"CellType\":\"Data\",\"Content\":\"23\"},{\"CellType\":\"Data\",\"Content\":\"follow-up\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Richard\"},{\"CellType\":\"Data\",\"Content\":\"55\"},{\"CellType\":\"Data\",\"Content\":\"general\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Adrian\"},{\"CellType\":\"Data\",\"Content\":\"40\"},{\"CellType\":\"Data\",\"Content\":\"follow-up\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"patient_name\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Richard\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Adrian\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: MAX",
+            "id": 113145,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sélectionne les noms des aliments avec le plus de calories en utilisant une sous-requête qui sélectionne `MAX(calories)` à partir de foods.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM foods\nWHERE   ; ",
+                  "solvedContent": "SELECT name_of_food\nFROM foods\nWHERE calories = (SELECT MAX(calories) FROM foods);"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"foods\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name_of_food\"},{\"CellType\":\"Header\",\"Content\":\"calories\"},{\"CellType\":\"Header\",\"Content\":\"log_time\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ramen noodles\"},{\"CellType\":\"Data\",\"Content\":\"730\"},{\"CellType\":\"Data\",\"Content\":\"lunch\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Blueberry waffle\"},{\"CellType\":\"Data\",\"Content\":\"70\"},{\"CellType\":\"Data\",\"Content\":\"breakfast\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Hot chocolate\"},{\"CellType\":\"Data\",\"Content\":\"470\"},{\"CellType\":\"Data\",\"Content\":\"lunch\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Chicken adobo\"},{\"CellType\":\"Data\",\"Content\":\"730\"},{\"CellType\":\"Data\",\"Content\":\"dinner\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name_of_food\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ramen noodles\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Chicken adobo\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: MIN",
+            "id": 113146,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sélectionne les noms des employés qui ont travaillé le moins d'heures en utilisant une sous-requête qui sélectionne `MIN(hours_worked)` à partir de timecards. Ensuite, dans la requête principale, sélectionne uniquement les entrées avec un `hours_worked` égal à ce minimum.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM timecards\nWHERE  ;",
+                  "solvedContent": "SELECT name\nFROM timecards\nWHERE hours_worked = (SELECT MIN(hours_worked) FROM timecards);"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"timecards\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"hours_worked\"},{\"CellType\":\"Header\",\"Content\":\"overtime\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Alison\"},{\"CellType\":\"Data\",\"Content\":\"25\"},{\"CellType\":\"Data\",\"Content\":\"no\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"David\"},{\"CellType\":\"Data\",\"Content\":\"45\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Robert\"},{\"CellType\":\"Data\",\"Content\":\"55\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Brandon\"},{\"CellType\":\"Data\",\"Content\":\"25\"},{\"CellType\":\"Data\",\"Content\":\"no\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Alison\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Brandon\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Different table",
+            "id": 114259,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Utilise une sous-requête pour trouver le nom de toutes les villes dont la température actuelle est supérieure à la température moyenne nationale.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT name\nFROM city_weather\nWHERE temperature > \n\n;",
+                  "solvedContent": "SELECT name\nFROM city_weather\nWHERE temperature > \n(\n SELECT temperature\n FROM weather_stats\n WHERE description = 'average temp'\n);"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"city_weather\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"STATE\"},{\"CellType\":\"Header\",\"Content\":\"temperature\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Phoenix\"},{\"CellType\":\"Data\",\"Content\":\"AZ\"},{\"CellType\":\"Data\",\"Content\":\"100.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Denver\"},{\"CellType\":\"Data\",\"Content\":\"CO\"},{\"CellType\":\"Data\",\"Content\":\"44.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Caribou\"},{\"CellType\":\"Data\",\"Content\":\"ME\"},{\"CellType\":\"Data\",\"Content\":\"54.0\"}]}]},{\"Name\":\"weather_stats\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"description\"},{\"CellType\":\"Header\",\"Content\":\"temperature\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"average temp\"},{\"CellType\":\"Data\",\"Content\":\"75.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"lowest temp\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"highest temp\"},{\"CellType\":\"Data\",\"Content\":\"103.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Phoenix\"}]}]}]}"
+            }
+          }
+        ]
+      },
+      {
+        "id": 12540,
+        "title": "Sous-requêtes avec IN",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Exercise: IN by text",
+            "id": 113303,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sélectionne le nom et la quantité des articles en stock qui ont été expédiés en utilisant une sous-requête qui sélectionne le `name` depuis `shipping` où le statut est `\"Shipped\"`. Ensuite, dans la requête principale, sélectionne uniquement les entrées `IN` ces noms.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT name, quantity \nFROM stock\nWHERE name ",
+                  "solvedContent": "SELECT name, quantity \nFROM stock\nWHERE name IN (SELECT name FROM shipping WHERE status = 'Shipped')"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"stock\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"quantity\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Earphones\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Consoles\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Shirts\"},{\"CellType\":\"Data\",\"Content\":\"2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Notebooks\"},{\"CellType\":\"Data\",\"Content\":\"10\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bags\"},{\"CellType\":\"Data\",\"Content\":\"14\"}]}]},{\"Name\":\"shipping\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"address\"},{\"CellType\":\"Header\",\"Content\":\"status\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bags\"},{\"CellType\":\"Data\",\"Content\":\"Mumbai\"},{\"CellType\":\"Data\",\"Content\":\"Shipped\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Earphones\"},{\"CellType\":\"Data\",\"Content\":\"Vienna\"},{\"CellType\":\"Data\",\"Content\":\"Packed\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Notebooks\"},{\"CellType\":\"Data\",\"Content\":\"Las Vegas\"},{\"CellType\":\"Data\",\"Content\":\"Shipped\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"quantity\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Notebooks\"},{\"CellType\":\"Data\",\"Content\":\"10\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bags\"},{\"CellType\":\"Data\",\"Content\":\"14\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: IN by number",
+            "id": 113304,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sélectionne le `username` de tous les utilisateurs qui ont fait un commentaire en utilisant une sous-requête qui sélectionne l'`id` à partir de `comments`. Ensuite, dans la requête principale, sélectionne uniquement les entrées `IN` ces ids.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT username\nFROM user_id\nWHERE id",
+                  "solvedContent": "SELECT username\nFROM user_id\nWHERE id IN (SELECT id FROM comments)"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"user_id\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"username\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"1\"},{\"CellType\":\"Data\",\"Content\":\"Lucy\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"2\"},{\"CellType\":\"Data\",\"Content\":\"Peter\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"3\"},{\"CellType\":\"Data\",\"Content\":\"Ariel\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"4\"},{\"CellType\":\"Data\",\"Content\":\"Kai\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"5\"},{\"CellType\":\"Data\",\"Content\":\"Alexia\"}]}]},{\"Name\":\"comments\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"id\"},{\"CellType\":\"Header\",\"Content\":\"comment\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"2\"},{\"CellType\":\"Data\",\"Content\":\"Super cool trip!\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"2\"},{\"CellType\":\"Data\",\"Content\":\"Where did you stay?\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"3\"},{\"CellType\":\"Data\",\"Content\":\"I also have plans to go!\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"1\"},{\"CellType\":\"Data\",\"Content\":\"Awesome pictures!\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"username\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Lucy\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Peter\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ariel\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: NOT IN",
+            "id": 113305,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sélectionne le nom de tous les passagers qui *n'ont pas* encore embarqué sur leurs vols en utilisant une sous-requête qui sélectionne le `booking_id` de `passenger_boarding`. Ensuite, dans la requête principale, sélectionne uniquement les entrées qui ne sont `NOT IN` ces identifiants de réservation.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT passenger \nFROM flight_book\nWHERE booking_id   ;",
+                  "solvedContent": "SELECT passenger \nFROM flight_book\nWHERE booking_id NOT IN (SELECT booking_id from passenger_boarding);"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"flight_book\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"booking_id\"},{\"CellType\":\"Header\",\"Content\":\"passenger\"},{\"CellType\":\"Header\",\"Content\":\"class\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"123\"},{\"CellType\":\"Data\",\"Content\":\"John Smith\"},{\"CellType\":\"Data\",\"Content\":\"Economy\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"236\"},{\"CellType\":\"Data\",\"Content\":\"Yuko Hashimoto\"},{\"CellType\":\"Data\",\"Content\":\"Executive\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"451\"},{\"CellType\":\"Data\",\"Content\":\"Jenni Lemmings\"},{\"CellType\":\"Data\",\"Content\":\"Business\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"789\"},{\"CellType\":\"Data\",\"Content\":\"Arvind Sharma\"},{\"CellType\":\"Data\",\"Content\":\"Economy\"}]}]},{\"Name\":\"passenger_boarding\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"booking_id\"},{\"CellType\":\"Header\",\"Content\":\"status\"},{\"CellType\":\"Header\",\"Content\":\"seat\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"236\"},{\"CellType\":\"Data\",\"Content\":\"Boarded\"},{\"CellType\":\"Data\",\"Content\":\"14H\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"789\"},{\"CellType\":\"Data\",\"Content\":\"Boarded\"},{\"CellType\":\"Data\",\"Content\":\"C33\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"passenger\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"John Smith\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jenni Lemmings\"}]}]}]}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

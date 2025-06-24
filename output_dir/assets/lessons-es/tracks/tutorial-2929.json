@@ -1,0 +1,93 @@
+{
+  "tutorial": {
+    "id": 2929,
+    "version": 2,
+    "type": "practiceRequired",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Estructurando Endpoints",
+    "descriptionContent": "Estructurando Endpoints",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 13777,
+        "title": "Estructurando Endpoints",
+        "type": "practiceLevel2",
+        "lessons": [
+          {
+            "title": "Question #1",
+            "id": 120354,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cuando una solicitud HTTP falla, cuál es una cosa que siempre queremos hacer?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Enviar un mensaje de error al usuario</item><item value=\"2\" correct=\"false\">Establece el código de estado a <code>200</code></item><item value=\"3\" correct=\"false\">Envía la solicitud a otro servidor</item></selection><p visible-if=\"wrong\">Enviar un mensaje de error al usuario.</p></body></html>"
+          },
+          {
+            "title": "Example #2",
+            "id": 120359,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Completa la solicitud <code>GET</code> para guardar la información enviada por el cliente.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/books/:title&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" { title } = req.params;\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" sql = \" /><text value=\"&quot;SELECT * FROM books WHERE title = ?&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" requestedBook = db.prepare(sql).get(title);\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!requestedBook) {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"404\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"      \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;Can't find requested book&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  } \" /><text value=\"else\" class=\"keyword\" /><text value=\" {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"      \" /><text value=\"book\" class=\"attr\" /><text value=\": requestedBook\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"61\" endIndex=\"71\" /></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>req.params</code>.</p></body></html>"
+          },
+          {
+            "title": "Question #4",
+            "id": 120357,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué código usamos en esta solicitud <code>GET</code> para establecer el código de estado HTTP?</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/books/:title&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" { title } = req.params;\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" sql = \" /><text value=\"&quot;SELECT * FROM books WHERE title = ?&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" requestedBook = db.prepare(sql).get(title);\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!requestedBook) {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"404\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"      \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;Can't find requested book&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  } \" /><text value=\"else\" class=\"keyword\" /><text value=\" {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"      \" /><text value=\"book\" class=\"attr\" /><text value=\": requestedBook\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\"});\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>res.status</code></item><item value=\"2\" correct=\"false\"><code>.json</code></item><item value=\"3\" correct=\"false\"><code>req.params</code></item></selection><p visible-if=\"wrong\">Asegúrese de elegir <code>res.status</code>.</p></body></html>"
+          },
+          {
+            "title": "Example #4",
+            "id": 120361,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Completa el código para establecer un código de error <code>404</code> en el objeto de respuesta.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/books/:title&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" { title } = req.params;\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" sql = \" /><text value=\"&quot;SELECT * FROM books WHERE title = ?&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" requestedBook = db.prepare(sql).get(title);\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!requestedBook) {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"404\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"      \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;Can't find requested book&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  } \" /><text value=\"else\" class=\"keyword\" /><text value=\" {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"      \" /><text value=\"book\" class=\"attr\" /><text value=\": requestedBook\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"210\" endIndex=\"222\" /></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>.status(404)</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: SQL Database Connection",
+            "id": 120848,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo preparamos una declaración SQL que se guarda en la variable <code>sql</code>, dado que nuestra conexión a la base de datos se almacena en la variable <code>db</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>db.prepare(sql)</code></item><item value=\"2\" correct=\"false\"><code>db.execute(sql)</code></item><item value=\"3\" correct=\"false\"><code>db.query(sql)</code></item></selection><p visible-if=\"wrong\">Asegúrese de elegir <code>db.prepare(sql)</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Response",
+            "id": 120935,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué información debe incluir un endpoint <code>POST</code> en su respuesta?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Un código de estado y una confirmación de que los datos fueron añadidos</item><item value=\"2\" correct=\"false\">Un código de estado y solo la nueva entrada de datos</item><item value=\"3\" correct=\"false\">Solo un código de estado</item></selection><p visible-if=\"wrong\">Un código de estado y una confirmación de que los datos fueron añadidos.</p></body></html>"
+          },
+          {
+            "title": "Example: Endpoint Path",
+            "id": 120849,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Elige el endpoint correcto.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/flights&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" sql = \" /><text value=\"&quot;SELECT * FROM flights&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" flights = db.prepare(sql).all();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"    \" /><text value=\"flights\" class=\"attr\" /><text value=\": flights\" /><text type=\"break\" /><text value=\"  });\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"8\" endIndex=\"18\" /><option correct=\"false\"><content><text value=\"&quot;/flights/:number&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>\"/flights\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Question #2",
+            "id": 120355,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué hace el código de Express cuando un usuario solicita un miembro que no existe?</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/members/:name&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" { name } = req.params;\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" sql = \" /><text value=\"&quot;SELECT * FROM members WHERE name = ?&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" requestedMember = db.prepare(sql).get(name);\" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!requestedMember) {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"404\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"   \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;Can't find requested member&quot;\" class=\"string\" /><text value=\",\" /><text type=\"break\" /><text value=\"  });\" /><text type=\"break\" /><text value=\" } \" /><text value=\"else\" class=\"keyword\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"   \" /><text value=\"member\" class=\"attr\" /><text value=\": requestedMember\" /><text type=\"break\" /><text value=\"  });\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\"});\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Envía al cliente un mensaje de error</item><item value=\"2\" correct=\"false\">Ocurre un error y el cliente no recibe información</item><item value=\"3\" correct=\"false\">El servidor solicita información adicional</item></selection><p visible-if=\"wrong\">Envía al cliente un mensaje de error.</p></body></html>"
+          },
+          {
+            "title": "Question: SQL & PUT & DELETE",
+            "id": 120994,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué tipo de declaración SQL está asociada con un endpoint PUT?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">ACTUALIZAR</item><item value=\"2\" correct=\"false\">ELIMINAR</item><item value=\"3\" correct=\"false\">DROP</item></selection><p visible-if=\"wrong\">Asegúrese de elegir ACTUALIZAR.</p></body></html>"
+          },
+          {
+            "title": "Example: DELETE II",
+            "id": 120998,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Completa la sintaxis de <code>response</code> para el endpoint <code>DELETE</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.delete(\" /><text value=\"&quot;/flights/:id&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" { id } = req.params;\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" sql = \" /><text value=\"&quot;DELETE FROM flights WHERE id = ?&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" result = db.prepare(sql).run(id);\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"if\" class=\"keyword\" /><text value=\" (result.changes &gt; \" /><text value=\"0\" class=\"number\" /><text value=\") {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"     \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;Flight deleted successfully&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  } \" /><text value=\"else\" class=\"keyword\" /><text value=\" {\" /><text type=\"break\" /><text value=\"    res.status(\" /><text value=\"404\" class=\"number\" /><text value=\").json({\" /><text type=\"break\" /><text value=\"     \" /><text value=\"message\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;Flight not found&quot;\" class=\"string\" /><text type=\"break\" /><text value=\"    });\" /><text type=\"break\" /><text value=\"  }\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"197\" endIndex=\"200\" /><option startIndex=\"200\" endIndex=\"201\" /><option startIndex=\"201\" endIndex=\"207\" /><option startIndex=\"207\" endIndex=\"208\" /><option startIndex=\"208\" endIndex=\"211\" /><option startIndex=\"211\" endIndex=\"212\" /><option correct=\"false\"><content><text value=\"201\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>res</code> seguido de <code>.</code> y luego <code>status</code>, <code>(</code>, <code>200</code>, <code>)</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

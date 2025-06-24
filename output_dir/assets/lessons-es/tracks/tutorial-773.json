@@ -1,0 +1,135 @@
+{
+  "tutorial": {
+    "id": 773,
+    "version": 22,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Empujar y Sacar Arrays",
+    "descriptionContent": "Aprende a agregar y eliminar valores en un array.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 8411,
+        "title": "Métodos de Arrays",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 73670,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Aprendamos cómo agregar y eliminar valores con arrays. Como esta aplicación de lista de tareas, que utiliza un array para agregar y eliminar tareas.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;    &lt;title&gt;To-Do List&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        body {&#xA;            font-family: Arial, sans-serif;&#xA;            display: flex;&#xA;            justify-content: center;&#xA;            align-items: center;&#xA;            margin: 0;&#xA;            background-color: #f5f5f5;&#xA;        }&#xA;        .todo-container {&#xA;            background-color: white;&#xA;            padding: 20px;&#xA;            border-radius: 10px;&#xA;            margin: 24px auto;&#xA;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);&#xA;        }&#xA;        h1 {&#xA;            font-size: 24px;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .todo-item {&#xA;            display: flex;&#xA;            align-items: center;&#xA;            margin-bottom: 10px;&#xA;        }&#xA;        .todo-item input[type=&quot;checkbox&quot;] {&#xA;            width: 20px;&#xA;            height: 20px;&#xA;            margin-right: 10px;&#xA;        }&#xA;        .todo-item.completed span {&#xA;            text-decoration: line-through;&#xA;            color: #ccc;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;div class=&quot;todo-container&quot;&gt;&#xA;        &lt;h1&gt;To-Dos&lt;/h1&gt;&#xA;        &lt;div class=&quot;todo-item&quot;&gt;&#xA;            &lt;input type=&quot;checkbox&quot; id=&quot;todo-1&quot; checked&gt;&#xA;            &lt;span&gt;buy clear nail polish 💅&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;todo-item&quot;&gt;&#xA;            &lt;input type=&quot;checkbox&quot; id=&quot;todo-2&quot;&gt;&#xA;            &lt;span&gt;buy soap bar 🧼&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;todo-item&quot;&gt;&#xA;            &lt;input type=&quot;checkbox&quot; id=&quot;todo-3&quot;&gt;&#xA;            &lt;span&gt;paint soap with nail-polish&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;todo-item&quot;&gt;&#xA;            &lt;input type=&quot;checkbox&quot; id=&quot;todo-4&quot;&gt;&#xA;            &lt;span&gt;casually leave soap in bathroom&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;todo-item&quot;&gt;&#xA;            &lt;input type=&quot;checkbox&quot; id=&quot;todo-5&quot;&gt;&#xA;            &lt;span&gt;enjoy&lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;script&gt;&#xA;        document.addEventListener('DOMContentLoaded', function() {&#xA;            const checkboxes = document.querySelectorAll('.todo-item input[type=&quot;checkbox&quot;]');&#xA;            checkboxes.forEach(checkbox =&gt; {&#xA;                checkbox.addEventListener('change', function() {&#xA;                    if (this.checked) {&#xA;                        this.parentNode.classList.add('completed');&#xA;                    } else {&#xA;                        this.parentNode.classList.remove('completed');&#xA;                    }&#xA;                });&#xA;            });&#xA;&#xA;            checkboxes.forEach(checkbox =&gt; {&#xA;                if (checkbox.checked) {&#xA;                    checkbox.parentNode.classList.add('completed');&#xA;                }&#xA;            });&#xA;        });&#xA;    &lt;/script&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Push",
+            "id": 73671,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para agregar un valor como <code>\"groceries\"</code> a un array, escribimos el nombre del array <code>toDo</code>, seguido de un punto <code>.</code>, luego el método del array <code>push(\"groceries\")</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" toDo = [\" /><text value=\"&quot;call mom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dishes&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"toDo.push(\" /><text value=\"&quot;groceries&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(toDo);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"37\" endIndex=\"41\" /><option startIndex=\"41\" endIndex=\"42\" /><option startIndex=\"42\" endIndex=\"59\" /></options></interaction></interactions><output><content><text value=\"[ 'call mom', 'dishes', 'groceries' ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>toDo</code> seguido de <code>.</code> y finalmente <code>push(\"groceries\")</code>.</p></body></html>"
+          },
+          {
+            "title": "End of the array",
+            "id": 73672,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Agregar un valor con el método <code>.push()</code> lo coloca al final del array.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" toDo = [\" /><text value=\"&quot;call mom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dishes&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"toDo.push(\" /><text value=\"&quot;groceries&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(toDo);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"47\" endIndex=\"58\" /><option correct=\"false\"><content><text value=\"groceries\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'call mom', 'dishes', 'groceries' ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>\"groceries\"</code>.</p></body></html>"
+          },
+          {
+            "title": "More values",
+            "id": 73673,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos agregar múltiples valores con <code>.push()</code> separándolos con una coma <code>,</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" toDo = [\" /><text value=\"&quot;call mom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dishes&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"toDo.push(\" /><text value=\"&quot;groceries&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;feed cat&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(toDo);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"58\" endIndex=\"59\" /><option correct=\"false\"><content><text value=\"&quot;&quot;\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'call mom', 'dishes', 'groceries', 'feed cat' ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>,</code>.</p></body></html>"
+          },
+          {
+            "title": "Pop",
+            "id": 73674,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para eliminar el último elemento del array, escribimos el nombre del array <code>toDo</code>, un punto <code>.</code>, y el método del array <code>pop()</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" toDo = [\" /><text value=\"&quot;call mom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dishes&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"toDo.pop();\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(toDo);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"37\" endIndex=\"41\" /><option startIndex=\"41\" endIndex=\"42\" /><option startIndex=\"42\" endIndex=\"45\" /><option startIndex=\"45\" endIndex=\"46\" /><option startIndex=\"46\" endIndex=\"47\" /><option correct=\"false\"><content><text value=\"push\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'call mom' ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>toDo</code> seguido de <code>.</code> y luego <code>pop</code>, <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Store removed element",
+            "id": 73676,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cuando asignamos <code>toDo.pop()</code> a una variable, la variable almacena el valor que estamos eliminando.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" toDo = [\" /><text value=\"&quot;call mom&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dishes&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"let\" class=\"keyword\" /><text value=\" chore = toDo.pop();\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(chore);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"41\" endIndex=\"46\" /><option startIndex=\"47\" endIndex=\"48\" /><option correct=\"false\"><content><text value=\":\" /></content></option></options></interaction></interactions><output><content><text value=\"dishes\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>chore</code> seguido de <code>=</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Push",
+            "id": 73870,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué método usamos para agregar un valor a un array?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>.push()</code></item><item value=\"2\" correct=\"false\"><code>.pop()</code></item></selection><p visible-if=\"wrong\">Asegúrese de elegir <code>.push()</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: End of the array",
+            "id": 73871,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Dónde va un nuevo valor que añadimos con <code>.push()</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Al final del array</item><item value=\"2\" correct=\"false\">Al principio del array</item></selection><p visible-if=\"wrong\">Al final del array.</p></body></html>"
+          },
+          {
+            "title": "Question: More values",
+            "id": 73872,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cuántos valores podemos agregar a un array usando <code>.push()</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Tantos como queramos</item><item value=\"2\" correct=\"false\">Solo un valor a la vez</item></selection><p visible-if=\"wrong\">Tantos como queramos.</p></body></html>"
+          },
+          {
+            "title": "Question: Pop",
+            "id": 73873,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué método usamos para eliminar el último elemento de un array?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>.pop()</code></item><item value=\"2\" correct=\"false\"><code>.push()</code></item></selection><p visible-if=\"wrong\">Asegúrese de elegir <code>.pop()</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Store removed element",
+            "id": 73874,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo podemos guardar el valor eliminado por <code>.pop()</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Almacenándolo en una variable</item><item value=\"2\" correct=\"false\">No podemos guardarlo porque <code>.pop()</code> no devuelve un valor</item></selection><p visible-if=\"wrong\">Almacenándolo en una variable.</p></body></html>"
+          },
+          {
+            "title": "Example: Push",
+            "id": 73876,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Agrega <code>\"joe\"</code> al array de usuarios activos.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" activeUsers = [\" /><text value=\"&quot;sue&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;mike&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"activeUsers.push(\" /><text value=\"&quot;joe&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(activeUsers);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"37\" endIndex=\"48\" /><option startIndex=\"48\" endIndex=\"60\" /><option correct=\"false\"><content><text value=\".pop()\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'sue', 'mike', 'joe' ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>activeUsers</code> seguido de <code>.push(\"joe\")</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: End of the array",
+            "id": 73877,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Agrega <code>\"sugar\"</code> al final del array usando el código <code>.push(\"sugar\")</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" cookies = [\" /><text value=\"&quot;flour&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;butter&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"cookies.push(\" /><text value=\"&quot;sugar&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(cookies);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"44\" endIndex=\"58\" /></interactions><output><content><text value=\"[ 'flour', 'butter', 'sugar' ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>.push(\"sugar\")</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: More values",
+            "id": 73878,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Agrega <code>2</code>, luego <code>500</code> al final del array.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" transactions = [\" /><text value=\"-100\" class=\"number\" /><text value=\", \" /><text value=\"5\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"transactions.push(\" /><text value=\"2\" class=\"number\" /><text value=\", \" /><text value=\"500\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(transactions);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"49\" endIndex=\"50\" /><option startIndex=\"50\" endIndex=\"51\" /><option correct=\"false\"><content><text value=\":\" /></content></option><option startIndex=\"53\" endIndex=\"56\" /><option startIndex=\"56\" endIndex=\"57\" /></options></interaction></interactions><output><content><text value=\"[ -100, 5, 2, 500 ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>(</code> seguido de <code>2</code> y luego <code>500</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Pop",
+            "id": 73879,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Elimina el valor <code>true</code> al final del array utilizando <code>.pop()</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" ordersDelivered = [\" /><text value=\"false\" class=\"literal\" /><text value=\", \" /><text value=\"false\" class=\"literal\" /><text value=\", \" /><text value=\"true\" class=\"literal\" /><text value=\"];\" /><text type=\"break\" /><text value=\"ordersDelivered.pop();\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(ordersDelivered);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"61\" endIndex=\"67\" /></interactions><output><content><text value=\"[ false, false ]\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>.pop()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Store removed element",
+            "id": 73880,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Elimina y muestra el último valor del array creando una variable y estableciendo su valor a <code>themes.pop()</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" themes = [\" /><text value=\"&quot;classic&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dark mode&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"let\" class=\"keyword\" /><text value=\" current = themes.pop();\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(current);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"45\" endIndex=\"52\" /><option startIndex=\"53\" endIndex=\"54\" /><option startIndex=\"55\" endIndex=\"67\" /><option startIndex=\"67\" endIndex=\"68\" /></options></interaction></interactions><output><content><text value=\"dark mode\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>current</code> seguido de <code>=</code> y luego <code>themes.pop()</code>, <code>;</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

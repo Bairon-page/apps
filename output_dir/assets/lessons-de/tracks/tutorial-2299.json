@@ -1,0 +1,433 @@
+{
+  "tutorial": {
+    "id": 2299,
+    "version": 2,
+    "type": "practiceOptional",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "SQL-Aggregatfunktionen",
+    "descriptionContent": "SQL-Aggregatfunktionen",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 12449,
+        "title": "Finden von MIN, MAX und Durchschnitt",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Exercise: MIN()",
+            "id": 112638,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wähle den kleinsten Wert in der `age`-Spalte aus.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM appointments;",
+                  "solvedContent": "SELECT MIN(age)\nFROM appointments;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"appointments\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"patient_name\"},{\"CellType\":\"Header\",\"Content\":\"age\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jane\"},{\"CellType\":\"Data\",\"Content\":\"32\"},{\"CellType\":\"Data\",\"Content\":\"general\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"John\"},{\"CellType\":\"Data\",\"Content\":\"23\"},{\"CellType\":\"Data\",\"Content\":\"follow-up\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Richard\"},{\"CellType\":\"Data\",\"Content\":\"55\"},{\"CellType\":\"Data\",\"Content\":\"general\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Adrian\"},{\"CellType\":\"Data\",\"Content\":\"40\"},{\"CellType\":\"Data\",\"Content\":\"follow-up\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"MIN(age)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"23\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: MAX()",
+            "id": 112639,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wähle den größten Wert in der Spalte `hours_worked` aus.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM timecards;",
+                  "solvedContent": "SELECT MAX(hours_worked)\nFROM timecards;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"timecards\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"hours_worked\"},{\"CellType\":\"Header\",\"Content\":\"worked_overtime\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Alison\"},{\"CellType\":\"Data\",\"Content\":\"40\"},{\"CellType\":\"Data\",\"Content\":\"no\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"David\"},{\"CellType\":\"Data\",\"Content\":\"45\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Robert\"},{\"CellType\":\"Data\",\"Content\":\"55\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Brandon\"},{\"CellType\":\"Data\",\"Content\":\"25\"},{\"CellType\":\"Data\",\"Content\":\"no\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"MAX(hours_worked)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"55\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing Aggregate Functions",
+            "id": 112640,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gib der Aggregatfunktion ein **Alias** von `most_calories`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT MAX(approximate_calories)\nFROM foods;",
+                  "solvedContent": "SELECT MAX(approximate_calories) AS most_calories\nFROM foods;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"foods\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name_of_food\"},{\"CellType\":\"Header\",\"Content\":\"approximate_calories\"},{\"CellType\":\"Header\",\"Content\":\"log_time\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ramen noodles\"},{\"CellType\":\"Data\",\"Content\":\"380\"},{\"CellType\":\"Data\",\"Content\":\"lunch\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Blueberry waffle\"},{\"CellType\":\"Data\",\"Content\":\"70\"},{\"CellType\":\"Data\",\"Content\":\"breakfast\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Hot chocolate\"},{\"CellType\":\"Data\",\"Content\":\"470\"},{\"CellType\":\"Data\",\"Content\":\"lunch\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Chicken adobo\"},{\"CellType\":\"Data\",\"Content\":\"850\"},{\"CellType\":\"Data\",\"Content\":\"dinner\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"most_calories\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"850\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing Aggregate Functions",
+            "id": 112641,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gib der Aggregatfunktion ein **Alias** von `shortest`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT MIN(pages)\nFROM books;",
+                  "solvedContent": "SELECT MIN(pages) AS shortest\nFROM books;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"books\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"title\"},{\"CellType\":\"Header\",\"Content\":\"author\"},{\"CellType\":\"Header\",\"Content\":\"pages\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Build Great Habits\"},{\"CellType\":\"Data\",\"Content\":\"J Watts\"},{\"CellType\":\"Data\",\"Content\":\"280\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Letting Go\"},{\"CellType\":\"Data\",\"Content\":\"T Williams\"},{\"CellType\":\"Data\",\"Content\":\"93\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"The Vision\"},{\"CellType\":\"Data\",\"Content\":\"R Ingram\"},{\"CellType\":\"Data\",\"Content\":\"620\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Still Standing\"},{\"CellType\":\"Data\",\"Content\":\"A Donnelly\"},{\"CellType\":\"Data\",\"Content\":\"475\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"shortest\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"93\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing AVG()",
+            "id": 112642,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gib der Aggregatfunktion ein **Alias** von `avg_watched`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT AVG(hours_watched) \nFROM shows;",
+                  "solvedContent": "SELECT AVG(hours_watched) AS avg_watched\nFROM shows;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"shows\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"show_name\"},{\"CellType\":\"Header\",\"Content\":\"duration\"},{\"CellType\":\"Header\",\"Content\":\"hours_watched\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Office\"},{\"CellType\":\"Data\",\"Content\":\"30\"},{\"CellType\":\"Data\",\"Content\":\"90\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"The Pitcher\"},{\"CellType\":\"Data\",\"Content\":\"50\"},{\"CellType\":\"Data\",\"Content\":\"60\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Magical\"},{\"CellType\":\"Data\",\"Content\":\"45\"},{\"CellType\":\"Data\",\"Content\":\"35\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Stranded\"},{\"CellType\":\"Data\",\"Content\":\"30\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"avg_watched\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"56.25\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing AVG()",
+            "id": 112643,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gib der Aggregatfunktion ein **Alias** von `avg_played`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT AVG(hours_played)\nFROM games;",
+                  "solvedContent": "SELECT AVG(hours_played) AS avg_played\nFROM games;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"games\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"game_title\"},{\"CellType\":\"Header\",\"Content\":\"favorited\"},{\"CellType\":\"Header\",\"Content\":\"hours_played\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"The Last of Them\"},{\"CellType\":\"Data\",\"Content\":\"yes\"},{\"CellType\":\"Data\",\"Content\":\"104\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Dungeoncraft\"},{\"CellType\":\"Data\",\"Content\":\"no\"},{\"CellType\":\"Data\",\"Content\":\"409\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Arena of Legends\"},{\"CellType\":\"Data\",\"Content\":\"yes\"},{\"CellType\":\"Data\",\"Content\":\"230\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Call of Honor\"},{\"CellType\":\"Data\",\"Content\":\"no\"},{\"CellType\":\"Data\",\"Content\":\"60\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"avg_played\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"200.75\"}]}]}]}"
+            }
+          }
+        ]
+      },
+      {
+        "id": 12454,
+        "title": "Zählen und Summieren",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Exercise: COUNT()",
+            "id": 112684,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Erhalte die Anzahl der Zeilen in der Tabelle.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM appointments;",
+                  "solvedContent": "SELECT COUNT(*)\nFROM appointments;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"appointments\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"patient_name\"},{\"CellType\":\"Header\",\"Content\":\"age\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jane\"},{\"CellType\":\"Data\",\"Content\":\"32\"},{\"CellType\":\"Data\",\"Content\":\"general\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"John\"},{\"CellType\":\"Data\",\"Content\":\"23\"},{\"CellType\":\"Data\",\"Content\":\"follow-up\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Richard\"},{\"CellType\":\"Data\",\"Content\":\"55\"},{\"CellType\":\"Data\",\"Content\":\"general\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Adrian\"},{\"CellType\":\"Data\",\"Content\":\"40\"},{\"CellType\":\"Data\",\"Content\":\"follow-up\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"COUNT(*)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"4\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing COUNT()",
+            "id": 112685,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gib `COUNT(*)` einen **Alias** von `all_timecards`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT COUNT(*) \nFROM timecards;",
+                  "solvedContent": "SELECT COUNT(*) AS all_timecards\nFROM timecards;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"timecards\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"hours_worked\"},{\"CellType\":\"Header\",\"Content\":\"worked_overtime\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Alison\"},{\"CellType\":\"Data\",\"Content\":\"40\"},{\"CellType\":\"Data\",\"Content\":\"no\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"David\"},{\"CellType\":\"Data\",\"Content\":\"45\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Robert\"},{\"CellType\":\"Data\",\"Content\":\"55\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Brandon\"},{\"CellType\":\"Data\",\"Content\":\"25\"},{\"CellType\":\"Data\",\"Content\":\"no\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"all_timecards\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"4\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: COUNT()",
+            "id": 112686,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Hole alle Zeilen für die Spalte `approximate_calories`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM foods;",
+                  "solvedContent": "SELECT COUNT(approximate_calories)\nFROM foods;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"foods\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name_of_food\"},{\"CellType\":\"Header\",\"Content\":\"approximate_calories\"},{\"CellType\":\"Header\",\"Content\":\"log_time\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ramen noodles\"},{\"CellType\":\"Data\",\"Content\":\"380\"},{\"CellType\":\"Data\",\"Content\":\"lunch\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Blueberry waffle\"},{\"CellType\":\"Data\",\"Content\":\"70\"},{\"CellType\":\"Data\",\"Content\":\"breakfast\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Hot chocolate\"},{\"CellType\":\"Data\",\"Content\":\"\"},{\"CellType\":\"Data\",\"Content\":\"lunch\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Chicken adobo\"},{\"CellType\":\"Data\",\"Content\":\"850\"},{\"CellType\":\"Data\",\"Content\":\"dinner\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"COUNT(approximate_calories)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"3\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: DISTINCT",
+            "id": 112687,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Hole alle Zeilen für die `pages`-Spalte und schließe Duplikate aus.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT COUNT()\nFROM books;",
+                  "solvedContent": "SELECT COUNT(DISTINCT pages)\nFROM books;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"books\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"title\"},{\"CellType\":\"Header\",\"Content\":\"author\"},{\"CellType\":\"Header\",\"Content\":\"pages\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Build Great Habits\"},{\"CellType\":\"Data\",\"Content\":\"J Watts\"},{\"CellType\":\"Data\",\"Content\":\"280\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Letting Go\"},{\"CellType\":\"Data\",\"Content\":\"T Williams\"},{\"CellType\":\"Data\",\"Content\":\"280\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"The Vision\"},{\"CellType\":\"Data\",\"Content\":\"R Ingram\"},{\"CellType\":\"Data\",\"Content\":\"620\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Still Standing\"},{\"CellType\":\"Data\",\"Content\":\"A Donnelly\"},{\"CellType\":\"Data\",\"Content\":\"620\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"COUNT(DISTINCT pages)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"2\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: SUM()",
+            "id": 112688,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ermittle die Summe der Spalte `hours_watched`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM shows;",
+                  "solvedContent": "SELECT SUM(hours_watched)\nFROM shows;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"shows\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"show_name\"},{\"CellType\":\"Header\",\"Content\":\"duration\"},{\"CellType\":\"Header\",\"Content\":\"hours_watched\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Office\"},{\"CellType\":\"Data\",\"Content\":\"30\"},{\"CellType\":\"Data\",\"Content\":\"90\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"The Pitcher\"},{\"CellType\":\"Data\",\"Content\":\"50\"},{\"CellType\":\"Data\",\"Content\":\"60\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Magical\"},{\"CellType\":\"Data\",\"Content\":\"45\"},{\"CellType\":\"Data\",\"Content\":\"35\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Stranded\"},{\"CellType\":\"Data\",\"Content\":\"30\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"SUM(hours_watched)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"225\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing SUM()",
+            "id": 112689,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gib der Summe der Spalte `hours_played` ein **Alias** von `total_hours`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT SUM(hours_played)\nFROM games;",
+                  "solvedContent": "SELECT SUM(hours_played) AS total_hours\nFROM games;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"games\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"game_title\"},{\"CellType\":\"Header\",\"Content\":\"favorited\"},{\"CellType\":\"Header\",\"Content\":\"hours_played\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"The Last of Them\"},{\"CellType\":\"Data\",\"Content\":\"yes\"},{\"CellType\":\"Data\",\"Content\":\"104\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Dungeoncraft\"},{\"CellType\":\"Data\",\"Content\":\"no\"},{\"CellType\":\"Data\",\"Content\":\"409\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Arena of Legends\"},{\"CellType\":\"Data\",\"Content\":\"yes\"},{\"CellType\":\"Data\",\"Content\":\"230\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Call of Honor\"},{\"CellType\":\"Data\",\"Content\":\"no\"},{\"CellType\":\"Data\",\"Content\":\"60\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"total_hours\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"803\"}]}]}]}"
+            }
+          }
+        ]
+      },
+      {
+        "id": 12459,
+        "title": "Gruppierung von Abfrageergebnissen",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Exercise: GROUP BY",
+            "id": 112736,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Gruppiere nach den verschiedenen Werten der `sport`-Spalte.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT sport\nFROM sports\n",
+                  "solvedContent": "SELECT sport\nFROM sports\nGROUP BY sport;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"sports\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"age\"},{\"CellType\":\"Header\",\"Content\":\"sport\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jeff\"},{\"CellType\":\"Data\",\"Content\":\"31\"},{\"CellType\":\"Data\",\"Content\":\"hockey\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"David\"},{\"CellType\":\"Data\",\"Content\":\"28\"},{\"CellType\":\"Data\",\"Content\":\"hockey\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jimmy\"},{\"CellType\":\"Data\",\"Content\":\"30\"},{\"CellType\":\"Data\",\"Content\":\"soccer\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Arianna\"},{\"CellType\":\"Data\",\"Content\":\"25\"},{\"CellType\":\"Data\",\"Content\":\"tennis\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"sport\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"hockey\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"soccer\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"tennis\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: COUNT() and GROUP BY",
+            "id": 112737,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Zähle alle Zeilen für die Spalte `passing`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT passing, \nFROM students\nGROUP BY passing;",
+                  "solvedContent": "SELECT passing, COUNT(*)\nFROM students\nGROUP BY passing;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"students\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"first\"},{\"CellType\":\"Header\",\"Content\":\"last\"},{\"CellType\":\"Header\",\"Content\":\"passing\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Lucas\"},{\"CellType\":\"Data\",\"Content\":\"K\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Alex\"},{\"CellType\":\"Data\",\"Content\":\"E\"},{\"CellType\":\"Data\",\"Content\":\"no\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Rob\"},{\"CellType\":\"Data\",\"Content\":\"A\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Mika\"},{\"CellType\":\"Data\",\"Content\":\"B\"},{\"CellType\":\"Data\",\"Content\":\"yes\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"passing\"},{\"CellType\":\"Header\",\"Content\":\"COUNT(*)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"no\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"yes\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing COUNT()",
+            "id": 112738,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Hole alle Zeilen für die Spalte `watching` und gib einen **Alias** von `watchers`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT watching, COUNT(*)\nFROM viewers\nGROUP BY watching;",
+                  "solvedContent": "SELECT watching, COUNT(*) AS watchers\nFROM viewers\nGROUP BY watching;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"viewers\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"location\"},{\"CellType\":\"Header\",\"Content\":\"watching\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bob\"},{\"CellType\":\"Data\",\"Content\":\"IL\"},{\"CellType\":\"Data\",\"Content\":\"Office\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jennifer\"},{\"CellType\":\"Data\",\"Content\":\"CO\"},{\"CellType\":\"Data\",\"Content\":\"Office\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Amanda\"},{\"CellType\":\"Data\",\"Content\":\"FL\"},{\"CellType\":\"Data\",\"Content\":\"Magical\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Richard\"},{\"CellType\":\"Data\",\"Content\":\"IL\"},{\"CellType\":\"Data\",\"Content\":\"Office\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"watching\"},{\"CellType\":\"Header\",\"Content\":\"watchers\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Magical\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Office\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: Aliasing COUNT()",
+            "id": 112739,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Hole alle Zeilen für die Spalte `instrument` und gib einen **Alias** von `players`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT instrument, COUNT(*) \nFROM musicians\nGROUP BY instrument;",
+                  "solvedContent": "SELECT instrument, COUNT(*) AS players\nFROM musicians\nGROUP BY instrument;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"musicians\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"genre\"},{\"CellType\":\"Header\",\"Content\":\"instrument\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Alexa\"},{\"CellType\":\"Data\",\"Content\":\"lofi\"},{\"CellType\":\"Data\",\"Content\":\"guitar\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Brandon\"},{\"CellType\":\"Data\",\"Content\":\"pop\"},{\"CellType\":\"Data\",\"Content\":\"bass\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Christian\"},{\"CellType\":\"Data\",\"Content\":\"classic rock\"},{\"CellType\":\"Data\",\"Content\":\"guitar\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Diana\"},{\"CellType\":\"Data\",\"Content\":\"edm\"},{\"CellType\":\"Data\",\"Content\":\"synth\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"instrument\"},{\"CellType\":\"Header\",\"Content\":\"players\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"bass\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"guitar\"},{\"CellType\":\"Data\",\"Content\":\"2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"synth\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Exercise: HAVING",
+            "id": 112740,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wähle nur Gruppen aus, die **mehr als 1** Gerät haben.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT version, COUNT(*) AS devices\nFROM laptops\nGROUP BY version\n",
+                  "solvedContent": "SELECT version, COUNT(*) AS devices\nFROM laptops\nGROUP BY version\nHAVING devices > 1;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"laptops\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"owner\"},{\"CellType\":\"Header\",\"Content\":\"checked_out\"},{\"CellType\":\"Header\",\"Content\":\"version\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Mimo\"},{\"CellType\":\"Data\",\"Content\":\"true\"},{\"CellType\":\"Data\",\"Content\":\"15\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Mimo\"},{\"CellType\":\"Data\",\"Content\":\"false\"},{\"CellType\":\"Data\",\"Content\":\"12\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Mimo\"},{\"CellType\":\"Data\",\"Content\":\"true\"},{\"CellType\":\"Data\",\"Content\":\"15\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Mimo\"},{\"CellType\":\"Data\",\"Content\":\"true\"},{\"CellType\":\"Data\",\"Content\":\"14\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"version\"},{\"CellType\":\"Header\",\"Content\":\"devices\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"15\"},{\"CellType\":\"Data\",\"Content\":\"2\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 112741,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Schließe die `service_score` Gruppe aus, die einen Wert von `5` hat.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT service_score, COUNT(*) AS tot_customers\nFROM customers\nGROUP BY service_score\n",
+                  "solvedContent": "SELECT service_score, COUNT(*) AS tot_customers\nFROM customers\nGROUP BY service_score\nHAVING service_score <> 5;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"customers\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"receipt_number\"},{\"CellType\":\"Header\",\"Content\":\"food_score\"},{\"CellType\":\"Header\",\"Content\":\"service_score\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"1\"},{\"CellType\":\"Data\",\"Content\":\"8\"},{\"CellType\":\"Data\",\"Content\":\"8\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"2\"},{\"CellType\":\"Data\",\"Content\":\"5\"},{\"CellType\":\"Data\",\"Content\":\"6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"3\"},{\"CellType\":\"Data\",\"Content\":\"10\"},{\"CellType\":\"Data\",\"Content\":\"5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"1\"},{\"CellType\":\"Data\",\"Content\":\"8\"},{\"CellType\":\"Data\",\"Content\":\"8\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"service_score\"},{\"CellType\":\"Header\",\"Content\":\"tot_customers\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"8\"},{\"CellType\":\"Data\",\"Content\":\"2\"}]}]}]}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

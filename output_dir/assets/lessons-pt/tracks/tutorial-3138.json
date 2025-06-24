@@ -1,0 +1,271 @@
+{
+  "tutorial": {
+    "id": 3138,
+    "version": 3,
+    "type": "guidedProject",
+    "isNew": true,
+    "codeLanguage": "node",
+    "title": "Grade de Pixels - Parte 1",
+    "descriptionContent": "Construa um aplicativo de desenho colaborativo que permita aos seus usuários serem criativos. Na primeira parte, você configurará o back-end inicial.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-3138-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 15457,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 135904,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bem-vindo ao projeto **Pixel Grid**. Vamos construir o back-end e o front-end para um aplicativo de desenho colaborativo que permite que os usuários sejam criativos. O back-end armazenará a grade de pixels 20 x 20 e a cor de cada pixel. O front-end consumirá a API do back-end para exibir a grade e atualizar os valores dos pixels com base na entrada do usuário.\n\nVamos começar configurando o back-end usando um servidor Express.\n\n1. Declare uma variável `express` e requisite o módulo `express`.\n2. Declare uma variável `app` e inicialize-a chamando a função `express`.\n3. Declare uma variável `PORT` e atribua a ela o valor `3000`.\n4. Use a função `listen` em `app` para fazer o aplicativo escutar na porta especificada pela variável `PORT`.\n5. Registre uma mensagem no console dentro do callback da função `listen` para que saibamos que nosso servidor está funcionando corretamente.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const express = require(\"express\");\nconst app = express();\nconst PORT = 3000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 135905,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos salvar os desenhos dos nossos usuários em um banco de dados SQLite. Para esse propósito, usaremos a biblioteca `better-sqlite3`.\n\n1. No arquivo `database.js`, importe o módulo `better-sqlite3` usando `require(\"better-sqlite3\")`. Atribua o objeto resultante a uma constante chamada `Database`.\n2. Crie um novo banco de dados SQLite chamado `grid.db` invocando `new Database(\"/tmp/grid.db\")`. Salve o objeto do banco de dados em uma constante chamada `db`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst app = express();\nconst PORT = 3000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 135906,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Uma vez que o banco de dados estiver configurado, vamos criar uma tabela `grid` para armazenar dados da grade. Cada entrada nesta tabela representará um pixel. Precisamos de colunas para as coordenadas `x` e `y`, assim como a cor que o pixel deve mostrar.\n\n1. Use o método `db.exec` para executar um comando SQL.\n2. Como argumento do método `db.exec`, adicione um comando SQL para criar uma tabela `grid` com as seguintes colunas:\n   - `x`: int\n   - `y`: int\n   - `color`: text\n3. Para evitar adicionar mais e mais pixels ao banco de dados toda vez que o arquivo `database.js` for executado, altere o comando SQL para criar a tabela apenas se ela ainda não existir.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst app = express();\nconst PORT = 3000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n",
+                  "solvedContent": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 135908,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para permitir que a conexão com o banco de dados seja usada em outros arquivos, precisamos exportá-la.\n\n1. Usando `module.exports`, exporte `db` no final do arquivo.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst app = express();\nconst PORT = 3000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n",
+                  "solvedContent": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nmodule.exports = db;\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 135909,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "No nosso app Express, vamos conectar ao banco de dados SQLite usando o arquivo `database.js`.\n\n1. Importe o módulo `db` que você exportou do arquivo de banco de dados com a declaração `require` no arquivo do app.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst app = express();\nconst PORT = 3000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nmodule.exports = db;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 135907,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Podemos acessar o banco de dados, e a tabela de grid está pronta. Em seguida, vamos preencher a tabela com alguns pontos de grid padrão como dados iniciais. Claro, só precisaremos preencher a tabela se ela ainda estiver vazia.\n\n1. Para verificar se devemos preencher a tabela com dados iniciais, use uma instrução SQL para contar o número de linhas existentes na tabela e armazene o valor de retorno em uma constante como `rowCount`.\n2. Crie um grid com 400 objetos de ponto de grid. Cada objeto deve ter uma propriedade *x* e uma propriedade *y* representando as coordenadas e uma propriedade *color*.\n   - Use dois loops `for` aninhados para criar um grid de 400 objetos.\n   - O loop externo deve representar as linhas (valores x de `0` a `19`).\n   - O loop interno deve representar as colunas (valores y de `0` a `19`).\n   - Cada objeto de grid deve ter a cor \"white\".\n   - Armazene todos esses objetos em um único array.\n3. Insira o grid no banco de dados se ainda não houver linhas na tabela de grid.\n   - Prepare uma instrução `INSERT INTO` como `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`.\n   - Use `db.transaction` para agrupar todas as inserções para melhor desempenho e confiabilidade.\n   - Execute a transação definida e passe o array de objetos de grid para inserir todos os 400 pontos de grid no banco de dados em uma única operação.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nmodule.exports = db;\n",
+                  "solvedContent": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nconst rowCount = db.prepare(\"SELECT COUNT(*) AS count FROM grid\").get().count;\n\nif (rowCount === 0) {\n  const grid = [];\n  for (let x = 0; x < 20; x++) {\n    for (let y = 0; y < 20; y++) {\n      grid.push({ x, y, color: \"white\" });\n    }\n  }\n\n  const insertStatement = db.prepare(\n    `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`,\n  );\n  const insertTransaction = db.transaction((rows) => {\n    for (const row of rows) {\n      insertStatement.run(row.x, row.y, row.color);\n    }\n  });\n\n  insertTransaction(grid);\n}\n\nmodule.exports = db;\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 135910,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Em seguida, vamos configurar uma rota `\"/grid\"` para obter os dados da grade, permitindo que o front-end acesse os dados do banco de dados. Usaremos este endpoint para buscar todas as linhas na nossa tabela de grade e enviá-las como uma resposta JSON.\n\n1. Defina um novo endpoint `\"/grid\"`.\n2. Dentro da rota, escreva um comando SQL `SELECT` com `db.prepare(\"SELECT ...\").all()` para buscar todas as linhas da grade.\n3. Envie as linhas buscadas de volta como uma resposta JSON com uma propriedade chamada *grid*. Certifique-se de definir o status como `200`.\n4. Use um bloco `try-catch` para lidar com possíveis erros. Se encontrar um erro, defina o status como `500` e envie de volta uma resposta JSON com uma propriedade *message* que informe ao cliente que houve um problema.\n\nNa próxima parte do projeto, usaremos este endpoint para exibir a grade.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nconst rowCount = db.prepare(\"SELECT COUNT(*) AS count FROM grid\").get().count;\n\nif (rowCount === 0) {\n  const grid = [];\n  for (let x = 0; x < 20; x++) {\n    for (let y = 0; y < 20; y++) {\n      grid.push({ x, y, color: \"white\" });\n    }\n  }\n\n  const insertStatement = db.prepare(\n    `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`,\n  );\n  const insertTransaction = db.transaction((rows) => {\n    for (const row of rows) {\n      insertStatement.run(row.x, row.y, row.color);\n    }\n  });\n\n  insertTransaction(grid);\n}\n\nmodule.exports = db;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/grid",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #7 - Copy",
+            "id": 135937,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Antes de podermos prosseguir para o front-end, precisamos permitir o CORS, que significa *Cross-Origin Resource Sharing*. CORS é um mecanismo que permite a um servidor aceitar solicitações de um domínio diferente, garantindo interações seguras entre servidores e clientes front-end hospedados em origens diferentes. Precisaremos de CORS porque o back-end será hospedado em um domínio diferente do front-end, o que os navegadores restringem por padrão por razões de segurança.\n\nAo importar o pacote CORS, podemos permitir CORS e habilitar solicitações de origem cruzada em nosso servidor.\n\n1. Requerer o pacote `\"cors\"` e atribuí-lo a uma variável chamada `cors`.\n2. Fazer o app usar o middleware importado `cors` chamando `app.use` e passando a função `cors()` como parâmetro.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst cors = require(\"cors\");\nconst db = require(\"./database\");\nconst app = express();\nconst PORT = 3000;\n\napp.use(cors());\n\napp.get(\"/grid\", (req, res) => {\n  try {\n    const rows = db.prepare(\"SELECT * FROM grid\").all();\n    res.status(200).json({ grid: rows });\n  } catch (error) {\n    res.status(500).json({ message: \"Error fetching grid data\", error });\n  }\n});\n\napp.listen(PORT, () => {\n  console.log(`Server is running on port ${PORT}`);\n});\n"
+                },
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require(\"better-sqlite3\");\nconst db = new Database(\"/tmp/grid.db\");\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS grid (\n    x INT,\n    y INT,\n    color TEXT\n  )\n`);\n\nconst rowCount = db.prepare(\"SELECT COUNT(*) AS count FROM grid\").get().count;\n\nif (rowCount === 0) {\n  const grid = [];\n  for (let x = 0; x < 20; x++) {\n    for (let y = 0; y < 20; y++) {\n      grid.push({ x, y, color: \"white\" });\n    }\n  }\n\n  const insertStatement = db.prepare(\n    `INSERT INTO grid (x, y, color) VALUES (?, ?, ?)`,\n  );\n  const insertTransaction = db.transaction((rows) => {\n    for (const row of rows) {\n      insertStatement.run(row.x, row.y, row.color);\n    }\n  });\n\n  insertTransaction(grid);\n}\n\nmodule.exports = db;\n",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/grid",
+                "body": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "tutorial": {
+    "id": 2846,
+    "version": 2,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "ChatGPT Clone - Part 1",
+    "descriptionContent": "Use the OpenAI API to create our own version of ChatGPT and get a first impression of what's possible when working with LLMs",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 14926,
+        "title": "Chapter #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 131647,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Welcome to the **ChatGPT Clone** project. When it was introduced, ChatGPT took the world by storm. Suddenly, AI was available to everyone. In this project, we'll use the OpenAI API to create our own version of ChatGPT and get a first impression of what's possible with their API.\n\nWe are using the `os` module to read the OpenAI API key, which is stored as an environment variable to ensure its security.\n\n1. Write `import os` to import the `os` module.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "",
+                  "solvedContent": "import os"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 131648,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We also extensively use the `requests` module in our script to interact with the OpenAI API, so let's import this module as well. \n\n1. Write `import requests` to import the `requests` module.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import os",
+                  "solvedContent": "import requests\nimport os"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 131649,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "As we interact with an API that requires an API key for access, we need to first retrieve the API key from your environment variables. We've added the needed API key to the `.env` file already. All you need to do is, retrieve it.\n\n1. Create an `api_key` variable.\n2. Use `os.getenv` to retrieve your OpenAI API key.\n   - Query the API key with the name `\"MIMO_OPENAI_API_KEY\"`.\n   - Assign key to the `api_key` variable.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 131650,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "The endpoint we'll use is `https://ai.mimo.org/v1/openai/message`. This is a Mimo-provided proxy for OpenAI's assistant endpoint.\n\n1. Create a `url` variable and assign the endpoint `https://ai.mimo.org/v1/openai/message` to the `url` variable.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\""
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 131651,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "The headers for the API request are required to authenticate yourself to the API to ensure that your request will be processed. The app takes this API key in the header of the API request. Let's set it up next.\n\n1. Create a `headers` dictionary.\n2. Add `\"api-key\"` as a key and `api_key` as its value.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 131652,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "The endpoint that we'll use works with threads. A thread is a conversation a user has with the large language model. If we want to enable our user to continue a given thread, we need to save its ID. To prepare this, we'll create a new variable that will later hold that ID.\n\n1. Initialize a variable `current_thread_id` with `None`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ncurrent_thread_id = None"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 131664,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We are almost ready to send our first API call. But what should we send? Let's ask the user.\n\n1. Use `input` to take a user message.\n   - Store it in a newly created `user_message` variable.\n   - As this should be a chat, we can prompt a simple `\"You: \"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ncurrent_thread_id = None\n",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 131653,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Now, we'll define a function to send a message to the OpenAI platform and get a response.\n\n1. Define a function `send_message` with parameters `user_message` and `current_thread_id`.\n2. Inside the function, create a `body` dictionary with \"message\" as the key and `user_message` as the value.\n3. Then send the request.\n   - Use `requests.post` to post the data to OpenAI API.\n   - Ensure to use the `url`, the `headers`, and the `body` as JSON.\n   - Assign the response to a variable `response`. \n4. Print the `response` variable.\n5. Call the newly created function with the `user_message` and `current_thread_id` as parameters. You should receive a `<Response [200]>` but it might take a few seconds.\n\nRun the program and try it out! Remember that you are calling an actual LLM endpoint. It might take some time to get a response.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    response = requests.post(url, headers=headers, json=body)\n    print(response)\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nsend_message(user_message, current_thread_id)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #7 - Copy",
+            "id": 131665,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Instead of printing the response object inside the function, we want to get the JSON data and return it.\n\n1. Remove the `print` statement inside the function.\n2. Use call `response.json()` to unpack the JSON.\n3. Return the unpacked value.\n4. Assign the return value of the `send_message` to a new variable called `response_data`.\n5. Log the `response_data` variable.\n\nIf you run the program and enter *Hi*, you should see something like `{'threadId': 'thread_H7ov...', 'response': 'Hello! How can I help you today?\\n'}`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    response = requests.post(url, headers=headers, json=body)\n    print(response)\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nsend_message(user_message, current_thread_id)",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nprint(response_data)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy",
+            "id": 131666,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "By now, we don't use the second passed argument, `thread_id`. We should append it to the body to continue a given thread.\n\n1. If `thread_id` is not `None` append it to the body as `\"threadId\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nprint(response_data)",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nprint(response_data)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8",
+            "id": 131654,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Time to unpack the message and the ID of the thread from the response object.\n\n1. Retrieve the values for `\"response\"` and the `\"threadId\"` from `response_data` using `.get()` and store them in a newly created `latest_message` and the previously created `current_thread_id` variables.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nprint(response_data)",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nprint(response_data)\nlatest_message = response_data.get(\"response\")\ncurrent_thread_id = response_data.get(\"threadId\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #9",
+            "id": 131655,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "As we now have the real response from the LLM saved in `latest_message`, let's display it.\n\n1. Remove the `print` statement that prints the `response_data` object.\n2. Add a `print` statement that displays the message. As this is a conversation. Prefix the print output with `\"GPT: \"` to indicate the message comes from GPT. Use an f-string to achieve this.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nprint(response_data)\nlatest_message = response_data.get(\"response\")\ncurrent_thread_id = response_data.get(\"threadId\")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nlatest_message = response_data.get(\"response\")\ncurrent_thread_id = response_data.get(\"threadId\")\nprint(f\"GPT: {latest_message}\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8 - Copy",
+            "id": 131667,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "As a final step in the first part of the project, let's make the conversation continue, by using an infinite loop. For now, the conversation will run until the program stops.\n\n1. Wrap the code starting at `input` until the `print` statement in a `while` loop that runs forever",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nuser_message = input(\"You: \")\nresponse_data = send_message(user_message, current_thread_id)\nlatest_message = response_data.get(\"response\")\ncurrent_thread_id = response_data.get(\"threadId\")\nprint(f\"GPT: {latest_message}\")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nwhile True:\n    user_message = input(\"You: \")\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

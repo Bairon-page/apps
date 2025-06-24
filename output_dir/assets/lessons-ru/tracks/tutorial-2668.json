@@ -1,0 +1,103 @@
+{
+  "tutorial": {
+    "id": 2668,
+    "version": 7,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "API Star Wars - Часть 2",
+    "descriptionContent": "Дай пользователям возможность в этом продолжении выбирать, сколько персонажей загружать и исследовать",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2668-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14643,
+        "title": "Глава №1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 129511,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Добро пожаловать обратно в проект **Star Wars API**. Во второй части мы позволим пользователю решать, какие данные мы будем извлекать из API.\n\n1. Создайте новую функцию под названием `fetch_data`, которая будет инкапсулировать весь существующий код, кроме оператора импорта.\n   - Функция должна принимать параметр под названием `option`.\n   - Перед блоком try-except определите переменную `data`, которую мы будем использовать позже, и присвойте ей пустой список.\n   - Внутри этой функции оставьте остальной существующий код без изменений.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\ntry:\n  response = requests.get(url)\n  response.raise_for_status()\n\n  data = response.json()\n  print(f\"Successfully fetched {len(data)} entities\")\nexcept requests.HTTPError as e:\n  print(f\"Error fetching data: {e}\")\n\nif data:\n  for entity in data:\n    print(entity[\"name\"])\nelse:\n  print(\"Unable to download data\")",
+                  "solvedContent": "import requests\n\ndef fetch_data(option):\n  option = \"people\"\n  url = f\"https://swapi.mimo.dev/api/{option}/\"\n  data = []\n  try:\n    response = requests.get(url)\n    response.raise_for_status()\n\n    data = response.json()\n    print(f\"Successfully fetched {len(data)} entities\")\n  except requests.HTTPError as e:\n    print(f\"Error fetching data: {e}\")\n\n  if data:\n    for entity in data:\n      print(entity[\"name\"])\n  else:\n    print(\"Unable to download data\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129512,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Первая строка функции создает переменную `option` и присваивает ей значение `\"people\"`. Поскольку теперь мы передаем этот параметр в функцию, эта строка больше не нужна.\n\n1. Удалите строку `option = \"people\"` из функции, чтобы `url` использовал переданный параметр `option`.\n2. Наконец, вызовите функцию с параметром `\"people\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\ndef fetch_data(option):\n  option = \"people\"\n  url = f\"https://swapi.mimo.dev/api/{option}/\"\n  data = []\n  try:\n    response = requests.get(url)\n    response.raise_for_status()\n\n    data = response.json()\n    print(f\"Successfully fetched {len(data)} entities\")\n  except requests.HTTPError as e:\n    print(f\"Error fetching data: {e}\")\n\n  if data:\n    for entity in data:\n      print(entity[\"name\"])\n  else:\n    print(\"Unable to download data\")",
+                  "solvedContent": "import requests\n\ndef fetch_data(option):\n  url = f\"https://swapi.mimo.dev/api/{option}/\"\n  data = []\n  try:\n    response = requests.get(url)\n    response.raise_for_status()\n\n    data = response.json()\n    print(f\"Successfully fetched {len(data)} entities\")\n  except requests.HTTPError as e:\n    print(f\"Error fetching data: {e}\")\n\n  if data:\n    for entity in data:\n      print(entity[\"name\"])\n  else:\n    print(\"Unable to download data\")\n\nfetch_data(\"people\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8",
+            "id": 129518,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Сейчас функция напрямую выводит результат. Давайте изменим её и будем возвращать результат вместо этого.\n\n1. Переместите блок `if`, который выводит каждый элемент результата, за пределы функции, разместив его ниже вызова функции.\n2. Измените функцию, чтобы она возвращала `data` в конце.\n3. Добавьте `return None` в блоке `except`.\n4. Присвойте возвращаемое значение функции новой переменной с именем `data` за пределами функции.\n5. Используйте эту переменную `data`, чтобы перебрать и вывести элементы возвращённого списка.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\ndef fetch_data(option):\n  url = f\"https://swapi.mimo.dev/api/{option}/\"\n  data = []\n  try:\n    response = requests.get(url)\n    response.raise_for_status()\n\n    data = response.json()\n    print(f\"Successfully fetched {len(data)} entities\")\n  except requests.HTTPError as e:\n    print(f\"Error fetching data: {e}\")\n\n  if data:\n    for entity in data:\n      print(entity[\"name\"])\n  else:\n    print(\"Unable to download data\")\n\nfetch_data(\"people\")",
+                  "solvedContent": "import requests\n\ndef fetch_data(option):\n  url = f\"https://swapi.mimo.dev/api/{option}/\"\n  data = []\n  try:\n    response = requests.get(url)\n    response.raise_for_status()\n\n    data = response.json()\n    print(f\"Successfully fetched {len(data)} entities\")\n  except requests.HTTPError as e:\n    print(f\"Error fetching data: {e}\")\n    return None\n\n  return data\n\ndata = fetch_data(\"people\")\n\nif data:\n  for entity in data:\n    print(entity[\"name\"])\nelse:\n    print(\"Unable to download data\")\n"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #8 - Copy",
+            "id": 131645,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Есть больше endpoints, которые мы можем вызвать. Давайте дадим нашим пользователям выбор.\n\n1. Спросите у пользователя, какие данные StarWars он хотел бы изучить.\n2. Соберите ответ с помощью функции `input` в Python и сохраните его.\n   - Удалите ненужные пробелы в начале и в конце.\n   - Преобразуйте ввод в нижний регистр.\n   - Сохраните ввод в переменной с именем `option`.\n3. Вместо передачи `\"people\"` в качестве аргумента при вызове `fetch_data`, передайте `option`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\ndef fetch_data(option):\n  url = f\"https://swapi.mimo.dev/api/{option}/\"\n  data = []\n  try:\n    response = requests.get(url)\n    response.raise_for_status()\n\n    data = response.json()\n    print(f\"Successfully fetched {len(data)} entities\")\n  except requests.HTTPError as e:\n    print(f\"Error fetching data: {e}\")\n    return None\n\n  return data\n\ndata = fetch_data(\"people\")\n\nif data:\n  for entity in data:\n    print(entity[\"name\"])\nelse:\n    print(\"Unable to download data\")",
+                  "solvedContent": "import requests\n\ndef fetch_data(option):\n  url = f\"https://swapi.mimo.dev/api/{option}/\"\n  data = []\n  try:\n    response = requests.get(url)\n    response.raise_for_status()\n\n    data = response.json()\n    print(f\"Successfully fetched {len(data)} entities\")\n  except requests.HTTPError as e:\n    print(f\"Error fetching data: {e}\")\n    return None\n\n  return data\n\noption = input(\"Enter an option (e.g., 'people' or 'planets'): \").strip().lower()\ndata = fetch_data(option)\n\nif data:\n  for entity in data:\n    print(entity[\"name\"])\nelse:\n    print(\"Unable to download data\")"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

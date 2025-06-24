@@ -1,0 +1,415 @@
+{
+  "tutorial": {
+    "id": 1953,
+    "version": 10,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Aplicación de Reserva de Vuelos",
+    "descriptionContent": "Crea una aplicación sencilla de reserva de vuelos usando Tipos y Comparaciones",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1953-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12588,
+        "title": "Aplicación de Reserva de Vuelos",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Starter Code",
+            "id": 113811,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos a usar nuestro conocimiento de Tipos y Comparaciones para crear una aplicación simple de reserva de vuelos.\n\nHemos proporcionado un código inicial. Echa un vistazo a la descripción a continuación para ver lo que ya está ahí.\n\n1. En `index.html`, hay un elemento `h1`, seguido de un elemento `div`. Dentro del elemento `div`, hay algunos elementos `p` que muestran información sobre la reserva de vuelos.\n2. En `style.css`, hemos asignado propiedades de estilo para todos los elementos.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n background: mintcream;\r\n font-family: Poppins;\r\n text-align: center;\r\n}\r\n\r\nh1 {\r\n background: turquoise;\r\n padding: 10px;\r\n color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n border-style: dashed;\r\n}\r\n\r\np {\r\n font-weight: bold;\r\n}\r\n\r\nspan {\r\n font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Logging Name",
+            "id": 113812,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Hay algunas cosas que debemos tener en cuenta al reservar un vuelo, como la información de identificación necesaria, el tipo de equipaje incluido, etc.\n\nEn esta aplicación, comenzaremos con alguna información requerida para reservar un vuelo.\n\nPrimero, obtendremos el nombre del pasajero.\n\n1. Crea una constante llamada `nameOnPass` y almacena el nombre de tu elección en la constante.\n2. Imprime `\"Passenger Name: \" + nameOnPass` en la consola.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `console.log` to print anything in the console.\n\nUse `const <constantName> = <constantValue>` to create a constant."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Checking ID",
+            "id": 113813,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, se necesita verificar el ID. Para ser confirmado, el nombre en el ID debe ser el mismo que el proporcionado por el pasajero.\n\n1. Crea una constante llamada `nameOnId`. Almacena un nombre de tu elección en ella. El nombre puede ser el mismo que el nombre anterior o uno diferente. El resultado será `true` si el nombre coincide y `false` si el nombre no coincide.\n2. Verifica si `nameOnPass` es igual a `nameOnId` y almacena la comparación en una constante llamada `nameMatch`.\n3. Imprime `\"ID confirmado? \" + nameMatch` en la consola.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `===` operator to check if one value equals another value."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Checking Hand Baggage Length",
+            "id": 113814,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora que la identificación del pasajero está confirmada, necesitamos verificar si el equipaje de mano es elegible para el vuelo comprobando la longitud y la altura del equipaje.\n\nComencemos con la longitud. La longitud debe ser menor de 30 cm para pasar.\n\n1. Crea una constante llamada `length` y guarda en ella el número de tu elección.\n2. Verifica si `length` es menor que 30, y guarda la comparación en una constante llamada `doesLengthPass`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `<` operator to check if a value is greater than another value. "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Checking Hand Baggage Height",
+            "id": 113815,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Haremos la misma verificación con la altura. La altura debe ser menor de 55 cm para pasar.\n\n1. Crea una variable `const` llamada `height` y guarda el número de tu elección en ella.\n2. Verifica si `height` es menor que 55, y guarda la comparación en una constante llamada `doesHeightPass`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Refer to the previous code. "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Checking Hand Baggage Eligibility",
+            "id": 113816,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Finalmente, después de verificar la longitud y la altura, podemos comprobar si el equipaje de mano es elegible o no.\n\nPero aquí hay algo complicado. Tenemos dos condiciones: `doesLengthPass` que verifica si `length` es menor que 30 y `doesHeightPass` que verifica si `height` es menor que 55.\n\nNecesitamos que *ambas* condiciones sean `true` para que el equipaje de mano sea elegible. ¿Cómo podemos verificar ambas condiciones juntas? Usaremos un operador lógico llamado **AND** (usado como `&&`). `AND` devuelve `true` solo si ambas condiciones son `true`.\n\n1. Para verificar ambas condiciones juntas con `&&`, simplemente coloca `&&` entre las condiciones. En este caso, escribe `doesLengthPass && doesHeightPass` y guárdalo en una constante llamada `isHandBaggageEligible`. Consulta la pista para un ejemplo.\n2. Imprime `\"Is Hand Baggage Eligible? \" + isHandBaggageEligible` en la consola.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Here's an example to explain the outcome. Say, the length is 23 and the height is 60. Here, `isLengthExcess` will store `true` since the length is less than 30 and `isHeightExcess` will store `false` since the height is less than 55. Since one condition is `false`, `isLengthExcess && isHeightExcess` will return `false`. "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Round Trip Check",
+            "id": 113817,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "¡Perfecto! Ahora, vamos a verificar si el vuelo es de ida y vuelta o no.\n\nEn esta aplicación, un usuario puede reservar más de un tipo de vuelo, tanto de ida y vuelta como de solo ida. Queremos identificar los vuelos de ida y vuelta.\n\n¿Cómo confirmaremos que es de ida y vuelta en lugar de 2 vuelos de solo ida? Queremos crear una verificación para confirmar si es de ida y vuelta comprobando si el destino del vuelo actual y el origen del vuelo de regreso son los mismos.\n\n1. Crea una constante llamada `flightDes` y almacena una ciudad de tu elección en ella. Esta constante representará el destino del vuelo actual.\n2. Crea otra constante llamada `returnFrom` y almacena una ciudad de tu elección en ella. La ciudad puede ser la misma que `flightDes`. Esta constante representará el lugar desde donde el pasajero está regresando.\n3. Verifica si `flightDes` es igual a `returnFrom` y almacena la comparación en una constante llamada `isRoundTrip`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Logging Round Trip Check",
+            "id": 113823,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Después de verificar, queremos mostrar el resultado.\n\n1. Imprime `\"Round Trip Check? \"` seguido de `isRoundTrip` en la consola.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;\r\nconsole.log(\"Round Trip Check? \" + isRoundTrip);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Flight Capacity Check",
+            "id": 113818,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "¿ID? Comprobado. ¿Equipaje de mano? Comprobado. ¿Viaje de ida y vuelta? Comprobado.\n\n¡Pero espera! ¿El vuelo está siquiera disponible? ¡Vamos a comprobarlo de nuevo para asegurarnos!\n\n1. Crea una constante llamada `bookings` y guarda el número de tu elección en ella. Esta constante representa el número actual de reservas para el vuelo, es decir, cuántos asientos del vuelo han sido ocupados.\n2. Crea otra constante llamada `totalCapacity` y guarda el número de tu elección en ella. Esta constante representa el número total de asientos en el vuelo.\n3. Comprueba si el número de asientos ocupados es menor que el número total de asientos en el vuelo y guarda la comparación en una constante llamada `isFlightAvailable`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;\r\nconsole.log(\"Round Trip Check? \" + isRoundTrip);",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;\r\nconsole.log(\"Round Trip Check? \" + isRoundTrip);\r\nconst bookings = 120;\r\nconst totalCapacity = 150;\r\nconst isFlightAvailable = bookings < totalCapacity;"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Check if `bookings` is less than `totalCapacity`.\n2. Use `<` operator to check if a value is less than another value. "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Logging Flight Capacity Check",
+            "id": 113824,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora, queremos mostrar si el vuelo está disponible o no.\n\n1. Imprime `\"Are seats available? \"` seguido de `isFlightAvailable` en la consola.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;\r\nconsole.log(\"Round Trip Check? \" + isRoundTrip);\r\nconst bookings = 120;\r\nconst totalCapacity = 150;\r\nconst isFlightAvailable = bookings < totalCapacity;",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;\r\nconsole.log(\"Round Trip Check? \" + isRoundTrip);\r\nconst bookings = 120;\r\nconst totalCapacity = 150;\r\nconst isFlightAvailable = bookings < totalCapacity;\r\nconsole.log(\"Are seats available? \" + isFlightAvailable);"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use `console.log` to print anything in the console."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Displaying Information",
+            "id": 113819,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "¡Buen trabajo! ¡Hemos verificado y mostrado con éxito la información de la reserva de vuelo del usuario!\n\nLlevemos esto al siguiente paso mostrando el resultado en la página HTML que ya tenemos.\n\nAl hacer esto, podremos ver cómo nuestra salida de consola se muestra en la página HTML que verá el usuario.\n\n1. Copia y pega el código dado *debajo del código existente*. Esto actualizará la página HTML con los valores de resultado que imprimimos en la consola antes. No te preocupes por entender completamente el código todavía, ya que aprenderemos más sobre él en lecciones posteriores. Pero si aún deseas aprender un poco sobre ello, revisa la sección de pistas.\n```javascript\ndocument.querySelector(\"#name\").innerHTML = nameOnPass;\ndocument.querySelector(\"#id\").innerHTML = nameMatch;\ndocument.querySelector(\"#bag\").innerHTML = isHandBaggageEligible;\ndocument.querySelector(\"#des\").innerHTML = isRoundTrip;\ndocument.querySelector(\"#seat\").innerHTML = isFlightAvailable;\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\n  </head>\n  <body>\n    <h1>Flight Booking</h1>\n    <div>\n      <p>Passenger Name: <span id=\"name\"></span></p>\n      <p>ID confirmed?: <span id=\"id\"></span></p>\n      <p>Is Hand Baggage eligible?: <span id=\"bag\"></span></p>\n      <p>Round Trip Check?: <span id=\"des\"></span></p>\n      <p>Are seats available?: <span id=\"seat\"></span></p>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap');\r\n\r\nbody {\r\n  background: mintcream;\r\n  font-family: Poppins;\r\n  text-align: center;\r\n}\r\n\r\nh1 {\r\n  background: turquoise;\r\n  padding: 10px;\r\n  color: whitesmoke;\r\n}\r\n\r\ndiv {\r\n  border-style: dashed;\r\n}\r\n\r\np {\r\n  font-weight: bold;\r\n}\r\n\r\nspan {\r\n  font-weight: lighter;\r\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;\r\nconsole.log(\"Round Trip Check? \" + isRoundTrip);\r\nconst bookings = 120;\r\nconst totalCapacity = 150;\r\nconst isFlightAvailable = bookings < totalCapacity;\r\nconsole.log(\"Are seats available? \" + isFlightAvailable);",
+                  "solvedContent": "const nameOnPass = \"Suzanne Parker\";\r\nconsole.log(\"Passenger Name: \" + nameOnPass);\r\nconst nameOnId = \"Suzanne Parker\";\r\nconst nameMatch = nameOnPass === nameOnId;\r\nconsole.log(\"ID confirmed? \" + nameMatch);\r\nconst length = 25;\r\nconst doesLengthPass = length < 30;\r\nconst height = 57;\r\nconst doesHeightPass = height < 55;\r\nconst isHandBaggageEligible = doesHeightPass && doesLengthPass;\r\nconsole.log(\"Is Hand Baggage Eligible? \" + isHandBaggageEligible);\r\nconst flightDes = \"Paris\";\r\nconst returnFrom = \"Paris\";\r\nconst isRoundTrip = flightDes === returnFrom;\r\nconsole.log(\"Round Trip Check? \" + isRoundTrip);\r\nconst bookings = 120;\r\nconst totalCapacity = 150;\r\nconst isFlightAvailable = bookings < totalCapacity;\r\nconsole.log(\"Are seats available? \" + isFlightAvailable);\r\ndocument.querySelector(\"#name\").innerHTML = nameOnPass;\r\ndocument.querySelector(\"#id\").innerHTML = nameMatch;\r\ndocument.querySelector(\"#bag\").innerHTML = isHandBaggageEligible;\r\ndocument.querySelector(\"#des\").innerHTML = isRoundTrip;\r\ndocument.querySelector(\"#seat\").innerHTML = isFlightAvailable;"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "`document.querySelector` returns the HTML element that matches a CSS selector.\nFor example, `document.querySelector(\"h1\")` will return the `h1` element in this code. \nSimilarly, `document.querySelector(\"#name\"`) will return the `span` element whose `id` attribute is set to `name`. "
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

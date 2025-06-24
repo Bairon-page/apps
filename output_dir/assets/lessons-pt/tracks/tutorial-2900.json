@@ -1,0 +1,163 @@
+{
+  "tutorial": {
+    "id": 2900,
+    "version": 3,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Ímpar ou Par - Parte 1",
+    "descriptionContent": "Construa seu próprio jogo! Nesta primeira parte, vamos preparar o cenário criando a lógica básica do jogo.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2900-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14991,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132171,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bem-vindo ao projeto **Ímpar ou Par**. Vamos construir um jogo simples de números em que o jogador e o computador escolhem cada um um número entre 1 e 5 e decidem se a soma de seus números será ímpar ou par. Se a soma corresponder ao palpite do jogador, o jogador vence.\n\nPara capturar a entrada de uma maneira fácil e conveniente, usamos o pacote `input` fornecido pela Mimo.\n\n1. Crie uma variável `input` usando o módulo `input` para capturar a entrada do usuário adicionando `const input = require(\"@mimo-org/input\");` no topo do seu arquivo. Isso pode parecer um pouco estranho, mas aprenderemos mais sobre a importação de módulos mais tarde. Por enquanto, saiba apenas que isso adiciona mais funcionalidade ao nosso programa.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 132930,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "O pacote de input fornecido pelo Mimo oferece uma maneira fácil de capturar input do usuário. Após requerer o pacote, podemos chamar `input` com ou sem fornecer uma string entre os parênteses. `input()` solicitará um input, enquanto `input(\"Give me input: \")` também exibirá a frase fornecida para o usuário. (Adicionamos um espaço no final para dar um pouco mais de espaço para o input.)\n\n1. Declare uma variável `playerChoice` para armazenar a escolha do jogador (`\"odd\"` ou `\"even\"`).\n   - Use a função `input` para pedir um input ao usuário. Forneça um prompt como `\"Choose 'odd' or 'even': \"`.\n   ```\n   let playerChoice = input(\"Choose 'odd' or 'even': \");\n   ```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132172,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Agora, vamos pedir ao jogador para fornecer seu número.\n\n1. Declare uma nova variável `playerNumber` para armazenar o número do jogador.\n   - Use a função `input` para pedir a entrada do usuário.\n   - Peça o número que o jogador deseja escolher e salve em `playerNumber`.\n   - Certifique-se de fazer o parsing do inteiro a partir da entrada para salvar um número, não uma string, já que a entrada é analisada como uma string.\n   ```\n   let playerNumber = parseInt(input(\"Escolha um número entre 1 e 5: \"));\n   ```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132173,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Temos as seleções do jogador, vamos gerar as do computador.\n\n1. Declare a variável `computerNumber` e use `Math.floor` e `Math.random` para gerar um número aleatório entre 1 e 5 para o computador.\n2. Declare a variável `computerChoice` e defina-a como o oposto da escolha do jogador. Se o jogador escolher ímpar, o computador deve escolher par, e vice-versa.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132174,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Em seguida, precisamos calcular a soma dos dois números e determinar se é ímpar ou par.\n\n1. Declare a variável `sum` para calcular a soma dos números escolhidos pelo jogador e pelo computador.\n2. Declare uma variável `result` para armazenar se a soma é 'ímpar' ou 'par'. Use uma instrução if para determinar isso.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132175,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Agora, devemos exibir os resultados.\n\n1. Use `console.log` para imprimir as seleções do jogador e do computador.\n2. Também imprima a soma dos números e se é ímpar ou par usando `console.log`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}\n\nconsole.log(`Player chose ${playerNumber} (${playerChoice})`);\nconsole.log(`Computer chose ${computerNumber} (${computerChoice})`);\nconsole.log(`The sum of the numbers is ${sum}, which is ${result}`);"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 132176,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Por último, precisamos determinar o vencedor.\n\n1. Adicione uma declaração if final para avaliar o vencedor. Se o `result` corresponder à escolha do jogador, o jogador vence.\n2. Use `console.log` para exibir quem é o vencedor.\n   - Exiba `\"Player wins\"` se a escolha do jogador estiver correta.\n   - Exiba `\"Computer wins\"` se a escolha do jogador estiver incorreta.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}\n\nconsole.log(`Player chose ${playerNumber} (${playerChoice})`);\nconsole.log(`Computer chose ${computerNumber} (${computerChoice})`);\nconsole.log(`The sum of the numbers is ${sum}, which is ${result}`);",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nlet playerChoice = input(\"Choose 'odd' or 'even': \");\nlet playerNumber = parseInt(input(\"Choose a number between 1 and 5: \"));\n\nlet computerNumber = Math.floor(Math.random() * 5) + 1;\nlet computerChoice = \"\";\nif (playerChoice === \"odd\") {\n  computerChoice = \"even\";\n} else {\n  computerChoice = \"odd\";\n}\n\nlet sum = playerNumber + computerNumber;\n\nlet result = \"\";\nif (sum % 2 === 0) {\n  result = \"even\";\n} else {\n  result = \"odd\";\n}\n\nconsole.log(`Player chose ${playerNumber} (${playerChoice})`);\nconsole.log(`Computer chose ${computerNumber} (${computerChoice})`);\nconsole.log(`The sum of the numbers is ${sum}, which is ${result}`);\n\nif (result === playerChoice) {\n  console.log(\"Player wins!\");\n} else {\n  console.log(\"Computer wins!\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

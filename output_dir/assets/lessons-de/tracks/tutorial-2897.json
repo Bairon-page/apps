@@ -1,0 +1,464 @@
+{
+  "tutorial": {
+    "id": 2897,
+    "version": 4,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Quiz - Teil 2",
+    "descriptionContent": "Im zweiten Teil des Projekts fügst du eine Datenbank hinzu.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2897-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14988,
+        "title": "Kapitel #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132149,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Willkommen zurück beim **Quiz**-Projekt. Unsere App funktioniert, aber sie speichert alle ihre Daten im Speicher und behält keine Daten auf der Festplatte. Um das zu ändern, werden wir eine SQLite-Datenbank verwenden.\n\nZuerst beginnen wir mit der Erstellung der SQLite-Datenbank, die wir verwenden werden, um sie mit Demodaten zu initialisieren.\n\n1. Importiere in `database.js` das `better-sqlite3` Modul mit `require(\"better-sqlite3\")`. Weise das resultierende Objekt einer Konstante namens `Database` zu.\n2. Erstelle eine neue SQLite-Datenbank namens `quiz.db`, indem du `new Database(\"/tmp/quiz.db\")` aufrufst. Speichere das Datenbankobjekt in einer Konstante namens `db`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');"
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Question = require(\"./Question\");\n\nconst questionsData = [\n  {\n    id: 1,\n    question: \"What is the capital of France?\",\n    options: [\"Paris\", \"Rome\", \"Berlin\", \"Madrid\"],\n    correctAnswer: \"Paris\",\n  },\n  {\n    id: 2,\n    question: \"What is 2 + 2?\",\n    options: [\"3\", \"4\", \"5\", \"6\"],\n    correctAnswer: \"4\",\n  },\n];\n\nclass Quiz {\n  constructor() {\n    this.questions = questionsData.map(\n      (q) => new Question(q.id, q.question, q.options, q.correctAnswer),\n    );\n  }\n\n  getRandomQuestion() {\n    const randomIndex = Math.floor(Math.random() * this.questions.length);\n    return this.questions[randomIndex];\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132150,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Jetzt, da wir eine Verbindung zu unserer SQLite-Datenbank haben, lass uns eine Tabelle erstellen, um die Quizfragen zu speichern.\n\n1. Verwende die Methode `db.exec`, um den SQL-Befehl zur Tabellenerstellung auszuführen.\n2. Erstelle eine `questions`-Tabelle nur, wenn sie noch nicht existiert. Die `questions`-Tabelle sollte die folgenden Spalten haben:\n   - `id`: ein Integer, Primärschlüssel, auto-inkrementiert\n   - `question`: Text, nicht null\n   - `options`: Text, nicht null\n   - `correctAnswer`: Text, nicht null",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');",
+                  "solvedContent": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);"
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Question = require(\"./Question\");\n\nconst questionsData = [\n  {\n    id: 1,\n    question: \"What is the capital of France?\",\n    options: [\"Paris\", \"Rome\", \"Berlin\", \"Madrid\"],\n    correctAnswer: \"Paris\",\n  },\n  {\n    id: 2,\n    question: \"What is 2 + 2?\",\n    options: [\"3\", \"4\", \"5\", \"6\"],\n    correctAnswer: \"4\",\n  },\n];\n\nclass Quiz {\n  constructor() {\n    this.questions = questionsData.map(\n      (q) => new Question(q.id, q.question, q.options, q.correctAnswer),\n    );\n  }\n\n  getRandomQuestion() {\n    const randomIndex = Math.floor(Math.random() * this.questions.length);\n    return this.questions[randomIndex];\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132151,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Großartig! Jetzt, da wir unsere `questions`-Tabelle erstellt haben, lass uns Operationen hinzufügen, um sie mit einigen Demodaten zu füllen, falls die Fragen noch nicht in der Tabelle existieren.\n\n1. Verwende `db.exec`, um mindestens zwei SQL-Anweisungen auszuführen, um zwei neue Fragen zur Datenbank hinzuzufügen.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);",
+                  "solvedContent": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);"
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Question = require(\"./Question\");\n\nconst questionsData = [\n  {\n    id: 1,\n    question: \"What is the capital of France?\",\n    options: [\"Paris\", \"Rome\", \"Berlin\", \"Madrid\"],\n    correctAnswer: \"Paris\",\n  },\n  {\n    id: 2,\n    question: \"What is 2 + 2?\",\n    options: [\"3\", \"4\", \"5\", \"6\"],\n    correctAnswer: \"4\",\n  },\n];\n\nclass Quiz {\n  constructor() {\n    this.questions = questionsData.map(\n      (q) => new Question(q.id, q.question, q.options, q.correctAnswer),\n    );\n  }\n\n  getRandomQuestion() {\n    const randomIndex = Math.floor(Math.random() * this.questions.length);\n    return this.questions[randomIndex];\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132152,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Um die Datenbankverbindung in anderen Dateien verwenden zu können, müssen wir sie exportieren.\n\n1. Verwende `module.exports`, um `db` am Ende der Datei zu exportieren.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);",
+                  "solvedContent": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);\n\nmodule.exports = db;"
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Question = require(\"./Question\");\n\nconst questionsData = [\n  {\n    id: 1,\n    question: \"What is the capital of France?\",\n    options: [\"Paris\", \"Rome\", \"Berlin\", \"Madrid\"],\n    correctAnswer: \"Paris\",\n  },\n  {\n    id: 2,\n    question: \"What is 2 + 2?\",\n    options: [\"3\", \"4\", \"5\", \"6\"],\n    correctAnswer: \"4\",\n  },\n];\n\nclass Quiz {\n  constructor() {\n    this.questions = questionsData.map(\n      (q) => new Question(q.id, q.question, q.options, q.correctAnswer),\n    );\n  }\n\n  getRandomQuestion() {\n    const randomIndex = Math.floor(Math.random() * this.questions.length);\n    return this.questions[randomIndex];\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132153,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns die erstellte Datenbank in unserer `Quiz`-Klasse verwenden. Ab jetzt arbeiten wir direkt mit der Datenbank anstatt mit fest kodierten Fragen.\n\n1. Beginne damit, die Datei `database.js` am Anfang der Datei `Quiz.js` zu importieren. Speichere die importierte Datenbank in einer Variablen namens `db`.\n2. Lösche den Konstruktor aus der `Question`-Klasse und initialisiere `this.questions` nicht.\n3. Entferne die fest kodierten Beispiel-Daten `questionData`. Du kannst jetzt direkt die Datenbank verwenden.\n\nDie Methode `getRandomQuestion` wird nicht funktionieren. Wir werden sie gleich aktualisieren.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Question = require(\"./Question\");\n\nconst questionsData = [\n  {\n    id: 1,\n    question: \"What is the capital of France?\",\n    options: [\"Paris\", \"Rome\", \"Berlin\", \"Madrid\"],\n    correctAnswer: \"Paris\",\n  },\n  {\n    id: 2,\n    question: \"What is 2 + 2?\",\n    options: [\"3\", \"4\", \"5\", \"6\"],\n    correctAnswer: \"4\",\n  },\n];\n\nclass Quiz {\n  constructor() {\n    this.questions = questionsData.map(\n      (q) => new Question(q.id, q.question, q.options, q.correctAnswer),\n    );\n  }\n\n  getRandomQuestion() {\n    const randomIndex = Math.floor(Math.random() * this.questions.length);\n    return this.questions[randomIndex];\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": "const db = require(\"./database\");\nconst Question = require(\"./Question\");\n\nclass Quiz {\n\n  getRandomQuestion() {\n    const randomIndex = Math.floor(Math.random() * this.questions.length);\n    return this.questions[randomIndex];\n  }\n}\n\nmodule.exports = Quiz;"
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 132154,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nun ersetze die Methode `getRandomQuestion()` in der `Quiz`-Klasse, um mit der SQLite-Datenbank zu interagieren und eine zufällige Frage abzurufen.\n\n1. Aktualisiere die Funktion `getRandomQuestion`, indem du den aktuellen Code löschst und eine zufällige Frage lädst.\n2. Gib ein neues `Question`-Objekt zurück, das mit der geladenen Frage gefüllt ist.\n3. Falls keine Frage aus der Datenbank geladen werden konnte, gib `null` zurück.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const db = require(\"./database\");\nconst Question = require(\"./Question\");\n\nclass Quiz {\n  getRandomQuestion() {\n    const randomIndex = Math.floor(Math.random() * this.questions.length);\n    return this.questions[randomIndex];\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": "const db = require(\"./database\");\nconst Question = require(\"./Question\");\n\nclass Quiz {\n  getRandomQuestion() {\n    const stmt = db.prepare(`\n      SELECT *\n      FROM questions\n      ORDER BY RANDOM()\n      LIMIT 1\n    `);\n    const question = stmt.get();\n\n    if (question) {\n      return new Question(\n        question.id,\n        question.question,\n        question.options,\n        question.correctAnswer\n      );\n    }\n\n    return null;\n  }\n}\n\nmodule.exports = Quiz;"
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 132155,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Großartig! Fügen wir nun eine weitere Methode `checkAnswer` zur `Quiz`-Klasse hinzu. Diese Methode überprüft, ob eine gegebene Antwort korrekt ist.\n\n1. Erstelle eine neue Methode `checkAnswer`, die `questionId` und `answer` als Parameter nimmt.\n2. Die Methode sollte die Frage aus der Datenbank abrufen.\n3. Überprüfe, ob die gegebene Antwort mit der richtigen Antwort übereinstimmt, und gib `true` oder `false` zurück, um anzuzeigen, ob die gegebene Antwort korrekt ist.\n4. Wenn die Frage in der Datenbank nicht gefunden werden konnte, gib `null` zurück.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const db = require(\"./database\");\nconst Question = require(\"./Question\");\n\nclass Quiz {\n  getRandomQuestion() {\n    const stmt = db.prepare(`\n      SELECT *\n      FROM questions\n      ORDER BY RANDOM()\n      LIMIT 1\n    `);\n    const question = stmt.get();\n\n    if (question) {\n      return new Question(\n        question.id,\n        question.question,\n        question.options,\n        question.correctAnswer\n      );\n    }\n\n    return null;\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": "const db = require(\"./database\");\nconst Question = require(\"./Question\");\n\nclass Quiz {\n  getRandomQuestion() {\n    const stmt = db.prepare(`\n      SELECT *\n      FROM questions\n      ORDER BY RANDOM()\n      LIMIT 1\n    `);\n    const question = stmt.get();\n\n    if (question) {\n      return new Question(\n        question.id,\n        question.question,\n        question.options,\n        question.correctAnswer\n      );\n    }\n\n    return null;\n  }\n\n  checkAnswer(questionId, answer) {\n    const stmt = db.prepare(`\n      SELECT correctAnswer\n      FROM questions\n      WHERE id = ?\n    `);\n    const result = stmt.get(questionId);\n\n    if (result) {\n      return result.correctAnswer === answer;\n    }\n\n    return null;\n  }\n}\n\nmodule.exports = Quiz;"
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #7 - Copy",
+            "id": 132226,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Großartig! Als Nächstes arbeiten wir an dem POST-Endpunkt zum Einreichen von Antworten. Wir müssen Middleware hinzufügen, die das automatische Parsen von eingehenden JSON-Daten ermöglicht, damit die Express-App JSON-Anfragekörper verarbeiten kann.\n\n1. Füge die Middleware zum Parsen von JSON hinzu, um sicherzustellen, dass eingehende Anfragekörper automatisch in JavaScript-Objekte umgewandelt werden.",
+              "preselectedFileIndex": 4,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const db = require(\"./database\");\nconst Question = require(\"./Question\");\n\nclass Quiz {\n  getRandomQuestion() {\n    const stmt = db.prepare(`\n      SELECT *\n      FROM questions\n      ORDER BY RANDOM()\n      LIMIT 1\n    `);\n    const question = stmt.get();\n\n    if (question) {\n      return new Question(\n        question.id,\n        question.question,\n        question.options,\n        question.correctAnswer\n      );\n    }\n\n    return null;\n  }\n\n  checkAnswer(questionId, answer) {\n    const stmt = db.prepare(`\n      SELECT correctAnswer\n      FROM questions\n      WHERE id = ?\n    `);\n    const result = stmt.get(questionId);\n\n    if (result) {\n      return result.correctAnswer === answer;\n    }\n\n    return null;\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/quiz/question",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #9",
+            "id": 132157,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns abschließend eine `submitAnswer`-Methode für den Quiz-Router hinzufügen, um Antworten einzureichen. Diese Methode verarbeitet POST-Anfragen an `\"/submit\"` und überprüft, ob die eingereichte Antwort für eine bestimmte Frage korrekt ist.\n\n1. Füge einen neuen `GET`-Endpunkt für `\"/submit-answer\"` zum Router hinzu.\n   - Extrahiere `questionId` und `answer` aus `req.body`.\n   - Überprüfe die Antwort mit der `chekAnswer`-Methode der `Quiz`-Instanz.\n   - Antworte dem Client mit einem JSON-Objekt, das ein `correct`-Feld enthält, das angibt, ob die eingereichte Antwort korrekt ist, indem es `true` oder `false` als Wert hält.\n\nRufe den `/quiz/submit-answer`-Endpunkt auf und sieh nach, ob du die erwartete Antwort erhältst.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/quiz.db');\n\ndb.exec(`\n  CREATE TABLE IF NOT EXISTS questions (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question TEXT NOT NULL,\n    options TEXT NOT NULL,\n    correctAnswer TEXT NOT NULL\n  )\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is the capital of France?', 'Paris, Rome, Berlin, Madrid', 'Paris'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is the capital of France?')\n`);\n\ndb.exec(`\n  INSERT INTO questions (question, options, correctAnswer)\n  SELECT 'What is 2 + 2?', '3, 4, 5, 6', '4'\n  WHERE NOT EXISTS (SELECT 1 FROM questions WHERE question = 'What is 2 + 2?')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Quiz.js",
+                  "codeLanguage": "javascript",
+                  "content": "const db = require(\"./database\");\nconst Question = require(\"./Question\");\n\nclass Quiz {\n  getRandomQuestion() {\n    const stmt = db.prepare(`\n      SELECT *\n      FROM questions\n      ORDER BY RANDOM()\n      LIMIT 1\n    `);\n    const question = stmt.get();\n\n    if (question) {\n      return new Question(\n        question.id,\n        question.question,\n        question.options,\n        question.correctAnswer\n      );\n    }\n\n    return null;\n  }\n\n  checkAnswer(questionId, answer) {\n    const stmt = db.prepare(`\n      SELECT correctAnswer\n      FROM questions\n      WHERE id = ?\n    `);\n    const result = stmt.get(questionId);\n\n    if (result) {\n      return result.correctAnswer === answer;\n    }\n\n    return null;\n  }\n}\n\nmodule.exports = Quiz;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "quizRoutes.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nmodule.exports = router;",
+                  "solvedContent": "const express = require(\"express\");\nconst Quiz = require(\"./Quiz\");\n\nconst router = express.Router();\nconst quiz = new Quiz();\n\nrouter.get(\"/question\", (req, res) => {\n  const question = quiz.getRandomQuestion();\n  res.json({\n    id: question.id,\n    question: question.question,\n    options: question.options,\n  });\n});\n\nrouter.post(\"/submit-answer\", (req, res) => {\n  const { questionId, answer } = req.body;\n\n  const isCorrect = quiz.checkAnswer(questionId, answer);\n\n  res.json({\n    correct: isCorrect,\n  });\n});\n\nmodule.exports = router;"
+                },
+                {
+                  "name": "Question.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Question {\n  constructor(id, question, options, correctAnswer) {\n    this.id = id;\n    this.question = question;\n    this.options = options;\n    this.correctAnswer = correctAnswer;\n  }\n\n  isCorrectAnswer(answer) {\n    return this.correctAnswer === answer;\n  }\n}\n\nmodule.exports = Question;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst quizRoutes = require(\"./quizRoutes\");\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.use(\"/quiz\", quizRoutes);\n\napp.listen(port, () => {\n  console.log(`App is running on port ${port}`);\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "POST",
+                "path": "/quiz/submit-answer",
+                "body": "{\n  \"questionId\": 1,\n  \"answer\": \"Paris\"\n}"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

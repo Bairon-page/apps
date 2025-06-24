@@ -1,0 +1,432 @@
+{
+  "tutorial": {
+    "id": 1999,
+    "version": 11,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Reinigungsdienste-Seite",
+    "descriptionContent": "Passe die Webseite dieses Reinigungsdienstes dynamisch mit Abfragen und Ereignissen an",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1999-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12732,
+        "title": "Reinigungsdienste-Seite",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Starter Code",
+            "id": 115543,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "In diesem Projekt werden wir etwas JavaScript-Code für eine Website schreiben, die einige Hausdienste präsentiert. Das HTML und CSS sind bereits fertiggestellt.\n\nLass uns damit beginnen, ein paar Variablen hinzuzufügen, die die Buttons der Anwendung speichern.\n\n1. Kopiere und füge den folgenden Code in das Script ein.\n\n```JavaScript\nconst allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Hide Banner",
+            "id": 116454,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir möchten das Bannerbild dauerhaft ausblenden, wenn einer der drei oberen Buttons geklickt wird. Da wir diese Funktionalität für alle drei Buttons verwenden werden, können wir unseren Code vereinfachen, indem wir nur eine Funktion verwenden. Mach dir keine Sorgen, dass die Buttons nicht funktionieren, während wir unseren Code hinzufügen. Sie werden funktionieren, sobald wir alle Event-Listener am Ende hinzufügen.\n\n1. Schreibe eine leere Funktion mit dem Namen `hideBanner`.\n2. Verwende `getElementByID()`, um das Banner auszuwählen.\n3. Setze in derselben Zeile die `display`-Eigenschaft des Banners auf `\"none\"`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "`display` is part of the HTML element's `style` properties. You can access both `style` and `display` through dot notation."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Show Outside Services",
+            "id": 115545,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir müssen den `Outside`-Button funktionsfähig machen. Der Inhalt innerhalb der `.outsideServices`-Klasse wird durch die `.hide`-Klasse verborgen. Lass uns `.outsideServices` auswählen und seine `.hide`-Klasse entfernen. Dazu verwenden wir `querySelectorAll()`, um ein wenig mehr Übung zu bekommen.\n\n1. Wähle die `.outsideServices`-Klasse mit `querySelectorAll()` aus und weise sie einer `const`-Variablen namens `outsideServices` zu.\n2. Schreibe eine leere Funktion namens `showOutside()`.\n3. Rufe innerhalb der leeren Funktion die `hideBanner`-Funktion auf.\n4. Greife auf den Null-Index der `outsideServices`-Variablen zu und verwende die `classList`-Eigenschaft, um die `hide`-Klasse zu entfernen.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Use the syntax `outsideServices[0].classlist.remove()` for the final task. In the parentheses, you'l need to add the class targeted for removal."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Show Inside Services",
+            "id": 115546,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir müssen den `Inside`-Button zum Laufen bringen. Wir werden es auf ähnliche Weise wie in der vorherigen Lektion tun, aber dieses Mal verwenden wir `getElementsByClassName()`.\n\n1. Wähle die `.insideServices`-Klasse aus, indem du `getElementsByClassName()` verwendest und weise sie einer `const` namens `insideServices` zu.\n2. Schreibe eine leere Funktion namens `showInside`.\n3. Rufe innerhalb der leeren Funktion die `hideBanner`-Funktion auf.\n4. Greife auf den Null-Index der `insideServices`-Variable mit Hilfe der Klammernotation zu und verwende die `classList`-Eigenschaft, um die `hide`-Klasse zu entfernen.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Using `getElementsByClassName()` means we don't need to add a `.` before the class name in parentheses."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Show All Services",
+            "id": 115547,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir müssen jetzt den `All`-Button funktionsfähig machen. Da wir bereits Funktionen geschrieben haben, um die Innen- und Außendienste anzuzeigen, die beide `hideBanner()` aufrufen, müssen wir nur all diese Funktionen aufrufen, wenn wir auf `All` klicken.\n\n1. Schreibe eine leere Funktion namens `showAll()`.\n2. Rufe innerhalb der leeren Funktion die Funktion `showOutside()` auf.\n2. Rufe innerhalb der Funktion die Funktion `showInside()` auf.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Show Estimates Banner",
+            "id": 115548,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Der Teil der Website, der anzeigt, dass eine Schätzungsanfrage gesendet wurde, ist ebenfalls verborgen. Wir müssen Code hinzufügen, der ihn sichtbar macht, wenn ein Service ausgewählt wird.\n\n1. Wähle das `h3`-Tag mit `querySelector` aus und weise es einer `const`-Variablen namens `estimateBanner` zu.\n2. Schreibe eine leere Funktion namens `showEstimateBanner`.\n3. Verwende innerhalb der leeren Funktion die Variable `estimateBanner` und die `classList`-Eigenschaft, um die `hide`-Klasse vom Element zu entfernen.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Show Clear Button",
+            "id": 115558,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir müssen auch den Button anzeigen, der die Schätzungen-Liste löscht. Er ist ebenfalls mit der Klasse `.hide` versteckt.\n\n1. Schreibe eine leere Funktion mit dem Namen `showClearButton`.\n2. Verwende innerhalb der leeren Funktion die Variable `clearEstimateButton` und die Eigenschaft `classList`, um die Klasse `.hide` zu entfernen.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Add Lawn",
+            "id": 115552,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir müssen die Funktion des `Add`-Buttons für die Rasen- und Gartendienste implementieren. Beim Klicken auf den Button wird das `h3`-Element, der `Clear`-Button und Hinweise, dass ein Rasenangebot angefordert wurde, angezeigt. All diese Elemente sind aufgrund der `.hide`-Klasse versteckt.\n\nAm Ende werden wir auch das Foto von Rasen und Garten ändern, indem wir ein anderes Attribut setzen.\n\n1. Verwende `getElementById()`, um das Element mit der ID `#lawnPhoto` auszuwählen. Weise den Wert einer `const`-Variablen namens `lawnPhoto` zu.\n2. Verwende die Methode `querySelector()`, um das Element mit der ID `#lawnEstimate` auszuwählen. Weise es einer `const`-Variablen namens `lawnEstimate` zu.\n3. Schreibe eine leere Funktion namens `addLawn()`.\n4. Rufe innerhalb der leeren Funktion die Funktion `showEstimateBanner` auf.\n5. Rufe als Nächstes auch die Funktion `showClearButton` auf.\n6. Entferne die `.hide`-Klasse von dem Element, das durch die Variable `lawnEstimate` angesprochen wird. Verwende `classList`, um dies zu tun.\n7. Verwende die Methode `setAttribute` auf dem Element, das durch die Variable `lawnPhoto` angesprochen wird, und setze das `src` auf Folgendes:\n```js\nhttps://mimo.app/i/piggy-bank.png\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "- Remember, you don't need to add `#` in parentheses when using `getElementById()` with IDs.\n- Remember, you do need to add `#` in parentheses when using `querySelector()` with IDs.\n- To set the attribute use `lawnPhoto.setAttribute()` . Inside the parentheses, you'll have to add the targeted attribute, followed by the new link provided to you."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Add Cleaning",
+            "id": 115553,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Wir müssen auch den `Add`-Button funktionsfähig machen. Die Logik des Codes wird der vorherigen Lektion sehr ähnlich sein.\n\n1. Verwende `querySelector()`, um das Element mit der ID `#cleaningPhoto` auszuwählen. Weise das Ergebnis einer `const`-Variablen namens `cleaningPhoto` zu.\n2. Verwende `querySelector()`, um das Element mit der Klasse `cleaningEstimate` auszuwählen. Weise das Ergebnis einer `const`-Variablen namens `cleaningEstimate` zu.\n3. Schreibe eine leere Funktion namens `addCleaning()`.\n4. Rufe innerhalb der leeren Funktion die Funktion `showEstimateBanner()` auf.\n5. Rufe die Funktion `showClearButton()` auf.\n6. Entferne die `hide`-Klasse von dem Element, das durch die Variable `cleaningEstimate` angesprochen wird. Verwende `.classList`, um dies zu tun.\n7. Verwende die Methode `setAttribute` mit dem Element, das durch die Variable `cleaningPhoto` angesprochen wird, und setze das `src` auf folgendes:\n```js\nhttps://mimo.app/i/piggy-bank.png\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n display: none;\n}\n\nbody {\n width: 525px;\n margin: auto;\n background-color: none;\n color: #36454F;\n font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n margin: 5px;\n}\n\n.heading {\n text-align: center;\n}\n\nbutton {\n width: 75px;\n margin: 5px;\n padding: 10px;\n background-color: #D9E8FB;\n color: #4D4D87;\n border: 0px;\n border-radius: 20px;\n}\n\nbutton:hover {\n background-color: #4CAF50;\n color: white;\n}\n\nbutton:active {\n transform: scale(0.95);\n}\n\n.topButtons {\n text-align: center;\n}\n\nimg {\n border-radius: 10px;\n}\n\n#banner img {\n width: 525px;\n}\n\n.servicesContainer {\n display: flex;\n flex-direction: flex-row;\n justify-content: space-around;\n align-items: center;\n flex-wrap: wrap;\n}\n\n.servicesItem {\n margin-top: 20px;\n text-align: center;\n}\n\nh4 {\n margin: 10px;\n}\n\n.purchasedBanner {\n text-align: center;\n}\n\n.estimatesBanner button {\n width: 125px;\n}\n\nh3 {\n margin-bottom: 5px;\n}\n\nul {\n list-style: none;\n}\n\nli {\n margin: 5px 5px;\n font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\nconst cleaningPhoto = document.querySelector(\"#cleaningPhoto\");\nconst cleaningEstimate = document.querySelector(\".cleaningEstimate\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction addCleaning() {\n  showEstimateBanner();\n  showClearButton();\n  cleaningEstimate.classList.remove(\"hide\");\n  cleaningPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Clear Estimates Part One",
+            "id": 115554,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Als nächstes benötigen wir die Möglichkeit, die Anfrage für Schätzungen zu löschen. Dazu werden wir Folgendes ausblenden:\n  - das `h3` Element, das den Text `Estimates Requested` enthält,\n  - den `Clear Estimates` Button,\n  - und die `li` Elemente, die zur Anzeige der Anfrage verwendet werden,\n\nWir werden auch die Fotos der ausgewählten Dienstleistungen auf die Originalfotos zurücksetzen.\n\n1. Erstelle eine leere Funktion namens `clearEstimate()`.\n2. Verwende die `classList` Eigenschaft, um das Element auszublenden, das durch die Variable `estimateBanner` ausgewählt wurde. Füge dazu die `hide` Klasse hinzu.\n3. Verwende `classList`, um das Element auszublenden, das durch die Variable `clearEstimateButton` ausgewählt wurde.\n4. Ändere die src des `lawnPhoto` mit Punktnotation zu `https://mimo.app/i/colorful-flowers.png`,\n5. Ändere die src des `cleaningPhoto` mit Punktnotation zu `https://mimo.app/i/cleaning.png`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\nconst cleaningPhoto = document.querySelector(\"#cleaningPhoto\");\nconst cleaningEstimate = document.querySelector(\".cleaningEstimate\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction addCleaning() {\n  showEstimateBanner();\n  showClearButton();\n  cleaningEstimate.classList.remove(\"hide\");\n  cleaningPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\nconst cleaningPhoto = document.querySelector(\"#cleaningPhoto\");\nconst cleaningEstimate = document.querySelector(\".cleaningEstimate\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction addCleaning() {\n  showEstimateBanner();\n  showClearButton();\n  cleaningEstimate.classList.remove(\"hide\");\n  cleaningPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction clearEstimate() {\n  estimateBanner.classList.add(\"hide\");\n  clearEstimateButton.classList.add(\"hide\");\n  lawnPhoto.src = \"https://mimo.app/i/colorful-flowers.png\";\n  cleaningPhoto.src = \"https://mimo.app/i/cleaning.png\";\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "1. Use `lawnPhoto.src = \"put your source here\"` to change the lawn services photo."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Clear Estimates Part Two",
+            "id": 117182,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Jetzt, da du weißt, wie man das Element für die Kostenschätzung ausblendet, lass uns über die `li`-Elemente iterieren, um sie ebenfalls auszublenden.\n\n1. Verwende am Anfang der Seite, zusammen mit allen anderen Variablen, `getElementsByTagName()`, um nach `li`-Tags zu selektieren und speichere sie in einer `const`-Variablen namens `estimates`.\n2. Innerhalb der Funktion `clearEstimate()`, iteriere über die Variable `estimates` mit der folgenden Syntax. Die Syntax erstellt ein Array aus den ausgewählten Elementen, iteriert über jedes Element und fügt ihnen die Klasse `hide` hinzu.\n```js\n  Array.from(estimates).forEach(el => {\n    el.classList.add(\"hide\");\n  });\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\nconst cleaningPhoto = document.querySelector(\"#cleaningPhoto\");\nconst cleaningEstimate = document.querySelector(\".cleaningEstimate\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction addCleaning() {\n  showEstimateBanner();\n  showClearButton();\n  cleaningEstimate.classList.remove(\"hide\");\n  cleaningPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction clearEstimate() {\n  estimateBanner.classList.add(\"hide\");\n  clearEstimateButton.classList.add(\"hide\");\n  lawnPhoto.src = \"https://mimo.app/i/colorful-flowers.png\";\n  cleaningPhoto.src = \"https://mimo.app/i/cleaning.png\";\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\nconst cleaningPhoto = document.querySelector(\"#cleaningPhoto\");\nconst cleaningEstimate = document.querySelector(\".cleaningEstimate\");\nconst estimates = document.getElementsByTagName(\"li\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction addCleaning() {\n  showEstimateBanner();\n  showClearButton();\n  cleaningEstimate.classList.remove(\"hide\");\n  cleaningPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction clearEstimate() {\n  estimateBanner.classList.add(\"hide\");\n  clearEstimateButton.classList.add(\"hide\");\n  lawnPhoto.src = \"https://mimo.app/i/colorful-flowers.png\";\n  cleaningPhoto.src = \"https://mimo.app/i/cleaning.png\";\n  Array.from(estimates).forEach(el => {\n    el.classList.add(\"hide\");\n  });\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Add Event Listeners",
+            "id": 115811,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Du bist fast fertig! Lass uns die Buttons funktionsfähig machen, indem wir Event Listener hinzufügen. Event Listener *lauschen* auf ein Ereignis, das eintreten soll, in diesem Fall ein Klick. Die Event Listener führen dann eine Aktion aus, wie zum Beispiel das Aufrufen einer Funktion.\n\n1. Füge diese sechs Zeilen dem Code hinzu. Die Buttons sollten jetzt funktionieren und die Seite sollte volle Funktionalität haben.\n\n```js\nallButton.addEventListener(\"click\", showAll);\noutsideButton.addEventListener(\"click\", showOutside);\ninsideButton.addEventListener(\"click\", showInside);\nlawnButton.addEventListener(\"click\", addLawn);\ncleaningButton.addEventListener(\"click\", addCleaning);\nclearEstimateButton.addEventListener(\"click\", clearEstimate);\n```",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <title>AllN1 Domestic Services</title>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div class=\"heading\">\n        <h1>AllN1 Domestic Services</h1>\n        <p>Welcome to our site! Use the buttons below to choose which home\n          services you want to know more about. When the services appear, add\n          them to your list and we will be happy to arrange an estimate for you.\n        </p>\n      </div>\n      <div class=\"topButtons\">\n        <button id=\"allButton\">All</button>\n        <button id=\"insideButton\">Inside</button>\n        <button id=\"outsideButton\">Outside</button>\n      </div>\n      <div id=\"banner\">\n        <img src=\"https://mimo.app/i/living-room-hostel.png\">\n      </div>\n      <div class=\"servicesContainer\">\n        <div class=\"servicesItem outsideServices hide\" id=\"lawn\">\n          <img src=\"https://mimo.app/i/colorful-flowers.png\" width=\"300\"\n            id=\"lawnPhoto\">\n          <div>\n            <h4>Lawn and Garden</h4>\n            <button id=\"lawnButton\">Add</button>\n          </div>\n        </div>\n        <div class=\"servicesItem insideServices hide\">\n          <img src=\"https://mimo.app/i/cleaning.png\" width=\"300\"\n            id=\"cleaningPhoto\">\n          <h4>Cleaning</h4>\n          <button id=\"cleaningButton\">Add</button>\n        </div>\n      </div>\n      <div class=\"estimatesBanner\">\n        <h3 class=\"hide\">Estimates Requested</h3>\n        <button class=\"hide\" id=\"clearEstimateButton\">Clear Estimates</button>\n      </div>\n      <ul>\n        <li id=\"lawnEstimate\" class=\"hide\">Lawn and Garden</li>\n        <li class=\"hide cleaningEstimate\">Cleaning</li>\n      </ul>\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".hide {\n  display: none;\n}\n\nbody {\n  width: 525px;\n  margin: auto;\n  background-color: none;\n  color: #36454F;\n  font-family: Arial, Helvetica, sans-serif;\n}\n\n.wrapper {\n  margin: 5px;\n}\n\n.heading {\n  text-align: center;\n}\n\nbutton {\n  width: 75px;\n  margin: 5px;\n  padding: 10px;\n  background-color: #D9E8FB;\n  color: #4D4D87;\n  border: 0px;\n  border-radius: 20px;\n}\n\nbutton:hover {\n  background-color: #4CAF50;\n  color: white;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}\n\n.topButtons {\n  text-align: center;\n}\n\nimg {\n  border-radius: 10px;\n}\n\n#banner img {\n  width: 525px;\n}\n\n.servicesContainer {\n  display: flex;\n  flex-direction: flex-row;\n  justify-content: space-around;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.servicesItem {\n  margin-top: 20px;\n  text-align: center;\n}\n\nh4 {\n  margin: 10px;\n}\n\n.purchasedBanner {\n  text-align: center;\n}\n\n.estimatesBanner button {\n  width: 125px;\n}\n\nh3 {\n  margin-bottom: 5px;\n}\n\nul {\n  list-style: none;\n}\n\nli {\n  margin: 5px 5px;\n  font-size: 18px;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\nconst cleaningPhoto = document.querySelector(\"#cleaningPhoto\");\nconst cleaningEstimate = document.querySelector(\".cleaningEstimate\");\nconst estimates = document.getElementsByTagName(\"li\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction addCleaning() {\n  showEstimateBanner();\n  showClearButton();\n  cleaningEstimate.classList.remove(\"hide\");\n  cleaningPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction clearEstimate() {\n  estimateBanner.classList.add(\"hide\");\n  clearEstimateButton.classList.add(\"hide\");\n  Array.from(estimates).forEach(el => {\n    el.classList.add(\"hide\");\n  });\n  lawnPhoto.src = \"https://mimo.app/i/colorful-flowers.png\";\n  cleaningPhoto.src = \"https://mimo.app/i/cleaning.png\";\n}",
+                  "solvedContent": "const allButton = document.querySelector(\"#allButton\");\nconst insideButton = document.querySelector(\"#insideButton\");\nconst outsideButton = document.querySelector(\"#outsideButton\");\nconst lawnButton = document.querySelector(\"#lawnButton\");\nconst cleaningButton = document.querySelector(\"#cleaningButton\");\nconst clearEstimateButton = document.querySelector(\"#clearEstimateButton\");\nconst outsideServices = document.querySelectorAll(\".outsideServices\");\nconst insideServices = document.getElementsByClassName(\"insideServices\");\nconst estimateBanner = document.querySelector(\"h3\");\nconst lawnPhoto = document.getElementById(\"lawnPhoto\");\nconst lawnEstimate = document.querySelector(\"#lawnEstimate\");\nconst cleaningPhoto = document.querySelector(\"#cleaningPhoto\");\nconst cleaningEstimate = document.querySelector(\".cleaningEstimate\");\nconst estimates = document.getElementsByTagName(\"li\");\n\nfunction hideBanner() {\n  document.getElementById(\"banner\").style.display = \"none\";\n}\n\nfunction showOutside() {\n  hideBanner();\n  outsideServices[0].classList.remove(\"hide\");\n}\n\nfunction showInside() {\n  hideBanner();\n  insideServices[0].classList.remove(\"hide\");\n}\n\nfunction showAll() {\n  showOutside();\n  showInside();\n}\n\nfunction showEstimateBanner() {\n  estimateBanner.classList.remove(\"hide\");\n}\n\nfunction showClearButton() {\n  clearEstimateButton.classList.remove(\"hide\");\n}\n\nfunction addLawn() {\n  showEstimateBanner();\n  showClearButton();\n  lawnEstimate.classList.remove(\"hide\");\n  lawnPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction addCleaning() {\n  showEstimateBanner();\n  showClearButton();\n  cleaningEstimate.classList.remove(\"hide\");\n  cleaningPhoto.setAttribute(\"src\", \"https://mimo.app/i/piggy-bank.png\");\n}\n\nfunction clearEstimate() {\n  estimateBanner.classList.add(\"hide\");\n  clearEstimateButton.classList.add(\"hide\");\n  Array.from(estimates).forEach(el => {\n    el.classList.add(\"hide\");\n  });\n  lawnPhoto.src = \"https://mimo.app/i/colorful-flowers.png\";\n  cleaningPhoto.src = \"https://mimo.app/i/cleaning.png\";\n}\n\nallButton.addEventListener(\"click\", showAll);\noutsideButton.addEventListener(\"click\", showOutside);\ninsideButton.addEventListener(\"click\", showInside);\nlawnButton.addEventListener(\"click\", addLawn);\ncleaningButton.addEventListener(\"click\", addCleaning);\nclearEstimateButton.addEventListener(\"click\", clearEstimate);"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

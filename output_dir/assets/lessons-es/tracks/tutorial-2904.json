@@ -1,0 +1,103 @@
+{
+  "tutorial": {
+    "id": 2904,
+    "version": 3,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Lista de Tareas - Parte 2",
+    "descriptionContent": "Agregar tareas es útil, pero también queremos eliminarlas. Eso es lo que planeamos hacer en la segunda parte del proyecto.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2904-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14995,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132196,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenido de nuevo al proyecto de **Lista de Tareas**. Vamos a modificar nuestro código para manejar la eliminación de elementos de la lista.\n\n1. Define una nueva función `removeItem` que tome `items` como argumento.\n2. Dentro de esta nueva función, llama a la función `displayList` para que el usuario pueda ver la lista de elementos antes de elegir cuál eliminar.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\n\nfunction removeItem(items) {\n  displayList(items);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132199,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "La función `removeItem` no hace mucho en este punto. Sin embargo, para probar si funciona, vamos a permitir seleccionar esa opción ya.\n\n1. Donde presentas las opciones a través de declaraciones `print` al usuario, añade la opción para que el usuario elimine elementos de la lista escribiendo `3`. (Anteriormente `3` era para salir. Esto ahora debería estar cubierto por `4`.)\n2. Si el usuario ingresa `3`, llama a `removeItem`.\n3. Por último, actualiza la opción de salida de `3` a `4` y asegúrate de establecer `running` a `false` en caso de que el usuario ingrese `4`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\n\nfunction removeItem(items) {\n  displayList(items);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Exit\");\n\n  const choice = input(\"Enter your choice (1-3): \");\n  \n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\n\nfunction removeItem(items) {\n  displayList(items);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Remove an item from the list\");\n  console.log(\"4. Exit\");\n\n  const choice = input(\"Enter your choice (1-4): \");\n\n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    removeItem(items);\n  } else if (choice == 4) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132197,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora que el usuario puede elegir eliminar un elemento, necesitamos preguntar qué elemento eliminar.\n\nSería inválido si la entrada no fuera un número o no estuviera en el rango de los elementos disponibles. Verificaremos que no sea ninguno de esos casos.\n\n1. Cambia la función `removeItem` para que acepte un segundo argumento: el índice del elemento que se debe eliminar.\n2. En tu función `removeItem`, verifica si el segundo argumento analizado es mayor que `0` y menor o igual a `items.length`. Esto verificará que el número dado por el usuario esté en el rango de los índices de los elementos. (Esperamos que el usuario ingrese `1` para el primer elemento, `2` para el segundo, y así sucesivamente.)\n3. Si verificaste que la elección es válida, elimina ese elemento del array `items` que se pasó como argumento. (Recuerda que los arrays comienzan a indexarse en 0, y el usuario escribirá 1 para el primer elemento.)\n4. Si la elección no es válida porque la entrada no era un número o estaba fuera del rango aceptable, imprime un mensaje de error en la consola.\n5. Antes de llamar a `removeItem` en tu código del menú, escribe código para pedir al usuario que ingrese el número del elemento que desea eliminar. Usa `parseInt` para convertir el valor ingresado a un número. Pasa este número como el segundo argumento.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\n\nfunction removeItem(items) {\n  displayList(items);\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Remove an item from the list\");\n  console.log(\"4. Exit\");\n\n  const choice = input(\"Enter your choice (1-4): \");\n\n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    removeItem(items);\n  } else if (choice == 4) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nfunction removeItem(items, itemIndex) {\n  displayList(items);\n\n  if (itemIndex > 0 && itemIndex <= items.length) {\n    items.splice(itemIndex - 1, 1);\n  } else {\n    console.log(\"Invalid number. Please try again.\");\n  }\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Remove an item from the list\");\n  console.log(\"4. Exit\");\n\n  const choice = input(\"Enter your choice (1-4): \");\n\n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    const itemIndex = parseInt(input(\"Enter the number of the item to remove: \"), 10);\n    removeItem(items, itemIndex);\n  } else if (choice == 4) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132198,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Por último, añade un mensaje para informar al usuario que su acción ha sido exitosa al eliminar un elemento.\n\n1. En caso de que la función `removeItem` elimine un elemento, devuelve el elemento eliminado.\n2. No devuelvas nada en caso de que no se elimine ningún elemento.\n3. Toma el elemento devuelto por la función y registra un mensaje en la consola indicando qué elemento fue eliminado.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nfunction removeItem(items, itemIndex) {\n  displayList(items);\n\n  if (itemIndex > 0 && itemIndex <= items.length) {\n    items.splice(itemIndex - 1, 1);\n  } else {\n    console.log(\"Invalid number. Please try again.\");\n  }\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Remove an item from the list\");\n  console.log(\"4. Exit\");\n\n  const choice = input(\"Enter your choice (1-4): \");\n\n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);\n  } else if (choice == 3) {\n    const itemIndex = parseInt(input(\"Enter the number of the item to remove: \"), 10);\n    removeItem(items, itemIndex);\n  } else if (choice == 4) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}",
+                  "solvedContent": "const input = require(\"@mimo-org/input\");\n\nconst items = [];\n\nfunction displayList(items) {\n  console.log(\"\\nHere is the list of items:\");\n  items.forEach((item, index) => {\n    console.log(`${index + 1}. ${item}`);\n  });\n}\n\nfunction addItem(items, itemToAdd) {\n  items.push(itemToAdd);\n  console.log(`\"${itemToAdd}\" has been added to the list.`);\n}\n\nfunction removeItem(items, itemIndex) {\n  displayList(items);\n\n  if (itemIndex > 0 && itemIndex <= items.length) {\n    const removedItem = items.splice(itemIndex - 1, 1)[0];\n    return removedItem;\n  } else {\n    console.log(\"Invalid number. Please try again.\");\n  }\n}\n\nlet running = true;\n\nwhile (running) {\n  console.log(\"\\nChoose an option:\");\n  console.log(\"1. View the list\");\n  console.log(\"2. Add an item to the list\");\n  console.log(\"3. Remove an item from the list\");\n  console.log(\"4. Exit\");\n\n  const choice = input(\"Enter your choice (1-4): \");\n\n  if (choice == 1) {\n    displayList(items);\n  } else if (choice == 2) {\n    const newItem = input(\"Enter a new item to add to the list: \");\n    addItem(items, newItem);  } else if (choice == 3) {\n    const itemIndex = parseInt(input(\"Enter the number of the item to remove: \"), 10);\n    const removedItem = removeItem(items, itemIndex);\n    if (removedItem) {\n      console.log(`\"${removedItem}\" has been removed from the list.`);\n    }\n  } else if (choice == 4) {\n    running = false;\n  } else {\n    console.log(\"Invalid choice, please select a valid option.\");\n  }\n}"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

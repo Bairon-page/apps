@@ -1,0 +1,38 @@
+.class public final Lz/g;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lz/h;
+
+
+# instance fields
+.field private final a:Lz/f;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public constructor <init>(Lz/f;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lz/g;->a:Lz/f;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a()Lz/f;
+    .locals 1
+
+    iget-object v0, p0, Lz/g;->a:Lz/f;
+
+    return-object v0
+.end method

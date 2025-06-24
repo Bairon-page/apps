@@ -1,0 +1,149 @@
+{
+  "tutorial": {
+    "id": 2909,
+    "version": 2,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Parâmetros de Consulta",
+    "descriptionContent": "Aprenda a definir parâmetros de consulta ao chamar uma API e como acessá-los em seus endpoints Express",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 15003,
+        "title": "Capítulo #1",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132304,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Os parâmetros de consulta são uma parte importante da construção de APIs, permitindo-nos criar rotas mais dinâmicas e versáteis. Vamos mergulhar nisso!</p></body></html>"
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132305,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Os parâmetros de consulta são adicionados na URL após um <code>?</code>. Eles não alteram o endpoint, mas fornecem informações adicionais ao servidor.</p><p>Aqui, <code>name</code> é a chave, e <code>Maria</code> é o valor passado.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/greet?name=Maria\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"21\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>?</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132306,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos acessar o valor dos parâmetros de consulta usando <code>req.query.key</code>. Vamos criar um endpoint que retorna o valor de um parâmetro de consulta.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name;\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"46\" endIndex=\"49\" /><option startIndex=\"50\" endIndex=\"55\" /><option startIndex=\"56\" endIndex=\"60\" /></options></interaction></interactions><output><content><text value=\"Hello, Maria!\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>req</code> seguido de <code>query</code> e finalmente <code>name</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132307,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Os parâmetros de query são opcionais por natureza. Se não fornecermos um parâmetro de query, seu valor será indefinido.</p><p>Um caso de uso comum é fornecer valores padrão com <code>||</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name || \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"61\" endIndex=\"63\" /><option startIndex=\"64\" endIndex=\"71\" /></options></interaction></interactions><output><content><text value=\"Hello, Guest\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>||</code> seguido de <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132470,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Você pode querer distinguir entre <code>undefined</code>, <code>null</code> ou valores vazios. O <code>??</code> (operador de coalescência nula) é útil aqui.</p><p>Ao contrário de <code>||</code>, que trata <code>null</code>, <code>undefined</code> e valores falsy (como <code>0</code> ou <code>\"\"</code>) da mesma forma, <code>??</code> considera apenas <code>null</code> e <code>undefined</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name ?? \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"64\" endIndex=\"71\" /><option startIndex=\"61\" endIndex=\"63\" /></options></interaction></interactions><output><content><text value=\"Hello, Guest\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>??</code> seguido de <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy - Copy",
+            "id": 132471,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Aqui, <code>??</code> garante que <code>\"\"</code> ou <code>0</code> não acionem o valor padrão.</p><p>Você pode acabar dizendo <code>\"Hello, \"</code> quando receber uma string vazia para o parâmetro de consulta name.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name ?? \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"64\" endIndex=\"71\" /><option startIndex=\"61\" endIndex=\"63\" /></options></interaction></interactions><output><content><text value=\"Hello, \" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>??</code> seguido de <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 132313,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos ter múltiplos parâmetros de consulta. Nós os combinamos na URL com <code>&amp;</code>.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/info?name=Maria&amp;age=62\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"19\" endIndex=\"20\" /><option startIndex=\"30\" endIndex=\"31\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>?</code> seguido de <code>&amp;</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132308,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Se tivermos múltiplos parâmetros de consulta, podemos acessá-los individualmente pelo nome.</p><p>Vamos ver o que retornaremos caso o parâmetro de consulta <code>name</code> seja passado como <code>\"Lin\"</code>, mas <code>age</code> não seja passado.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/info&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name || \" /><text value=\"'Unknown'\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" age = req.query.age || \" /><text value=\"'Unknown'\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Name: \" /><text value=\"${name}\" class=\"subst\" /><text value=\", Age: \" /><text value=\"${age}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"59\" /><option startIndex=\"95\" endIndex=\"98\" /></options></interaction></interactions><output><content><text value=\"Name: Lin, Age: Unknown\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>name</code> seguido de <code>age</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #8",
+            "id": 132311,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Se o nosso endpoint precisar de certos parâmetros de consulta, podemos verificar se eles foram fornecidos e retornar um erro se não forem.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/search&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" query = req.query.query;\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" limit = \" /><text value=\"parseInt\" class=\"built_in\" /><text value=\"(req.query.limit);\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!query) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\" res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Missing query parameter.&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" limit = limit || \" /><text value=\"10\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Here's the result of your search!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"48\" endIndex=\"51\" /><option startIndex=\"52\" endIndex=\"57\" /><option startIndex=\"87\" endIndex=\"90\" /><option startIndex=\"91\" endIndex=\"96\" /></options></interaction></interactions><output><content><text value=\"Here's the result of your search!\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>req</code> seguido de <code>query</code> e depois <code>req</code>, <code>query</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7",
+            "id": 132310,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que <code>req.query</code> retorna no Express?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Um objeto com os parâmetros de consulta como pares chave-valor</item><item value=\"2\" correct=\"false\">Uma string representando a query string</item></selection><p visible-if=\"wrong\">Um objeto com os parâmetros de consulta como pares chave-valor.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 132648,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Adicione um parâmetro de consulta chamado <code>name</code> ao URL.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/greet?name=Maria\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"21\" /><option startIndex=\"21\" endIndex=\"25\" /><option startIndex=\"25\" endIndex=\"26\" /><option startIndex=\"26\" endIndex=\"31\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>?</code> seguido de <code>name</code> e depois <code>=</code>, <code>Maria</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #15",
+            "id": 132652,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como você acessa os parâmetros de consulta em um manipulador de rota?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Usando <code>req.query</code></item><item value=\"2\" correct=\"false\">Usando <code>req.params</code></item></selection><p visible-if=\"wrong\">Usando <code>req.query</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #8 - Copy",
+            "id": 132651,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Desempacote os dois parâmetros de consulta usando a desestruturação de objetos.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/search&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" { type, category } = req.query;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"23\" /><option startIndex=\"25\" endIndex=\"28\" /><option startIndex=\"64\" endIndex=\"67\" /><option startIndex=\"68\" endIndex=\"73\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>req</code> seguido de <code>res</code> e depois <code>req</code>, <code>query</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #16",
+            "id": 132653,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual seria a maneira correta de enviar um parâmetro de consulta para <code>/search</code> para <code>type=fruit</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>/search?type=fruit</code></item><item value=\"2\" correct=\"false\"><code>/search/fruit</code></item></selection><p visible-if=\"wrong\">Certifique-se de escolher <code>/search?type=fruit</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132649,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Forneça um valor padrão caso o parâmetro de consulta não contenha um valor.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name || \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"61\" endIndex=\"63\" /><option startIndex=\"64\" endIndex=\"71\" /><option startIndex=\"46\" endIndex=\"60\" /></options></interaction></interactions><output><content><text value=\"Hello, Guest\" /></content></output></code><p visible-if=\"wrong\">Certifique-se de escolher <code>req.query.name</code> seguido de <code>||</code> e finalmente <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #17",
+            "id": 132654,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como você recupera um parâmetro de consulta chamado <code>category</code> dentro do endpoint <code>/items</code>?</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/items&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;What category?&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>req.query.category</code></item><item value=\"2\" correct=\"false\"><code>req.params.category</code></item></selection><p visible-if=\"wrong\">Certifique-se de escolher <code>req.query.category</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2 - Copy - Copy",
+            "id": 132650,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Configure a URL corretamente.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/info?name=Maria&amp;age=62\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"19\" endIndex=\"20\" /><option startIndex=\"30\" endIndex=\"31\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>?</code> seguido de <code>&amp;</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #18",
+            "id": 132655,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual URL contém tanto um parâmetro de consulta quanto um parâmetro de rota?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>/items/phones?sort=asc</code></item><item value=\"2\" correct=\"false\"><code>/items?type=phones&amp;sort=asc</code></item></selection><p visible-if=\"wrong\">Certifique-se de escolher <code>/items/phones?sort=asc</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "tutorial": {
+    "id": 2888,
+    "version": 2,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Book Keeper - Parte 2",
+    "descriptionContent": "Escribir los aprendizajes clave de un gran libro puede ser una excelente manera de recordarlo. Aquí, construiremos una app para ayudarnos a hacer precisamente eso.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2888-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14998,
+        "title": "Capítulo #1",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132072,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenido de nuevo al proyecto **Book Keeper**. En la segunda parte, permitiremos a nuestros usuarios agregar notas para los libros que quieren seguir.\n\n1. Crea una tabla `notes` solo si aún no existe. La tabla `notes` debe tener las columnas:\n   - `id`: un entero, clave primaria, auto-incrementado\n   - `book_id`: entero, no nulo, clave foránea que referencia el id en la tabla de libros\n   - `content`: texto, no nulo\n2. Asegúrate de que el campo `book_id` esté configurado como una clave foránea que referencia la columna `id` en la tabla de libros, con funcionalidad de eliminación en cascada, de modo que cuando se elimine un libro, todas las entradas relacionadas se eliminen automáticamente.\n   ```SQL\n   FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE\n   ```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/books.db');\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS books (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      title TEXT NOT NULL,\n      author TEXT NOT NULL,\n      year INTEGER\n    )\n`);\n\ndb.exec(`\n  INSERT INTO books (title, author, year)\n    VALUES \n    ('1984', 'George Orwell', 1949),\n    ('Brave New World', 'Aldous Huxley', 1932),\n    ('Fahrenheit 451', 'Ray Bradbury', 1953)\n`);\n\nmodule.exports = db;",
+                  "solvedContent": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/books.db');\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS books (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      title TEXT NOT NULL,\n      author TEXT NOT NULL,\n      year INTEGER\n    )\n`);\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS notes (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      book_id INTEGER NOT NULL,\n      content TEXT NOT NULL,\n      FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE\n    )\n`);\n\ndb.exec(`\n  INSERT INTO books (title, author, year)\n    VALUES \n    ('1984', 'George Orwell', 1949),\n    ('Brave New World', 'Aldous Huxley', 1932),\n    ('Fahrenheit 451', 'Ray Bradbury', 1953)\n`);\n\nmodule.exports = db;"
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n  \n  res.status(200).json({\n    book: book\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/books/1",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132073,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora necesitamos agregar algunas notas en nuestra tabla `notes` relacionadas con `book_id`.\n\n1. Usando la cláusula `INSERT INTO`, llena la tabla `notes` con al menos 4 notas. Ten en cuenta que necesitas referenciar el id de la tabla `books`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/books.db');\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS books (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      title TEXT NOT NULL,\n      author TEXT NOT NULL,\n      year INTEGER\n    )\n`);\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS notes (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      book_id INTEGER NOT NULL,\n      content TEXT NOT NULL,\n      FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE\n    )\n`);\n\ndb.exec(`\n  INSERT INTO books (title, author, year)\n    VALUES \n    ('1984', 'George Orwell', 1949),\n    ('Brave New World', 'Aldous Huxley', 1932),\n    ('Fahrenheit 451', 'Ray Bradbury', 1953)\n`);\n\nmodule.exports = db;",
+                  "solvedContent": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/books.db');\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS books (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      title TEXT NOT NULL,\n      author TEXT NOT NULL,\n      year INTEGER\n    )\n`);\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS notes (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      book_id INTEGER NOT NULL,\n      content TEXT NOT NULL,\n      FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE\n    )\n`);\n\ndb.exec(`\n  INSERT INTO books (title, author, year)\n    VALUES \n    ('1984', 'George Orwell', 1949),\n    ('Brave New World', 'Aldous Huxley', 1932),\n    ('Fahrenheit 451', 'Ray Bradbury', 1953)\n`);\n\ndb.exec(`\n  INSERT INTO notes (book_id, content)\n    VALUES \n    (1, 'A chilling dystopian novel.'),\n    (1, 'Big Brother is watching you.'),\n    (2, 'A visionary novel about a future society.'),\n    (3, 'A powerful statement on censorship.')\n`);\n\nmodule.exports = db;"
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n  \n  res.status(200).json({\n    book: book\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/books/1",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132074,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Aquí, modificaremos nuestra ruta `get /books/:id` para también obtener las notas del libro analizando el `book_id` de cada nota.\n\n1. Dentro de la ruta `get /books/:id`, también obtén las notas del libro que el usuario quiere cargar.\n2. Devuelve un objeto JSON con dos claves: `\"books\"` y `\"notes\"`. El campo books debe contener el libro cargado y el campo notes debe contener todas las notas cargadas.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/books.db');\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS books (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      title TEXT NOT NULL,\n      author TEXT NOT NULL,\n      year INTEGER\n    )\n`);\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS notes (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      book_id INTEGER NOT NULL,\n      content TEXT NOT NULL,\n      FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE\n    )\n`);\n\ndb.exec(`\n  INSERT INTO books (title, author, year)\n    VALUES \n    ('1984', 'George Orwell', 1949),\n    ('Brave New World', 'Aldous Huxley', 1932),\n    ('Fahrenheit 451', 'Ray Bradbury', 1953)\n`);\n\ndb.exec(`\n  INSERT INTO notes (book_id, content)\n    VALUES \n    (1, 'A chilling dystopian novel.'),\n    (1, 'Big Brother is watching you.'),\n    (2, 'A visionary novel about a future society.'),\n    (3, 'A powerful statement on censorship.')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n\n  res.status(200).json({\n    book: book\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});",
+                  "solvedContent": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n\n  const notes = db.prepare('SELECT content FROM notes WHERE book_id = ?').all(id);\n\n  res.status(200).json({\n    book: book,\n    notes: notes\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/books/1",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132075,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora, agregaremos una nueva ruta para añadir una nota a un libro.\n\n1. Inserta una nueva ruta `POST` para `\"/books/:id/notes\"`, donde el parámetro de ruta `id` se asemeja al `book_id` al que se debe asociar una nota.\n2. Usa `req.params` para obtener el `book_id` de la URL.\n3. Usa `req.body` para obtener `content`.\n4. Si `content` falta o está vacío, deberíamos devolver un estado `400` con un JSON que contenga un mensaje de error.\n5. Si todo está correcto con el cuerpo de la solicitud, ejecuta la declaración `INSERT INTO notes (book_id, content) VALUES (?, ?)`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/books.db');\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS books (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      title TEXT NOT NULL,\n      author TEXT NOT NULL,\n      year INTEGER\n    )\n`);\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS notes (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      book_id INTEGER NOT NULL,\n      content TEXT NOT NULL,\n      FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE\n    )\n`);\n\ndb.exec(`\n  INSERT INTO books (title, author, year)\n    VALUES \n    ('1984', 'George Orwell', 1949),\n    ('Brave New World', 'Aldous Huxley', 1932),\n    ('Fahrenheit 451', 'Ray Bradbury', 1953)\n`);\n\ndb.exec(`\n  INSERT INTO notes (book_id, content)\n    VALUES \n    (1, 'A chilling dystopian novel.'),\n    (1, 'Big Brother is watching you.'),\n    (2, 'A visionary novel about a future society.'),\n    (3, 'A powerful statement on censorship.')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n\n  const notes = db.prepare('SELECT content FROM notes WHERE book_id = ?').all(id);\n\n  res.status(200).json({\n    book: book,\n    notes: notes\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});",
+                  "solvedContent": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n\n  const notes = db.prepare('SELECT content FROM notes WHERE book_id = ?').all(id);\n\n  res.status(200).json({\n    book: book,\n    notes: notes\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});\n\napp.post('/books/:id/notes', (req, res) => {\n  const { id } = req.params;\n  const { content } = req.body;\n\n  const insert = db.prepare('INSERT INTO notes (book_id, content) VALUES (?, ?)');\n  const result = insert.run(id, content);\n\n  res.status(201).json({\n    noteId: result.lastInsertRowid\n  });\n});\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "POST",
+                "path": "/books/1/notes",
+                "body": "{\n  \"content\": \"This is an insightful note about the book.\"\n}"
+              }
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 132077,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Por último, queremos añadir un endpoint de eliminación para borrar un libro específico por `id`.\n\n1. Añade una ruta `DELETE /books/:id`.\n2. Usa `req.params` para obtener el `id` del libro a eliminar.\n3. Devuelve un estado 200 con un objeto JSON que contiene la clave `\"bookId\"` que tiene el id del libro eliminado.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "database.js",
+                  "codeLanguage": "javascript",
+                  "content": "const Database = require('better-sqlite3');\nconst db = new Database('/tmp/books.db');\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS books (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      title TEXT NOT NULL,\n      author TEXT NOT NULL,\n      year INTEGER\n    )\n`);\n\ndb.exec(`\n    CREATE TABLE IF NOT EXISTS notes (\n      id INTEGER PRIMARY KEY AUTOINCREMENT,\n      book_id INTEGER NOT NULL,\n      content TEXT NOT NULL,\n      FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE\n    )\n`);\n\ndb.exec(`\n  INSERT INTO books (title, author, year)\n    VALUES \n    ('1984', 'George Orwell', 1949),\n    ('Brave New World', 'Aldous Huxley', 1932),\n    ('Fahrenheit 451', 'Ray Bradbury', 1953)\n`);\n\ndb.exec(`\n  INSERT INTO notes (book_id, content)\n    VALUES \n    (1, 'A chilling dystopian novel.'),\n    (1, 'Big Brother is watching you.'),\n    (2, 'A visionary novel about a future society.'),\n    (3, 'A powerful statement on censorship.')\n`);\n\nmodule.exports = db;",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n\n  const notes = db.prepare('SELECT content FROM notes WHERE book_id = ?').all(id);\n\n  res.status(200).json({\n    book: book,\n    notes: notes\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});\n\napp.post('/books/:id/notes', (req, res) => {\n  const { id } = req.params;\n  const { content } = req.body;\n\n  const insert = db.prepare('INSERT INTO notes (book_id, content) VALUES (?, ?)');\n  const result = insert.run(id, content);\n\n  res.status(201).json({\n    noteId: result.lastInsertRowid\n  });\n});\n",
+                  "solvedContent": "const express = require('express');\nconst db = require('./database');\n\nconst app = express();\nconst port = 3000;\n\napp.use(express.json());\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/books', (req, res) => {\n  const rows = db.prepare('SELECT * FROM books').all();\n  res.status(200).json({\n    books: rows\n  });\n});\n\napp.get('/books/:id', (req, res) => {\n  const { id } = req.params;\n  const book = db.prepare('SELECT * FROM books WHERE id = ?').get(id);\n\n  const notes = db.prepare('SELECT content FROM notes WHERE book_id = ?').all(id);\n\n  res.status(200).json({\n    book: book,\n    notes: notes\n  });\n});\n\napp.post('/books', (req, res) => {\n  const { title, author, year } = req.body;\n\n  const insert = db.prepare('INSERT INTO books (title, author, year) VALUES (?, ?, ?)');\n  const result = insert.run(title, author, year);\n\n  res.status(201).json({\n    bookId: result.lastInsertRowid\n  });\n});\n\napp.post('/books/:id/notes', (req, res) => {\n  const { id } = req.params;\n  const { content } = req.body;\n\n  const insert = db.prepare('INSERT INTO notes (book_id, content) VALUES (?, ?)');\n  const result = insert.run(id, content);\n\n  res.status(201).json({\n    noteId: result.lastInsertRowid\n  });\n});\n\napp.delete('/books/:id', (req, res) => {\n  const { id } = req.params;\n\n  const deleteBook = db.prepare('DELETE FROM books WHERE id = ?');\n  const result = deleteBook.run(id);\n\n  res.status(200).json({\n    deletedBookId: id\n  });\n});\n\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "DELETE",
+                "path": "/books/1",
+                "body": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,516 @@
+{
+  "tutorial": {
+    "id": 1829,
+    "version": 11,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Online Text Editor",
+    "descriptionContent": "Create a simple user interface for text editing using JavaScript",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1829-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12128,
+        "title": "Word Editor",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Start",
+            "id": 110782,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "In this project, we'll work on creating an online text editor. Try typing a word in the large text area below. Then click a button to see the font style change.\n\nLet's look at what we will start off with. \n\n- There is an `index.html` file with some starting code. \n- The html contains an `input` element that will be used as the main text area of the editor. \n- There is a `style.css` file with a few predefined styles.\n- There is an empty `script.js` file.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n    </div>\n    <div></div>\n    <div>\n      <input style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#words {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Ids",
+            "id": 110767,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "We'll use Javascript to interact with the main text input element. Let's assign an `id` to this `input` element so that we can easily target it in our Javascript later on.\n\n1. Find the `input` element in the `index.html` file.\n2. Give this input the ID `\"words\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n    </div>\n    <div></div>\n    <div>\n      <input style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n    </div>\n    <div></div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "img {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": ""
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember, the id is an attribute in the form of `id = \"thevalue\"`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Button onclick",
+            "id": 110768,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Now we'll create the button that sets the color of the text when clicked.  Code the button and specify the function that will be called when the button is clicked.\n\n1. Code a button in the first `div`.\n2. Add the text `Set Color` inside of it.\n3. Inside the button's opening tag, add some code to call the `setColor()` function when the users click the button.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n    </div>\n    <div></div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n    </div>\n    <div></div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "img {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": ""
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "To call a function when users click the button, use the `onclick` attribute.\nA button is created with the tags `<button>` and `</button>`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Input field",
+            "id": 110770,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's add an input field where we can type in what color we want. \n\n1. Code an `input` element directly after the `button`.\n2. Make the type of the input `value`",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n    </div>\n    <div></div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div></div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "img {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": ""
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "An input is created with the tag `<input>`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "Finding the input",
+            "id": 110771,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Now let's write some Javascript. We need to select the main text field `input` and bring it into our Javascript code.\n\n1. Use `document.querySelector` to find the input by its id `\"words\"`.\n2. Save it in a variable named `el`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "img {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "const el = document.querySelector(\"#words\");"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "\n"
+                }
+              ]
+            }
+          },
+          {
+            "title": "setColor",
+            "id": 110772,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's code the function that is linked to the button's click and will handle changing the editor text color. \n\n1. Create a function named `setColor()`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "img {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");",
+                  "solvedContent": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The syntax of a function is `function doSomething {}`."
+                }
+              ]
+            }
+          },
+          {
+            "title": "querySelectorAll",
+            "id": 110773,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Next, let's add some code to the `setColor` function. We want to access the input where a user would type in the color so we can get its value and change the text in the main text input field to that color. \n\n1. Use `querySelectorAll` to find the first `input` element and save it in a variable named `input`.\n2. Assign the `input` element's `value` to the `style.color` property of the `el`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": "img {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {}",
+                  "solvedContent": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember that `querySelectorAll` returns an array. Access the first element by index, like this:\n\n```JS\ndocument.querySelectorAll(\"input\")[0]\n```\nAssign the color to the elements style like this:\n\n```JS\nel.style.color = input.value;\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Change font styles",
+            "id": 110775,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's create the other buttons a user will click to format text in the editor. \n\n1. Find the second `div`.\n2. Code five buttons inside of it.\n3. Set the text of the buttons to `Underline`, `Italic`, `Bold`, `Monospace`, and `Remove Format`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button>Underline</button>\n      <button>Italic</button>\n      <button>Bold</button>\n      <button>Monospace</button>\n      <button>Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.gray-text {\n  color: #616161;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleBold() {}\n\nfunction toggleItalic() {}\n\nfunction toggleUnderline() {}\n\nfunction addMonospace() {}\n\nfunction removeFormat() {}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Font functions",
+            "id": 110793,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Time to create functions that corresponds to each of the buttons we just created. \n\n1. Code five empty functions:\n- `toggleUnderline` \n\n- `toggleItalic` \n\n- `toggleBold` \n\n- `toggleMonospace` \n\n- `removeFormat`\n",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button onclick=\"toggleUnderline()\">Underline</button>\n      <button onclick=\"toggleItalic()\">Italic</button>\n      <button onclick=\"toggleBold()\">Bold</button>\n      <button onclick=\"addMonospace()\">Monospace</button>\n      <button onclick=\"removeFormat()\">Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.gray-text {\n  color: #616161;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}",
+                  "solvedContent": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleBold() {}\n\nfunction toggleItalic() {}\n\nfunction toggleUnderline() {}\n\nfunction toggleMonospace() {}\n\nfunction removeFormat() {}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Font button onclicks",
+            "id": 110794,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Now we need to link the clicking of the buttons to their respective functions. \n\n1. Inside the five buttons' opening tags, add some code to call the appropriate function when the users click the button.\n",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button>Underline</button>\n      <button>Italic</button>\n      <button>Bold</button>\n      <button>Monospace</button>\n      <button>Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button onclick=\"toggleUnderline()\">Underline</button>\n      <button onclick=\"toggleItalic()\">Italic</button>\n      <button onclick=\"toggleBold()\">Bold</button>\n      <button onclick=\"toggleMonospace()\">Monospace</button>\n      <button onclick=\"removeFormat()\">Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>"
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.gray-text {\n  color: #616161;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleBold() {}\n\nfunction toggleItalic() {}\n\nfunction toggleUnderline() {}\n\nfunction toggleMonospace() {}\n\nfunction removeFormat() {}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "The Underline button should call the `toggleUnderline` function.\nThe Italic button should call the `toggleItalic` function.\nThe Bold button should call the `toggleBold` function.\nThe Monospace button should call the `toggleMonospace` function.\nThe Remove Format button should call the `removeFormat` function.\n\n    "
+                }
+              ]
+            }
+          },
+          {
+            "title": "Underline",
+            "id": 110776,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's complete our `toggleUnderline` function so that it underlines our text when clicked. \n\n1. Call the `toggle` function from `el.classList` and pass the parameter `\"underline\"`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button onclick=\"toggleUnderline()\">Underline</button>\n      <button onclick=\"toggleItalic()\">Italic</button>\n      <button onclick=\"toggleBold()\">Bold</button>\n      <button onclick=\"toggleMonospace()\">Monospace</button>\n      <button onclick=\"removeFormat()\">Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.gray-text {\n  color: #616161;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {}\n\nfunction toggleBold() {}\n\nfunction toggleItalic() {}\n\nfunction toggleMonospace() {}\n\nfunction removeFormat() {}",
+                  "solvedContent": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {\n  el.classList.toggle(\"underline\");\n}\n\nfunction toggleBold() {}\n\nfunction toggleItalic() {}\n\nfunction toggleMonospace() {}\n\nfunction removeFormat() {}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember to toggle classes like this:\n\n```JS\nel.classList.toggle(\"underline\");\n```"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Italic",
+            "id": 110777,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's complete our `toggleItalic` function so that it underlines our text when clicked. \n\n1. Call the `toggle` function from `el.classList` and pass the parameter `\"italic\"`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button onclick=\"toggleUnderline()\">Underline</button>\n      <button onclick=\"toggleItalic()\">Italic</button>\n      <button onclick=\"toggleBold()\">Bold</button>\n      <button onclick=\"toggleMonospace()\">Monospace</button>\n      <button onclick=\"removeFormat()\">Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.gray-text {\n  color: #616161;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {\n  el.classList.toggle(\"underline\");\n}\n\nfunction toggleItalic() {}\n\nfunction toggleBold() {}\n\nfunction toggleMonospace() {}\n\nfunction removeFormat() {}",
+                  "solvedContent": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {\n  el.classList.toggle(\"underline\");\n}\n\nfunction toggleItalic() {\n  el.classList.toggle(\"italic\");\n}\n\nfunction toggleBold() {}\n\nfunction toggleMonospace() {}\n\nfunction removeFormat() {}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Bold mono",
+            "id": 110778,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Finish coding the rest of the functions for bold and monospace.\n\n1. In the `toggleBold` function, add a call to `el.classList.toggle` passing in `\"bold\"` .\n2. In the `toggleMonoSpace` function, add a call to `el.classList.toggle` passing in `\"mono\"` .\n",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button onclick=\"toggleUnderline()\">Underline</button>\n      <button onclick=\"toggleItalic()\">Italic</button>\n      <button onclick=\"toggleBold()\">Bold</button>\n      <button onclick=\"toggleMonospace()\">Monospace</button>\n      <button onclick=\"removeFormat()\">Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.gray-text {\n  color: #616161;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {\n  el.classList.toggle(\"underline\");\n}\n\nfunction toggleItalic() {\n  el.classList.toggle(\"italic\");\n}\n\nfunction toggleBold() {}\n\nfunction toggleMonospace() {}\n\nfunction removeFormat() {}",
+                  "solvedContent": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {\n  el.classList.toggle(\"underline\");\n}\n\nfunction toggleItalic() {\n  el.classList.toggle(\"italic\");\n}\n\nfunction toggleBold() {\n  el.classList.toggle(\"bold\");\n}\n\nfunction toggleMonospace() {\n  el.classList.toggle(\"mono\");\n}\n\nfunction removeFormat() {}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Remove",
+            "id": 110780,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Let's complete our project by allowing the user to remove all the font formatting with the click of a button.\n\n1. In the `removeFormat` function, add a call to `el.classList.remove`\n2. Pass in four parameters:  `\"underline\"`, `\"italic\"`, `\"bold\"`, and `\"mono\"`.\n3. Add a call to `el.style.color` and set the color to `\"black\"`.\n",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <link rel=\"stylesheet\" href=\"style.css\">\n  </head>\n  <body>\n    <h1>WordSmith</h1>\n    <div>\n      <button onclick=\"setColor()\">Set Color</button>\n      <input type=\"value\" />\n    </div>\n    <div>\n      <button onclick=\"toggleUnderline()\">Underline</button>\n      <button onclick=\"toggleItalic()\">Italic</button>\n      <button onclick=\"toggleBold()\">Bold</button>\n      <button onclick=\"toggleMonospace()\">Monospace</button>\n      <button onclick=\"removeFormat()\">Remove Format</button>\n    </div>\n    <div>\n      <input id=\"words\" style=\"height:100px;width:250px\"\n        placeholder=\"write your text here\" />\n    </div>\n    <script src=\"script.js\"></script>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "style.css",
+                  "codeLanguage": "css",
+                  "content": ".bold {\n  font-weight: bold;\n}\n\n.italic {\n  font-style: italic;\n}\n\n.underline {\n  text-decoration: underline;\n}\n\n.grey-text {\n  color: #616161;\n}\n\n.mono {\n  font-family: monospace;\n}\n\nimg {\n  width: 250px;\n}\n\nbody {\n  height: 500px;\n}\n\n#page {\n  border-radius: 5px;\n  margin: 5px;\n  height: auto;\n  border: 1px solid black;\n  padding: 10px;\n}\n\nbutton {\n  border-radius: 5px;\n  margin: 5px;\n  font-weight: bold;\n  color: #4D4D87;\n  border: 1px solid;\n  background-color: #D9E8FB;\n}\n\n#settings {\n  display: flex;\n  flex-wrap: wrap;\n}\n\nh1 {\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "script.js",
+                  "codeLanguage": "javascript",
+                  "content": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {\n  el.classList.toggle(\"underline\");\n}\n\nfunction toggleItalic() {\n  el.classList.toggle(\"italic\");\n}\n\nfunction toggleBold() {\n  el.classList.toggle(\"bold\");\n}\n\nfunction toggleMonospace() {\n  el.classList.add(\"mono\");\n}\n\nfunction removeFormat() {}",
+                  "solvedContent": "const el = document.querySelector(\"#words\");\n\nfunction setColor() {\n  const input = document.querySelectorAll(\"input\")[0];\n  el.style.color = input.value;\n}\n\nfunction toggleUnderline() {\n  el.classList.toggle(\"underline\");\n}\n\nfunction toggleItalic() {\n  el.classList.toggle(\"italic\");\n}\n\nfunction toggleBold() {\n  el.classList.toggle(\"bold\");\n}\n\nfunction toggleMonospace() {\n  el.classList.add(\"mono\");\n}\n\nfunction removeFormat() {\n  el.classList.remove(\"underline\", \"italic\", \"bold\", \"mono\");\n  el.style.color = \"black\";\n}"
+                }
+              ],
+              "hints": [
+                {
+                  "title": "Hint",
+                  "content": "Remember you can use the remove function for classes like this:\n\n```JS\n el.classList.remove(\"underline\", \"italic\", \"bold\", \"mono\");\n```"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

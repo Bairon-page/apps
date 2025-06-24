@@ -1,0 +1,103 @@
+{
+  "tutorial": {
+    "id": 2847,
+    "version": 1,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Clone de ChatGPT - Partie 2",
+    "descriptionContent": "Construis sur la première partie du projet Clone de ChatGPT pour permettre plusieurs conversations et compléter l'application.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 14927,
+        "title": "Chapitre #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1 - Copy",
+            "id": 131668,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenue de retour dans le projet **Clone de ChatGPT**. Nous allons reprendre là où nous nous étions arrêtés et ajouter l'option de quitter le chat si l'utilisateur le souhaite.\n\n1. Ajoute une condition qui interrompt la boucle si l'utilisateur tape *exit*.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nwhile True:\n    user_message = input(\"You: \")\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nwhile True:\n    user_message = input(\"You: \")\n    if user_message.lower() == \"exit\":\n        break\n\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #1",
+            "id": 131656,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ajoutons un message de bienvenue et quelques instructions pour l'utilisateur afin d'expliquer comment fonctionne le clone de ChatGPT. Plus tard, nous implémenterons également la fonctionnalité de démarrer un nouveau fil lorsque l'utilisateur exécute le programme.\n\n1. Au-dessus de la boucle `while`, affiche un message de bienvenue et les instructions pour que l'utilisateur termine le fil ou en commence un nouveau. N'hésite pas à utiliser le code suivant ou à en créer un toi-même.\n   ```Python\n   print(\"Bienvenue ! Tape ton message et appuie sur Entrée pour l'envoyer.\")\n   print(\"Tape 'exit' pour terminer le programme\")\n   print(\"Tape 'new' pour changer de fil de conversation.\")\n   print(\"Démarrage d'un nouveau fil pour toi.\\n\")\n   ```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nwhile True:\n    user_message = input(\"You: \")\n    if user_message.lower() == \"exit\":\n        break\n\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\n\nprint(\"Welcome! Type your message and press Enter to send.\")\nprint(\"Type 'exit' to end the program.\")\nprint(\"Type 'new' to switch conversation thread.\")\nprint(\"Starting a new thread for you.\\n\")\n\nwhile True:\n    user_message = input(\"You: \")\n    if user_message.lower() == \"exit\":\n        break\n\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 131658,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous voulons garder une trace de tous les threads précédents au cas où nous voudrions revenir à d'anciens threads à un moment donné.\n\n1. En dehors de la boucle, crée une nouvelle variable appelée `threads` qui doit contenir un tableau vide.\n2. À la toute fin de la boucle, ajoute le `current_thread_id` au tableau `threads` s'il n'est pas déjà présent.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nprint(\"Welcome! Type your message and press Enter to send.\")\nprint(\"Type 'exit' to end the program.\")\nprint(\"Type 'new' to switch conversation thread.\")\nprint(\"Starting a new thread for you.\\n\")\n\nwhile True:\n    user_message = input(\"You: \")\n    if user_message.lower() == \"exit\":\n        break\n\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\nthreads = []\ncurrent_thread_id = None\n\nprint(\"Welcome! Type your message and press Enter to send.\")\nprint(\"Type 'exit' to end the program.\")\nprint(\"Type 'new' to switch conversation thread.\")\nprint(\"Starting a new thread for you.\\n\")\n\nwhile True:\n    user_message = input(\"You: \")\n    if user_message.lower() == \"exit\":\n        break\n\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")\n    if current_thread_id not in threads:\n        threads.append(current_thread_id)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 131853,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Il est temps de vérifier si l'utilisateur souhaite changer de fil de conversation.\n\n1. Dans la boucle `while`, après la vérification de `\"exit\"`, ajoute un bloc `elif` pour vérifier `\"new\"`.\n2. Si l'utilisateur souhaite changer de fil, assure-toi de démarrer un nouveau fil pour l'utilisateur.\n   - Définit `current_thread_id` à `None` pour démarrer un nouveau fil lors du prochain appel API.\n   - Informe l'utilisateur qu'un nouveau fil est sur le point de commencer.\n   - Utilise le mot-clé `continue` pour sauter le reste de la boucle et recommencer la boucle depuis le début afin que l'utilisateur puisse commencer la nouvelle conversation avec une nouvelle entrée.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nprint(\"Welcome! Type your message and press Enter to send.\")\nprint(\"Type 'exit' to end the program.\")\nprint(\"Type 'new' to switch conversation thread.\")\nprint(\"Starting a new thread for you.\\n\")\n\nwhile True:\n    user_message = input(\"You: \")\n    if user_message.lower() == \"exit\":\n        break\n\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")",
+                  "solvedContent": "import requests\nimport os\n\napi_key = os.getenv(\"MIMO_OPENAI_API_KEY\")\nurl = \"https://ai.mimo.org/v1/openai/message\"\nheaders = {\"api-key\": api_key}\n\ndef send_message(user_message, thread_id):\n    body = {\"message\": user_message}\n    if thread_id:\n        body[\"threadId\"] = thread_id\n    response = requests.post(url, headers=headers, json=body)\n    return response.json()\n\ncurrent_thread_id = None\n\nprint(\"Welcome! Type your message and press Enter to send.\")\nprint(\"Type 'exit' to end the program.\")\nprint(\"Type 'new' to switch conversation thread.\")\nprint(\"Starting a new thread for you.\\n\")\n\nwhile True:\n    user_message = input(\"You: \")\n    if user_message.lower() == \"exit\":\n        break\n    elif user_message.lower() == \"new\":\n        current_thread_id = None\n        print(\"Started a new thread.\")\n        continue\n\n    response_data = send_message(user_message, current_thread_id)\n    latest_message = response_data.get(\"response\")\n    current_thread_id = response_data.get(\"threadId\")\n    print(f\"GPT: {latest_message}\")"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

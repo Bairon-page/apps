@@ -1,0 +1,223 @@
+{
+  "tutorial": {
+    "id": 1808,
+    "version": 8,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Banque automatisée",
+    "descriptionContent": "Apprends à utiliser les boucles pour créer un programme de reçu client",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1808-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12027,
+        "title": "Fonctions fléchées - Banque automatisée",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Step 1",
+            "id": 109633,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Un gestionnaire de banque a prototypé un système bancaire électronique mais cherche à apporter quelques améliorations. Elle t'a engagé en tant que consultant pour améliorer son code et développer quelques fonctionnalités supplémentaires.\n\nTout d'abord, familiarisons-nous avec le code fourni : Il y a\n- une variable `accountBalance`, pour stocker le solde initial.\n- une fonction `deposit(amount)`, pour déposer un montant sur le compte.\n- une fonction `withdraw(amount)`, pour retirer un montant du compte.\n- une fonction `balance`, pour retourner un message sur le solde actuel du compte.\n- une fonction `greeting(name)`, pour retourner un message de bienvenue personnalisé.\n- et une série d'appels de fonction pour tester la fonctionnalité du programme.\n\nSi tu essaies d'exécuter le programme maintenant, tu pourrais remarquer quelques problèmes. Comme l'a demandé le gestionnaire de banque, nous allons convertir ses fonctions en fonctions fléchées et incorporer la sécurité supplémentaire du code PIN. Nous devrons également corriger la fonction `withdraw()` pour éviter les découverts. Mais procédons étape par étape.\n\n1. Convertis la fonction `deposit()` en une fonction fléchée, en gardant les paramètres et le corps de la fonction identiques. Tu devrais stocker la fonction fléchée dans une constante (`const`).",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\n\nfunction deposit(amount) {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n}\n\nfunction withdraw(amount) {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n}\n\nfunction balance() {\n  return \"Your balance is currently: $\" + accountBalance;\n}\n\nfunction greeting(name) {\n  return \"Welcome to your automated banking portal, \" + name + \".\";\n}\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\n\nfunction withdraw(amount) {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n}\n\nfunction balance() {\n  return \"Your balance is currently: $\" + accountBalance;\n}\n\nfunction greeting(name) {\n  return \"Welcome to your automated banking portal, \" + name + \".\";\n}\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 2",
+            "id": 109637,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ensuite, continuons avec la fonction `withdraw()`.\n\n1. Convertis la fonction `withdraw()` en une fonction fléchée, en gardant les mêmes paramètres et le même corps de fonction. Tu devrais stocker la fonction fléchée dans une constante (`const`).",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\n\nfunction withdraw(amount) {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n}\n\nfunction balance() {\n  return \"Your balance is currently: $\" + accountBalance;\n}\n\nfunction greeting(name) {\n  return \"Welcome to your automated banking portal, \" + name + \".\";\n}\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\n\nfunction balance() {\n  return \"Your balance is currently: $\" + accountBalance;\n}\n\nfunction greeting(name) {\n  return \"Welcome to your automated banking portal, \" + name + \".\";\n}\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 3",
+            "id": 109627,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Faisons la même chose avec les fonctions `balance()` et `greeting()`, et convertissons-les en fonctions fléchées multilignes.\n\n1. Convertis la fonction `balance()` en une fonction fléchée multilignes, en gardant le corps de la fonction inchangé. Tu devrais stocker la fonction fléchée dans une constante ( `const` ).\n2. Convertis la fonction `greeting()` en une fonction fléchée multilignes, en gardant le paramètre et le corps de la fonction inchangés. Tu devrais à nouveau stocker la fonction fléchée dans une constante ( `const` ).",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n}\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n}\n\nfunction balance() {\n  return \"Your balance is currently: $\" + accountBalance;\n}\n\nfunction greeting(name) {\n  return \"Welcome to your automated banking portal, \" + name + \".\";\n}\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => {\n  return \"Your balance is currently: $\" + accountBalance;\n};\nconst greeting = (name) => {\n  return \"Welcome to your automated banking portal, \" + name + \".\";\n};\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 4",
+            "id": 109638,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous voulons aller au-delà des attentes pour ce client. Rendons les fonctions fléchées `balance()` et `greeting()` encore plus concises et convertissons-les en fonctions fléchées en notation abrégée. Les paramètres et les corps des fonctions fléchées doivent rester les mêmes.\n\n1. Convertis la fonction fléchée `balance()` en une fonction fléchée en notation abrégée. Stocke la fonction fléchée dans une constante.\n2. Convertis la fonction fléchée `greeting()` en une fonction fléchée en notation abrégée. Stocke la fonction fléchée dans une constante.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => {\n  return \"Your balance is currently: $\" + accountBalance;\n};\nconst greeting = (name) => {\n  return \"Welcome to your automated banking portal, \" + name + \".\";\n};\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 5",
+            "id": 109631,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Travaillons sur la prochaine demande du client : la fonctionnalité PIN. À des fins de démonstration, cette fonction doit retourner une valeur booléenne selon que le `inputPin` correspond au nombre `1568`.\n\n1. Écris une fonction fléchée abrégée nommée `pin` qui prend un paramètre `inputPin`. La fonction doit vérifier si le `inputPin` est `1568` et retourner une valeur booléenne en conséquence.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 6",
+            "id": 109632,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Écrivons une autre fonction fléchée, celle-ci pour aider les utilisateurs à éviter les découverts. Elle vérifiera si le solde du compte d'un utilisateur dépasse le montant de retrait demandé.\n\n1. Écris une fonction fléchée abrégée nommée `checkMinBalance` qui prend un paramètre `withdrawalAmt`. La fonction fléchée doit retourner le résultat booléen de savoir si `withdrawalAmt` est inférieur à `accountBalance` (`true` si l'utilisateur peut effectuer le retrait, `false` sinon). Stocke la fonction fléchée dans une constante.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 7",
+            "id": 109628,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous devons maintenant incorporer la fonction `pin()` que nous avons codée. Nous passerons une valeur booléenne à travers ce paramètre, puis utiliserons une instruction `if` pour autoriser ou empêcher le `deposit` de se produire (en fonction du paramètre `pinCheck`).\n\n1. Tout d'abord, ajoute un paramètre nommé `pinCheck` à la définition de la fonction `deposit()`.\n2. Ensuite, ajoute une instruction `if` au corps de la fonction `deposit()` qui se déclenche en fonction du paramètre `pinCheck`. Le corps de l'instruction `if` doit contenir tout le code existant du corps de la fonction, retournant `true` si le dépôt est réussi.\n3. Enfin, ajoute une instruction `else` qui retourne `false` dans le cas contraire (lorsque `pinCheck` ne passe pas et que le dépôt échoue).",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount) => {\n  console.log(\"Depositing: $\" + amount);\n  accountBalance += amount;\n  return true;\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Depositing: $\" + amount);\n    accountBalance += amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 8",
+            "id": 109629,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Maintenant, nous allons devoir ajouter la même fonctionnalité `pinCheck` à la fonction `withdraw()`. Ensuite, nous incorporerons une instruction `if` qui vérifie ce paramètre et autorise (ou rejette) correctement le retrait.\n\n1. Tout d'abord, ajoute un paramètre nommé `pinCheck` à la définition de la fonction `withdraw()`.\n2. Ensuite, ajoute une instruction `if` au corps de la fonction `withdraw()` qui se déclenche en fonction du paramètre `pinCheck`. Le corps de l'instruction `if` doit contenir tout le code existant du corps de la fonction, retournant `true` si le retrait est réussi.\n3. Enfin, ajoute une instruction `else` qui retourne `false` dans le cas contraire (lorsque `pinCheck` ne passe pas et que le retrait échoue).",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Depositing: $\" + amount);\n    accountBalance += amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst withdraw = (amount) => {\n  console.log(\"Withdrawing: $\" + amount);\n  accountBalance -= amount;\n  return true;\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Depositing: $\" + amount);\n    accountBalance += amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst withdraw = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Withdrawing: $\" + amount);\n    accountBalance -= amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 9",
+            "id": 109634,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Enfin, intégrons la fonction fléchée `checkMinBalance()` que nous avons codée précédemment. L'instruction `if` ne doit passer que lorsque `checkMinBalance()` et `pinCheck` sont tous deux `true`.\n\n1. Ajoute l'appel de la fonction `checkMinBalance()` à la condition de l'instruction `if` de la fonction `withdraw`. Assure-toi d'ajouter le bon paramètre.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Depositing: $\" + amount);\n    accountBalance += amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst withdraw = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Withdrawing: $\" + amount);\n    accountBalance -= amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Depositing: $\" + amount);\n    accountBalance += amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst withdraw = (amount, pinCheck) => {\n  if (pinCheck && checkMinBalance(amount)) {\n    console.log(\"Withdrawing: $\" + amount);\n    accountBalance -= amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Step 10",
+            "id": 109635,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Exécuter le programme maintenant n'affiche que le message de bienvenue et le solde actuel. Aucune des transactions de test ne s'exécute puisque nous ne fournissons pas la fonction `pin()` pour autoriser la transaction. Nous savons que notre système d'authentification fonctionne !\n\nNous allons maintenant modifier les appels de fonction `withdraw()` et `deposit()` de manière à satisfaire l'exigence du paramètre `pinCheck` en appelant et en passant le résultat de l'appel de la fonction flèche `pin`. Une fois terminé, l'exécution de votre code devrait montrer que le dépôt de 50 $ et le retrait de 1200 $ ont réussi, mais le retrait de 6600 $ échouera.\n\n1. Modifie l'appel de la fonction `deposit()` de sorte que la fonction `pin()` soit appelée comme son deuxième paramètre. Fournis le bon code PIN pour autoriser la transaction.\n2. Ensuite, modifie de la même manière les deux appels de fonction `withdrawal()` suivants.\n3. Exécute le programme pour vérifier ton travail !",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "index.js",
+                  "codeLanguage": "javascript",
+                  "content": "let accountBalance = 6500;\nconst deposit = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Depositing: $\" + amount);\n    accountBalance += amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst withdraw = (amount, pinCheck) => {\n  if (pinCheck && checkMinBalance(amount)) {\n    console.log(\"Withdrawing: $\" + amount);\n    accountBalance -= amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50)) {\n  console.log(balance());\n}\nif (withdraw(1200)) {\n  console.log(balance());\n}\nif (withdraw(6600)) {\n  console.log(balance());\n}",
+                  "solvedContent": "let accountBalance = 6500;\nconst deposit = (amount, pinCheck) => {\n  if (pinCheck) {\n    console.log(\"Depositing: $\" + amount);\n    accountBalance += amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst withdraw = (amount, pinCheck) => {\n  if (pinCheck && checkMinBalance(amount)) {\n    console.log(\"Withdrawing: $\" + amount);\n    accountBalance -= amount;\n    return true;\n  } else {\n    return false;\n  }\n};\nconst balance = () => \"Your balance is currently: $\" + accountBalance;\nconst greeting = (name) => \"Welcome to your automated banking portal, \" + name +\n  \".\";\nconst pin = (inputPin) => inputPin == 1568;\nconst checkMinBalance = (withdrawalAmt) => withdrawalAmt < accountBalance;\nconsole.log(greeting(\"Jane\"));\nconsole.log(balance());\nif (deposit(50, pin(1568))) {\n  console.log(balance());\n}\nif (withdraw(1200, pin(1568))) {\n  console.log(balance());\n}\nif (withdraw(6600, pin(1568))) {\n  console.log(balance());\n}"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

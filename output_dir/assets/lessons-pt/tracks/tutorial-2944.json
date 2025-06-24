@@ -1,0 +1,268 @@
+{
+  "tutorial": {
+    "id": 2944,
+    "version": 2,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Usando o Express Router",
+    "descriptionContent": "Aprofunde-se no Express router entendendo como usá-lo para capturar parâmetros e rotas, bem como como usá-lo para encadear rotas.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 15066,
+        "title": "Capturando Parâmetros",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #6",
+            "id": 132802,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O roteador tem mais alguns truques na manga. Vamos ver como ele lida com parâmetros de rota.</p><p><code>router.param</code> é usado para capturar parâmetros nomeados da URL, analisá-los e anexar o valor resultante ao objeto req.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router\" class=\"selector-tag\" /><text value=\".param\" class=\"selector-class\" /><text value=\"();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"12\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router</code> seguido de <code>.</code> e finalmente <code>param</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132812,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como primeiro argumento, especificamos o nome do parâmetro de rota a ser capturado. Por exemplo, um parâmetro de rota com o nome <code>\"id\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"13\" endIndex=\"17\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"id\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132813,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O segundo argumento no método <code>router.param</code> é uma função middleware.</p><p>A função middleware recebe quatro parâmetros: <code>req</code>, <code>res</code>, <code>next</code> e o valor capturado - neste caso, <code>id</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"13\" endIndex=\"17\" /><option startIndex=\"36\" endIndex=\"38\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"id\"</code> seguido de <code>id</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132814,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos usar o parâmetro capturado no middleware para recuperar dados, validar a entrada ou anexar os dados ao objeto de solicitação para mais tarde.</p><p>Aqui, vamos simplesmente registrar o parâmetro capturado.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing ID: \" /><text value=\"${id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"77\" /><option startIndex=\"36\" endIndex=\"38\" /><option startIndex=\"13\" endIndex=\"17\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"id\"</code> seguido de <code>id</code> e finalmente <code>id</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy",
+            "id": 132811,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Claro, não devemos esquecer de chamar <code>next</code> para passar o controle para o próximo middleware ou manipulador de rota; caso contrário, a requisição ficará pendente.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing ID: \" /><text value=\"${id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"83\" endIndex=\"87\" /><option startIndex=\"87\" endIndex=\"88\" /><option startIndex=\"88\" endIndex=\"89\" /><option startIndex=\"89\" endIndex=\"90\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>next</code> seguido de <code>(</code> e depois <code>)</code>, <code>;</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132805,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Complete o código para fazer o roteador capturar o parâmetro de rota <code>name</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"var\" class=\"keyword\" /><text value=\" express = \" /><text value=\"require\" class=\"built_in\" /><text value=\"(\" /><text value=\"&quot;express&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"var\" class=\"keyword\" /><text value=\" router = express.Router();\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.param(\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\", \" /><text value=\"function\" class=\"keyword\" /><text value=\" (\" /><text value=\"req, res, next, name\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\"  req.item = {\" /><text type=\"break\" /><text value=\"   \" /><text value=\"name\" class=\"attr\" /><text value=\": name,\" /><text type=\"break\" /><text value=\"   \" /><text value=\"description\" class=\"attr\" /><text value=\": \" /><text value=\"&quot;This is a description of &quot;\" class=\"string\" /><text value=\" + name\" /><text type=\"break\" /><text value=\"  };\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.get(\" /><text value=\"&quot;/item/:name&quot;\" class=\"string\" /><text value=\", \" /><text value=\"function\" class=\"keyword\" /><text value=\" (\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\"  res.json(req.item);\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text type=\"break\" /><text value=\"module\" class=\"built_in\" /><text value=\".exports = router;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"73\" endIndex=\"78\" /><option startIndex=\"66\" endIndex=\"72\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router</code> seguido de <code>param</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy",
+            "id": 132842,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Deixe o roteador capturar o parâmetro de rota <code>name</code> para que chamadas para endpoints como <code>\"/greet/:name\"</code> acionem o middleware.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\", (req, res, next, name) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing name: \" /><text value=\"${name}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"13\" endIndex=\"19\" /><option startIndex=\"38\" endIndex=\"42\" /><option startIndex=\"81\" endIndex=\"85\" /><option correct=\"false\"><content><text value=\"/:name\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"name\"</code> seguido de <code>name</code> e finalmente <code>name</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #12",
+            "id": 132847,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual método permite executar middleware quando um parâmetro de rota específico é correspondido?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Usando router.param(\"parameterName\", middlewareFunction)`</item><item value=\"2\" correct=\"false\">Usando router.use(\"parameterName\", middlewareFunction)`</item></selection><p visible-if=\"wrong\">Usando router.param(\"parameterName\", middlewareFunction)`.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy - Copy",
+            "id": 132843,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que está faltando aqui?</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;name&quot;\" class=\"string\" /><text value=\", (req, res, next, name) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing name: \" /><text value=\"${name}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>next</code> precisa ser chamado para continuar com a requisição após o middleware executar seu código</item><item value=\"2\" correct=\"false\">O router deve capturar parâmetros de consulta em vez de parâmetros de rota aqui</item></selection><p visible-if=\"wrong\"><code>next</code> precisa ser chamado para continuar com a requisição após o middleware executar seu código.</p></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132846,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O que <code>router.param(\"type\")</code> faz?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Define um middleware que é executado quando uma rota com o parâmetro especificado é correspondida</item><item value=\"2\" correct=\"false\">Define uma rota estática para o parâmetro <code>id</code></item></selection><p visible-if=\"wrong\">Define um middleware que é executado quando uma rota com o parâmetro especificado é correspondida.</p></body></html>"
+          },
+          {
+            "title": "Lesson #6 - Copy - Copy - Copy",
+            "id": 132844,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Capture o parâmetro <code>id</code> com o router.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.param(\" /><text value=\"&quot;id&quot;\" class=\"string\" /><text value=\", (req, res, next, id) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Capturing ID: \" /><text value=\"${id}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"12\" /><option correct=\"false\"><content><text value=\"app\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router</code> seguido de <code>.</code> e finalmente <code>param</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 15067,
+        "title": "Encadeamento de Rotas",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #7",
+            "id": 132804,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Roteadores também podem ajudar a reduzir a redundância, permitindo que declaremos endpoints para múltiplos métodos HTTP em uma rota, de forma encadeada.</p><p>Fazemos isso definindo a rota primeiro via <code>router.route</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"12\" /><option startIndex=\"13\" endIndex=\"20\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router</code> seguido de <code>.route</code> e finalmente <code>\"/book\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy",
+            "id": 132817,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos então encadear um endpoint <code>GET</code> à rota.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\").get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a random book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"22\" endIndex=\"25\" /><option startIndex=\"26\" endIndex=\"36\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>get</code> seguido de <code>(req, res)</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy",
+            "id": 132816,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos adicionar mais endpoints se quisermos. Vamos adicionar um para <code>POST</code> e um para <code>PUT</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\").get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a random book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).post(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Add a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).put(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Update the book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"77\" endIndex=\"81\" /><option startIndex=\"126\" endIndex=\"129\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>post</code> seguido de <code>put</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132806,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Claro, podemos usar rotas mais complexas também. Crie uma rota que use um parâmetro de rota.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).put(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Update a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).delete(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Delete a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"14\" endIndex=\"15\" /><option startIndex=\"15\" endIndex=\"19\" /><option startIndex=\"19\" endIndex=\"20\" /><option startIndex=\"20\" endIndex=\"23\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>/</code> seguido de <code>item</code> e depois <code>/</code>, <code>:id</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy",
+            "id": 132825,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos integrar funções de middleware dentro da mesma definição de rota, permitindo pré-processamento ou validação.</p><p>Usamos <code>all</code> para executar o middleware para todas as rotas correspondentes.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all(\" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;I'm always executed!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"}).get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"27\" endIndex=\"30\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>all</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy - Copy",
+            "id": 132849,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos também definir o middleware antes e passar uma referência para a função como argumento, em vez de passar a função de callback diretamente.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all(logging)\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"115\" endIndex=\"118\" /><option startIndex=\"119\" endIndex=\"126\" /><option startIndex=\"6\" endIndex=\"13\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>logging</code> seguido de <code>all</code> e finalmente <code>logging</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy ",
+            "id": 132850,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>E, claro, podemos passar várias funções de middleware. Podemos usar múltiplos parâmetros ou um array.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" validateId = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" { id } = req.params;\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!id) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\" res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;ID is required&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all([logging, validateId])\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"6\" endIndex=\"13\" /><option startIndex=\"261\" endIndex=\"264\" /><option startIndex=\"265\" endIndex=\"286\" /><option startIndex=\"94\" endIndex=\"104\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>logging</code> seguido de <code>validateId</code> e depois <code>all</code>, <code>[logging, validateId]</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy - Copy - Copy",
+            "id": 132855,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Por último, mas não menos importante, podemos aplicar middleware diretamente na cadeia também, se quisermos que apenas rotas específicas o acionem.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".get(logging, (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"6\" endIndex=\"13\" /><option startIndex=\"119\" endIndex=\"126\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>logging</code> seguido de <code>logging</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #10",
+            "id": 132853,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Qual vantagem o encadeamento de métodos com <code>router.route</code> oferece?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Permite que você defina vários métodos HTTP para a mesma rota de maneira limpa e organizada</item><item value=\"2\" correct=\"false\">Isso reduz a necessidade de middleware na aplicação</item></selection><p visible-if=\"wrong\">Permite que você defina vários métodos HTTP para a mesma rota de maneira limpa e organizada.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy",
+            "id": 132818,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Adicione os endpoints adequados.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"router.route(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\").get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Get a random book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).post(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Add a book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}).put(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"&quot;Update the book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"22\" endIndex=\"25\" /><option startIndex=\"77\" endIndex=\"81\" /><option startIndex=\"126\" endIndex=\"129\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>get</code> seguido de <code>post</code> e finalmente <code>put</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #11",
+            "id": 132854,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Você pode usar middleware em conjunto com rotas encadeadas definidas por <code>router.route</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Sim, você pode aplicar middleware usando <code>all</code> ou diretamente na cadeia</item><item value=\"2\" correct=\"false\">Não, middleware não pode ser usado com rotas encadeadas</item></selection><p visible-if=\"wrong\">Sim, você pode aplicar middleware usando <code>all</code> ou diretamente na cadeia.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7 - Copy - Copy  - Copy",
+            "id": 132852,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Passa um array de funções middleware que o roteador pode executar toda vez que a rota <code>\"/item/:id\"</code> for correspondida.</p><code version=\"2\" codelang=\"javascript\" name=\"route.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" logging = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Incoming request!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" validateId = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" { id } = req.params;\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!id) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\" res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;ID is required&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.route(\" /><text value=\"&quot;/item/:id&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text value=\".all([logging, validateId])\" /><text type=\"break\" /><text value=\".get(\" /><text value=\"(\" /><text value=\"req, res\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Hi!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"265\" endIndex=\"266\" /><option startIndex=\"273\" endIndex=\"274\" /><option startIndex=\"285\" endIndex=\"286\" /><option startIndex=\"261\" endIndex=\"264\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>all</code> seguido de <code>[</code> e depois <code>,</code>, <code>]</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 15068,
+        "title": "Capturando Rotas",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "router.use() - Copy",
+            "id": 132820,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>As rotas podem não apenas capturar parâmetros, mas também direcionar para então executar middleware personalizado.</p><p>Para executar um determinado middleware sempre que uma rota definida for acessada, precisamos informar ao router para usá-lo.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router\" class=\"selector-tag\" /><text value=\".use\" class=\"selector-class\" /><text value=\"();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"10\" /><option correct=\"false\"><content><text value=\"express\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router</code> seguido de <code>.</code> e finalmente <code>use</code>.</p></body></html>"
+          },
+          {
+            "title": "router.use() - Copy - Copy",
+            "id": 132822,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O primeiro argumento do método especifica o caminho que o middleware ou o manipulador de rotas deve corresponder.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\");\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"11\" endIndex=\"22\" /><option startIndex=\"0\" endIndex=\"10\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router.use</code> seguido de <code>\"/clothing\"</code>.</p></body></html>"
+          },
+          {
+            "title": "router.use() - Copy - Copy - Copy",
+            "id": 132823,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Em seguida, passamos a função de callback que executa o middleware. Aqui, registramos quando uma rota começando com <code>\"/clothing\"</code> é acessada.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /clothing&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"24\" endIndex=\"40\" /><option startIndex=\"41\" endIndex=\"43\" /><option startIndex=\"47\" endIndex=\"87\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>(req, res, next)</code> seguido de <code>=&gt;</code> e finalmente <code>console.log(\"Router use for /clothing\");</code>.</p></body></html>"
+          },
+          {
+            "title": "daf",
+            "id": 132824,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Claro, não devemos esquecer <code>next</code> se quisermos solicitar a propagação adiante.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /clothing&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"89\" endIndex=\"93\" /><option startIndex=\"93\" endIndex=\"94\" /><option startIndex=\"94\" endIndex=\"95\" /><option startIndex=\"95\" endIndex=\"96\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>next</code> seguido de <code>(</code> e depois <code>)</code>, <code>;</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy",
+            "id": 132827,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>O caminho da rota precisa começar com a rota definida para capturá-la. <code>http://localhost:3000/clothing/info</code> será capturado pelo nosso roteador.</p><p><code>http://localhost:3000/info/clothing</code> não será capturado pelo manipulador <code>\"/clothing\"</code> já que não começa com <code>\"/clothing\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/clothing&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /clothing&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"11\" endIndex=\"22\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"/clothing\"</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy - Copy",
+            "id": 132862,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos usar várias funções de middleware também ao capturar uma rota específica.</p><p>Podemos passá-los como valores individuais ou como um array.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" loggingMiddleware = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"`Incoming request to \" /><text value=\"${req.url}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" authMiddleware = \" /><text value=\"(\" /><text value=\"req, res, next\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" {\" /><text type=\"break\" /><text value=\" \" /><text value=\"const\" class=\"keyword\" /><text value=\" token = req.headers[\" /><text value=\"&quot;authorization&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (token) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Authorized&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"  next();\" /><text type=\"break\" /><text value=\" } \" /><text value=\"else\" class=\"keyword\" /><text value=\" {\" /><text type=\"break\" /><text value=\"  res.status(\" /><text value=\"403\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Forbidden&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\"};\" /><text type=\"break\" /><text type=\"break\" /><text value=\"router.use(\" /><text value=\"&quot;/game&quot;\" class=\"string\" /><text value=\", loggingMiddleware, authMiddleware);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"326\" endIndex=\"343\" /><option startIndex=\"345\" endIndex=\"359\" /><option startIndex=\"115\" endIndex=\"129\" /><option startIndex=\"6\" endIndex=\"23\" /><option startIndex=\"306\" endIndex=\"316\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>loggingMiddleware</code> seguido de <code>authMiddleware</code> e depois <code>router.use</code>, <code>loggingMiddleware</code>, <code>authMiddleware</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy - Copy",
+            "id": 132857,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Certifique-se de que o roteador capture a seguinte rota <code>http://localhost:3000/movie/12</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/movie/:id&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /movie&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"11\" endIndex=\"23\" /><option correct=\"false\"><content><text value=\"&quot;/movies&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>\"/movie/:id\"</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy",
+            "id": 132858,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Faça o roteador capturar todas as rotas que começam com <code>\"/book\"</code> e execute o middleware personalizado nesse caso.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"11\" endIndex=\"18\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router</code> seguido de <code>.</code> e depois <code>use</code>, <code>\"/book\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #9",
+            "id": 132860,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como você pode registrar todas as solicitações recebidas para rotas que começam com <code>/song</code> usando um router?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Usando <code>router.use(\"/song\", middlewareFunction)</code></item><item value=\"2\" correct=\"false\">Ao usar <code>app.use(\"/song\", middlewareFunction)</code></item></selection><p visible-if=\"wrong\">Usando <code>router.use(\"/song\", middlewareFunction)</code>.</p></body></html>"
+          },
+          {
+            "title": "daf - Copy - Copy",
+            "id": 132859,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Complete o código para fazer o roteador capturar todas as rotas que começam com <code>\"/book\"</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"router.js\" visible-if=\"always\"><content><text value=\"router.use(\" /><text value=\"&quot;/book&quot;\" class=\"string\" /><text value=\", (req, res, next) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Router use for /book&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" next();\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"6\" endIndex=\"7\" /><option startIndex=\"7\" endIndex=\"10\" /><option startIndex=\"11\" endIndex=\"18\" /><option correct=\"false\"><content><text value=\"app\" /></content></option><option correct=\"false\"><content><text value=\"route\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Certifique-se de escolher <code>router</code> seguido de <code>.</code> e depois <code>use</code>, <code>\"/book\"</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

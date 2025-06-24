@@ -1,0 +1,150 @@
+.class public final Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;
+.super Lcom/getmimo/analytics/properties/OnboardingDevicePreference;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/getmimo/analytics/properties/OnboardingDevicePreference;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "Desktop"
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0010\u000e\n\u0000\u0008\u00c6\n\u0018\u00002\u00020\u0001B\t\u0008\u0002\u00a2\u0006\u0004\u0008\u0002\u0010\u0003J\u0013\u0010\u0004\u001a\u00020\u00052\u0008\u0010\u0006\u001a\u0004\u0018\u00010\u0007H\u00d6\u0003J\t\u0010\u0008\u001a\u00020\tH\u00d6\u0001J\t\u0010\n\u001a\u00020\u000bH\u00d6\u0001\u00a8\u0006\u000c"
+    }
+    d2 = {
+        "Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;",
+        "Lcom/getmimo/analytics/properties/OnboardingDevicePreference;",
+        "<init>",
+        "()V",
+        "equals",
+        "",
+        "other",
+        "",
+        "hashCode",
+        "",
+        "toString",
+        "",
+        "analytics_productionRelease"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x1,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# static fields
+.field public static final b:Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    new-instance v0, Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;
+
+    const-string v2, "Smob - Mod obfuscation tool v4.6 by Kirlif\'"
+
+    invoke-direct {v0}, Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;-><init>()V
+
+    const/4 v2, 0x3
+
+    sput-object v0, Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;->b:Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;
+
+    const/4 v2, 0x4
+
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 6
+
+    move-object v2, p0
+
+    const-string v5, "desktop"
+
+    move-object v0, v5
+
+    const/4 v4, 0x0
+
+    move v1, v4
+
+    invoke-direct {v2, v0, v1}, Lcom/getmimo/analytics/properties/OnboardingDevicePreference;-><init>(Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    const/4 v4, 0x5
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public equals(Ljava/lang/Object;)Z
+    .locals 5
+
+    move-object v1, p0
+
+    const/4 v3, 0x1
+
+    move v0, v3
+
+    if-ne v1, p1, :cond_0
+
+    const/4 v3, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v3, 0x4
+
+    instance-of p1, p1, Lcom/getmimo/analytics/properties/OnboardingDevicePreference$Desktop;
+
+    const/4 v3, 0x3
+
+    if-nez p1, :cond_1
+
+    const/4 v4, 0x2
+
+    const/4 v3, 0x0
+
+    move p1, v3
+
+    return p1
+
+    :cond_1
+    const/4 v4, 0x7
+
+    return v0
+.end method
+
+.method public hashCode()I
+    .locals 4
+
+    move-object v1, p0
+
+    const v0, 0x4a11c2a6    # 2388137.5f
+
+    const/4 v3, 0x6
+
+    return v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 4
+
+    move-object v1, p0
+
+    const-string v3, "Desktop"
+
+    move-object v0, v3
+
+    return-object v0
+.end method

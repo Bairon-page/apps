@@ -1,0 +1,247 @@
+{
+  "tutorial": {
+    "id": 1484,
+    "version": 5,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "Contando y sumando",
+    "descriptionContent": "Contando y sumando",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 10549,
+        "title": "Contar filas de la tabla",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro 1",
+            "id": 96460,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Podemos usar funciones de agregación para averiguar cuántos elementos tenemos en una tabla como <code>wishlist</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(item)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"7\" endIndex=\"18\" /><option startIndex=\"24\" endIndex=\"32\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"COUNT(item)\" /></row><row><data content=\"4\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>COUNT(item)</code> seguido de <code>wishlist</code>.</p></body></html>"
+          },
+          {
+            "title": "COUNT",
+            "id": 96761,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para obtener el número de filas en una tabla, usamos la operación <code>COUNT</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(*)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"7\" endIndex=\"12\" /></interactions><output><table name=\"Result\"><row><header content=\"COUNT(*)\" /></row><row><data content=\"4\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>COUNT</code>.</p></body></html>"
+          },
+          {
+            "title": "COUNT (*)",
+            "id": 96773,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Luego, codificamos el comodín <code>*</code> entre paréntesis <code>()</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(*)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"12\" endIndex=\"13\" /><option startIndex=\"13\" endIndex=\"14\" /><option startIndex=\"14\" endIndex=\"15\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"COUNT(*)\" /></row><row><data content=\"4\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>(</code> seguido de <code>*</code> y finalmente <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Aliasing",
+            "id": 96765,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como antes, podemos usar un alias para renombrar nuestro resultado. Código <code>AS</code> y el alias <code>items</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(*) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" items\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"16\" endIndex=\"24\" /></interactions><output><table name=\"Result\"><row><header content=\"items\" /></row><row><data content=\"4\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>AS items</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: COUNT",
+            "id": 97010,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué hace <code>COUNT(*)</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Nos da el número de filas en una tabla</item><item value=\"2\" correct=\"false\">Nos da el número de valores en una columna específica</item></selection><p visible-if=\"wrong\">Nos da el número de filas en una tabla.</p></body></html>"
+          },
+          {
+            "title": "Question: COUNT (*)",
+            "id": 97011,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Esta consulta nos da el número de filas en una tabla?</p><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"()\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">No, porque a <code>COUNT()</code> le falta el <code>*</code></item><item value=\"2\" correct=\"false\">Sí</item></selection><p visible-if=\"wrong\">No, porque a <code>COUNT()</code> le falta el <code>*</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Aliasing",
+            "id": 97031,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo podemos renombrar la columna de resultados al usar <code>COUNT</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Al cambiarle el nombre con <code>AS</code> y un nuevo nombre</item><item value=\"2\" correct=\"false\">Al codificar un nuevo nombre entre los paréntesis de <code>COUNT()</code></item></selection><p visible-if=\"wrong\">Al cambiarle el nombre con <code>AS</code> y un nuevo nombre.</p></body></html>"
+          },
+          {
+            "title": "Example: COUNT (*)",
+            "id": 97015,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Obtén el número de filas en la tabla <code>team</code> con <code>SELECT</code> y <code>COUNT(*)</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Lin', 16);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"Lin\" /><data content=\"16\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(*)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"15\" /></interactions><output><table name=\"Result\"><row><header content=\"COUNT(*)\" /></row><row><data content=\"3\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT COUNT(*)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Aliasing",
+            "id": 97016,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Usa <code>AS</code> y renombra el resultado a <code>team_size</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Lin', 16);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"Lin\" /><data content=\"16\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(*) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" team_size\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"16\" endIndex=\"28\" /></interactions><output><table name=\"Result\"><row><header content=\"team_size\" /></row><row><data content=\"3\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>AS team_size</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 10554,
+        "title": "Contar por columna",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Count by column",
+            "id": 96768,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>También podemos contar valores en una columna codificando un nombre de columna como <code>price</code> entre paréntesis.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"13\" endIndex=\"18\" /></interactions><output><table name=\"Result\"><row><header content=\"COUNT(price)\" /></row><row><data content=\"4\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>price</code>.</p></body></html>"
+          },
+          {
+            "title": "Count by column 2",
+            "id": 96775,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Al contar por columna, omitimos las celdas vacías de la tabla como la de la segunda fila. Por eso obtenemos <code>3</code> en lugar de <code>4</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', NULL);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"7\" endIndex=\"19\" /><option correct=\"false\"><content><text value=\"COUNT(*)\" /></content></option></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"COUNT(price)\" /></row><row><data content=\"3\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT</code> seguido de <code>COUNT(price)</code>.</p></body></html>"
+          },
+          {
+            "title": "Count DISTINCT",
+            "id": 96776,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cuando contamos por columna, podemos usar <code>DISTINCT</code> para evitar contar duplicados.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" item)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"13\" endIndex=\"21\" /></interactions><output><table name=\"Result\"><row><header content=\"COUNT(DISTINCT item)\" /></row><row><data content=\"2\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>DISTINCT</code>.</p></body></html>"
+          },
+          {
+            "title": "Count DISTINCT 2",
+            "id": 97072,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para contar valores distintos, escribimos <code>DISTINCT</code> antes del nombre de la columna, como <code>item</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" item)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"13\" endIndex=\"26\" /></interactions><output><table name=\"Result\"><row><header content=\"COUNT(DISTINCT item)\" /></row><row><data content=\"2\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>DISTINCT item</code>.</p></body></html>"
+          },
+          {
+            "title": "Count DISTINCT 3",
+            "id": 96777,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><code>DISTINCT</code> viene antes del nombre de la columna porque estamos obteniendo los valores distintos y luego contándolos.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" item)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"7\" endIndex=\"12\" /><option startIndex=\"13\" endIndex=\"21\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"COUNT(DISTINCT item)\" /></row><row><data content=\"2\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>COUNT</code> seguido de <code>DISTINCT</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Count by column",
+            "id": 97017,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué hace esta consulta?</p><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"name\" class=\"keyword\" /><text value=\") \" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><output><table name=\"Result\"><row><data content=\"No result!\" /></row></table></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Cuenta los valores de la columna <code>name</code></item><item value=\"2\" correct=\"false\">Cuenta las filas en la tabla <code>team</code></item></selection><p visible-if=\"wrong\">Cuenta los valores de la columna <code>name</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Count by column 2",
+            "id": 97018,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cuál es el resultado de esta consulta?</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES (NULL, 16);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"\" /><data content=\"16\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"name\" class=\"keyword\" /><text value=\") \" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><output><table name=\"Result\"><row><header content=\"COUNT(name)\" /></row><row><data content=\"2\" /></row></table></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>2</code>, porque la columna <code>name</code> tiene dos valores y una celda vacía</item><item value=\"2\" correct=\"false\"><code>3</code>, porque la columna <code>name</code> tiene tres filas</item></selection><p visible-if=\"wrong\"><code>2</code>, porque la columna <code>name</code> tiene dos valores y una celda vacía.</p></body></html>"
+          },
+          {
+            "title": "Question: Count DISTINCT",
+            "id": 97019,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo podemos evitar contar valores duplicados en una columna?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Al usar <code>COUNT</code> junto con <code>DISTINCT</code></item><item value=\"2\" correct=\"false\">Al usar solo <code>COUNT</code>, ya que ignora duplicados</item></selection><p visible-if=\"wrong\">Al usar <code>COUNT</code> junto con <code>DISTINCT</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Count DISTINCT 2",
+            "id": 97020,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cuál de estas consultas utiliza <code>COUNT</code> y <code>DISTINCT</code> correctamente?</p><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"name\" class=\"keyword\" /><text value=\")\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /><text type=\"break\" /><text type=\"break\" /><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" \" /><text value=\"name\" class=\"keyword\" /><text value=\")\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">El segundo, ya que <code>DISTINCT</code> va delante del nombre de una columna</item><item value=\"2\" correct=\"false\">El primero, ya que estamos seleccionando resultados <code>COUNT</code> distintos</item></selection><p visible-if=\"wrong\">El segundo, ya que <code>DISTINCT</code> va delante del nombre de una columna.</p></body></html>"
+          },
+          {
+            "title": "Example: Count by column",
+            "id": 97021,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cuenta los valores en la columna <code>name</code> con <code>COUNT(name)</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES (NULL, 16);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"\" /><data content=\"16\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"name\" class=\"keyword\" /><text value=\") \" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"7\" endIndex=\"18\" /></interactions><output><table name=\"Result\"><row><header content=\"COUNT(name)\" /></row><row><data content=\"2\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>COUNT(name)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Count by column 2",
+            "id": 97022,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cuenta los valores en la columna <code>age</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES (NULL, 16);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"\" /><data content=\"16\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(age) \" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"7\" endIndex=\"17\" /><option startIndex=\"19\" endIndex=\"23\" /><option startIndex=\"24\" endIndex=\"28\" /><option startIndex=\"28\" endIndex=\"29\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"COUNT(age)\" /></row><row><data content=\"3\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT</code> seguido de <code>COUNT(age)</code> y luego <code>FROM</code>, <code>team</code>, <code>;</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Count DISTINCT",
+            "id": 97023,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Esta tabla tiene valores <code>age</code> duplicados. Asegúrate de omitir los duplicados al contar.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Lin', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"Lin\" /><data content=\"17\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" age) \" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"13\" endIndex=\"21\" /><option startIndex=\"22\" endIndex=\"25\" /><option correct=\"false\"><content><text value=\"MAX\" /></content></option></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"COUNT(DISTINCT age)\" /></row><row><data content=\"2\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>DISTINCT</code> seguido de <code>age</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Count DISTINCT 2",
+            "id": 97024,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cuenta los valores <em>únicos</em> en la columna <code>name</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"COUNT\" class=\"keyword\" /><text value=\"(\" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" \" /><text value=\"name\" class=\"keyword\" /><text value=\") \" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"0\" endIndex=\"6\" /><option startIndex=\"7\" endIndex=\"12\" /><option startIndex=\"12\" endIndex=\"13\" /><option startIndex=\"13\" endIndex=\"21\" /><option startIndex=\"22\" endIndex=\"26\" /><option startIndex=\"26\" endIndex=\"27\" /></options></interaction></interactions><output><table name=\"Result\"><row><header content=\"COUNT(DISTINCT name)\" /></row><row><data content=\"2\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT</code> seguido de <code>COUNT</code> y luego <code>(</code>, <code>DISTINCT</code>, <code>name</code>, <code>)</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 10555,
+        "title": "Resumiendo",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Summing up",
+            "id": 96778,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para sumar los valores numéricos en una columna, usamos la operación <code>SUM</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"SUM\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"7\" endIndex=\"10\" /></interactions><output><table name=\"Result\"><row><header content=\"SUM(price)\" /></row><row><data content=\"426\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SUM</code>.</p></body></html>"
+          },
+          {
+            "title": "SUM()",
+            "id": 96779,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Luego especificamos la columna codificando su nombre entre paréntesis, como con <code>(price)</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"SUM\" class=\"keyword\" /><text value=\"(price)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"10\" endIndex=\"17\" /></interactions><output><table name=\"Result\"><row><header content=\"SUM(price)\" /></row><row><data content=\"426\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>(price)</code>.</p></body></html>"
+          },
+          {
+            "title": "Aliasing",
+            "id": 96780,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Como antes, podemos usar un alias para el resultado de nuestra operación. Codifica <code>AS</code> y el alias <code>total_price</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE wishlist (&#xA; item varchar(255),&#xA; price numeric(2,1)&#xA;);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('headphones', 250);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('painting brushes', 37);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('sunglasses', 110);&#xA;&#xA;INSERT INTO wishlist (item, price)&#xA;VALUES ('daily planner', 29);&#xA;&#xA;\"><tables><table name=\"wishlist\"><row><header content=\"item\" /><header content=\"price\" /></row><row><data content=\"headphones\" /><data content=\"250\" /></row><row><data content=\"painting brushes\" /><data content=\"37\" /></row><row><data content=\"sunglasses\" /><data content=\"110\" /></row><row><data content=\"daily planner\" /><data content=\"29\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"SUM\" class=\"keyword\" /><text value=\"(price) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" total_price\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" wishlist;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"18\" endIndex=\"32\" /></interactions><output><table name=\"Result\"><row><header content=\"total_price\" /></row><row><data content=\"426\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>AS total_price</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Summing up",
+            "id": 97025,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué hace <code>SUM</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Nos da la suma de los valores de una columna</item><item value=\"2\" correct=\"false\">Nos da el valor más grande en una columna</item></selection><p visible-if=\"wrong\">Nos da la suma de los valores de una columna.</p></body></html>"
+          },
+          {
+            "title": "Question: SUM()",
+            "id": 97026,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué consulta calcula la suma de todos los valores de <code>age</code>?</p><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"SUM\" class=\"keyword\" /><text value=\"(age)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /><text type=\"break\" /><text type=\"break\" /><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"SUM\" class=\"keyword\" /><text value=\"()\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">El primero, ya que tiene el nombre de la columna <code>age</code> entre paréntesis</item><item value=\"2\" correct=\"false\">El segundo, ya que no necesitamos codificar un nombre de columna</item></selection><p visible-if=\"wrong\">El primero, ya que tiene el nombre de la columna <code>age</code> entre paréntesis.</p></body></html>"
+          },
+          {
+            "title": "Question: Aliasing",
+            "id": 97027,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué sucede cuando asignamos un alias al resultado de una operación <code>SUM()</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">La columna de resultado se nombrará como el alias, en lugar de <code>SUM()</code></item><item value=\"2\" correct=\"false\">El número resultante será reemplazado con el texto del alias</item></selection><p visible-if=\"wrong\">La columna de resultado se nombrará como el alias, en lugar de <code>SUM()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: SUM()",
+            "id": 97029,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Suma los valores de <code>age</code> con <code>SELECT</code> y <code>SUM(age)</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Lin', 16);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"Lin\" /><data content=\"16\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"SUM\" class=\"keyword\" /><text value=\"(age)\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"15\" /></interactions><output><table name=\"Result\"><row><header content=\"SUM(age)\" /></row><row><data content=\"51\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT SUM(age)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Aliasing",
+            "id": 97030,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Usa alias con <code>AS</code> para renombrar la columna de resultado a <code>total_age</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE team (&#xA; name varchar(255),&#xA; age int&#xA;);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Charlie', 17);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Lin', 16);&#xA;&#xA;INSERT INTO team(name, age)&#xA;VALUES ('Adah', 18);&#xA;\"><tables><table name=\"team\"><row><header content=\"name\" /><header content=\"age\" /></row><row><data content=\"Charlie\" /><data content=\"17\" /></row><row><data content=\"Lin\" /><data content=\"16\" /></row><row><data content=\"Adah\" /><data content=\"18\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"SUM\" class=\"keyword\" /><text value=\"(age) \" /><text value=\"AS\" class=\"keyword\" /><text value=\" total_age\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" team;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"16\" endIndex=\"28\" /></interactions><output><table name=\"Result\"><row><header content=\"total_age\" /></row><row><data content=\"51\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>AS total_age</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

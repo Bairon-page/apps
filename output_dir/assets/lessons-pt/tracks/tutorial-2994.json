@@ -1,0 +1,457 @@
+{
+  "tutorial": {
+    "id": 2994,
+    "version": 5,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "jsx",
+    "title": "Placar - Parte 2",
+    "descriptionContent": "Nesta segunda parte, vamos dar vida ao aplicativo Score Keeper com estilo",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2994-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 15167,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 133593,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bem-vindo de volta ao projeto **Score Keeper**. Na segunda parte, vamos estilizar o app.\n\n1. Para deixar o bundler do React feliz, precisamos linkar o arquivo `index.css`.\n2. Já que estamos aqui, mude o título para *Score Keeper*.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <title>My React App</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\">\n    <title>Score Keeper</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>"
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\"\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst ScoreView = (props) => {\n  return (\n    <div>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div>\n      <h1>Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #1 - Copy",
+            "id": 134867,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos começar a estilizar o app. Vamos usar múltiplos arquivos CSS para manter nosso estilo bem organizado.\n\n1. No componente `App`, importe o arquivo `App.css`.\n2. No arquivo `App.css`, crie uma regra direcionada ao elemento `body` com as seguintes propriedades para aplicar um estilo básico:\n   - Defina o `background-color` como `lightcyan`.\n   - Defina o `font-family` como `Arial, sans-serif`.\n   - Defina a `color` como `darkslategray`.\n   - Defina o `text-align` como `center`.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\">\n    <title>Score Keeper</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\"\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n",
+                  "solvedContent": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\nimport \"./App.css\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n"
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": "body {\n  background-color: lightcyan;\n  font-family: Arial, sans-serif;\n  color: darkslategray;\n  text-align: center;\n}"
+                },
+                {
+                  "name": "ScoreView.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst ScoreView = (props) => {\n  return (\n    <div>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div>\n      <h1>Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #1 - Copy",
+            "id": 133600,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para melhorar o estilo do nosso componente `ScoreKeeper`, usamos o arquivo `ScoreKeeper.css`. Também usaremos classes CSS para manter o CSS limpo.\n\n1. No componente `ScoreKeeper`, importe o arquivo `ScoreKeeper.css`.\n2. Adicione a classe `\"score-keeper-container\"` ao elemento `div` que envolve todo o JSX retornado no componente `ScoreKeeper`.\n3. No arquivo `ScoreKeeper.css`, crie uma regra direcionada à classe recém-adicionada com as seguintes propriedades para aplicar o estilo:\n   - Defina o `background-color` como `white`.\n   - Defina o `text-align` como `center`.\n   - Defina a `margin` como `20px auto`.\n   - Defina a `width` como `80%`.\n   - Defina o `max-width` como `640px`.\n   - Defina o `padding` como `20px`.\n   - Defina o `border-radius` como `10px`.\n   - Defina o `box-shadow` como `0 4px 8px rgba(0, 0, 0, 0.1)`.",
+              "preselectedFileIndex": 6,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\">\n    <title>My React App</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\"\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\nimport \"./App.css\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightcyan;\n  font-family: Arial, sans-serif;\n  color: darkslategray;\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst ScoreView = (props) => {\n  return (\n    <div>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div>\n      <h1>Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1>Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n"
+                },
+                {
+                  "name": "ScoreKeeper.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #1 - Copy - Copy",
+            "id": 135170,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos estilizar o elemento `h1` para fazer o título do `ScoreKeeper` se destacar.\n\n1. No componente `ScoreKeeper`, adicione a classe `\"score-keeper-heading\"` ao elemento `h1`.\n2. No mesmo arquivo `ScoreKeeper.css`, crie uma regra para a classe que você acabou de adicionar com as seguintes propriedades para aplicar o estilo:\n   - Defina a `color` como `teal`.\n   - Defina o `font-size` como `2.5em`.\n   - Defina o `margin-bottom` como `20px`.",
+              "preselectedFileIndex": 6,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\">\n    <title>My React App</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\"\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\nimport \"./App.css\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightcyan;\n  font-family: Arial, sans-serif;\n  color: darkslategray;\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst ScoreView = (props) => {\n  return (\n    <div>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1>Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1 className=\"score-keeper-heading\">Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n"
+                },
+                {
+                  "name": "ScoreKeeper.css",
+                  "codeLanguage": "css",
+                  "content": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}",
+                  "solvedContent": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n\n.score-keeper-heading {\n  color: teal;\n  font-size: 2.5em;\n  margin-bottom: 20px;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #1 - Copy - Copy - Copy",
+            "id": 135171,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Vamos estilizar os elementos `button` para que se ajustem ao nosso tema.\n\n1. No componente `ScoreKeeper`, adicione a classe `\"score-keeper-button\"` a todos os elementos `button`.\n2. No mesmo arquivo `ScoreKeeper.css`, crie uma regra para a classe que você acabou de adicionar com as seguintes propriedades para aplicar o estilo:\n   - Defina o `margin` como `10px`.\n   - Defina o `padding` como `10px 20px`.\n   - Defina o `font-size` como `1em`.\n   - Defina a `color` como `white`.\n   - Defina o `background-color` como `teal`.\n   - Defina o `border` como `none`.\n   - Defina o `border-radius` como `5px`.\n   - Defina o `cursor` como `pointer`.",
+              "preselectedFileIndex": 6,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\">\n    <title>My React App</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\"\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\nimport \"./App.css\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightcyan;\n  font-family: Arial, sans-serif;\n  color: darkslategray;\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst ScoreView = (props) => {\n  return (\n    <div>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1 className=\"score-keeper-heading\">Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1 className=\"score-keeper-heading\">Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n"
+                },
+                {
+                  "name": "ScoreKeeper.css",
+                  "codeLanguage": "css",
+                  "content": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n\n.score-keeper-heading {\n  color: teal;\n  font-size: 2.5em;\n  margin-bottom: 20px;\n}",
+                  "solvedContent": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n\n.score-keeper-heading {\n  color: teal;\n  font-size: 2.5em;\n  margin-bottom: 20px;\n}\n\n.score-keeper-button {\n  margin: 10px;\n  padding: 10px 20px;\n  font-size: 1em;\n  color: white;\n  background-color: teal;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "s",
+            "id": 135172,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Adicione um efeito de hover aos elementos `button` para uma melhor experiência do usuário e feedback.\n\n1. No `ScoreKeeper.css`, adicione um seletor `.score-keeper-button:hover` e use-o para mudar a `background-color` para `darkslategray` ao passar o mouse sobre o botão.",
+              "preselectedFileIndex": 7,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\">\n    <title>My React App</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\"\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\nimport \"./App.css\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightcyan;\n  font-family: Arial, sans-serif;\n  color: darkslategray;\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst ScoreView = (props) => {\n  return (\n    <div>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1 className=\"score-keeper-heading\">Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreKeeper.css",
+                  "codeLanguage": "css",
+                  "content": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n\n.score-keeper-heading {\n  color: teal;\n  font-size: 2.5em;\n  margin-bottom: 20px;\n}\n\n.score-keeper-button {\n  margin: 10px;\n  padding: 10px 20px;\n  font-size: 1em;\n  color: white;\n  background-color: teal;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n}",
+                  "solvedContent": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n\n.score-keeper-heading {\n  color: teal;\n  font-size: 2.5em;\n  margin-bottom: 20px;\n}\n\n.score-keeper-button {\n  margin: 10px;\n  padding: 10px 20px;\n  font-size: 1em;\n  color: white;\n  background-color: teal;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n}\n\n.score-keeper-button:hover {\n  background-color: darkslategray;\n}"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "s - Copy - Copy",
+            "id": 135175,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Por último, mas não menos importante, vamos destacar o time líder. Sempre que um time estiver na liderança, queremos exibi-lo claramente com um estilo único para esse time.\n\n1. No componente `ScoreKeeper`, passe para cada componente `ScoreView` uma nova propriedade chamada `leading`. O valor deve ser `true` se a pontuação desse time for maior que a do outro time. Caso contrário, deve ser `false`.\n2. No componente `ScoreView`, construa uma classe a partir da propriedade `leading` passada que você aplica ao elemento `div` wrapper.\n   - Se a propriedade `leading` passada for `true`, aplique `score-view-wrapper-leading-true`.\n   - Se a propriedade `leading` passada for `false`, aplique `score-view-wrapper-leading-false`.\n3. No componente `ScoreView`, importe o arquivo `ScoreView.css`.\n4. No arquivo `ScoreView.css`, crie uma regra direcionada à classe `.score-view-wrapper-leading-true` com as seguintes propriedades:\n   - Defina o `background-color` como `teal`.\n   - Defina a `color` como `white`.\n   - Defina o `border-radius` como `5px`.",
+              "preselectedFileIndex": 6,
+              "hasVisualOutput": true,
+              "files": [
+                {
+                  "name": "index.html",
+                  "codeLanguage": "html",
+                  "content": "<!doctype html>\n<html>\n  <head>\n    <script type=\"module\" src=\"./index.js\"></script>\n    <link rel=\"stylesheet\" href=\"./index.css\">\n    <title>My React App</title>\n  </head>\n  <body>\n    <div id=\"root\">loading</div>\n  </body>\n</html>",
+                  "solvedContent": null
+                },
+                {
+                  "name": "index.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport App from \"./App\"\n\nconst rootElement = document.getElementById(\"root\");\nconst root = createRoot(rootElement);\nroot.render(<App />);",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\nimport ScoreKeeper from \"./ScoreKeeper\";\nimport \"./App.css\";\n\nconst App = () => {\n  return <ScoreKeeper />;\n};\n\nexport default App;\n",
+                  "solvedContent": null
+                },
+                {
+                  "name": "App.css",
+                  "codeLanguage": "css",
+                  "content": "body {\n  background-color: lightcyan;\n  font-family: Arial, sans-serif;\n  color: darkslategray;\n  text-align: center;\n}",
+                  "solvedContent": null
+                },
+                {
+                  "name": "ScoreView.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React from \"react\";\n\nconst ScoreView = (props) => {\n  return (\n    <div>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n",
+                  "solvedContent": "import React from \"react\";\nimport \"./ScoreView.css\";\n\nconst ScoreView = (props) => {\n  return (\n    <div className={`score-view-wrapper-leading-${props.leading}`}>\n      <h2>\n        {props.teamName}: {props.score}\n      </h2>\n    </div>\n  );\n};\n\nexport default ScoreView;\n"
+                },
+                {
+                  "name": "ScoreView.css",
+                  "codeLanguage": "css",
+                  "content": "",
+                  "solvedContent": ".score-view-wrapper-leading-true {\n  color: white;\n  background-color: teal;\n  border-radius: 5px;\n}"
+                },
+                {
+                  "name": "ScoreKeeper.jsx",
+                  "codeLanguage": "jsx",
+                  "content": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1 className=\"score-keeper-heading\">Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n",
+                  "solvedContent": "import React, { useState } from \"react\";\nimport ScoreView from \"./ScoreView\";\nimport \"./ScoreKeeper.css\";\n\nconst ScoreKeeper = () => {\n  const [teamOneScore, setTeamOneScore] = useState(0);\n  const [teamTwoScore, setTeamTwoScore] = useState(0);\n\n  return (\n    <div className=\"score-keeper-container\">\n      <h1 className=\"score-keeper-heading\">Score Keeper</h1>\n      <ScoreView teamName=\"Team One\" score={teamOneScore} leading={teamOneScore > teamTwoScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamOneScore(teamOneScore + 1)}>\n        +1 Team One\n      </button>\n\n      <ScoreView teamName=\"Team Two\" score={teamTwoScore} leading={teamTwoScore > teamOneScore} />\n      <button className=\"score-keeper-button\" onClick={() => setTeamTwoScore(teamTwoScore + 1)}>\n        +1 Team Two\n      </button>\n    </div>\n  );\n};\n\nexport default ScoreKeeper;\n"
+                },
+                {
+                  "name": "ScoreKeeper.css",
+                  "codeLanguage": "css",
+                  "content": ".score-keeper-container {\n  text-align: center;\n  margin: 20px auto;\n  width: 80%;\n  max-width: 640px;\n  background-color: white;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n\n.score-keeper-heading {\n  color: teal;\n  font-size: 2.5em;\n  margin-bottom: 20px;\n}\n\n.score-keeper-button {\n  margin: 10px;\n  padding: 10px 20px;\n  font-size: 1em;\n  color: white;\n  background-color: teal;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n}\n\n.score-keeper-button:hover {\n  background-color: darkslategray;\n}",
+                  "solvedContent": null
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "tutorial": {
+    "id": 918,
+    "version": 27,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Reutilización de código con funciones",
+    "descriptionContent": "Aprende a reutilizar código creando funciones con un parámetro y un valor de retorno.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 8451,
+        "title": "Construye una función",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 74193,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Los sitios web y las aplicaciones como la de abajo necesitan realizar la misma tarea una y otra vez de manera regular.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html&gt;&#xA; &lt;head&gt;&#xA;  &lt;style&gt;&#xA;   body {&#xA;    text-align: center;&#xA;    height: 275px;&#xA;    font-size: 16px;&#xA;    margin: 0 auto;&#xA;    background-color: #F0F8FF;&#xA;   }&#xA;   &#xA;   button {&#xA;    background-color: darkBlue;&#xA;    border: none;&#xA;    border-radius: 8px;&#xA;    color: white;&#xA;    text-align: center;&#xA;    text-decoration: none;&#xA;    display: inline-block;&#xA;    font-size: 14px;&#xA;    padding: 6px 12px;&#xA;    margin: 0 12px 0 0;&#xA;   }&#xA;   &#xA;   h2 {&#xA;    text-align: center;&#xA;   }&#xA;   &#xA;   #playerList {&#xA;    text-align: left;&#xA;   }&#xA;  &lt;/style&gt;&#xA; &lt;/head&gt;&#xA; &lt;body&gt;&#xA;  &lt;img height=180 src=&quot;https://mimo.app/i/volume-icon.png&quot;&gt;&lt;br&gt;&#xA;  &lt;button onclick=&quot;increase()&quot;&gt;Increase volume&lt;/button&gt;&#xA;  &lt;p id=&quot;container&quot;&gt;&#xA;   &lt;/div&gt;&#xA;   &lt;script&gt;&#xA;    let volume = 0;&#xA;    &#xA;    function increase() {&#xA;     document.getElementById(&quot;container&quot;).innerHTML =&#xA;      &quot;Volume increased!&quot;;&#xA;     let s = document.getElementById('container').style;&#xA;     s.display = &quot;block&quot;;&#xA;     s.opacity = 1;&#xA;     (function fade() {&#xA;      if ((s.opacity -= .1) &lt; 0) s.display = &quot;none&quot;;&#xA;      else setTimeout(fade, 150);&#xA;     })();&#xA;    }&#xA;   &lt;/script&gt;&#xA; &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Intro 2",
+            "id": 74468,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>En lugar de crear mucho código diferente, los sitios web utilizan <strong>funciones</strong> para agrupar código relacionado y realizar la tarea en un solo lugar.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!doctype html&gt;&#xA;&lt;html&gt;&#xA; &lt;head&gt;&#xA;  &lt;style&gt;&#xA;   body {&#xA;    text-align: center;&#xA;    height: 275px;&#xA;    font-size: 16px;&#xA;    margin: 0 auto;&#xA;    background-color: #F0F8FF;&#xA;   }&#xA;   &#xA;   button {&#xA;    background-color: darkBlue;&#xA;    border: none;&#xA;    border-radius: 8px;&#xA;    color: white;&#xA;    text-align: center;&#xA;    text-decoration: none;&#xA;    display: inline-block;&#xA;    font-size: 14px;&#xA;    padding: 6px 12px;&#xA;    margin: 0 12px 0 0;&#xA;   }&#xA;   &#xA;   h2 {&#xA;    text-align: center;&#xA;   }&#xA;   &#xA;   #playerList {&#xA;    text-align: left;&#xA;   }&#xA;  &lt;/style&gt;&#xA; &lt;/head&gt;&#xA; &lt;body&gt;&#xA;  &lt;img height=180 src=&quot;https://mimo.app/i/volume-icon.png&quot;&gt;&lt;br&gt;&#xA;  &lt;button onclick=&quot;decrease()&quot;&gt;Decrease volume&lt;/button&gt;&#xA;  &lt;p id=&quot;container&quot;&gt;&#xA;   &lt;/div&gt;&#xA;   &lt;script&gt;&#xA;    let volume = 0;&#xA;    &#xA;    function decrease() {&#xA;     document.getElementById(&quot;container&quot;).innerHTML =&#xA;      &quot;Volume decreased!&quot;;&#xA;     let s = document.getElementById('container').style;&#xA;     s.display = &quot;block&quot;;&#xA;     s.opacity = 1;&#xA;     (function fade() {&#xA;      if ((s.opacity -= .1) &lt; 0) s.display = &quot;none&quot;;&#xA;      else setTimeout(fade, 150);&#xA;     })();&#xA;    }&#xA;   &lt;/script&gt;&#xA; &lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Function",
+            "id": 74194,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para comenzar a agrupar código relacionado, empezamos escribiendo la palabra clave <code>function</code>.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"8\" /></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>function</code>.</p></body></html>"
+          },
+          {
+            "title": "Function name",
+            "id": 74181,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>A continuación viene el nombre de la función en camel case, como <code>greetUser</code>, seguido de paréntesis, <code>(</code> y <code>)</code>.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"9\" endIndex=\"18\" /><option startIndex=\"18\" endIndex=\"19\" /><option startIndex=\"19\" endIndex=\"20\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>greetUser</code> seguido de <code>(</code> y finalmente <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Braces",
+            "id": 74192,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Las llaves <code>{</code> y <code>}</code> delimitan el bloque de código que pertenece a la función.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"21\" endIndex=\"22\" /><option startIndex=\"25\" endIndex=\"26\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>{</code> seguido de <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Between braces",
+            "id": 74187,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>El código que queremos agrupar va entre las llaves. Esta función agrupa dos declaraciones <code>console.log()</code> relacionadas.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Good morning Anna&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Welcome back&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"59\" endIndex=\"66\" /><option startIndex=\"66\" endIndex=\"67\" /><option startIndex=\"67\" endIndex=\"70\" /><option startIndex=\"71\" endIndex=\"85\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Asegúrese de elegir <code>console</code> seguido de <code>.</code> y luego <code>log</code>, <code>\"Welcome back\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Calling the function",
+            "id": 74183,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Para ejecutar el código, necesitamos <strong>llamar</strong> a la función. Hacemos eso escribiendo su nombre seguido de paréntesis, como <code>greetUser();</code>.</p><code version=\"2\" name=\"script.js\" visible-if=\"always\" codelang=\"javascript\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greetUser\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Good morning Anna&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Welcome back&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text type=\"break\" /><text value=\"greetUser();\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"91\" endIndex=\"103\" /></interactions><output><content><text value=\"Good morning Anna\" /><text type=\"break\" /><text value=\"Welcome back\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>greetUser();</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Function",
+            "id": 74211,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo empezamos a agrupar código relacionado?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Al agregar la palabra clave <code>function</code></item><item value=\"2\" correct=\"false\">Al agregar paréntesis</item></selection><p visible-if=\"wrong\">Al agregar la palabra clave <code>function</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Function name",
+            "id": 74212,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo nombramos una función?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Usando camel case</item><item value=\"2\" correct=\"false\">Al incluir espacios en el nombre de la función</item></selection><p visible-if=\"wrong\">Usando camel case.</p></body></html>"
+          },
+          {
+            "title": "Question: Braces",
+            "id": 74213,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué hacen las llaves <code>{</code> y <code>}</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Marcan el bloque de código que pertenece a la función</item><item value=\"2\" correct=\"false\">Indican qué código debe omitir la función</item></selection><p visible-if=\"wrong\">Marcan el bloque de código que pertenece a la función.</p></body></html>"
+          },
+          {
+            "title": "Question: Between braces",
+            "id": 74214,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Dónde va el código que queremos agrupar?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Entre las llaves <code>{</code> y <code>}</code></item><item value=\"2\" correct=\"false\">Entre los paréntesis <code>(</code> y <code>)</code></item></selection><p visible-if=\"wrong\">Entre las llaves <code>{</code> y <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Calling the function",
+            "id": 74215,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cómo ejecutamos el código dentro de una función?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Llamándolo</item><item value=\"2\" correct=\"false\">Creando una variable a partir de ello</item></selection><p visible-if=\"wrong\">Asegúrese de elegir Llamándolo.</p></body></html>"
+          },
+          {
+            "title": "Example: Function",
+            "id": 74217,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Codifica la palabra clave <code>function</code> para completar la función.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"weatherUpdate\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Weather update&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Sunny skies ahead&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"weatherUpdate();\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"8\" /></interactions><output><content><text value=\"Weather update\" /><text type=\"break\" /><text value=\"Sunny skies ahead\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>function</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Function name",
+            "id": 74218,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Da un nombre a esta función en camel case.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"nightRoutine\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Lights off&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Alarm set&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"nightRoutine();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"9\" endIndex=\"21\" /><option correct=\"false\"><content><text value=\"nightroutine\" /></content></option></options></interaction></interactions><output><content><text value=\"Lights off\" /><text type=\"break\" /><text value=\"Alarm set\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>nightRoutine</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Braces",
+            "id": 74219,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Marca el código que pertenece a la función.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"morningRoutine\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Lights on&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Alarm off&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"morningRoutine();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"26\" endIndex=\"27\" /><option startIndex=\"82\" endIndex=\"83\" /><option correct=\"false\"><content><text value=\"function\" /></content></option></options></interaction></interactions><output><content><text value=\"Lights on\" /><text type=\"break\" /><text value=\"Alarm off\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>{</code> seguido de <code>}</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Between braces",
+            "id": 74220,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Crea una declaración final de <code>console.log()</code> dentro de la función.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"launch\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;3&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;2&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;1&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Launch!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"launch();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"78\" endIndex=\"85\" /><option startIndex=\"85\" endIndex=\"86\" /><option startIndex=\"86\" endIndex=\"89\" /><option startIndex=\"90\" endIndex=\"99\" /></options></interaction></interactions><output><content><text value=\"3\" /><text type=\"break\" /><text value=\"2\" /><text type=\"break\" /><text value=\"1\" /><text type=\"break\" /><text value=\"Launch!\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>console</code> seguido de <code>.</code> y luego <code>log</code>, <code>\"Launch!\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Calling the function",
+            "id": 74221,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Llama a la función escribiendo <code>greet();</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"function\" class=\"keyword\" /><text value=\" \" /><text value=\"greet\" class=\"title\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;Good evening&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"greet();\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"51\" endIndex=\"59\" /></interactions><output><content><text value=\"Good evening\" /></content></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>greet();</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

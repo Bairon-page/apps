@@ -1,0 +1,363 @@
+{
+  "tutorial": {
+    "id": 2288,
+    "version": 1,
+    "type": "practiceOptional",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "SQL Básico 1",
+    "descriptionContent": "SQL Básico 1",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 10235,
+        "title": "Seleccionar datos",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Question: Columns",
+            "id": 91846,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué propiedades de los elementos almacena esta tabla?</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Una propiedad <code>name</code>, una propiedad <code>cuisine</code> y una propiedad <code>rating</code></item><item value=\"2\" correct=\"false\"><code>Naan</code>, <code>Indian</code>, y <code>4</code></item><item value=\"3\" correct=\"false\">No almacena propiedades, la tabla está vacía</item><item value=\"4\" correct=\"false\">Solo una propiedad <code>name</code></item></selection><p visible-if=\"wrong\">Una propiedad <code>name</code>, una propiedad <code>cuisine</code> y una propiedad <code>rating</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Rows",
+            "id": 91847,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Dónde se almacenan los elementos de la tabla?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">En filas</item><item value=\"2\" correct=\"false\">En columnas, cada columna es un elemento de tabla</item><item value=\"3\" correct=\"false\">Ni en filas, ni en columnas</item><item value=\"4\" correct=\"false\">En el nombre de la tabla</item></selection><p visible-if=\"wrong\">En filas.</p></body></html>"
+          },
+          {
+            "title": "Question: SELECT statement",
+            "id": 91848,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué está mal con esta consulta?</p><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"rating\" /><text type=\"break\" /><text value=\"FROM restaurants;\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Falta la declaración <code>SELECT</code></item><item value=\"2\" correct=\"false\">Falta un punto y coma <code>;</code></item><item value=\"3\" correct=\"false\">No hay nada malo con el código</item><item value=\"4\" correct=\"false\">Falta la palabra clave <code>FROM</code></item></selection><p visible-if=\"wrong\">Falta la declaración <code>SELECT</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: SELECT",
+            "id": 91850,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Selecciona la columna <code>name</code> de la tabla <code>restaurants</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"name\" class=\"keyword\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"11\" /></interactions><output><table name=\"Result\"><row><header content=\"name\" /></row><row><data content=\"Naan\" /></row><row><data content=\"The Baguette\" /></row><row><data content=\"Les Amis\" /></row><row><data content=\"Giggetto\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT name</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: FROM",
+            "id": 91849,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿De qué tabla está seleccionando esta consulta?</p><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" cuisine\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>restaurants</code></item><item value=\"2\" correct=\"false\"><code>cuisine</code></item><item value=\"3\" correct=\"false\">No se ha especificado ninguna tabla</item><item value=\"4\" correct=\"false\"><code>restaurants</code> y <code>cuisine</code></item></selection><p visible-if=\"wrong\">Asegúrese de elegir <code>restaurants</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: FROM",
+            "id": 91851,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Completa la consulta para seleccionar valores de <code>cuisine</code> de la tabla <code>restaurants</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" cuisine\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"15\" endIndex=\"31\" /></interactions><output><table name=\"Result\"><row><header content=\"cuisine\" /></row><row><data content=\"Indian\" /></row><row><data content=\"French\" /></row><row><data content=\"French\" /></row><row><data content=\"Italian\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>FROM restaurants</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Commas",
+            "id": 91853,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué está mal con este código?</p><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"name\" class=\"keyword\" /><text value=\"; rating\" /><text type=\"break\" /><text value=\"FROM restaurants;\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Debe haber una coma <code>,</code> entre <code>name</code> y <code>rating</code></item><item value=\"2\" correct=\"false\">No hay nada malo con el código</item><item value=\"3\" correct=\"false\">Debe haber dos puntos <code>:</code> entre <code>name</code> y <code>rating</code></item><item value=\"4\" correct=\"false\">Debe haber un signo de exclamación <code>!</code> al final de la consulta</item></selection><p visible-if=\"wrong\">Debe haber una coma <code>,</code> entre <code>name</code> y <code>rating</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Select multiple",
+            "id": 91852,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Selecciona la columna <code>name</code> y luego <code>rating</code> para cada elemento en la tabla <code>restaurants</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"name\" class=\"keyword\" /><text value=\", rating\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"19\" /></interactions><output><table name=\"Result\"><row><header content=\"name\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"4\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT name, rating</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Select *",
+            "id": 91854,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Qué consulta selecciona todas las columnas de la tabla <code>restaurants</code>?</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" *\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /><text type=\"break\" /><text type=\"break\" /><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"name\" class=\"keyword\" /><text value=\", cuisine, rating\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Ambas consultas</item><item value=\"2\" correct=\"false\">El primero</item><item value=\"3\" correct=\"false\">El segundo</item><item value=\"4\" correct=\"false\">Ninguna de las consultas</item></selection><p visible-if=\"wrong\">Ambas consultas.</p></body></html>"
+          },
+          {
+            "title": "Example: Select *",
+            "id": 91855,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Usa <code>*</code> para seleccionar todos los elementos de la tabla <code>restaurants</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" *\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"8\" /></interactions><output><table name=\"Result\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT *</code>.</p></body></html>"
+          },
+          {
+            "title": "Question: Distinct",
+            "id": 91856,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>¿Cuántos valores de <code>cuisine</code> nos dará esta consulta?</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" cuisine\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content><output><table name=\"Result\"><row><header content=\"cuisine\" /></row><row><data content=\"Indian\" /></row><row><data content=\"French\" /></row><row><data content=\"Italian\" /></row></table></output></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Tres: <code>Indian</code>, <code>French</code>, y <code>Italian</code></item><item value=\"2\" correct=\"false\">Cuatro: <code>Indian</code>, <code>French</code>, <code>French</code>, y <code>Italian</code></item><item value=\"3\" correct=\"false\">Cero</item><item value=\"4\" correct=\"false\">Uno, <code>Indian</code></item></selection><p visible-if=\"wrong\">Tres: <code>Indian</code>, <code>French</code>, y <code>Italian</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Distinct",
+            "id": 91857,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Usa <code>DISTINCT</code> para seleccionar solo valores únicos de la columna <code>cuisine</code>.</p><database visible-if=\"always\" bootstrapScript=\"CREATE TABLE restaurants (&#xA; name varchar(255),&#xA; cuisine varchar(255),&#xA; rating int&#xA;);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Naan', 'Indian', 4);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('The Baguette', 'French', 3);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Les Amis', 'French', 5);&#xA;&#xA;INSERT INTO restaurants (name, cuisine, rating)&#xA;VALUES ('Giggetto', 'Italian', 4);&#xA;\"><tables><table name=\"restaurants\"><row><header content=\"name\" /><header content=\"cuisine\" /><header content=\"rating\" /></row><row><data content=\"Naan\" /><data content=\"Indian\" /><data content=\"4\" /></row><row><data content=\"The Baguette\" /><data content=\"French\" /><data content=\"3\" /></row><row><data content=\"Les Amis\" /><data content=\"French\" /><data content=\"5\" /></row><row><data content=\"Giggetto\" /><data content=\"Italian\" /><data content=\"4\" /></row></table></tables></database><code version=\"2\" codelang=\"sql\" name=\"script.sql\" visible-if=\"always\"><content><text value=\"SELECT\" class=\"keyword\" /><text value=\" \" /><text value=\"DISTINCT\" class=\"keyword\" /><text value=\" cuisine\" /><text type=\"break\" /><text value=\"FROM\" class=\"keyword\" /><text value=\" restaurants;\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"0\" endIndex=\"23\" /></interactions><output><table name=\"Result\"><row><header content=\"cuisine\" /></row><row><data content=\"Indian\" /></row><row><data content=\"French\" /></row><row><data content=\"Italian\" /></row></table></output></code><p visible-if=\"wrong\">Asegúrese de elegir <code>SELECT DISTINCT cuisine</code>.</p></body></html>"
+          }
+        ]
+      },
+      {
+        "id": 12377,
+        "title": "Ordenar datos",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Code : Order by",
+            "id": 112237,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Conoce la posición de los asientos del tren ordenando la tabla `train_seats` por la columna `seat`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\r\nFROM",
+                  "solvedContent": "SELECT *\r\nFROM train_seats\r\nORDER BY seat;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"train_seats\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"seat\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Matt\"},{\"CellType\":\"Data\",\"Content\":\"44\"},{\"CellType\":\"Data\",\"Content\":\"Window\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sarah\"},{\"CellType\":\"Data\",\"Content\":\"41\"},{\"CellType\":\"Data\",\"Content\":\"Middle\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Aman\"},{\"CellType\":\"Data\",\"Content\":\"2\"},{\"CellType\":\"Data\",\"Content\":\"Side\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sana\"},{\"CellType\":\"Data\",\"Content\":\"26\"},{\"CellType\":\"Data\",\"Content\":\"Window\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"seat\"},{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Aman\"},{\"CellType\":\"Data\",\"Content\":\"2\"},{\"CellType\":\"Data\",\"Content\":\"Side\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sana\"},{\"CellType\":\"Data\",\"Content\":\"26\"},{\"CellType\":\"Data\",\"Content\":\"Window\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sarah\"},{\"CellType\":\"Data\",\"Content\":\"41\"},{\"CellType\":\"Data\",\"Content\":\"Middle\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Matt\"},{\"CellType\":\"Data\",\"Content\":\"44\"},{\"CellType\":\"Data\",\"Content\":\"Window\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Column name",
+            "id": 112238,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ordena la tabla `orders` por la columna `order_no`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\r\nFROM orders\r\n",
+                  "solvedContent": "SELECT *\r\nFROM orders\r\nORDER BY order_no;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"orders\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"order_no\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ella\"},{\"CellType\":\"Data\",\"Content\":\"2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Samantha\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Elliot\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jennifer\"},{\"CellType\":\"Data\",\"Content\":\"5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ben\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"order_no\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Samantha\"},{\"CellType\":\"Data\",\"Content\":\"1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ella\"},{\"CellType\":\"Data\",\"Content\":\"2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Elliot\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ben\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Jennifer\"},{\"CellType\":\"Data\",\"Content\":\"5\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Numerical order",
+            "id": 112240,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Descubre las mejores materias de un estudiante ordenando la tabla `result` por la columna `marks`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\n\n",
+                  "solvedContent": "SELECT *\r\nFROM result\r\nORDER BY marks;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"subject\"},{\"CellType\":\"Header\",\"Content\":\"marks\"},{\"CellType\":\"Header\",\"Content\":\"grade\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"History\"},{\"CellType\":\"Data\",\"Content\":\"96\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Computer Science\"},{\"CellType\":\"Data\",\"Content\":\"80\"},{\"CellType\":\"Data\",\"Content\":\"B\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Art\"},{\"CellType\":\"Data\",\"Content\":\"90\"},{\"CellType\":\"Data\",\"Content\":\"A\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Music\"},{\"CellType\":\"Data\",\"Content\":\"96\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"subject\"},{\"CellType\":\"Header\",\"Content\":\"marks\"},{\"CellType\":\"Header\",\"Content\":\"grade\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Computer Science\"},{\"CellType\":\"Data\",\"Content\":\"80\"},{\"CellType\":\"Data\",\"Content\":\"B\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Art\"},{\"CellType\":\"Data\",\"Content\":\"90\"},{\"CellType\":\"Data\",\"Content\":\"A\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"History\"},{\"CellType\":\"Data\",\"Content\":\"96\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Music\"},{\"CellType\":\"Data\",\"Content\":\"96\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Descending order",
+            "id": 112243,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Descubre el número más alto de vistas para un vlogger organizando la tabla `vlogger` en orden descendente según la columna `views`. Muestra solo la columna `views`, sin *repetición*.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM \nORDER BY ",
+                  "solvedContent": "SELECT DISTINCT views\r\nFROM vlogger\r\nORDER BY views DESC;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"vlogger\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"video_name\"},{\"CellType\":\"Header\",\"Content\":\"views\"},{\"CellType\":\"Header\",\"Content\":\"likes\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ice Bucket Challenge\"},{\"CellType\":\"Data\",\"Content\":\"50000\"},{\"CellType\":\"Data\",\"Content\":\"1000\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Karaoke Night\"},{\"CellType\":\"Data\",\"Content\":\"413600\"},{\"CellType\":\"Data\",\"Content\":\"6000\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Playing Mafia With Friends Gone Wrong\"},{\"CellType\":\"Data\",\"Content\":\"50000\"},{\"CellType\":\"Data\",\"Content\":\"500\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"My Life Story\"},{\"CellType\":\"Data\",\"Content\":\"110300\"},{\"CellType\":\"Data\",\"Content\":\"9000\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"views\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"413600\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"110300\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"50000\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Ascending by default",
+            "id": 112241,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "¿Cuál publicación obtuvo más compartidos? Descúbrelo ordenando la tabla `post` en orden ascendente de la columna `shares`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\nFROM post\n",
+                  "solvedContent": "SELECT *\r\nFROM post\r\nORDER BY shares ASC;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"post\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"caption\"},{\"CellType\":\"Header\",\"Content\":\"likes\"},{\"CellType\":\"Header\",\"Content\":\"shares\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sunday Funday\"},{\"CellType\":\"Data\",\"Content\":\"101\"},{\"CellType\":\"Data\",\"Content\":\"30\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Will shows the way\"},{\"CellType\":\"Data\",\"Content\":\"255\"},{\"CellType\":\"Data\",\"Content\":\"10\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Cringe Post\"},{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"A normal day\"},{\"CellType\":\"Data\",\"Content\":\"201\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"caption\"},{\"CellType\":\"Header\",\"Content\":\"likes\"},{\"CellType\":\"Header\",\"Content\":\"shares\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"A normal day\"},{\"CellType\":\"Data\",\"Content\":\"201\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Will shows the way\"},{\"CellType\":\"Data\",\"Content\":\"255\"},{\"CellType\":\"Data\",\"Content\":\"10\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sunday Funday\"},{\"CellType\":\"Data\",\"Content\":\"101\"},{\"CellType\":\"Data\",\"Content\":\"30\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Cringe Post\"},{\"CellType\":\"Data\",\"Content\":\"111\"},{\"CellType\":\"Data\",\"Content\":\"40\"}]}]}]}"
+            }
+          }
+        ]
+      },
+      {
+        "id": 12378,
+        "title": "Filtrando datos",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Code : WHERE 1",
+            "id": 112305,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Un cliente quiere comprar un teléfono usado. Filtra la tabla `device_offer` para móviles donde `condition` sea igual a `used`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\nFROM device_offer",
+                  "solvedContent": "SELECT *\r\nFROM device_offer\r\nWHERE condition = 'used';"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"device_offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"os\"},{\"CellType\":\"Header\",\"Content\":\"price\"},{\"CellType\":\"Header\",\"Content\":\"condition\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"10099\"},{\"CellType\":\"Data\",\"Content\":\"new\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"iOS\"},{\"CellType\":\"Data\",\"Content\":\"7999\"},{\"CellType\":\"Data\",\"Content\":\"used\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"4999\"},{\"CellType\":\"Data\",\"Content\":\"used\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Windows\"},{\"CellType\":\"Data\",\"Content\":\"29999\"},{\"CellType\":\"Data\",\"Content\":\"new\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"os\"},{\"CellType\":\"Header\",\"Content\":\"price\"},{\"CellType\":\"Header\",\"Content\":\"condition\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"iOS\"},{\"CellType\":\"Data\",\"Content\":\"7999\"},{\"CellType\":\"Data\",\"Content\":\"used\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"4999\"},{\"CellType\":\"Data\",\"Content\":\"used\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : WHERE 2",
+            "id": 112306,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Un estudiante quiere ir al cine el viernes, su día libre. Filtra la tabla `movies` para las películas donde `day` es igual a `Friday`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT \nFROM \nWHERE",
+                  "solvedContent": "SELECT *\r\nFROM movies\r\nWHERE day = 'Friday';"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"movies\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"day\"},{\"CellType\":\"Header\",\"Content\":\"genre\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Coding Heroes\"},{\"CellType\":\"Data\",\"Content\":\"Monday\"},{\"CellType\":\"Data\",\"Content\":\"action\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Into the unknown abyss\"},{\"CellType\":\"Data\",\"Content\":\"Thursday\"},{\"CellType\":\"Data\",\"Content\":\"adventure\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Wrath of zombies\"},{\"CellType\":\"Data\",\"Content\":\"Sunday\"},{\"CellType\":\"Data\",\"Content\":\"horror\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Crooked Family\"},{\"CellType\":\"Data\",\"Content\":\"Friday\"},{\"CellType\":\"Data\",\"Content\":\"mystery\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ghost of Mary\"},{\"CellType\":\"Data\",\"Content\":\"Wednesday\"},{\"CellType\":\"Data\",\"Content\":\"horror\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Rise of Cocoons\"},{\"CellType\":\"Data\",\"Content\":\"Tuesday\"},{\"CellType\":\"Data\",\"Content\":\"action\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"day\"},{\"CellType\":\"Header\",\"Content\":\"genre\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Crooked Family\"},{\"CellType\":\"Data\",\"Content\":\"Friday\"},{\"CellType\":\"Data\",\"Content\":\"mystery\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Number values 1",
+            "id": 112307,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Sana es experta en tecnología y quiere un teléfono con 8 núcleos. Filtra la tabla `device_offer` para móviles donde `n_cores` sea igual a 8.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\n",
+                  "solvedContent": "SELECT *\r\nFROM device_offer\r\nWHERE n_cores = 8;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"device_offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"os\"},{\"CellType\":\"Header\",\"Content\":\"price\"},{\"CellType\":\"Header\",\"Content\":\"condition\"},{\"CellType\":\"Header\",\"Content\":\"n_cores\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"10099\"},{\"CellType\":\"Data\",\"Content\":\"new\"},{\"CellType\":\"Data\",\"Content\":\"8\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"iOS\"},{\"CellType\":\"Data\",\"Content\":\"7999\"},{\"CellType\":\"Data\",\"Content\":\"used\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"4999\"},{\"CellType\":\"Data\",\"Content\":\"used\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Windows\"},{\"CellType\":\"Data\",\"Content\":\"29999\"},{\"CellType\":\"Data\",\"Content\":\"new\"},{\"CellType\":\"Data\",\"Content\":\"6\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"os\"},{\"CellType\":\"Header\",\"Content\":\"price\"},{\"CellType\":\"Header\",\"Content\":\"condition\"},{\"CellType\":\"Header\",\"Content\":\"n_cores\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"10099\"},{\"CellType\":\"Data\",\"Content\":\"new\"},{\"CellType\":\"Data\",\"Content\":\"8\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Number values 2",
+            "id": 112308,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Descubre las materias en las que el estudiante obtuvo un perfecto 100/100.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\n",
+                  "solvedContent": "SELECT *\r\nFROM result\r\nWHERE marks = 100;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"subject\"},{\"CellType\":\"Header\",\"Content\":\"marks\"},{\"CellType\":\"Header\",\"Content\":\"grade\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"History\"},{\"CellType\":\"Data\",\"Content\":\"70\"},{\"CellType\":\"Data\",\"Content\":\"C\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Computer Science\"},{\"CellType\":\"Data\",\"Content\":\"100\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\\u002B\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Art\"},{\"CellType\":\"Data\",\"Content\":\"80\"},{\"CellType\":\"Data\",\"Content\":\"A\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Music\"},{\"CellType\":\"Data\",\"Content\":\"100\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\\u002B\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"subject\"},{\"CellType\":\"Header\",\"Content\":\"marks\"},{\"CellType\":\"Header\",\"Content\":\"grade\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Computer Science\"},{\"CellType\":\"Data\",\"Content\":\"100\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\\u002B\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Music\"},{\"CellType\":\"Data\",\"Content\":\"100\"},{\"CellType\":\"Data\",\"Content\":\"A\\u002B\\u002B\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Skip the condition 1",
+            "id": 112309,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Un cliente quiere saber el `price` y `condition` de los dispositivos iOS disponibles. Filtra la tabla `device_offer` donde `os` es igual a `iOS`. Selecciona solo el `price` y `condition`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "",
+                  "solvedContent": "SELECT price, condition\r\nFROM device_offer\r\nWHERE os = 'iOS';"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"device_offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"os\"},{\"CellType\":\"Header\",\"Content\":\"price\"},{\"CellType\":\"Header\",\"Content\":\"condition\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"10099\"},{\"CellType\":\"Data\",\"Content\":\"new\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"iOS\"},{\"CellType\":\"Data\",\"Content\":\"7999\"},{\"CellType\":\"Data\",\"Content\":\"used\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Android\"},{\"CellType\":\"Data\",\"Content\":\"4999\"},{\"CellType\":\"Data\",\"Content\":\"used\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Windows\"},{\"CellType\":\"Data\",\"Content\":\"29999\"},{\"CellType\":\"Data\",\"Content\":\"new\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"price\"},{\"CellType\":\"Header\",\"Content\":\"condition\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"7999\"},{\"CellType\":\"Data\",\"Content\":\"used\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Code : Skip the condition 2",
+            "id": 112310,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Tu amigo quiere saber los días en que se proyectan películas de terror en los cines. Filtra la tabla `movies` para las películas donde el `genre` es igual a `horror`. Selecciona solo la columna `day`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "",
+                  "solvedContent": "SELECT day\r\nFROM movies\r\nWHERE genre = 'horror';"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"movies\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"day\"},{\"CellType\":\"Header\",\"Content\":\"genre\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Coding Heroes\"},{\"CellType\":\"Data\",\"Content\":\"Monday\"},{\"CellType\":\"Data\",\"Content\":\"action\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Into the unknown abyss\"},{\"CellType\":\"Data\",\"Content\":\"Thursday\"},{\"CellType\":\"Data\",\"Content\":\"adventure\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Wrath of zombies\"},{\"CellType\":\"Data\",\"Content\":\"Sunday\"},{\"CellType\":\"Data\",\"Content\":\"horror\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Crooked Family\"},{\"CellType\":\"Data\",\"Content\":\"Friday\"},{\"CellType\":\"Data\",\"Content\":\"mystery\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ghost of Mary\"},{\"CellType\":\"Data\",\"Content\":\"Wednesday\"},{\"CellType\":\"Data\",\"Content\":\"horror\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Rise of Cocoons\"},{\"CellType\":\"Data\",\"Content\":\"Tuesday\"},{\"CellType\":\"Data\",\"Content\":\"action\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"day\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sunday\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Wednesday\"}]}]}]}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

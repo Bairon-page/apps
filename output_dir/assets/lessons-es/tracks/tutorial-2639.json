@@ -1,0 +1,208 @@
+{
+  "tutorial": {
+    "id": 2639,
+    "version": 4,
+    "type": "challenges",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Conceptos básicos de Express",
+    "descriptionContent": "Los desafíos son ejercicios más difíciles que pondrán a prueba tus habilidades.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 14586,
+        "title": "Aplicación Express - 1",
+        "type": "challengeLevel2",
+        "lessons": [
+          {
+            "title": "Express App 1",
+            "id": 129246,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Crea una aplicación usando Express. Luego haz que la aplicación escuche en el puerto `3000`.\n\n1. Llama a la función `listen()` usando la variable `app`.\n2. Establece `PORT` como el primer parámetro de la función `listen()` y una función de flecha de callback como el segundo parámetro.\n3. En la función de callback, usa `console.log` para imprimir el siguiente mensaje.\n```\n`The server is listening on port ${PORT}`\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\r\nconst app = express();\r\nconst PORT = 3000;\r\n",
+                  "solvedContent": "const express = require(\"express\");\r\nconst app = express();\r\nconst PORT = 3000;\r\n\r\napp.listen(PORT, () => {\r\n  console.log(`The server is listening on port ${PORT}`);\r\n});\r\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 14587,
+        "title": "Aplicación Express 2",
+        "type": "challengeLevel2",
+        "lessons": [
+          {
+            "title": "Express App 2",
+            "id": 129247,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Mejora el código de la aplicación para manejar solicitudes GET y enviar un mensaje en la respuesta.\n\n1. Llama a la función `get()` usando la variable `app`.\n2. Establece `/` como el primer parámetro y una función de callback con `req` y `res` como sus parámetros como el segundo parámetro de la función `get()`.\n3. En la función de callback, llama a `res.send()` para enviar `\"Success!\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\r\nconst app = express();\r\nconst PORT = 3000;\r\n\r\napp.listen(PORT, () => {\r\n  console.log(`The server is listening on port ${PORT}`);\r\n});\r\n",
+                  "solvedContent": "const express = require(\"express\");\r\nconst app = express();\r\nconst PORT = 3000;\r\n\r\napp.get(\"/\", (req, res) => {\r\n  res.send(\"Success!\");\r\n});\r\n\r\napp.listen(PORT, () => {\r\n  console.log(`The server is listening on port ${PORT}`);\r\n});\r\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 14588,
+        "title": "Aplicación Express 3",
+        "type": "challengeLevel2",
+        "lessons": [
+          {
+            "title": "Express App 3",
+            "id": 129248,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Usa la aplicación para enviar un código de estado junto con un mensaje en la respuesta al recibir solicitudes GET.\n\n1. En la función de callback de la función `get()`, llama a la función `status()` usando `res`.\n2. Establece `200` como el estado de la respuesta.\n3. Después de la función `status()`, llama a la función `send()` para enviar lo siguiente:\n```\n\"<h1>Welcome</h1>\"\n```",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\r\nconst app = express();\r\nconst port = 3000;\r\napp.get(\"/\", (req, res) => {\r\n\r\n});\r\napp.listen(port, () => {\r\n  console.log(`The server is listening on port ${port}`);\r\n});\r\n",
+                  "solvedContent": "const express = require(\"express\");\r\nconst app = express();\r\nconst port = 3000;\r\napp.get(\"/\", (req, res) => {\r\n  res.status(200).send(\"<h1>Welcome</h1>\");\r\n});\r\napp.listen(port, () => {\r\n  console.log(`The server is listening on port ${port}`);\r\n});\r\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 14589,
+        "title": "Aplicación de Fitness",
+        "type": "challengeLevel2",
+        "lessons": [
+          {
+            "title": "Fitness App",
+            "id": 129249,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "La aplicación \"FittnessFriend\" necesita una ruta para su página de inicio.\n\n1. Dale a la ruta `GET` un camino de `/home`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst app = express();\napp.get(\"\", (request, response) => {\n  response.status(200).send({\n    message: \"Welcome To FittnessFriend!\",\n  });\n});\napp.listen(3000, () => {\n  console.log(\"listening on port 3000\");\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst app = express();\napp.get(\"/home\", (request, response) => {\n  response.status(200).send({\n    message: \"Welcome To FittnessFriend!\",\n  });\n});\napp.listen(3000, () => {\n  console.log(\"listening on port 3000\");\n});\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 14590,
+        "title": "Rastreador Detallado de Calorías",
+        "type": "challengeLevel2",
+        "lessons": [
+          {
+            "title": "Detailed Calorie Tracker",
+            "id": 129250,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Para esta ruta `GET`, enviaremos todos los datos de alimentos a un usuario.\n\n1. Dale a la ruta `GET` un camino de `/foods/today`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst app = express();\nconst allFoods = [\n  {\n    category: \"Breakfast\",\n    name: \"Banana\",\n    calories: 110,\n  },\n  {\n    category: \"Lunch\",\n    name: \"Spinach Bruschetta\",\n    calories: 110,\n  },\n  {\n    category: \"Dinner\",\n    name: \"Smoked Salmon\",\n    calories: 110,\n  },\n];\napp.get(\"\", (request, response) => {\n  response.status(200).send(allFoods);\n});\napp.listen(3000, () => {\n  console.log(\"listening on port 3000\");\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst app = express();\nconst allFoods = [\n  {\n    category: \"Breakfast\",\n    name: \"Banana\",\n    calories: 110,\n  },\n  {\n    category: \"Lunch\",\n    name: \"Spinach Bruschetta\",\n    calories: 110,\n  },\n  {\n    category: \"Dinner\",\n    name: \"Smoked Salmon\",\n    calories: 110,\n  },\n];\napp.get(\"/foods/today\", (request, response) => {\n  response.status(200).send(allFoods);\n});\napp.listen(3000, () => {\n  console.log(\"listening on port 3000\");\n});\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": 14591,
+        "title": "Menú en línea",
+        "type": "challengeLevel2",
+        "lessons": [
+          {
+            "title": "Online Menu",
+            "id": 129251,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "¡Un restaurante local está en el proceso de configurar su menú en línea! Ayudémosles completando esta ruta `GET` que utiliza un solo parámetro.\n\n1. Dale a la ruta `GET` un camino de `/foods/today/:searchedFood`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require(\"express\");\nconst app = express();\nconst allFoods = [\n  {\n    category: \"Breakfast\",\n    name: \"Banana\",\n    calories: 110,\n  },\n  {\n    category: \"Lunch\",\n    name: \"Spinach Bruschetta\",\n    calories: 110,\n  },\n  {\n    category: \"Dinner\",\n    name: \"Smoked Salmon\",\n    calories: 110,\n  },\n];\napp.get(\"\", (request, response) => {\n  const foundFood = allFoods.find(\n    (eachFood) => eachFood.name === request.params.searchedFood,\n  );\n  response.status(200).send(foundFood);\n});\napp.listen(3000, () => {\n  console.log(\"listening on port 3000\");\n});\n",
+                  "solvedContent": "const express = require(\"express\");\nconst app = express();\nconst allFoods = [\n  {\n    category: \"Breakfast\",\n    name: \"Banana\",\n    calories: 110,\n  },\n  {\n    category: \"Lunch\",\n    name: \"Spinach Bruschetta\",\n    calories: 110,\n  },\n  {\n    category: \"Dinner\",\n    name: \"Smoked Salmon\",\n    calories: 110,\n  },\n];\napp.get(\"/foods/today/:searchedFood\", (request, response) => {\n  const foundFood = allFoods.find(\n    (eachFood) => eachFood.name === request.params.searchedFood,\n  );\n  response.status(200).send(foundFood);\n});\napp.listen(3000, () => {\n  console.log(\"listening on port 3000\");\n});\n"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/",
+                "body": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

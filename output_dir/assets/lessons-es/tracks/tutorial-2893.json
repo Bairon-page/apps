@@ -1,0 +1,356 @@
+{
+  "tutorial": {
+    "id": 2893,
+    "version": 2,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Biblioteca de medios - Parte 2",
+    "descriptionContent": "En la segunda parte del proyecto, optimizaremos la estructura de datos para hacerla escalable",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2893-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14984,
+        "title": "Capítulo #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132109,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenido de nuevo a la segunda parte del proyecto de **Biblioteca de Medios**.\n\nAquí, crearemos una clase para los elementos de medios en lugar de agregar los objetos directamente a nuestra biblioteca. Comenzaremos con la clase `Movie`.\n\n1. Crea la clase `Movie` con un constructor que tome `id`, `title` y `director` como parámetros.\n2. Dentro del constructor, inicializa las variables de instancia `id`, `title` y `director` con los valores pasados al constructor.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "",
+                  "solvedContent": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n}"
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132110,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora, vamos a añadir un método dentro de la clase `Movie` para obtener los detalles de la película.\n\n1. Añade un método `getDetails` a la clase `Movie` que devuelva una cadena formateada con el título y el director de la película.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n}",
+                  "solvedContent": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}"
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132111,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "En muchas bibliotecas de medios, es común tener películas que son parte de una franquicia. Vamos a introducir una clase `FranchiseFilm` que extiende la clase `Movie`.\n\nUna película de franquicia es fundamentalmente una película que es parte de una serie más grande, por lo que tiene sentido que `FranchiseFilm` herede de `Movie`. Además de los detalles básicos de la película, una película de franquicia también tiene información sobre la franquicia a la que pertenece, su posición en la serie y el número total de entregas en la serie.\n\n1. Define una nueva clase `FranchiseFilm` que extienda la clase `Movie`.\n2. El constructor de `FranchiseFilm` debe aceptar parámetros para `id`, `title`, `director`, `franchiseName`, `installmentNumber` y `totalInstallments`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}",
+                  "solvedContent": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}\nclass FranchiseFilm extends Movie {\n  constructor(id, title, director, franchiseName, installmentNumber,\n    totalInstallments) {\n    super(id, title, director);\n    this.franchiseName = franchiseName;\n    this.installmentNumber = installmentNumber;\n    this.totalInstallments = totalInstallments;\n  }\n}"
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132112,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Finalmente, vamos a añadir un método `getDetails` a la clase `FranchiseFilm`.\n\nEste método debe incluir los detalles básicos de la película en la salida, y también añadir información sobre la franquicia y el lugar de la película en la serie.\n\n1. Añade un método `getDetails` a la clase `FranchiseFilm` que use la palabra clave `super` para incluir los detalles básicos de la película devueltos por el método `getDetails` de la clase `Movie`.\n2. Añade información sobre la franquicia en el método `getDetails` de la subclase.\n   - Incluye el valor de la variable `franchiseName` en la cadena devuelta.\n   - Incluye el valor de la variable `installmentNumber` en la cadena devuelta.\n   - Incluye el valor de la variable `totalInstallments` en la cadena devuelta.\n3. Devuelve una cadena que contenga toda esa información en el método `getDetails`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}\nclass FranchiseFilm extends Movie {\n  constructor(id, title, director, franchiseName, installmentNumber,\n    totalInstallments) {\n    super(id, title, director);\n    this.franchiseName = franchiseName;\n    this.installmentNumber = installmentNumber;\n    this.totalInstallments = totalInstallments;\n  }\n}",
+                  "solvedContent": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}\nclass FranchiseFilm extends Movie {\n  constructor(id, title, director, franchiseName, installmentNumber,\n    totalInstallments) {\n    super(id, title, director);\n    this.franchiseName = franchiseName;\n    this.installmentNumber = installmentNumber;\n    this.totalInstallments = totalInstallments;\n  }\n  getDetails() {\n    return `${this.franchiseName} - Installment ${this.installmentNumber} of ${this.totalInstallments}: ${super.getDetails()}`;\n  }\n}"
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132113,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Usaremos la palabra clave `module.exports` para exportar ambas clases para que puedan ser importadas en otros archivos.\n\n1. Al final del archivo `MediaItem.js`, añade una línea para exportar ambas clases como un objeto con las propiedades `Movie` y `FranchiseFilm`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}\nclass FranchiseFilm extends Movie {\n  constructor(id, title, director, franchiseName, installmentNumber,\n    totalInstallments) {\n    super(id, title, director);\n    this.franchiseName = franchiseName;\n    this.installmentNumber = installmentNumber;\n    this.totalInstallments = totalInstallments;\n  }\n  getDetails() {\n    return `${this.franchiseName} - Installment ${this.installmentNumber} of ${this.totalInstallments}: ${super.getDetails()}`;\n  }\n}",
+                  "solvedContent": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}\nclass FranchiseFilm extends Movie {\n  constructor(id, title, director, franchiseName, installmentNumber,\n    totalInstallments) {\n    super(id, title, director);\n    this.franchiseName = franchiseName;\n    this.installmentNumber = installmentNumber;\n    this.totalInstallments = totalInstallments;\n  }\n  getDetails() {\n    return `${this.franchiseName} - Installment ${this.installmentNumber} of ${this.totalInstallments}: ${super.getDetails()}`;\n  }\n}\nmodule.exports = {\n  Movie,\n  FranchiseFilm\n};"
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 132114,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora, actualizaremos nuestra clase `Library` para hacer uso de estas nuevas clases.\n\n1. En la parte superior del archivo `Library.js`, crea dos nuevas variables, `Movie` y `FranchiseFilm`, y asígnales los valores del archivo importado `MediaItem.js` utilizando `require`.",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}\nclass FranchiseFilm extends Movie {\n  constructor(id, title, director, franchiseName, installmentNumber,\n    totalInstallments) {\n    super(id, title, director);\n    this.franchiseName = franchiseName;\n    this.installmentNumber = installmentNumber;\n    this.totalInstallments = totalInstallments;\n  }\n  getDetails() {\n    return `${this.franchiseName} - Installment ${this.installmentNumber} of ${this.totalInstallments}: ${super.getDetails()}`;\n  }\n}\nmodule.exports = {\n  Movie,\n  FranchiseFilm\n};",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();",
+                  "solvedContent": "const {\n  Movie,\n  FranchiseFilm\n} = require('./MediaItem');\nclass Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();"
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 132115,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "A continuación, usemos las clases recién importadas para crear instancias de películas y películas de franquicia en lugar de objetos simples.\n\n1. En el constructor de `Library`, reemplaza los objetos dentro del array `movies` con instancias de las clases `Movie` y `FranchiseFilm`.\n2. Usa la palabra clave `new` junto con el nombre de la clase para crear nuevas instancias. Proporciona los argumentos apropiados basados en los constructores de las clases `Movie` y `FranchiseFilm`. Los datos de `id`, `title` y `director` para cada película son los mismos que antes.\n3. Añade al menos 3 películas y 3 películas de franquicia.\n\nSiéntete libre de usar las siguientes películas si no quieres añadir tus propias ideas:\n```JavaScript\n[\nnew Movie(1, 'Pulp Fiction', 'Quentin Tarantino'),\nnew Movie(2, 'Inception', 'Christopher Nolan'),\nnew Movie(3, 'The Matrix', 'The Wachowskis'),\nnew FranchiseFilm(4, 'The Fellowship of the Ring', 'Peter Jackson', 'The Lord of the Rings', 1, 3),\nnew FranchiseFilm(5, 'The Two Towers', 'Peter Jackson', 'The Lord of the Rings', 2, 3),\nnew FranchiseFilm(6, 'The Return of the King', 'Peter Jackson', 'The Lord of the Rings', 3, 3)\n]\n```",
+              "preselectedFileIndex": 1,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n  constructor(id, title, director) {\n    this.id = id;\n    this.title = title;\n    this.director = director;\n  }\n  getDetails() {\n    return `${this.title} directed by ${this.director}`;\n  }\n}\nclass FranchiseFilm extends Movie {\n  constructor(id, title, director, franchiseName, installmentNumber,\n    totalInstallments) {\n    super(id, title, director);\n    this.franchiseName = franchiseName;\n    this.installmentNumber = installmentNumber;\n    this.totalInstallments = totalInstallments;\n  }\n  getDetails() {\n    return `${this.franchiseName} - Installment ${this.installmentNumber} of ${this.totalInstallments}: ${super.getDetails()}`;\n  }\n}\nmodule.exports = {\n  Movie,\n  FranchiseFilm\n};",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "const {\n  Movie,\n  FranchiseFilm\n} = require('./MediaItem');\nclass Library {\n  constructor() {\n    this.movies = [{\n      id: 1,\n      title: 'Pulp Fiction',\n      director: 'Quentin Tarantino'\n    }, {\n      id: 2,\n      title: 'Inception',\n      director: 'Christopher Nolan'\n    }, {\n      id: 3,\n      title: 'The Matrix',\n      director: 'The Wachowskis'\n    }];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();",
+                  "solvedContent": "const {\n  Movie,\n  FranchiseFilm\n} = require('./MediaItem');\nclass Library {\n  constructor() {\n    this.movies = [\n      new Movie(1, 'Pulp Fiction', 'Quentin Tarantino'),\n      new Movie(2, 'Inception', 'Christopher Nolan'),\n      new Movie(3, 'The Matrix', 'The Wachowskis'),\n      new FranchiseFilm(4, 'The Fellowship of the Ring', 'Peter Jackson',\n        'The Lord of the Rings', 1, 3),\n      new FranchiseFilm(5, 'The Two Towers', 'Peter Jackson',\n        'The Lord of the Rings', 2, 3),\n      new FranchiseFilm(6, 'The Return of the King', 'Peter Jackson',\n        'The Lord of the Rings', 3, 3)\n    ];\n  }\n  getAllMovies() {\n    return this.movies;\n  }\n  getMovieById(id) {\n    return this.movies.find(movie => movie.id === parseInt(id));\n  }\n}\nmodule.exports = new Library();"
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": null
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #8",
+            "id": 132116,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Por último, apliquemos nuestro nuevo método `getDetails` en la aplicación de Express.\n\nPrimero actualizaremos la ruta `/movies`.\n\n1. Dentro de la función de callback para la ruta `/movies`, convierte el array de objetos de películas devuelto por `getAllMovies` en un array de cadenas de detalles de películas antes de enviarlo como respuesta. Envía el array como el valor para la clave `movies` en el JSON. Puedes lograr esto utilizando el método map o un bucle para iterar a través del array.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n    constructor(id, title, director) {\n        this.id = id;\n        this.title = title;\n        this.director = director;\n    }\n\n    getDetails() {\n        return `${this.title} directed by ${this.director}`;\n    }\n}\n\nclass FranchiseFilm extends Movie {\n    constructor(id, title, director, franchiseName, installmentNumber, totalInstallments) {\n        super(id, title, director);\n        this.franchiseName = franchiseName;\n        this.installmentNumber = installmentNumber;\n        this.totalInstallments = totalInstallments;\n    }\n\n    getDetails() {\n        return `${this.franchiseName} - Installment ${this.installmentNumber} of ${this.totalInstallments}: ${super.getDetails()}`;\n    }\n}\n\nmodule.exports = { Movie, FranchiseFilm };",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "const { Movie, FranchiseFilm } = require('./MediaItem');\n\nclass Library {\n    constructor() {\n        this.movies = [\n            new Movie(1, 'Pulp Fiction', 'Quentin Tarantino'),\n            new Movie(2, 'Inception', 'Christopher Nolan'),\n            new Movie(3, 'The Matrix', 'The Wachowskis'),\n            new FranchiseFilm(4, 'The Fellowship of the Ring', 'Peter Jackson', 'The Lord of the Rings', 1, 3),\n            new FranchiseFilm(5, 'The Two Towers', 'Peter Jackson', 'The Lord of the Rings', 2, 3),\n            new FranchiseFilm(6, 'The Return of the King', 'Peter Jackson', 'The Lord of the Rings', 3, 3)\n        ];\n    }\n\n    getAllMovies() {\n        return this.movies;\n    }\n\n    getMovieById(id) {\n        return this.movies.find(movie => movie.id === parseInt(id));\n    }\n}\n\nmodule.exports = new Library();",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n  res.status(200).json({\n   movies: library.getAllMovies()\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n const movies = library.getAllMovies().map(movie => movie.getDetails());\n  res.status(200).json({\n   movies: movies\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies",
+                "body": null
+              }
+            }
+          },
+          {
+            "title": "Lesson #9",
+            "id": 132117,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Ahora, hagamos lo mismo para la ruta `/movies/:id`.\n\n1. En la función de callback para la ruta `/movies/:id`, llama al método `getDetails` en el objeto de película devuelto por `getMovieById` antes de enviarlo como el valor de la clave `movie` en el objeto de respuesta.",
+              "preselectedFileIndex": 2,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "MediaItem.js",
+                  "codeLanguage": "javascript",
+                  "content": "class Movie {\n    constructor(id, title, director) {\n        this.id = id;\n        this.title = title;\n        this.director = director;\n    }\n\n    getDetails() {\n        return `${this.title} directed by ${this.director}`;\n    }\n}\n\nclass FranchiseFilm extends Movie {\n    constructor(id, title, director, franchiseName, installmentNumber, totalInstallments) {\n        super(id, title, director);\n        this.franchiseName = franchiseName;\n        this.installmentNumber = installmentNumber;\n        this.totalInstallments = totalInstallments;\n    }\n\n    getDetails() {\n        return `${this.franchiseName} - Installment ${this.installmentNumber} of ${this.totalInstallments}: ${super.getDetails()}`;\n    }\n}\n\nmodule.exports = { Movie, FranchiseFilm };",
+                  "solvedContent": null
+                },
+                {
+                  "name": "Library.js",
+                  "codeLanguage": "javascript",
+                  "content": "const { Movie, FranchiseFilm } = require('./MediaItem');\n\nclass Library {\n    constructor() {\n        this.movies = [\n            new Movie(1, 'Pulp Fiction', 'Quentin Tarantino'),\n            new Movie(2, 'Inception', 'Christopher Nolan'),\n            new Movie(3, 'The Matrix', 'The Wachowskis'),\n            new FranchiseFilm(4, 'The Fellowship of the Ring', 'Peter Jackson', 'The Lord of the Rings', 1, 3),\n            new FranchiseFilm(5, 'The Two Towers', 'Peter Jackson', 'The Lord of the Rings', 2, 3),\n            new FranchiseFilm(6, 'The Return of the King', 'Peter Jackson', 'The Lord of the Rings', 3, 3)\n        ];\n    }\n\n    getAllMovies() {\n        return this.movies;\n    }\n\n    getMovieById(id) {\n        return this.movies.find(movie => movie.id === parseInt(id));\n    }\n}\n\nmodule.exports = new Library();",
+                  "solvedContent": null
+                },
+                {
+                  "name": "app.js",
+                  "codeLanguage": "javascript",
+                  "content": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n const movies = library.getAllMovies().map(movie => movie.getDetails());\n  res.status(200).json({\n   movies: movies\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json(movie);\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});",
+                  "solvedContent": "const express = require('express');\nconst library = require('./Library');\n\nconst app = express();\nconst port = 3000;\n\napp.listen(port, function() {\n  console.log(`App is listening on port ${port}`);\n});\n\napp.get('/movies', (req, res) => {\n const movies = library.getAllMovies().map(movie => movie.getDetails());\n  res.status(200).json({\n   movies: movies\n  });\n});\n\napp.get('/movies/:id', (req, res) => {\n  const id = req.params.id;\n  const movie = library.getMovieById(id);\n  if (movie) {\n    res.status(200).json({movie: movie.getDetails()});\n  } else {\n    res.status(404).json({error: 'Movie not found'});\n  }\n});"
+                }
+              ],
+              "hints": [],
+              "httpOptions": {
+                "method": "GET",
+                "path": "/movies/1",
+                "body": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

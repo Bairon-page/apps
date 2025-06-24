@@ -1,0 +1,149 @@
+{
+  "tutorial": {
+    "id": 2909,
+    "version": 2,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "node",
+    "title": "Query Parameters",
+    "descriptionContent": "Learn to set query parameter when calling an API and how to access them in your Express endpoints",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 15003,
+        "title": "Chapter #1",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 132304,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Query parameters are an important part of building APIs, allowing us to create more dynamic and versatile routes. Let's dive in!</p></body></html>"
+          },
+          {
+            "title": "Lesson #2",
+            "id": 132305,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Query parameters are added in the URL after a <code>?</code>. They don't change the endpoint but provide additional information to the server.</p><p>Here, <code>name</code> is the key, and <code>Maria</code> is the passed value.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/greet?name=Maria\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"21\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>?</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #3",
+            "id": 132306,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>We can access the value of query parameters using <code>req.query.key</code>. Let's create an endpoint that returns the value of a query parameter.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name;\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"46\" endIndex=\"49\" /><option startIndex=\"50\" endIndex=\"55\" /><option startIndex=\"56\" endIndex=\"60\" /></options></interaction></interactions><output><content><text value=\"Hello, Maria!\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>req</code>, followed by <code>query</code>, and finally <code>name</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4",
+            "id": 132307,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Query parameters are optional by nature. If we don't provide a query parameter, its value will be undefined.</p><p>One common use case is providing default values with <code>||</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name || \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"61\" endIndex=\"63\" /><option startIndex=\"64\" endIndex=\"71\" /></options></interaction></interactions><output><content><text value=\"Hello, Guest\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>||</code>, followed by <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132470,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>You may want to distinguish between <code>undefined</code>, <code>null</code>, or empty values. The <code>??</code> (nullish coalescing operator) is helpful here.</p><p>Unlike <code>||</code>, which treats <code>null</code>, <code>undefined</code>, and falsy values (like <code>0</code> or <code>\"\"</code>) the same, <code>??</code> only considers <code>null</code> and <code>undefined</code>.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name ?? \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"64\" endIndex=\"71\" /><option startIndex=\"61\" endIndex=\"63\" /></options></interaction></interactions><output><content><text value=\"Hello, Guest\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>??</code>, followed by <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy - Copy",
+            "id": 132471,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Here, <code>??</code> ensures that <code>\"\"</code> or <code>0</code> won’t trigger the default value.</p><p>You could end up saying <code>\"Hello, \"</code> when you receive an empty string for the name query parameter.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name ?? \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"64\" endIndex=\"71\" /><option startIndex=\"61\" endIndex=\"63\" /></options></interaction></interactions><output><content><text value=\"Hello, \" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>??</code>, followed by <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 132313,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>We can have multiple query parameters. We combine them in the URL with <code>&amp;</code>.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/info?name=Maria&amp;age=62\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"19\" endIndex=\"20\" /><option startIndex=\"30\" endIndex=\"31\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>?</code>, followed by <code>&amp;</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #5",
+            "id": 132308,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>If we have multiple query parameters, we can access them individually by their name.</p><p>Let's see what we will return in case the query parameter <code>name</code> will be passed as <code>\"Lin\"</code> but <code>age</code> won't be passed.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/info&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name || \" /><text value=\"'Unknown'\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" age = req.query.age || \" /><text value=\"'Unknown'\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Name: \" /><text value=\"${name}\" class=\"subst\" /><text value=\", Age: \" /><text value=\"${age}\" class=\"subst\" /><text value=\"`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"55\" endIndex=\"59\" /><option startIndex=\"95\" endIndex=\"98\" /></options></interaction></interactions><output><content><text value=\"Name: Lin, Age: Unknown\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>name</code>, followed by <code>age</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #8",
+            "id": 132311,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>If our endpoint needs certain query parameters, we can check if they are provided and return an error if they are not.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/search&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" query = req.query.query;\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" limit = \" /><text value=\"parseInt\" class=\"built_in\" /><text value=\"(req.query.limit);\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (!query) {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"return\" class=\"keyword\" /><text value=\" res.status(\" /><text value=\"400\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Missing query parameter.&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\" limit = limit || \" /><text value=\"10\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.status(\" /><text value=\"200\" class=\"number\" /><text value=\").send(\" /><text value=\"&quot;Here's the result of your search!&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"48\" endIndex=\"51\" /><option startIndex=\"52\" endIndex=\"57\" /><option startIndex=\"87\" endIndex=\"90\" /><option startIndex=\"91\" endIndex=\"96\" /></options></interaction></interactions><output><content><text value=\"Here's the result of your search!\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>req</code> followed by <code>query</code> and then <code>req</code>, <code>query</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #7",
+            "id": 132310,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What does <code>req.query</code> return in Express?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">An object with the query parameters as key-value pairs</item><item value=\"2\" correct=\"false\">A string representing the query string</item></selection><p visible-if=\"wrong\">An object with the query parameters as key-value pairs.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2 - Copy",
+            "id": 132648,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Add a query parameter called <code>name</code> to the URL.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/greet?name=Maria\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"21\" /><option startIndex=\"21\" endIndex=\"25\" /><option startIndex=\"25\" endIndex=\"26\" /><option startIndex=\"26\" endIndex=\"31\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>?</code> followed by <code>name</code> and then <code>=</code>, <code>Maria</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #15",
+            "id": 132652,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>How do you access query parameters in a route handler?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">By using <code>req.query</code></item><item value=\"2\" correct=\"false\">By using <code>req.params</code></item></selection><p visible-if=\"wrong\">By using <code>req.query</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #8 - Copy",
+            "id": 132651,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Unpack the two query parameters using object destructuring.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/search&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\"  \" /><text value=\"const\" class=\"keyword\" /><text value=\" { type, category } = req.query;\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"23\" /><option startIndex=\"25\" endIndex=\"28\" /><option startIndex=\"64\" endIndex=\"67\" /><option startIndex=\"68\" endIndex=\"73\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>req</code> followed by <code>res</code> and then <code>req</code>, <code>query</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #16",
+            "id": 132653,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What would be the correct way to send a query parameter to <code>/search</code> for <code>type=fruit</code>?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>/search?type=fruit</code></item><item value=\"2\" correct=\"false\"><code>/search/fruit</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>/search?type=fruit</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #4 - Copy",
+            "id": 132649,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Provide a default value in case the query parameter doesn't hold a value.</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/greet&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"let\" class=\"keyword\" /><text value=\" name = req.query.name || \" /><text value=\"&quot;Guest&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\" res.send(\" /><text value=\"`Hello, \" /><text value=\"${name}\" class=\"subst\" /><text value=\"!`\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"61\" endIndex=\"63\" /><option startIndex=\"64\" endIndex=\"71\" /><option startIndex=\"46\" endIndex=\"60\" /></options></interaction></interactions><output><content><text value=\"Hello, Guest\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>req.query.name</code>, followed by <code>||</code>, and finally <code>\"Guest\"</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #17",
+            "id": 132654,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>How do you retrieve a query parameter called <code>category</code> inside the <code>/items</code> endpoint?</p><code version=\"2\" codelang=\"javascript\" name=\"app.js\" visible-if=\"always\"><content><text value=\"app.get(\" /><text value=\"&quot;/items&quot;\" class=\"string\" /><text value=\", (req, res) =&gt; {\" /><text type=\"break\" /><text value=\" \" /><text value=\"console\" class=\"built_in\" /><text value=\".log(\" /><text value=\"&quot;What category?&quot;\" class=\"string\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>req.query.category</code></item><item value=\"2\" correct=\"false\"><code>req.params.category</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>req.query.category</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #2 - Copy - Copy",
+            "id": 132650,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Set up the URL correctly.</p><code version=\"2\" codelang=\"bash\" name=\"Console Editor\" visible-if=\"always\"><content><text value=\"localhost:3000/info?name=Maria&amp;age=62\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"19\" endIndex=\"20\" /><option startIndex=\"30\" endIndex=\"31\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>?</code>, followed by <code>&amp;</code>.</p></body></html>"
+          },
+          {
+            "title": "Lesson #18",
+            "id": 132655,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Which URL contains both a query parameter and a route parameter?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>/items/phones?sort=asc</code></item><item value=\"2\" correct=\"false\"><code>/items?type=phones&amp;sort=asc</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>/items/phones?sort=asc</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

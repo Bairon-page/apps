@@ -1,0 +1,183 @@
+{
+  "tutorial": {
+    "id": 2667,
+    "version": 7,
+    "type": "guidedProject",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "API Star Wars - Partie 1",
+    "descriptionContent": "Lance-toi dans la galaxie avec un projet qui appelle l'API Star Wars pour récupérer des personnages de l'univers vaste de Star Wars.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-2667-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 14642,
+        "title": "Chapitre #1",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Lesson #1",
+            "id": 129499,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenue dans le projet **Star Wars API**, où nous allons utiliser une API externe pour récupérer des données d'un serveur distant et les afficher.\n\n1. Pour commencer, importe la bibliothèque `requests`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "",
+                  "solvedContent": "import requests"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #2",
+            "id": 129500,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous prévoyons de récupérer des données à partir d'une API REST. Cette API a plusieurs endpoints. Appelons d'abord l'endpoint people.\n\n1. Crée une variable appelée `option` et assigne-lui la valeur `\"people\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests",
+                  "solvedContent": "import requests\n\noption = \"people\""
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #3",
+            "id": 129501,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Mettons ensemble l'url. Nous utiliserons le point de terminaison `/people`. Mais nous voulons être flexibles pour pouvoir le remplacer à tout moment. C'est pourquoi nous utilisons une f-string pour le composer.\n\n1. Crée une nouvelle variable appelée `url` et assigne-lui la f-string suivante `f\"https://swapi.mimo.dev/api/{option}/\"`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\noption = \"people\"",
+                  "solvedContent": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\""
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #4",
+            "id": 129502,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Il est temps d'envoyer la requête au point de terminaison de l'API.\n\n1. Ajoute `requests.get(url)` et stocke l'objet de réponse retourné dans une variable nommée `response`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"",
+                  "solvedContent": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\nresponse = requests.get(url)"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #5",
+            "id": 129503,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous devons gérer correctement les erreurs HTTP qui pourraient survenir lorsque notre requête échoue. À cet effet, nous utiliserons la méthode `raise_for_status`.\n\n1. Appelle la méthode `raise_for_status` sur `response` pour lever une exception si la requête HTTP a renvoyé un code de statut non réussi.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\nresponse = requests.get(url)",
+                  "solvedContent": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\nresponse = requests.get(url)\nresponse.raise_for_status()"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #6",
+            "id": 129504,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Maintenant que nous avons vérifié que notre requête a réussi, il est temps d'analyser la réponse JSON.\n\n1. Appelle la méthode `.json()` sur `response` et stocke sa valeur de retour dans une variable nommée `data`.\n2. Affiche un message indiquant le nombre d'entités qui ont été récupérées avec succès en comptant la longueur de la liste enregistrée dans la variable `data`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\nresponse = requests.get(url)\nresponse.raise_for_status()",
+                  "solvedContent": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\nresponse = requests.get(url)\nresponse.raise_for_status()\n\ndata = response.json()\nprint(f\"Successfully fetched {len(data)} entities\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #7",
+            "id": 129505,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Enfin, ajoutons un bloc try-except pour gérer les erreurs HTTP qui pourraient survenir lors de notre requête.\n\n1. Déplace le code de gestion de la requête et de la réponse HTTP à l'intérieur d'un bloc `try`.\n   - Garde l'instruction d'importation, ainsi que les variables `option` et `url` à l'extérieur.\n   - Le reste doit aller à l'intérieur du bloc `try`.\n2. À l'intérieur du bloc `except`, intercepte `requests.HTTPError` en tant que `e` et affiche un message d'erreur informant de l'erreur `e`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\nresponse = requests.get(url)\nresponse.raise_for_status()\n\ndata = response.json()\nprint(f\"Successfully fetched {len(data)} entities\")",
+                  "solvedContent": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\ntry:\n  response = requests.get(url)\n  response.raise_for_status()\n\n  data = response.json()\n  print(f\"Successfully fetched {len(data)} entities\")\nexcept requests.HTTPError as e:\n  print(f\"Error fetching data: {e}\")"
+                }
+              ],
+              "hints": []
+            }
+          },
+          {
+            "title": "Lesson #9",
+            "id": 129507,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous avons nos données récupérées. Maintenant, ajoutons du code pour afficher ces données de manière agréable.\n\n1. Après le bloc try-except, ajoute une instruction `if` qui vérifie si `data` a des valeurs attachées.\n   - Dans le bloc if, itère sur la liste `data`.\n   - Les éléments de `data` sont des dictionnaires. Pour chacun, affiche la valeur de la clé `name`.\n2. Ajoute une instruction `else` pour afficher `Unable to download data` si `data` est vide.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.py",
+                  "codeLanguage": "python",
+                  "content": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\ntry:\n  response = requests.get(url)\n  response.raise_for_status()\n\n  data = response.json()\n  print(f\"Successfully fetched {len(data)} entities\")\nexcept requests.HTTPError as e:\n  print(f\"Error fetching data: {e}\")",
+                  "solvedContent": "import requests\n\noption = \"people\"\nurl = f\"https://swapi.mimo.dev/api/{option}/\"\ntry:\n  response = requests.get(url)\n  response.raise_for_status()\n\n  data = response.json()\n  print(f\"Successfully fetched {len(data)} entities\")\nexcept requests.HTTPError as e:\n  print(f\"Error fetching data: {e}\")\n\nif data:\n  for entity in data:\n    print(entity[\"name\"])\nelse:\n  print(\"Unable to download data\")"
+                }
+              ],
+              "hints": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

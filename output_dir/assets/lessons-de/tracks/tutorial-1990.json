@@ -1,0 +1,156 @@
+{
+  "tutorial": {
+    "id": 1990,
+    "version": 8,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "javascript",
+    "title": "Array.filter()",
+    "descriptionContent": "Lerne, wie man Array-Werte filtert.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 12701,
+        "title": "Werte filtern",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 115173,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Angenommen, wir möchten bestimmte Elemente finden, die eine festgelegte Bedingung erfüllen, und sie in ein neues Array extrahieren.</p><p>Eine Möglichkeit, dies zu tun, ist durch eine Schleife.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = [];\" /><text type=\"break\" /><text value=\"for\" class=\"keyword\" /><text value=\" (\" /><text value=\"const\" class=\"keyword\" /><text value=\" element \" /><text value=\"of\" class=\"keyword\" /><text value=\" testScores) {\" /><text type=\"break\" /><text value=\" \" /><text value=\"if\" class=\"keyword\" /><text value=\" (element &gt;= \" /><text value=\"90\" class=\"number\" /><text value=\") {\" /><text type=\"break\" /><text value=\"  arr.push(element);\" /><text type=\"break\" /><text value=\" }\" /><text type=\"break\" /><text value=\"}\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><output><content><text value=\"[ 95, 90 ]\" /></content></output></code></body></html>"
+          },
+          {
+            "title": "Calling .filter on an Array",
+            "id": 115174,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Stattdessen können wir die <code>.filter()</code>-Funktion verwenden. <code>.filter()</code> erstellt ein neues Array mit Werten, die eine Bedingung erfüllen.</p><p><code>.filter()</code> verwendet die Syntax: <code>ArrayName.filter()</code>. Lass es uns auf das <code>testScores</code>-Array anwenden.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter();\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"57\" endIndex=\"67\" /><option startIndex=\"67\" endIndex=\"68\" /><option startIndex=\"68\" endIndex=\"74\" /><option startIndex=\"74\" endIndex=\"75\" /><option startIndex=\"75\" endIndex=\"76\" /><option correct=\"false\"><content><text value=\".map()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>testScores</code>, gefolgt von <code>.</code> und schließlich <code>filter</code>, <code>(</code>, <code>)</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Passing Functions",
+            "id": 115175,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um der <code>.filter()</code>-Funktion mitzuteilen, ob ein Wert in das neue Array aufgenommen oder ausgeschlossen werden soll, müssen wir eine Funktion als Parameter übergeben.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"83\" /><option startIndex=\"83\" endIndex=\"84\" /><option startIndex=\"84\" endIndex=\"85\" /><option startIndex=\"86\" endIndex=\"87\" /><option startIndex=\"87\" endIndex=\"88\" /><option correct=\"false\"><content><text value=\"[\" /></content></option><option correct=\"false\"><content><text value=\"]\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>function</code>, gefolgt von <code>(</code> und schließlich <code>)</code>, <code>{</code>, <code>}</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Parameters",
+            "id": 115177,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wir müssen der Inline-Funktion Zugriff auf die Elemente des Arrays geben.</p><p>Um dies zu tun, fügen wir der Funktion einfach einen Parameter hinzu. In diesem Fall verwenden wir <code>element</code>, aber jeder Name funktioniert.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" participants = [\" /><text value=\"&quot;Ben&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sarah&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Eli&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Henry&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sean&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Annabel&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" sNames = participants.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"element\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" element[\" /><text value=\"0\" class=\"number\" /><text value=\"] === \" /><text value=\"&quot;S&quot;\" class=\"string\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(sNames);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"118\" endIndex=\"125\" /></interactions><output><content><text value=\"[ 'Sarah', 'Sean' ]\" /></content></output></code><p visible-if=\"wrong\">Gib <code>element</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Return",
+            "id": 115176,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um der <code>.filter()</code>-Funktion mitzuteilen, welche Werte im neuen Array gespeichert werden sollen, muss die <code>return</code>-Anweisung der Funktion einen Boolean zurückgeben.</p><p>Wir schreiben normalerweise eine Bedingung, die das Array-Element oder den Index beinhaltet und zu einem booleschen Wert führt.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"element\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" element &gt;= \" /><text value=\"90\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"103\" endIndex=\"116\" /><option startIndex=\"96\" endIndex=\"102\" /><option correct=\"false\"><content><text value=\"arr\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 95, 90 ]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>return</code>, gefolgt von <code>element &gt;= 90</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Parameters II",
+            "id": 115178,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wenn wir einen zweiten Parameter in die <code>filter()</code>-Funktion einfügen, können wir neben dem Array-Wert auch auf den Index jeder Iteration zugreifen.</p><p>In diesem Beispiel nennen wir den Parameter <code>index</code>, aber es kann jeder beliebige Name verwendet werden.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" week = [\" /><text value=\"&quot;Sunday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Monday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tuesday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Wednesday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Thursday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Friday&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Saturday&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" workWeek = week.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"element, index\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" (index &gt; \" /><text value=\"0\" class=\"number\" /><text value=\" &amp;&amp; index &lt; \" /><text value=\"6\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(workWeek);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"140\" endIndex=\"145\" /></interactions><output><content><text value=\"[ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ]\" /></content></output></code><p visible-if=\"wrong\">Gib <code>index</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Arrow functions",
+            "id": 115180,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um unsere Syntax zu vereinfachen, können wir eine JavaScript-Arrow-Funktion anstelle der Inline-Funktion verwenden.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" testScores = [\" /><text value=\"72\" class=\"number\" /><text value=\", \" /><text value=\"95\" class=\"number\" /><text value=\", \" /><text value=\"90\" class=\"number\" /><text value=\", \" /><text value=\"71\" class=\"number\" /><text value=\", \" /><text value=\"75\" class=\"number\" /><text value=\", \" /><text value=\"79\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = testScores.filter(\" /><text value=\"element\" class=\"params\" /><text value=\" =&gt;\" /><text value=\" element &gt;= \" /><text value=\"90\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"75\" endIndex=\"82\" /><option startIndex=\"83\" endIndex=\"85\" /><option startIndex=\"86\" endIndex=\"99\" /><option correct=\"false\"><content><text value=\":\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 95, 90 ]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>element</code>, gefolgt von <code>=&gt;</code> und schließlich <code>element &gt;= 90</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Intro",
+            "id": 115276,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Welche JavaScript-Funktion können wir verwenden, um ein neues Array von Elementen zu erstellen, die eine Bedingung erfüllen?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>.filter()</code></item><item value=\"2\" correct=\"false\"><code>.map()</code></item></selection><p visible-if=\"wrong\">Wähle <code>.filter()</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Passing Functions",
+            "id": 115278,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Was müssen wir als Parameter übergeben, um der <code>.filter()</code>-Funktion mitzuteilen, welche Werte im neuen Array enthalten sein sollen?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Eine Funktion</item><item value=\"2\" correct=\"false\">Nur eine bedingte Anweisung</item></selection><p visible-if=\"wrong\">Eine Funktion.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters",
+            "id": 115279,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie können wir die Array-Werte an die <code>.filter()</code> Inline-Funktion übergeben?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Durch Hinzufügen eines Parameters zur Inline-Funktion</item><item value=\"2\" correct=\"false\">Durch Hinzufügen des obligatorischen zweiten Parameters zur Inline-Funktion</item></selection><p visible-if=\"wrong\">Durch Hinzufügen eines Parameters zur Inline-Funktion.</p></body></html>"
+          },
+          {
+            "title": "Question: Parameters II",
+            "id": 115280,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Was können wir zugreifen, indem wir einen zweiten Parameter in die Inline-Funktion von <code>.filter()</code> einfügen?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Der aktuelle Index in der Iteration</item><item value=\"2\" correct=\"false\">Das aufrufende Array</item></selection><p visible-if=\"wrong\">Der aktuelle Index in der Iteration.</p></body></html>"
+          },
+          {
+            "title": "Question: Return",
+            "id": 115281,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Welchen Wertetyp gibt die Inline-Funktion von <code>.filter()</code> zurück?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Ein boolean</item><item value=\"2\" correct=\"false\">Ein String</item></selection><p visible-if=\"wrong\">Ein boolean.</p></body></html>"
+          },
+          {
+            "title": "Question: Arrow functions",
+            "id": 115282,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Warum könnten wir eine Arrow Function anstelle einer Inline-Funktion verwenden?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Weil eine Arrow Function die Syntax vereinfacht</item><item value=\"2\" correct=\"false\">Weil eine Arrow Function keine Parameter benötigt</item></selection><p visible-if=\"wrong\">Weil eine Arrow Function die Syntax vereinfacht.</p></body></html>"
+          },
+          {
+            "title": "Example: Calling .filter on an Array",
+            "id": 115285,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Rufe die <code>.filter()</code>-Funktion auf dem <code>names</code>-Array auf.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" names = [\" /><text value=\"&quot;Tony&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tania&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Vince&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Terry&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" arr = names.filter(\" /><text value=\"element\" class=\"params\" /><text value=\" =&gt;\" /><text value=\" (element[\" /><text value=\"0\" class=\"number\" /><text value=\"] === \" /><text value=\"&quot;T&quot;\" class=\"string\" /><text value=\"));\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(arr);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"63\" endIndex=\"68\" /><option startIndex=\"68\" endIndex=\"69\" /><option startIndex=\"69\" endIndex=\"75\" /><option correct=\"false\"><content><text value=\"map\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'Tony', 'Tania', 'Terry' ]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>names</code>, gefolgt von <code>.</code> und schließlich <code>filter</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Passing Functions",
+            "id": 115286,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Füge eine Inline-Funktion innerhalb der <code>.filter()</code>-Funktion hinzu.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" customerTotals = [\" /><text value=\"99\" class=\"number\" /><text value=\", \" /><text value=\"56\" class=\"number\" /><text value=\", \" /><text value=\"78\" class=\"number\" /><text value=\", \" /><text value=\"110\" class=\"number\" /><text value=\", \" /><text value=\"29\" class=\"number\" /><text value=\", \" /><text value=\"58\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" largeOrder = customerTotals.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"\" class=\"params\" /><text value=\") \" /><text value=\"{});\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"91\" endIndex=\"99\" /><option startIndex=\"99\" endIndex=\"100\" /><option startIndex=\"100\" endIndex=\"101\" /><option startIndex=\"102\" endIndex=\"103\" /><option startIndex=\"103\" endIndex=\"104\" /><option correct=\"false\"><content><text value=\"[]\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>function</code>, gefolgt von <code>(</code> und schließlich <code>)</code>, <code>{</code>, <code>}</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Parameters",
+            "id": 115287,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Füge den entsprechenden Parameter hinzu, um der Inline-Funktion Zugriff auf die Array-Werte zu geben.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" prices = [\" /><text value=\"19.99\" class=\"number\" /><text value=\", \" /><text value=\"20.99\" class=\"number\" /><text value=\", \" /><text value=\"18.99\" class=\"number\" /><text value=\", \" /><text value=\"17.99\" class=\"number\" /><text value=\", \" /><text value=\"21.99\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" inBudget = prices.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"price\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" price &lt; \" /><text value=\"20\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(inBudget);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"92\" endIndex=\"97\" /></interactions><output><content><text value=\"[ 19.99, 18.99, 17.99 ]\" /></content></output></code><p visible-if=\"wrong\">Gib <code>price</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Example: Return",
+            "id": 115289,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code das richtige Schlüsselwort, damit die <code>.filter()</code>-Funktion das <code>shortSleeveDay</code>-Array füllt.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" weather = [\" /><text value=\"67\" class=\"number\" /><text value=\", \" /><text value=\"78\" class=\"number\" /><text value=\", \" /><text value=\"73\" class=\"number\" /><text value=\", \" /><text value=\"77\" class=\"number\" /><text value=\", \" /><text value=\"82\" class=\"number\" /><text value=\", \" /><text value=\"93\" class=\"number\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" shortSleeveDay = weather.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"temp\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" temp &gt; \" /><text value=\"75\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(shortSleeveDay);\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"98\" endIndex=\"104\" /></interactions><output><content><text value=\"[ 78, 77, 82, 93 ]\" /></content></output></code><p visible-if=\"wrong\">Gib <code>return</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Example: Parameters II",
+            "id": 115288,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code die Parameter in der richtigen Reihenfolge, sodass <code>top3</code> die ersten drei <code>finishers</code> speichert.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" finishers = [\" /><text value=\"&quot;Sarah&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sally&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Jake&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Alex&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tori&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" top3 = finishers.filter(\" /><text value=\"function\" class=\"keyword\" /><text value=\"(\" /><text value=\"finisher, place\" class=\"params\" /><text value=\") \" /><text value=\"{\" /><text type=\"break\" /><text value=\" \" /><text value=\"return\" class=\"keyword\" /><text value=\" place &lt; \" /><text value=\"3\" class=\"number\" /><text value=\";\" /><text type=\"break\" /><text value=\"});\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(top3);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"101\" endIndex=\"109\" /><option startIndex=\"109\" endIndex=\"110\" /><option startIndex=\"111\" endIndex=\"116\" /><option correct=\"false\"><content><text value=\":\" /></content></option></options></interaction></interactions><output><content><text value=\"[ 'Sarah', 'Sally', 'Jake' ]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>finisher</code>, gefolgt von <code>,</code> und schließlich <code>place</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Arrow functions",
+            "id": 115290,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code eine Pfeilfunktion, die <code>true</code> zurückgibt, wenn der Elementindex kleiner als 3 ist.</p><code version=\"2\" codelang=\"javascript\" name=\"script.js\" visible-if=\"always\"><content><text value=\"const\" class=\"keyword\" /><text value=\" finishers = [\" /><text value=\"&quot;Sarah&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Sally&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Jake&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Alex&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tori&quot;\" class=\"string\" /><text value=\"];\" /><text type=\"break\" /><text value=\"const\" class=\"keyword\" /><text value=\" top3 = \" /><text type=\"break\" /><text value=\" finishers.filter(\" /><text value=\"(\" /><text value=\"finisher, place\" class=\"params\" /><text value=\") =&gt;\" /><text value=\" place &lt; \" /><text value=\"3\" class=\"number\" /><text value=\");\" /><text type=\"break\" /><text value=\"console\" class=\"built_in\" /><text value=\".log(top3);\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"112\" endIndex=\"114\" /><option startIndex=\"115\" endIndex=\"120\" /><option startIndex=\"121\" endIndex=\"122\" /><option startIndex=\"123\" endIndex=\"124\" /><option correct=\"false\"><content><text value=\":\" /></content></option><option startIndex=\"94\" endIndex=\"111\" /></options></interaction></interactions><output><content><text value=\"[ 'Sarah', 'Sally', 'Jake' ]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>(finisher, place)</code>, gefolgt von <code>=&gt;</code> und schließlich <code>place</code>, <code>&lt;</code>, <code>3</code> aus.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

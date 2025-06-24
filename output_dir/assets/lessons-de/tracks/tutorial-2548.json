@@ -1,0 +1,167 @@
+{
+  "tutorial": {
+    "id": 2548,
+    "version": 3,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "swift",
+    "title": "Ändern von Werten in Arrays",
+    "descriptionContent": "Ändern von Werten in Arrays",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 14292,
+        "title": "Index",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro 1",
+            "id": 127010,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Lass uns tiefer in die Werte eintauchen, die ein Array speichern kann, und wie wir sie aktualisieren können. So wie eine Wetter-App möglicherweise Temperaturen verfolgt.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;    &lt;title&gt;Weather App&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        body {&#xA;            font-family: Arial, sans-serif;&#xA;            display: flex;&#xA;            justify-content: center;&#xA;            align-items: center;&#xA;            margin: 24px auto;&#xA;            background: url('background-image.jpg') no-repeat center center;&#xA;            background-size: cover;&#xA;            color: #fff;&#xA;        }&#xA;        .weather-container {&#xA;            background-color: #1e90ff;&#xA;            border-radius: 10px;&#xA;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);&#xA;            padding: 20px;&#xA;            width: 300px;&#xA;            text-align: center;&#xA;        }&#xA;        .weather-header {&#xA;            font-size: 24px;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-days {&#xA;            display: flex;&#xA;            justify-content: space-around;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-day {&#xA;            cursor: pointer;&#xA;            padding: 10px;&#xA;            background-color: rgba(255, 255, 255, 0.2);&#xA;        }&#xA;        .weather-day.active {&#xA;            background-color: rgba(255, 255, 255, 0.4);&#xA;        }&#xA;        .weather-forecast {&#xA;            font-size: 16px;&#xA;        }&#xA;        .weather-forecast .time {&#xA;            display: flex;&#xA;            justify-content: space-between;&#xA;            margin-bottom: 10px;&#xA;        }&#xA;        .weather-forecast .time div {&#xA;            flex: 1;&#xA;            text-align: center;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;div class=&quot;weather-container&quot;&gt;&#xA;        &lt;div class=&quot;weather-header&quot;&gt;New York&lt;/div&gt;&#xA;        &lt;div class=&quot;weather-days&quot;&gt;&#xA;            &lt;div class=&quot;weather-day active&quot; data-day=&quot;1&quot;&gt;🌞 Fri, June 1&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;2&quot;&gt;🌧️ Sat, June 2&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;3&quot;&gt;⛅ Sun, June 3&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;weather-forecast&quot;&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;1&quot;&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;9:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;12:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;24°&lt;br&gt;18:00 🌤️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;16°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;2&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;9:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;12:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;27°&lt;br&gt;15:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;25°&lt;br&gt;18:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;21°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;3&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;19°&lt;br&gt;9:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;23°&lt;br&gt;12:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;28°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;18:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;script&gt;&#xA;        document.addEventListener('DOMContentLoaded', function() {&#xA;            const days = document.querySelectorAll('.weather-day');&#xA;            const forecasts = document.querySelectorAll('.weather-forecast .time');&#xA;&#xA;            days.forEach(day =&gt; {&#xA;                day.addEventListener('click', function() {&#xA;                    days.forEach(d =&gt; d.classList.remove('active'));&#xA;                    this.classList.add('active');&#xA;&#xA;                    const day = this.getAttribute('data-day');&#xA;                    forecasts.forEach(forecast =&gt; {&#xA;                        if (forecast.getAttribute('data-day') === day) {&#xA;                            forecast.style.display = 'flex';&#xA;                        } else {&#xA;                            forecast.style.display = 'none';&#xA;                        }&#xA;                    });&#xA;                });&#xA;            });&#xA;        });&#xA;    &lt;/script&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Intro 2",
+            "id": 127011,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Ein Array kann verschiedene Temperaturwerte speichern und wird aktualisiert, sobald im Laufe des Tages neue Daten von Wetterstationen eingehen.</p><webview version=\"2\" visible-if=\"always\" content=\"&lt;!DOCTYPE html&gt;&#xA;&lt;html lang=&quot;en&quot;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta charset=&quot;UTF-8&quot;&gt;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#xA;    &lt;title&gt;Weather App&lt;/title&gt;&#xA;    &lt;style&gt;&#xA;        body {&#xA;            font-family: Arial, sans-serif;&#xA;            display: flex;&#xA;            justify-content: center;&#xA;            align-items: center;&#xA;            margin: 24px auto;&#xA;            background: url('background-image.jpg') no-repeat center center;&#xA;            background-size: cover;&#xA;            color: #fff;&#xA;        }&#xA;        .weather-container {&#xA;            background-color: #1e90ff;&#xA;            border-radius: 10px;&#xA;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);&#xA;            padding: 20px;&#xA;            width: 300px;&#xA;            text-align: center;&#xA;        }&#xA;        .weather-header {&#xA;            font-size: 24px;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-days {&#xA;            display: flex;&#xA;            justify-content: space-around;&#xA;            margin-bottom: 20px;&#xA;        }&#xA;        .weather-day {&#xA;            cursor: pointer;&#xA;            padding: 10px;&#xA;            background-color: rgba(255, 255, 255, 0.2);&#xA;        }&#xA;        .weather-day.active {&#xA;            background-color: rgba(255, 255, 255, 0.4);&#xA;        }&#xA;        .weather-forecast {&#xA;            font-size: 16px;&#xA;        }&#xA;        .weather-forecast .time {&#xA;            display: flex;&#xA;            justify-content: space-between;&#xA;            margin-bottom: 10px;&#xA;        }&#xA;        .weather-forecast .time div {&#xA;            flex: 1;&#xA;            text-align: center;&#xA;        }&#xA;    &lt;/style&gt;&#xA;&lt;/head&gt;&#xA;&lt;body&gt;&#xA;    &lt;div class=&quot;weather-container&quot;&gt;&#xA;        &lt;div class=&quot;weather-header&quot;&gt;New York&lt;/div&gt;&#xA;        &lt;div class=&quot;weather-days&quot;&gt;&#xA;            &lt;div class=&quot;weather-day active&quot; data-day=&quot;1&quot;&gt;🌞 Fri, June 1&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;2&quot;&gt;🌧️ Sat, June 2&lt;/div&gt;&#xA;            &lt;div class=&quot;weather-day&quot; data-day=&quot;3&quot;&gt;⛅ Sun, June 3&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&quot;weather-forecast&quot;&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;1&quot;&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;9:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;12:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;24°&lt;br&gt;18:00 🌤️&lt;/div&gt;&#xA;                &lt;div&gt;20°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;16°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;2&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;9:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;12:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;27°&lt;br&gt;15:00 🌧️&lt;/div&gt;&#xA;                &lt;div&gt;25°&lt;br&gt;18:00 ☁️&lt;/div&gt;&#xA;                &lt;div&gt;21°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;17°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div class=&quot;time&quot; data-day=&quot;3&quot; style=&quot;display: none;&quot;&gt;&#xA;                &lt;div&gt;19°&lt;br&gt;9:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;23°&lt;br&gt;12:00 ⛅&lt;/div&gt;&#xA;                &lt;div&gt;28°&lt;br&gt;15:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;26°&lt;br&gt;18:00 ☀️&lt;/div&gt;&#xA;                &lt;div&gt;22°&lt;br&gt;21:00 🌙&lt;/div&gt;&#xA;                &lt;div&gt;18°&lt;br&gt;00:00 🌙&lt;/div&gt;&#xA;            &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;script&gt;&#xA;        document.addEventListener('DOMContentLoaded', function() {&#xA;            const days = document.querySelectorAll('.weather-day');&#xA;            const forecasts = document.querySelectorAll('.weather-forecast .time');&#xA;&#xA;            days.forEach(day =&gt; {&#xA;                day.addEventListener('click', function() {&#xA;                    days.forEach(d =&gt; d.classList.remove('active'));&#xA;                    this.classList.add('active');&#xA;&#xA;                    const day = this.getAttribute('data-day');&#xA;                    forecasts.forEach(forecast =&gt; {&#xA;                        if (forecast.getAttribute('data-day') === day) {&#xA;                            forecast.style.display = 'flex';&#xA;                        } else {&#xA;                            forecast.style.display = 'none';&#xA;                        }&#xA;                    });&#xA;                });&#xA;            });&#xA;        });&#xA;    &lt;/script&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;\" /></body></html>"
+          },
+          {
+            "title": "Any value",
+            "id": 127012,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Stell dir ein Array wie eine Kommode vor. Eine Schublade kann jede Variable oder jeden Wert speichern, sei es ein String, Boolean oder eine Zahl wie <code>17</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"20\" endIndex=\"22\" /><option correct=\"false\"><content><text value=\"&quot;17&quot;\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Wähle <code>17</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Index",
+            "id": 127013,
+            "contentType": "interactive",
+            "images": [
+              {
+                "id": "a208196d-df68-42c0-8a60-4f1cc6fffa92"
+              }
+            ],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Jedes Element in einem Array hat eine nummerierte Position, die als Index bezeichnet wird.</p><img src=\"a208196d-df68-42c0-8a60-4f1cc6fffa92\" visible-if=\"always\" /></body></html>"
+          },
+          {
+            "title": "Start at zero",
+            "id": 127014,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Indizes beginnen bei 0 und erhöhen sich mit jedem weiteren Wert. Das bedeutet, dass das zweite Element in <code>temperatures</code> an Index <code>1</code> ist. Code diesen Index.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures[\" /><text value=\"1\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"55\" endIndex=\"56\" /></interactions><output><content><text value=\"20\" /></content></output></code><p visible-if=\"wrong\">Gib <code>1</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Access element",
+            "id": 127015,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um auf ein Element wie <code>26</code> zuzugreifen, schreibe den Array-Namen <code>temperatures</code> gefolgt vom Index des Elements in eckigen Klammern <code>[2]</code>.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures[\" /><text value=\"2\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"42\" endIndex=\"54\" /><option startIndex=\"54\" endIndex=\"55\" /><option startIndex=\"55\" endIndex=\"56\" /><option startIndex=\"56\" endIndex=\"57\" /><option correct=\"false\"><content><text value=\"3\" /></content></option></options></interaction></interactions><output><content><text value=\"26\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>temperatures</code>, gefolgt von <code>[</code> und schließlich <code>2</code>, <code>]</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Change value",
+            "id": 127016,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Um den Temperaturwert am zweiten Index zu aktualisieren, greife darauf über <code>temperatures[2]</code> zu und verwende dann <code>=</code>, um ihm einen neuen Wert wie <code>25</code> zuzuweisen.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"var\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"20\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"temperatures[\" /><text value=\"2\" class=\"number\" /><text value=\"] = \" /><text value=\"25\" class=\"number\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option correct=\"false\"><content><text value=\"3\" /></content></option><option startIndex=\"36\" endIndex=\"51\" /><option startIndex=\"52\" endIndex=\"53\" /><option startIndex=\"54\" endIndex=\"56\" /></options></interaction></interactions><output><content><text value=\"[17, 20, 25, 24]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>temperatures[2]</code>, gefolgt von <code>=</code> und schließlich <code>25</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Valid index",
+            "id": 127017,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Obwohl das Array vier Elemente hat, ist der letzte Index, auf den wir zugreifen können, <code>3</code>, da die Indizierung bei 0 beginnt.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"var\" class=\"keyword\" /><text value=\" temperatures = [\" /><text value=\"17\" class=\"number\" /><text value=\", \" /><text value=\"25\" class=\"number\" /><text value=\", \" /><text value=\"26\" class=\"number\" /><text value=\", \" /><text value=\"24\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"temperatures[\" /><text value=\"3\" class=\"number\" /><text value=\"] = \" /><text value=\"20\" class=\"number\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(temperatures)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"49\" endIndex=\"50\" /><option correct=\"false\"><content><text value=\"4\" /></content></option></options></interaction></interactions><output><content><text value=\"[17, 25, 26, 20]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>3</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Any value",
+            "id": 127018,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Welche Arten von Werten kann ein Array speichern?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Jeder Wert, einschließlich Strings, Zahlen und Booleans</item><item value=\"2\" correct=\"false\">Nur Strings</item></selection><p visible-if=\"wrong\">Jeder Wert, einschließlich Strings, Zahlen und Booleans.</p></body></html>"
+          },
+          {
+            "title": "Question: Index",
+            "id": 127019,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie nennen wir die Position eines Elements in einem Array?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Der Index des Elements</item><item value=\"2\" correct=\"false\">Die Nummer des Elements</item></selection><p visible-if=\"wrong\">Der Index des Elements.</p></body></html>"
+          },
+          {
+            "title": "Question: Start at zero",
+            "id": 127020,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Welchen Index hat das Element in diesem Array?</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" friends = [\" /><text value=\"&quot;Kim&quot;\" class=\"string\" /><text value=\"]\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>0</code></item><item value=\"2\" correct=\"false\"><code>1</code></item></selection><p visible-if=\"wrong\">Wähle <code>0</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Access element",
+            "id": 127021,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie greifen wir auf ein Element in diesem Array zu?</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" cars = [\" /><text value=\"&quot;Fiat&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Tesla&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;Saab&quot;\" class=\"string\" /><text value=\"]\" /></content></code><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>cars[1]</code></item><item value=\"2\" correct=\"false\"><code>cars[\"Tesla\"]</code></item></selection><p visible-if=\"wrong\">Wähle <code>cars[1]</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Question: Change value",
+            "id": 127022,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Wie aktualisieren wir einen Wert in einem Array?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Wir greifen auf den Wert über seinen Index zu und weisen dann einen anderen Wert zu</item><item value=\"2\" correct=\"false\">Wir können Werte in Arrays nicht aktualisieren</item></selection><p visible-if=\"wrong\">Wir greifen auf den Wert über seinen Index zu und weisen dann einen anderen Wert zu.</p></body></html>"
+          },
+          {
+            "title": "Question: Valid index",
+            "id": 127023,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Welche Indizes können wir in einem Array mit zwei Elementen zugreifen?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>0</code> und <code>1</code></item><item value=\"2\" correct=\"false\"><code>1</code> und <code>2</code></item></selection><p visible-if=\"wrong\"><code>0</code> und <code>1</code>.</p></body></html>"
+          },
+          {
+            "title": "Example: Any value",
+            "id": 127024,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code den Wert <code>false</code> in dieses Array.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" options = [\" /><text value=\"true\" class=\"literal\" /><text value=\", \" /><text value=\"false\" class=\"literal\" /><text value=\"]\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"21\" endIndex=\"26\" /></interactions></code><p visible-if=\"wrong\">Gib <code>false</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Example: Index",
+            "id": 127025,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Stelle sicher, dass <code>\"cat\"</code> an Index <code>0</code> und <code>\"dog\"</code> an Index <code>1</code> ist, indem du <code>\"cat\"</code> und dann <code>\"dog\"</code> codierst.</p><code version=\"2\" codelang=\"swift\" name=\"main.swift\" visible-if=\"always\"><content><text value=\"let\" class=\"keyword\" /><text value=\" animals = [\" /><text value=\"&quot;cat&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;dog&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(animals)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"15\" endIndex=\"20\" /><option startIndex=\"22\" endIndex=\"27\" /><option correct=\"false\"><content><text value=\"&quot;parrot&quot;\" /></content></option></options></interaction></interactions><output><content><text value=\"[&quot;cat&quot;, &quot;dog&quot;]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>\"cat\"</code>, gefolgt von <code>\"dog\"</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Start at zero",
+            "id": 127026,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Codiere den Wert <code>9</code> an Index null.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" lockCombination = [\" /><text value=\"9\" class=\"number\" /><text value=\", \" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"7\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(lockCombination)\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"23\" endIndex=\"24\" /></interactions><output><content><text value=\"[9, 4, 7]\" /></content></output></code><p visible-if=\"wrong\">Gib <code>9</code> ein.</p></body></html>"
+          },
+          {
+            "title": "Example: Access element",
+            "id": 127027,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code <code>items[1]</code>, um das zweite Element, <code>\"tomato\"</code>, im Array anzuzeigen.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" items = [\" /><text value=\"&quot;milk&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;tomato&quot;\" class=\"string\" /><text value=\", \" /><text value=\"&quot;apple&quot;\" class=\"string\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(items[\" /><text value=\"1\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option correct=\"false\"><content><text value=\"items[2]\" /></content></option><option startIndex=\"46\" endIndex=\"54\" /></options></interaction></interactions><output><content><text value=\"tomato\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>items[1]</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Change value",
+            "id": 127028,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Aktualisiere das erste Element im Array von <code>3</code> auf <code>2</code>.</p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"var\" class=\"keyword\" /><text value=\" even = [\" /><text value=\"3\" class=\"number\" /><text value=\", \" /><text value=\"4\" class=\"number\" /><text value=\", \" /><text value=\"6\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"even[\" /><text value=\"0\" class=\"number\" /><text value=\"] = \" /><text value=\"2\" class=\"number\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(even)\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"21\" endIndex=\"28\" /><option startIndex=\"29\" endIndex=\"30\" /><option startIndex=\"31\" endIndex=\"32\" /></options></interaction></interactions><output><content><text value=\"[2, 4, 6]\" /></content></output></code><p visible-if=\"wrong\">Wähle <code>even[0]</code>, gefolgt von <code>=</code> und schließlich <code>2</code> aus.</p></body></html>"
+          },
+          {
+            "title": "Example: Valid index",
+            "id": 127029,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Greife auf das dritte Element des Arrays zu.<br /></p><code name=\"main.swift\" version=\"2\" codelang=\"swift\"><content><text value=\"let\" class=\"keyword\" /><text value=\" topSpeeds = [\" /><text value=\"100\" class=\"number\" /><text value=\", \" /><text value=\"130\" class=\"number\" /><text value=\", \" /><text value=\"240\" class=\"number\" /><text value=\"]\" /><text type=\"break\" /><text value=\"print\" class=\"built_in\" /><text value=\"(topSpeeds[\" /><text value=\"2\" class=\"number\" /><text value=\"])\" /></content><interactions><interaction type=\"validatedInput\" isDefault=\"true\" startIndex=\"48\" endIndex=\"49\" /></interactions><output><content><text value=\"240\" /></content></output></code><p visible-if=\"wrong\">Gib <code>2</code> ein.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

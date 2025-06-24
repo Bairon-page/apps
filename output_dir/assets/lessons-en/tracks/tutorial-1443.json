@@ -1,0 +1,149 @@
+{
+  "tutorial": {
+    "id": 1443,
+    "version": 6,
+    "type": "course",
+    "isNew": false,
+    "codeLanguage": "python",
+    "title": "Abstracting Objects",
+    "descriptionContent": "Abstraction",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": null,
+    "chapters": [
+      {
+        "id": 10382,
+        "title": "Abstraction",
+        "type": "practiceLevel1",
+        "lessons": [
+          {
+            "title": "Intro",
+            "id": 93541,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Let's use OOP to model a complicated object, like a car. When we drive a car, we don't need to understand its inner mechanics.</p><p>Similarly, when working with code, we want to understand the core methods without being bogged down by details.</p></body></html>"
+          },
+          {
+            "title": "Real objects have many functions",
+            "id": 93529,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>A car does a lot of things at the same time. For example, a car injects and ignites fuel thousands of times a minute just to stay running.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"&quot;Spraying fuel&quot;\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"&quot;Boom!&quot;\" class=\"string\" /><text value=\")\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"45\" endIndex=\"60\" /><option startIndex=\"60\" endIndex=\"61\" /><option startIndex=\"96\" endIndex=\"97\" /><option startIndex=\"104\" endIndex=\"105\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>\"Spraying fuel\"</code> followed by <code>)</code> and then <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "OOP without abstraction is hard to use",
+            "id": 93530,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Modeling a <code>car</code> in Python works the same. However, repeatedly calling methods can make it harder to read and use.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"car = Car();\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.igniteFuel()\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.igniteFuel()\" /></content><output><content><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Boom!\" /><text type=\"break\" /><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Boom!\" /></content></output></code></body></html>"
+          },
+          {
+            "title": "OOP without abstraction can lead to bugs",
+            "id": 93531,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Besides that, managing each individual method call by ourselves increases the chance we'll make a mistake and cause unwanted effects.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"car = Car();\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.injectFuel()\" /><text type=\"break\" /><text value=\"car.igniteFuel()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"137\" endIndex=\"153\" /></options></interaction></interactions><output><content><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Spraying fuel\" /><text type=\"break\" /><text value=\"Boom!\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>car.injectFuel()</code>.</p></body></html>"
+          },
+          {
+            "title": "Abstraction 1",
+            "id": 93528,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Cars do all of this low-level functionality for us, and we only have to start them up. Hiding these details is called <strong>abstraction</strong>.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"__init__\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"startUp\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"    \" /><text value=\"while\" class=\"keyword\" /><text value=\" self.on:\" /><text type=\"break\" /><text value=\"      self.injectFuel()\" /><text type=\"break\" /><text value=\"      self.igniteFuel()\" /></content></code></body></html>"
+          },
+          {
+            "title": "Abstraction 2",
+            "id": 93736,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>We implement abstraction in OOP by writing a few core functions that handle all of the low-level work.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Car\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"__init__\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"False\" class=\"literal\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"injectFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Spraying fuel'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"igniteFuel\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Boom!'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"startUp\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.on = \" /><text value=\"True\" class=\"literal\" /><text type=\"break\" /><text value=\"    \" /><text value=\"while\" class=\"keyword\" /><text value=\" self.on:\" /><text type=\"break\" /><text value=\"      self.injectFuel()\" /><text type=\"break\" /><text value=\"      self.igniteFuel()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"156\" endIndex=\"169\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>startUp(self)</code>.</p></body></html>"
+          },
+          {
+            "title": "Abstraction 3",
+            "id": 93532,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p><strong>Abstraction</strong> allows other developers to use a class without having to know what low-level methods it has or how they even work.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"car = Car()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"6\" endIndex=\"9\" /><option startIndex=\"9\" endIndex=\"10\" /><option startIndex=\"10\" endIndex=\"11\" /><option correct=\"false\"><content><text value=\"Plane()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>Car</code>, followed by <code>(</code>, and finally <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Abstraction 4",
+            "id": 93882,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Other developers can create a new object from our <code>Car</code> class and use it by just calling a few core methods.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"car = Car()\" /><text type=\"break\" /><text value=\"car.startUp()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"16\" endIndex=\"23\" /><option startIndex=\"23\" endIndex=\"24\" /><option startIndex=\"24\" endIndex=\"25\" /><option correct=\"false\"><content><text value=\"igniteFuel()\" /></content></option><option correct=\"false\"><content><text value=\"injectFuel()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>startUp</code>, followed by <code>(</code>, and finally <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Question 1",
+            "id": 93538,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What is abstraction?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Simplifying how we interact with objects down to a few methods</item><item value=\"2\" correct=\"false\">Reducing the total number of methods objects have</item></selection><p visible-if=\"wrong\">Simplifying how we interact with objects down to a few methods.</p></body></html>"
+          },
+          {
+            "title": "Question 2",
+            "id": 93533,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>How do we implement abstraction?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"2\" correct=\"true\">Write a few core methods that handle low-level functions</item><item value=\"3\" correct=\"false\">By making all low-level methods available for other developers to call</item></selection><p visible-if=\"wrong\">Write a few core methods that handle low-level functions.</p></body></html>"
+          },
+          {
+            "title": "Question 3",
+            "id": 93535,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Why is implementing abstraction important?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">So others can use a class without knowing how it works</item><item value=\"2\" correct=\"false\">So others know how a class works only after testing it </item></selection><p visible-if=\"wrong\">So others can use a class without knowing how it works.</p></body></html>"
+          },
+          {
+            "title": "Question 4",
+            "id": 93534,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>What is one of the benefits of abstraction?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\">Fewer bugs caused by user error</item><item value=\"2\" correct=\"false\">Users have more direct control over an object's behavior</item></selection><p visible-if=\"wrong\">Fewer bugs caused by user error.</p></body></html>"
+          },
+          {
+            "title": "Question 5",
+            "id": 93543,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Which of these could be a core method for a camera?</p><selection iscode=\"false\" multiple=\"multiple\"><item value=\"1\" correct=\"true\"><code>take_photo()</code></item><item value=\"4\" correct=\"false\"><code>close_shutter()</code></item></selection><p visible-if=\"wrong\">Make sure to pick <code>take_photo()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 1",
+            "id": 93536,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Abstract this class by creating a <code>makeCoffee()</code> method that heats water, adds it to coffee grounds, and filters off the coffee.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Coffeemaker\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"heatWater\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Heating water'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"brew\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Adding water to grounds'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"filterCoffee\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Filtering coffee'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"makeCoffee\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.heatWater()\" /><text type=\"break\" /><text value=\"    self.brew()\" /><text type=\"break\" /><text value=\"    self.filterCoffee()\" /><text type=\"break\" /><text type=\"break\" /><text value=\"coffeMaker = Coffeemaker()\" /><text type=\"break\" /><text value=\"coffeMaker.makeCoffee()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"248\" endIndex=\"267\" /><option startIndex=\"189\" endIndex=\"205\" /><option startIndex=\"211\" endIndex=\"215\" /><option startIndex=\"237\" endIndex=\"241\" /></options></interaction></interactions><output><content><text value=\"Heating water\" /><text type=\"break\" /><text value=\"Adding water to grounds\" /><text type=\"break\" /><text value=\"Filtering coffee\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>makeCoffee(self)</code> followed by <code>self</code> and then <code>brew</code>, <code>self.filterCoffee()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 2",
+            "id": 93537,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>To make ice cream, we must both churn and freeze cream. Call the method of <code>iceCreamMaker</code> that does both for us.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"IceCreamMaker\" class=\"title\" /><text value=\":\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"churn\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"   print(\" /><text value=\"'Churning cream'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"freeze\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"   print(\" /><text value=\"'Freezing cream'\" class=\"string\" /><text value=\")\" /><text type=\"break\" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"makeIceCream\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text type=\"break\" /><text value=\"    self.churn()\" /><text type=\"break\" /><text value=\"    self.freeze()\" /><text type=\"break\" /><text type=\"break\" /><text value=\"iceCreamMaker = IceCreamMaker()\" /><text type=\"break\" /><text type=\"break\" /><text value=\"iceCreamMaker.makeIceCream()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"211\" endIndex=\"224\" /><option startIndex=\"224\" endIndex=\"225\" /><option startIndex=\"225\" endIndex=\"237\" /><option startIndex=\"237\" endIndex=\"238\" /><option startIndex=\"238\" endIndex=\"239\" /><option correct=\"false\"><content><text value=\"freeze()\" /></content></option><option correct=\"false\"><content><text value=\" churn()\" /></content></option></options></interaction></interactions><output><content><text value=\"Churning cream\" /><text type=\"break\" /><text value=\"Freezing cream\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>iceCreamMaker</code> followed by <code>.</code> and then <code>makeIceCream</code>, <code>(</code>, <code>)</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 3",
+            "id": 93539,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Code <code>translateLive()</code> so that travelers can instantly translate what they say into text the locals can read.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Translator\" class=\"title\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"record\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Recording audio'\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"transcribeRecording\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Converting audio to text'\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"translateText\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    print(\" /><text value=\"'Translating text'\" class=\"string\" /><text value=\") \" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"translateLive\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    self.record() \" /><text type=\"break\" /><text value=\"    self.transcribeRecording() \" /><text type=\"break\" /><text value=\"    self.translateText()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"292\" endIndex=\"312\" /><option startIndex=\"260\" endIndex=\"264\" /><option startIndex=\"264\" endIndex=\"265\" /><option startIndex=\"284\" endIndex=\"285\" /><option startIndex=\"285\" endIndex=\"286\" /><option startIndex=\"241\" endIndex=\"245\" /><option startIndex=\"245\" endIndex=\"246\" /><option startIndex=\"246\" endIndex=\"252\" /><option startIndex=\"252\" endIndex=\"253\" /><option startIndex=\"253\" endIndex=\"254\" /></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>self</code> followed by <code>.</code> and then <code>record</code>, <code>(</code>, <code>)</code>, <code>self</code>, <code>.</code>, <code>(</code>, <code>)</code>, <code>self.translateText()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 4",
+            "id": 93540,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Call the correct core method that handles the low-level functionality of changing slides after displaying each one.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"class\" class=\"keyword\" /><text value=\" \" /><text value=\"Slideshow\" class=\"title\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"__init__\" class=\"title\" /><text value=\"(self, slides)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    self.slides = slides \" /><text type=\"break\" /><text value=\"    self.current = \" /><text value=\"1\" class=\"number\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"viewNextSlide\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    self.current += \" /><text value=\"1\" class=\"number\" /><text value=\" \" /><text type=\"break\" /><text value=\"  \" /><text type=\"break\" /><text value=\"  \" /><text value=\"def\" class=\"keyword\" /><text value=\" \" /><text value=\"play\" class=\"title\" /><text value=\"(self)\" class=\"params\" /><text value=\":\" /><text value=\" \" /><text type=\"break\" /><text value=\"    \" /><text value=\"while\" class=\"keyword\" /><text value=\" self.current &lt;= self.slides: \" /><text type=\"break\" /><text value=\"      print(\" /><text value=\"'Slide'\" class=\"string\" /><text value=\", self.current) \" /><text type=\"break\" /><text value=\"      self.viewNextSlide() \" /><text type=\"break\" /><text value=\" \" /><text type=\"break\" /><text value=\"slideshow = Slideshow(\" /><text value=\"5\" class=\"number\" /><text value=\") \" /><text type=\"break\" /><text value=\"slideshow.play()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"305\" endIndex=\"321\" /><option correct=\"false\"><content><text value=\"viewNextSlide()\" /></content></option></options></interaction></interactions><output><content><text value=\"Slide 1\" /><text type=\"break\" /><text value=\"Slide 2\" /><text type=\"break\" /><text value=\"Slide 3\" /><text type=\"break\" /><text value=\"Slide 4\" /><text type=\"break\" /><text value=\"Slide 5\" /></content></output></code><p visible-if=\"wrong\">Make sure to pick <code>slideshow.play()</code>.</p></body></html>"
+          },
+          {
+            "title": "Example 5",
+            "id": 93544,
+            "contentType": "interactive",
+            "images": [],
+            "interactiveContent": "<!DOCTYPE html ><html><body><p>Choose the correct core method to use from the <code>camera</code> object.</p><code version=\"2\" codelang=\"python\" name=\"script.py\" visible-if=\"always\"><content><text value=\"camera = Camera()\" /><text type=\"break\" /><text value=\"camera.takePhoto()\" /></content><interactions><interaction type=\"fillTheGap\" isDefault=\"true\"><options><option startIndex=\"25\" endIndex=\"36\" /><option correct=\"false\"><content><text value=\"moveStabilizerLeft()\" /></content></option></options></interaction></interactions></code><p visible-if=\"wrong\">Make sure to pick <code>takePhoto()</code>.</p></body></html>"
+          }
+        ]
+      }
+    ]
+  }
+}

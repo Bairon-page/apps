@@ -1,0 +1,221 @@
+{
+  "tutorial": {
+    "id": 1912,
+    "version": 6,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "Eierpreis-Datenbank",
+    "descriptionContent": "Übe die Verwendung von SQL-Aggregatfunktionen, um die Eierpreise in einer Datenbank eines Lebensmittelgeschäfts zu untersuchen.",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1912-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 12475,
+        "title": "Eierpreise",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "Step 1",
+            "id": 112775,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "In diesem Projekt wirst du SQL-Aggregatfunktionen verwenden, um eine Tabelle mit Eisdaten aus einem Lebensmittelgeschäft zu analysieren.\n\nLass uns zuerst die `eggs`-`price`-Daten untersuchen. Beginne damit, die minimalen und maximalen Preise für ein Dutzend Eier jeder Sorte abzufragen.\n\n1. Verwende die passende SQL-Anweisung, um das Minimum und Maximum des `price` aus der `eggs`-Tabelle zu `SELECT`en.\n2. Füge als Nächstes eine Bedingung hinzu, um die obigen Informationen nur für ein Dutzend Eier zu berechnen und auszugeben.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "\n\n",
+                  "solvedContent": "SELECT MIN(price), MAX(price)\nFROM eggs \nWHERE qty = 12;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"MIN(price)\"},{\"CellType\":\"Header\",\"Content\":\"MAX(price)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"4.0\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 2",
+            "id": 112793,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nun, da wir die minimalen und maximalen Preise kennen, lass uns den Durchschnitt finden.\n\n1. Verwende die passende SQL-Anweisung, um den durchschnittlichen `price` für ein Dutzend Eier aus der `eggs`-Tabelle auszuwählen (nach dem Minimum und Maximum)",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT MIN(price), MAX(price)\nFROM eggs \nWHERE qty = 12;",
+                  "solvedContent": "SELECT MIN(price), MAX(price), AVG(price)\nFROM eggs \nWHERE qty = 12;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"MIN(price)\"},{\"CellType\":\"Header\",\"Content\":\"MAX(price)\"},{\"CellType\":\"Header\",\"Content\":\"AVG(price)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"4.0\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 3",
+            "id": 112794,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns die Spaltennamen bereinigen. Füge die bereitgestellten Aliase zur `SELECT`-Anweisung hinzu.\n\n1. Gib die Spalte mit dem Mindestpreis als \"Cheapest Dozen\" aus\n2. Gib die Spalte mit dem Höchstpreis als \"Most Expensive Dozen\" aus\n3. Gib die Spalte mit dem Durchschnittspreis als \"Average Dozen\" aus",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "\n\n",
+                  "solvedContent": "SELECT MIN(price) AS 'Cheapest Dozen', MAX(price) AS 'Most Expensive Dozen', AVG(price) AS 'Average Dozen'\nFROM eggs \nWHERE qty = 12;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"Cheapest Dozen\"},{\"CellType\":\"Header\",\"Content\":\"Most Expensive Dozen\"},{\"CellType\":\"Header\",\"Content\":\"Average Dozen\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"4.0\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 4",
+            "id": 112795,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns überprüfen, ob die `AVG` SQL-Anweisung die korrekte Ausgabe liefert. Wenn du fertig bist, sollte die Summe der `price`-Spalte geteilt durch ihre Anzahl dem Durchschnitt entsprechen.\n\n1. Lösche zuerst deine vorherige Abfrage.\n2. In einer neuen Abfrage wähle die Summe der `price`-Spalte, die Anzahl der `price`-Spalte und schließlich den durchschnittlichen `price` aus der `eggs`-Tabelle.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "\n",
+                  "solvedContent": "SELECT SUM(price), COUNT(price), AVG(price)\nFROM eggs;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"SUM(price)\"},{\"CellType\":\"Header\",\"Content\":\"COUNT(price)\"},{\"CellType\":\"Header\",\"Content\":\"AVG(price)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"34.0\"},{\"CellType\":\"Data\",\"Content\":\"8\"},{\"CellType\":\"Data\",\"Content\":\"4.25\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 5",
+            "id": 112797,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Lass uns die Aufschlüsselung nach Menge ansehen. Wie zuvor sollte die Summe des `price` jeder Zeile geteilt durch ihre Anzahl dem Durchschnitt entsprechen.\n\n1. Füge die `qty`-Spalte zur `SELECT`-Anweisung hinzu.\n2. Füge als Nächstes die passende SQL-Anweisung hinzu, um die Daten nach Eier-`qty` aufzuschlüsseln.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT SUM(price), COUNT(price), AVG(price)\nFROM eggs\n",
+                  "solvedContent": "SELECT SUM(price), COUNT(price), AVG(price), qty\nFROM eggs\nGROUP BY qty;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"SUM(price)\"},{\"CellType\":\"Header\",\"Content\":\"COUNT(price)\"},{\"CellType\":\"Header\",\"Content\":\"AVG(price)\"},{\"CellType\":\"Header\",\"Content\":\"qty\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"9.0\"},{\"CellType\":\"Data\",\"Content\":\"3\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"},{\"CellType\":\"Data\",\"Content\":\"6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"25.0\"},{\"CellType\":\"Data\",\"Content\":\"5\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"},{\"CellType\":\"Data\",\"Content\":\"12\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 6",
+            "id": 112796,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nun, lass uns die Tabelle nach Eiertyp untersuchen. Zuerst schauen wir, welche Typen existieren.\n\n1. Lösche deine vorherige Abfrage.  \n2. Verwende in einer neuen Abfrage die passende SQL-Anweisung, um eine einzigartige Menge von Typen aus der Tabelle auszuwählen.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "\n",
+                  "solvedContent": "SELECT DISTINCT type\nFROM eggs;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"type\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Free Range\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Organic\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Caged\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 7",
+            "id": 112803,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Es sieht so aus, als gäbe es drei Arten von Eiern: Freiland, Bio und Käfig. Lass uns den Durchschnittspreis für jede Art finden.\n\n1. Lösche zuerst deine vorherige Abfrage.\n2. Wähle dann jeden `type` und seinen Durchschnittspreis. Zeige die Durchschnitte nach Typ an.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT DISTINCT type\nFROM eggs;",
+                  "solvedContent": "SELECT type, AVG(price)\nFROM eggs\nGROUP BY type;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"AVG(price)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"4.83333333333333\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 8",
+            "id": 112804,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Obwohl wir nach Typ gruppiert haben, umfasst der Durchschnittspreis eine Mischung aus halben Dutzend und Dutzend Packungen Eier. Lass uns unsere Abfrage so ändern, dass der Durchschnittspreis sowohl nach Typ als auch nach Menge aufgeschlüsselt wird.\n\n1. Füge zuerst das `qty` Feld in deine `SELECT` Anweisung zwischen den `type` und den durchschnittlichen `price` Spalten ein.\n2. Ändere als Nächstes die `GROUP BY` Anweisung, um zuerst nach `type` und dann nach `qty` zu gruppieren.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT type, AVG(price)\nFROM eggs\nGROUP BY type;",
+                  "solvedContent": "SELECT type, qty, AVG(price)\nFROM eggs\nGROUP BY type, qty;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"AVG(price)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.75\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.75\"}]}]}]}"
+            }
+          },
+          {
+            "title": "Step 9",
+            "id": 112805,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Schließlich lass uns den durchschnittlichen Preis nach Marke und Menge untersuchen.\n\n1. Ersetze zuerst `type` durch `brand` in deiner `SELECT`-Anweisung.\n2. Modifiziere dann die Abfrage, um den durchschnittlichen Preis nach Marke und dann nach Menge aus der `eggs`-Tabelle auszugeben.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT type, AVG(price)\nFROM eggs\nGROUP BY type;",
+                  "solvedContent": "SELECT brand, qty, AVG(price)\nFROM eggs\nGROUP BY brand, qty;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"eggs\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"type\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"price\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Organic\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"6.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"Free Range\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"Caged\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"brand\"},{\"CellType\":\"Header\",\"Content\":\"qty\"},{\"CellType\":\"Header\",\"Content\":\"AVG(price)\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"2.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Discount Eggs\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"4.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"6\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Emily\\u0027s\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.0\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Pastures\"},{\"CellType\":\"Data\",\"Content\":\"12\"},{\"CellType\":\"Data\",\"Content\":\"5.5\"}]}]}]}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

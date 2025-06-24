@@ -1,0 +1,57 @@
+.class public final Landroidx/datastore/preferences/c$a;
+.super Landroidx/datastore/preferences/protobuf/GeneratedMessageLite$a;
+.source "SourceFile"
+
+# interfaces
+.implements Landroidx/datastore/preferences/protobuf/I;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/datastore/preferences/c;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "a"
+.end annotation
+
+
+# direct methods
+.method private constructor <init>()V
+    .locals 1
+
+    .line 2
+    invoke-static {}, Landroidx/datastore/preferences/c;->H()Landroidx/datastore/preferences/c;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Landroidx/datastore/preferences/protobuf/GeneratedMessageLite$a;-><init>(Landroidx/datastore/preferences/protobuf/GeneratedMessageLite;)V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Landroidx/datastore/preferences/a;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Landroidx/datastore/preferences/c$a;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public x(Ljava/lang/Iterable;)Landroidx/datastore/preferences/c$a;
+    .locals 1
+
+    invoke-virtual {p0}, Landroidx/datastore/preferences/protobuf/GeneratedMessageLite$a;->q()V
+
+    iget-object v0, p0, Landroidx/datastore/preferences/protobuf/GeneratedMessageLite$a;->b:Landroidx/datastore/preferences/protobuf/GeneratedMessageLite;
+
+    check-cast v0, Landroidx/datastore/preferences/c;
+
+    invoke-static {v0, p1}, Landroidx/datastore/preferences/c;->I(Landroidx/datastore/preferences/c;Ljava/lang/Iterable;)V
+
+    return-object p0
+.end method

@@ -1,0 +1,155 @@
+{
+  "tutorial": {
+    "id": 1516,
+    "version": 8,
+    "type": "guidedProjectOptional",
+    "isNew": false,
+    "codeLanguage": "sql",
+    "title": "Service de livraison de nourriture",
+    "descriptionContent": "Aide un service de livraison de nourriture à filtrer les restaurants et à présenter les résultats à leurs utilisateurs",
+    "shortDescriptionContent": "",
+    "showInTrack": true,
+    "iconBanner": "tutorial-1516-icon-banner.svg",
+    "chapters": [
+      {
+        "id": 10656,
+        "title": "Projet",
+        "type": "practiceLevel3",
+        "lessons": [
+          {
+            "title": "SELECT",
+            "id": 129093,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Bienvenue dans le projet **Service de Livraison de Nourriture**. Tu vas implémenter une fonctionnalité de recherche de restaurants, comme on le voit dans de nombreuses applications de livraison de nourriture. Nous nous concentrerons sur la sélection d'établissements en fonction du type de cuisine et des évaluations des clients.\n\nAvant de commencer, familiarisons-nous avec la structure de nos sources de données :\n\n- Table `offer` : sert d'index complet des restaurants, détaillant la variété des cuisines disponibles, ainsi que les évaluations des clients pour évaluer leur réputation.\n\n1. Récupère toutes les entrées et toutes les colonnes de la table `offer` pour commencer notre analyse.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "",
+                  "solvedContent": "SELECT *\nFROM offer;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"La Zucca\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sombrero\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Roma Delights\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Venice Corner\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tuscan Grapes\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"3.9\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Spice Junction\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bollywood Dhaba\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Garam Masala\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Bowl\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ocean Catch\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Pita Panorama\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"La Zucca\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sombrero\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Roma Delights\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Venice Corner\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tuscan Grapes\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"3.9\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Spice Junction\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bollywood Dhaba\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Garam Masala\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Bowl\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ocean Catch\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Pita Panorama\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]}]}]}"
+            }
+          },
+          {
+            "title": "WHERE",
+            "id": 129094,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Nous sommes uniquement intéressés par les restaurants qui proposent une cuisine japonaise. Heureusement, SQL nous permet de filtrer des entrées spécifiques.\n\n1. Restreins les résultats en filtrant les restaurants qui proposent une cuisine japonaise.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\nFROM offer;",
+                  "solvedContent": "SELECT *\nFROM offer\nWHERE cuisine = \"Japanese\";"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"La Zucca\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sombrero\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Roma Delights\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Venice Corner\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tuscan Grapes\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"3.9\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Spice Junction\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bollywood Dhaba\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Garam Masala\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Bowl\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ocean Catch\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Pita Panorama\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]}]}]}"
+            }
+          },
+          {
+            "title": "SELECT 2",
+            "id": 129116,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Comme nous ne recevons que des restaurants avec une cuisine japonaise, la colonne de cuisine est maintenant une information redondante. Supprimons-la.\n\n1. Sélectionne uniquement les colonnes `name` et `rating`.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT *\nFROM offer\nWHERE cuisine = \"Japanese\";",
+                  "solvedContent": "SELECT name, rating\nFROM offer\nWHERE cuisine = \"Japanese\";"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"La Zucca\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sombrero\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Roma Delights\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Venice Corner\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tuscan Grapes\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"3.9\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Spice Junction\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bollywood Dhaba\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Garam Masala\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Bowl\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ocean Catch\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Pita Panorama\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]}]}]}"
+            }
+          },
+          {
+            "title": "AS",
+            "id": 129095,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Pour indiquer que nous parlons de restaurants, nous pourrions vouloir utiliser un alias pour renommer la colonne `name` en `restaurant`.\n\n1. Sélectionne `name` sous l'alias `restaurant`.\n2. Assure-toi de continuer à sélectionner `rating` aussi.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT name, rating\nFROM offer\nWHERE cuisine = \"Japanese\";",
+                  "solvedContent": "SELECT name AS restaurant, rating\nFROM offer\nWHERE cuisine = \"Japanese\";"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"La Zucca\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sombrero\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Roma Delights\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Venice Corner\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tuscan Grapes\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"3.9\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Spice Junction\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bollywood Dhaba\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Garam Masala\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Bowl\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ocean Catch\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Pita Panorama\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"restaurant\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]}]}]}"
+            }
+          },
+          {
+            "title": "ORDER",
+            "id": 129117,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Pour aider le client à faire le bon choix, les évaluations sont utiles. Mais les évaluations sont dispersées.\n\n1. Trie les résultats de notre requête par évaluation.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT name AS restaurant, rating\nFROM offer\nWHERE cuisine = \"Japanese\";",
+                  "solvedContent": "SELECT name AS restaurant, rating\nFROM offer\nWHERE cuisine = \"Japanese\"\nORDER BY rating;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"La Zucca\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sombrero\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Roma Delights\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Venice Corner\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tuscan Grapes\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"3.9\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Spice Junction\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bollywood Dhaba\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Garam Masala\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Bowl\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ocean Catch\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Pita Panorama\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"restaurant\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]}]}]}"
+            }
+          },
+          {
+            "title": "DESC",
+            "id": 129118,
+            "contentType": "executableFiles",
+            "images": [],
+            "executableContent": {
+              "instructions": "Super. Mais qui veut d'abord regarder les restaurants les moins bien notés ? Je m'en doutais ; corrigeons cela.\n\n1. Actuellement, les restaurants sont listés en commençant par la note la plus basse. Ajuste la requête pour trier les notes par ordre décroissant.",
+              "preselectedFileIndex": 0,
+              "hasVisualOutput": false,
+              "files": [
+                {
+                  "name": "script.sql",
+                  "codeLanguage": "sql",
+                  "content": "SELECT name AS restaurant, rating\nFROM offer\nWHERE cuisine = \"Japanese\"\nORDER BY rating;",
+                  "solvedContent": "SELECT name AS restaurant, rating\nFROM offer\nWHERE cuisine = \"Japanese\"\nORDER BY rating DESC;"
+                }
+              ],
+              "hints": [],
+              "sourceDatabaseTables": "{\"Tables\":[{\"Name\":\"offer\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"name\"},{\"CellType\":\"Header\",\"Content\":\"cuisine\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"La Zucca\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sombrero\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"3.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"Japanese\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Roma Delights\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Venice Corner\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.2\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tuscan Grapes\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"3.9\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Spice Junction\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Bollywood Dhaba\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Garam Masala\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Green Bowl\"},{\"CellType\":\"Data\",\"Content\":\"Italian\"},{\"CellType\":\"Data\",\"Content\":\"4.5\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ocean Catch\"},{\"CellType\":\"Data\",\"Content\":\"Mexican\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Pita Panorama\"},{\"CellType\":\"Data\",\"Content\":\"Indian\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]}]}]}",
+              "solutionDatabaseTables": "{\"Tables\":[{\"Name\":\"Result\",\"Rows\":[{\"Cells\":[{\"CellType\":\"Header\",\"Content\":\"restaurant\"},{\"CellType\":\"Header\",\"Content\":\"rating\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Sakura Blossom\"},{\"CellType\":\"Data\",\"Content\":\"4.6\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Ninja Sushi\"},{\"CellType\":\"Data\",\"Content\":\"4.3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Tokyo Bites\"},{\"CellType\":\"Data\",\"Content\":\"4.1\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Yumi\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]},{\"Cells\":[{\"CellType\":\"Data\",\"Content\":\"Masa\"},{\"CellType\":\"Data\",\"Content\":\"3\"}]}]}]}"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
