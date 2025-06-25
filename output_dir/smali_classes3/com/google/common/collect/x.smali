@@ -1,6 +1,0 @@
-.class abstract Lcom/google/common/collect/x;
-.super Ljava/lang/Object;
-.source "SourceFile"
-
-# interfaces
-.implements Ljava/util/Iterator;
